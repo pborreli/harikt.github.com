@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rest | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/rest/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2013-10-30T15:20:28+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Magento and REST api]]></title>
+    <link href="http://harikt.com/blog/2013/07/05/magento-and-rest-api/"/>
+    <updated>2013-07-05T08:31:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/07/05/magento-and-rest-api</id>
+    <content type="html"><![CDATA[<p>Magento provides both REST and SOAP api. In this post I would like to
+concentrate on REST api to connect and get the products from magento shop.</p>
+
+<p>First we want to register an Oauth consumer to get the consumer key and secret key.</p>
+
+<p>Login to the admin of the magento shop and from the menu
+<code>System-&gt;Web Services-&gt;REST - Oauth Consumers</code> and add a new Ouath consumer.</p>
+
+<p><img src="http://harikt.com/images/oauth-consumer.png" alt="REST - Oauth Consumers" /></p>
+
+<p>You need the Key and Secret which is what we pass in the config to
+<code>Zend_Oauth_Consumer</code> shortly.</p>
+
+<p>Let us also assign the right permissions for the attributes. From the menu
+<code>System-&gt;Web Services-&gt;REST - Attributes</code> click on Admin and assign the right
+permission. In our case we give access to products.</p>
+
+<p><img src="http://harikt.com/images/magento_rest_attributes.png" alt="REST - Attributes" /></p>
+
+<p>Now it is time to show you some code. In most case, we would have defined a
+named route, and depeding upon your route in zend framework call the url.</p>
+
+<p>Assuming the default url <code>http://localhost:8000/index/index</code> and accessing
+this in your browser will redirect you to the magento shop and get the access token after
+you authenticating and allowing it.</p>
+
+<p>Note : Make sure that the domain you have logged in and the one
+you have provided in the callback url of magento REST Oauth consumer are
+same. Else you will find hard time debugging why session is lost.
+(I am talking about the difference in <a href="http://www.example.com">http://www.example.com</a> and <a href="http://example.com">http://example.com</a>)</p>
+
+<p>You want to change the below parameters in the controller according to yours.</p>
+
+<p><code>$this-&gt;hostname</code>: The magento shop</p>
+
+<p><code>$consumerKey</code>: The key you got when creating the oauth consumer</p>
+
+<p><code>$consumerSecret</code>: The secret key you got when creating the oauth consumer</p>
+
+<p><code>$callbackUrl</code>: The url where it will be redirected to get the accesstoken,
+same as the one you have provided when creating the oauth consumer.</p>
+
+<h2>Source Code</h2>
+
+<p>```php
+&lt;?php
+class IndexController extends Zend_Controller_Action
+{</p>
+
+<pre><code>public function init()
+{
+    $this-&gt;hostname = 'the-magento-host';
+    $consumerKey = '';
+    $consumerSecret = '';
+    $callbackUrl = 'callback-url';
+    $this-&gt;config = array(
+        'callbackUrl' =&gt; $callbackUrl,
+        'requestTokenUrl' =&gt; $this-&gt;hostname . '/oauth/initiate',
+        'siteUrl' =&gt; $this-&gt;hostname . '/oauth',
+        'consumerKey' =&gt; $consumerKey,
+        'consumerSecret' =&gt; $consumerSecret,
+        'authorizeUrl' =&gt; $this-&gt;hostname . '/admin/oauth_authorize',
+        // 'authorizeUrl' =&gt; $this-&gt;hostname . '/oauth/authorize',
+        'accessTokenUrl' =&gt; $this-&gt;hostname . '/oauth/token'
+    );
+}
+
+public function indexAction()
+{        
+    $accesssession = new Zend_Session_Namespace('AccessToken');
+    if (isset($accesssession-&gt;accessToken)) {
+        $token = unserialize($accesssession-&gt;accessToken);            
+        // $client = $token-&gt;getHttpClient($this-&gt;config);
+        $client = new Zend_Http_Client();
+        $adapter = new Zend_Http_Client_Adapter_Curl();
+        $client-&gt;setAdapter($adapter);
+        $adapter-&gt;setConfig(array(
+            'adapter'   =&gt; 'Zend_Http_Client_Adapter_Curl',
+            'curloptions' =&gt; array(CURLOPT_FOLLOWLOCATION =&gt; true),
+        ));
+        $client-&gt;setUri($this-&gt;hostname . '/api/rest/products');
+        $client-&gt;setParameterGet('oauth_token', $token-&gt;getToken());
+        $client-&gt;setParameterGet('oauth_token_secret', $token-&gt;getTokenSecret());
+        $response = $client-&gt;request('GET');
+        $products = Zend_Json::decode($response-&gt;getBody());
+    } else {
+        $consumer = new Zend_Oauth_Consumer($this-&gt;config);
+        $token = $consumer-&gt;getRequestToken();
+        $requestsession = new Zend_Session_Namespace('RequestToken');
+        $requestsession-&gt;requestToken = serialize($token);
+        $consumer-&gt;redirect();
+    }
+    $this-&gt;view-&gt;products = $products;
+}
+
+public function callbackAction()
+{
+    $requestsession = new Zend_Session_Namespace('RequestToken');
+    if (!empty($_GET) &amp;&amp; isset($requestsession-&gt;requestToken)) {
+        $accesssession = new Zend_Session_Namespace('AccessToken');
+        $consumer = new Zend_Oauth_Consumer($this-&gt;config);
+        $token = $consumer-&gt;getAccessToken(
+            $_GET,
+            unserialize($requestsession-&gt;requestToken)
+        );
+        $accesssession-&gt;accessToken = serialize($token);
+        // Now that we have an Access Token, we can discard the Request Token
+        unset($requestsession-&gt;requestToken);
+        // $this-&gt;_redirect();
+        $this-&gt;_forward('index', 'index', 'default');
+    } else {
+        // Mistaken request? Some malfeasant trying something?
+        throw new Exception('Invalid callback request. Oops. Sorry.');
+    }
+}
+
+public function callbackrejectedAction()
+{
+    // rejected
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Normally you can get the http client by <code>$token-&gt;getHttpClient($this-&gt;config)</code>
+rather than creating <code>Zend_Http_Client</code> as I did. But due to some issues
+the request was getting <code>Service Temporarily Unavailable</code> as response.</p>
+
+<p>The <code>Service Temporarily Unavailable</code> can also be due to permission issues.
+You should also check whether you have given the right permissions for
+roles and resources.</p>
+
+<p>In most case, we would have defined a named route, so you could use the
+url helpers to generate the route. I hope this helps you to move with REST
+and Magento</p>
+
+<h2>Resources</h2>
+
+<p><a href="http://www.magentocommerce.com/api/rest/introduction.html">Magento REST API</a></p>
+
+<p><a href="http://framework.zend.com/manual/1.12/en/zend.oauth.introduction.html">zend oauth introduction</a></p>
+
+<h2>Thanks</h2>
+
+<p>I would like to thank <a href="http://phpcloud.com">PHP Cloud</a> for providing the
+free service to deploy the magento shop and test it. Installing and deploying app was super
+simple. So if you have not tried it is time for it.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,1159 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Random thoughts | Hari KT</title>
+  <meta name="author" content="Hari K T">
+
+  
+  <meta name="description" content="Aura.Framework released Beta4. In this release Aura.Framework has extracted the Hello Word package and renamed it as Aura.Demo. You can get the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://harikt.com/blog/page/3">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/harikt/YKAJ" rel="alternate" title="Random thoughts | Hari KT" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5998889-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Random thoughts | Hari KT</a></h1>
+  
+    <h2>On programming</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/harikt/YKAJ" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:harikt.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/who-am-i/">Who am I?</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/18/aura-framework-releases-beta4/">Aura Framework Releases Beta4</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-18T23:25:00+05:30" pubdate data-updated="true">Dec 18<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Aura.Framework released Beta4. In this release <a href="http://auraphp.github.com/Aura.Framework">Aura.Framework</a> has extracted the Hello Word package and renamed it as <a href="http://auraphp.github.com/Aura.Demo">Aura.Demo</a>.</p>
+
+<p>You can get the system as a whole from <a href="http://auraphp.github.com/system/downloads/">http://auraphp.github.com/system/downloads/</a></p>
+
+<p>Read about the release from <a href="http://auraphp.github.com/2012/12/18/new-system-release/">blog post</a> and join discussion at <a href="https://groups.google.com/d/topic/auraphp/uPsSK7OqOoI/discussion">auraphp group</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/17/the-moving-from-drupal7-to-octopress/">The Moving From Drupal7 to Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-17T23:23:00+05:30" pubdate data-updated="true">Dec 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently I ported the blog from <a href="http://drupal.org">Drupal7</a> to <a href="http://octopress.org/">octopress</a> for certain reasons. The php script that helped me to do the porting from drupal to octopress is given below. This is a port of the ruby script with some additional fixes on the SQL. This needs <a href="http://johnmacfarlane.net/pandoc/">pandoc</a> to be installed to convert from Html to Markdown. There is also slight isssue with the syntaxhighlighter, which you may want to manually fix.</p>
+
+<figure class='code'><figcaption><span>drupal7 to octopress</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">function</span> <span class="nf">drupalProcess</span><span class="p">(</span><span class="nv">$dbname</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="nv">$host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$dsn</span> <span class="o">=</span> <span class="s2">&quot;mysql:host=</span><span class="si">$host</span><span class="s2">;dbname=&quot;</span> <span class="o">.</span> <span class="nv">$dbname</span><span class="p">;</span>
+</span><span class='line'>    <span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pdo</span><span class="p">(</span><span class="nv">$dsn</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>          <span class="nx">PDO</span><span class="o">::</span><span class="na">MYSQL_ATTR_INIT_COMMAND</span> <span class="o">=&gt;</span> <span class="s1">&#39;SET NAMES utf8&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="p">)</span>
+</span><span class='line'>    <span class="p">);</span>
+</span><span class='line'>    <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT n.nid, </span>
+</span><span class='line'><span class="s2">            n.title, </span>
+</span><span class='line'><span class="s2">            n.created, </span>
+</span><span class='line'><span class="s2">            n.changed, </span>
+</span><span class='line'><span class="s2">            b.body_value AS &#39;body&#39;, </span>
+</span><span class='line'><span class="s2">            b.body_summary, </span>
+</span><span class='line'><span class="s2">            b.body_format, </span>
+</span><span class='line'><span class="s2">            n.status, </span>
+</span><span class='line'><span class="s2">            l.alias AS &#39;slug&#39;, </span>
+</span><span class='line'><span class="s2">            GROUP_CONCAT( d.name SEPARATOR &#39;, &#39; ) AS &#39;tags&#39; </span>
+</span><span class='line'><span class="s2">        FROM node AS n </span>
+</span><span class='line'><span class="s2">        JOIN field_data_body b ON b.entity_id = n.nid </span>
+</span><span class='line'><span class="s2">        JOIN taxonomy_index t ON t.nid = n.nid </span>
+</span><span class='line'><span class="s2">        JOIN taxonomy_term_data d ON t.tid = d.tid </span>
+</span><span class='line'><span class="s2">        LEFT JOIN url_alias AS l ON l.source = CONCAT( &#39;node/&#39;, n.nid ) </span>
+</span><span class='line'><span class="s2">        WHERE n.type = &#39;blog&#39; AND b.revision_id = n.vid </span>
+</span><span class='line'><span class="s2">        GROUP BY n.nid&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="nv">$sth</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+</span><span class='line'>    <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$rows</span> <span class="o">=</span> <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$bool</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="mi">0</span> <span class="o">=&gt;</span> <span class="s1">&#39;false&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s1">&#39;true&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$rows</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s1">&#39;htmlcontents.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$fp</span><span class="p">,</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">]);</span>
+</span><span class='line'>        <span class="nb">fclose</span><span class="p">(</span><span class="nv">$fp</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$datetime</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
+</span><span class='line'>        <span class="nv">$datetime</span><span class="o">-&gt;</span><span class="na">setTimestamp</span><span class="p">(</span><span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;created&#39;</span><span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$date</span> <span class="o">=</span> <span class="nv">$datetime</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$contents</span> <span class="o">=</span> <span class="s1">&#39;---&#39;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$contents</span> <span class="o">.=</span> <span class="s1">&#39;layout: post&#39;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$contents</span> <span class="o">.=</span> <span class="s1">&#39;title: &#39;</span> <span class="o">.</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$contents</span> <span class="o">.=</span> <span class="s1">&#39;categories: [&#39;</span> <span class="o">.</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39;]&#39;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$contents</span> <span class="o">.=</span> <span class="s1">&#39;published: &#39;</span> <span class="o">.</span> <span class="nv">$bool</span><span class="p">[</span><span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]]</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$contents</span> <span class="o">.=</span> <span class="s1">&#39;date: &#39;</span> <span class="o">.</span> <span class="nv">$datetime</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s1">&#39;Y-m-d H:i&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$contents</span> <span class="o">.=</span> <span class="s1">&#39;---&#39;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">]))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$list</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">]);</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">end</span><span class="p">(</span><span class="nv">$list</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;node-&#39;</span> <span class="o">.</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;nid&#39;</span><span class="p">];</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$pandoc</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="nb">exec</span><span class="p">(</span><span class="s1">&#39;pandoc -t markdown -f html htmlcontents.html&#39;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nv">$pandoc</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$contents</span> <span class="o">.=</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="nv">$pandoc</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;source/posts/&#39;</span> <span class="o">.</span> <span class="nv">$date</span> <span class="o">.</span> <span class="s1">&#39;-&#39;</span> <span class="o">.</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39;.markdown&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$contents</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nb">file_exists</span><span class="p">(</span><span class="nv">$url</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">);</span>
+</span><span class='line'>            <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$fp</span><span class="p">,</span> <span class="nv">$contents</span><span class="p">);</span>
+</span><span class='line'>            <span class="nb">fclose</span><span class="p">(</span><span class="nv">$fp</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">echo</span> <span class="s2">&quot;File exists issue : &quot;</span> <span class="o">.</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="c1">//optional hostname</span>
+</span><span class='line'><span class="nx">drupalProcess</span><span class="p">(</span><span class="s1">&#39;dbname&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Happy porting!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/17/resize-image-keeping-aspect-ratio-in-imagine/">Resize Image Keeping Aspect Ratio in Imagine</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-17T22:24:00+05:30" pubdate data-updated="true">Dec 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was working with Imagine recently. I want to create a standard width and height for the image that is created. Eg: 500 X 300 .</p>
+
+<p>The user will be uploading different size images and I want to resize the image to X width and Y height. I was using imagine and the code helps to make this happen filling the blank space with white color without loosing aspect ratio.</p>
+
+<figure class='code'><figcaption><span>resize image with imagine</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="nv">$source</span> <span class="o">=</span> <span class="s1">&#39;image.jpeg&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$destination</span> <span class="o">=</span> <span class="s1">&#39;resize.jpg&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$width</span>  <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$imagine</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">Imagine\Gd\Imagine</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$size</span>      <span class="o">=</span> <span class="k">new</span> <span class="nx">Imagine\Image\Box</span><span class="p">(</span><span class="nv">$width</span><span class="p">,</span> <span class="nv">$height</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$mode</span>      <span class="o">=</span> <span class="nx">Imagine\Image\ImageInterface</span><span class="o">::</span><span class="na">THUMBNAIL_INSET</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$resizeimg</span> <span class="o">=</span> <span class="nv">$imagine</span><span class="o">-&gt;</span><span class="na">open</span><span class="p">(</span><span class="nv">$source</span><span class="p">)</span>
+</span><span class='line'>                <span class="o">-&gt;</span><span class="na">thumbnail</span><span class="p">(</span><span class="nv">$size</span><span class="p">,</span> <span class="nv">$mode</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$sizeR</span>     <span class="o">=</span> <span class="nv">$resizeimg</span><span class="o">-&gt;</span><span class="na">getSize</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$widthR</span>    <span class="o">=</span> <span class="nv">$sizeR</span><span class="o">-&gt;</span><span class="na">getWidth</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$heightR</span>   <span class="o">=</span> <span class="nv">$sizeR</span><span class="o">-&gt;</span><span class="na">getHeight</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$preserve</span>  <span class="o">=</span> <span class="nv">$imagine</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$size</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$startX</span> <span class="o">=</span> <span class="nv">$startY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span> <span class="nv">$widthR</span> <span class="o">&lt;</span> <span class="nv">$width</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$startX</span> <span class="o">=</span> <span class="p">(</span> <span class="nv">$width</span> <span class="o">-</span> <span class="nv">$widthR</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span> <span class="nv">$heightR</span> <span class="o">&lt;</span> <span class="nv">$height</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$startY</span> <span class="o">=</span> <span class="p">(</span> <span class="nv">$height</span> <span class="o">-</span> <span class="nv">$heightR</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nv">$preserve</span><span class="o">-&gt;</span><span class="na">paste</span><span class="p">(</span><span class="nv">$resizeimg</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Imagine\Image\Point</span><span class="p">(</span><span class="nv">$startX</span><span class="p">,</span> <span class="nv">$startY</span><span class="p">))</span>
+</span><span class='line'>    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$destination</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A normal image of size 500 X 500</p>
+
+<p><img class="center" src="/assets/images/kitten.jpg" width="500" height="500" title="A cute kitten" alt="a kitten"></p>
+
+<p>when resized to 300 X 200</p>
+
+<p><img class="center" src="/assets/images/resize-image300x200.jpg" width="300" height="200" title="Image resized to 300X200" alt="resized image"></p>
+
+<p>and 300 X 400</p>
+
+<p><img class="center" src="/assets/images/resize-image300x400.jpg" width="300" height="400" title="Image resized to 300X400" alt="resized image"></p>
+
+<p>A huge Thanks to the person who helped me on Symfony2 irc to find the different modes. I am not recalling the irc handle currently. I will update once I remember the same.</p>
+
+<p>Image courtsey <a href="http://placekitten.com/">http://placekitten.com/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/16/status-code-304/">Status Code 304</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-16T23:03:00+05:30" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Everyone knows Http is the underlying concept of Web. The base concept is a request is initiated by a browser or web-client and you get a response back. Some day&rsquo;s back I noticed some interesting slides from Alessandro Nadalin&rsquo;s talk <a href="http://odino.org/mixing-the-history-of-http-spdy-and-http-slash-2-dot-0/">Mixing the history of HTTP, SPDY and HTTP/2.0</a></p>
+
+<p>It really inspired me to look more into the Http. I also understood a fact that I was missing many basic stuffs. I thought of playing with it.</p>
+
+<p>Note : This is just experimental stuffs which I tried to learn looking at various sources. Things can be wrong also, feel free to correct if you think so.</p>
+
+<p>Normally you don&rsquo;t care about the underlying http headers. There are status codes which are passed before an actual content is send. So the browser knows the state whether the content is available in server, what content-type is coming, for eg like html, json, xml etc. The content-length, accept-language, etc. You can see a list of http request and response headers at <a href="http://en.wikipedia.org/wiki/List_of_HTTP_header_fields.">http://en.wikipedia.org/wiki/List_of_HTTP_header_fields.</a></p>
+
+<p>So we are going to create the headers other than the normal apache header. By default the status is 200 OK.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-Type: text/html&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="s1">&#39;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hello World&lt;/body&gt;&lt;/html&gt;&#39;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you notice the broswer headers you can see something like</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">Request</span> <span class="nx">URL</span><span class="o">:</span><span class="nx">http</span><span class="o">://</span><span class="nx">localhost</span><span class="o">:</span><span class="mi">8000</span><span class="o">/</span>
+</span><span class='line'><span class="nx">Request</span> <span class="nx">Method</span><span class="o">:</span><span class="nx">GET</span>
+</span><span class='line'><span class="nx">Status</span> <span class="nx">Code</span><span class="o">:</span><span class="mi">200</span> <span class="nx">OK</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Request</span> <span class="nx">Headers</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Accept</span><span class="o">:</span><span class="nx">text</span><span class="o">/</span><span class="nx">html</span><span class="p">,</span><span class="nx">application</span><span class="o">/</span><span class="nx">xhtml</span><span class="o">+</span><span class="nx">xml</span><span class="p">,</span><span class="nx">application</span><span class="o">/</span><span class="nx">xml</span><span class="p">;</span><span class="nx">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="nx">q</span><span class="o">=</span><span class="mf">0.8</span>
+</span><span class='line'><span class="nx">Accept</span><span class="o">-</span><span class="nx">Charset</span><span class="o">:</span><span class="nx">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="nx">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span><span class="nx">q</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="o">*</span><span class="p">;</span><span class="nx">q</span><span class="o">=</span><span class="mf">0.3</span>
+</span><span class='line'><span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="o">:</span><span class="nx">gzip</span><span class="p">,</span><span class="nx">deflate</span><span class="p">,</span><span class="nx">sdch</span>
+</span><span class='line'><span class="nx">Accept</span><span class="o">-</span><span class="nx">Language</span><span class="o">:</span><span class="nx">en</span><span class="o">-</span><span class="nx">US</span><span class="p">,</span><span class="nx">en</span><span class="p">;</span><span class="nx">q</span><span class="o">=</span><span class="mf">0.8</span>
+</span><span class='line'><span class="nx">Cache</span><span class="o">-</span><span class="nx">Control</span><span class="o">:</span><span class="nx">max</span><span class="o">-</span><span class="nx">age</span><span class="o">=</span><span class="mi">0</span>
+</span><span class='line'><span class="nx">Connection</span><span class="o">:</span><span class="nx">keep</span><span class="o">-</span><span class="nx">alive</span>
+</span><span class='line'><span class="nx">Host</span><span class="o">:</span><span class="nx">localhost</span><span class="o">:</span><span class="mi">8000</span>
+</span><span class='line'><span class="nx">User</span><span class="o">-</span><span class="nx">Agent</span><span class="o">:</span><span class="nx">Mozilla</span><span class="o">/</span><span class="mf">5.0</span> <span class="p">(</span><span class="nx">X11</span><span class="p">;</span> <span class="nx">Linux</span> <span class="nx">i686</span><span class="p">)</span> <span class="nx">AppleWebKit</span><span class="o">/</span><span class="mf">535.19</span> <span class="p">(</span><span class="nx">KHTML</span><span class="p">,</span> <span class="nx">like</span> <span class="nx">Gecko</span><span class="p">)</span> <span class="nx">Ubuntu</span><span class="o">/</span><span class="mf">11.10</span> <span class="nx">Chromium</span><span class="o">/</span><span class="mf">18.0</span><span class="o">.</span><span class="mf">1025.168</span> <span class="nx">Chrome</span><span class="o">/</span><span class="mf">18.0</span><span class="o">.</span><span class="mf">1025.168</span> <span class="nx">Safari</span><span class="o">/</span><span class="mf">535.19</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Response</span> <span class="nx">Headers</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="nx">OK</span>
+</span><span class='line'><span class="nx">Host</span><span class="o">:</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">8000</span>
+</span><span class='line'><span class="nx">Connection</span><span class="o">:</span> <span class="nx">close</span>
+</span><span class='line'><span class="nx">X</span><span class="o">-</span><span class="nx">Powered</span><span class="o">-</span><span class="nx">By</span><span class="o">:</span> <span class="nx">PHP</span><span class="o">/</span><span class="mf">5.4</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mi">1</span><span class="o">~</span><span class="nx">oneiric</span><span class="o">+</span><span class="mi">1</span>
+</span><span class='line'><span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span> <span class="nx">text</span><span class="o">/</span><span class="nx">html</span>
+</span><span class='line'><span class="nx">Last</span><span class="o">-</span><span class="nx">Modified</span><span class="o">:</span> <span class="nx">Tue</span><span class="p">,</span> <span class="mi">15</span> <span class="nx">Jan</span> <span class="mi">2011</span> <span class="mi">12</span><span class="o">:</span><span class="mo">00</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and the respose source as</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;</span>Hello World<span class="nt">&lt;/body&gt;&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Http Caching:</p>
+
+<p>So you may not have seen any benefict in the above for its what you normally get. Now lets enter to the world of http caching.</p>
+
+<p>You may have heard about Expires, Cache-Control, Last-Modified, Etag headers. Yes with the help of these we can make use of http caching. Let&rsquo;s see a base example.</p>
+
+<p>What will happen when you request the same url? It reloads the page. So the base concept is same, the client requests to server and server responds. But the scenario changes, if the browser is asking with some additional headers like If-Modified-Since or If-None-Match.</p>
+
+<p>If the response from server has set Last-Modified header value, then the request initiated by broswer will be having If-Modified-Since header.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-Type: text/html&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Last-Modified: Tue, 15 Jan 2011 12:00 GMT&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="s1">&#39;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hello World&lt;/body&gt;&lt;/html&gt;&#39;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now if you look into the Request Headers, you can notice the If-Modified-Since is send.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+</span><span class='line'>Accept-Charset:ISO-8859-1,utf-8;q=0.7,*;q=0.3
+</span><span class='line'>Accept-Encoding:gzip,deflate,sdch
+</span><span class='line'>Accept-Language:en-US,en;q=0.8
+</span><span class='line'>Cache-Control:max-age=0
+</span><span class='line'>Connection:keep-alive
+</span><span class='line'>Host:localhost:8000
+</span><span class='line'>If-Modified-Since:Tue, 15 Jan 2011 12:00
+</span><span class='line'>User-Agent:Mozilla/5.0 (X11; Linux i686) AppleWebKit/535.19 (KHTML, like Gecko) Ubuntu/11.10 Chromium/18.0.1025.168 Chrome/18.0.1025.168 Safari/535.19
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But we weren&rsquo;t validating the data to make use of caching. What we need to do is check whether the server variable HTTP_IF_MODIFIED_SINCE is set. If its set, we need to validate whether its being modified. If both are same we just need to send a 304 status code which means not modified with out any content. I am hard coding for demonstration purpose.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">if</span> <span class="p">(</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_IF_MODIFIED_SINCE&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span>
+</span><span class='line'>    <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_IF_MODIFIED_SINCE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Tue, 15 Jan 2011 12:00 GMT&#39;</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">http_response_code</span><span class="p">(</span><span class="mi">304</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-Type: text/html&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Last-Modified: Tue, 15 Jan 2011 12:00 GMT&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="s1">&#39;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hello World&lt;/body&gt;&lt;/html&gt;&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So in this case if you reload the page, it will send a 304 not modified header. Getting the 304 header browser knows its not modified. This is too fast and we save a huge band width and server processing. Isn&rsquo;t it too good? I recall his slides 21 years of http which still not used very nicely :&ndash;/</p>
+
+<p>Let&rsquo;s move on to E-tag. As you have noticed the problem with Last-Modified and Expires is it uses GMT time. If the server and the client are not sync, then its hard. Thus the E-tag is introduced. You can create a md5 hash and set the E-tag header.</p>
+
+<p>If you are setting a E-tag, then you can use the server variable HTTP_IF_NONE_MATCH to validate it and send a status of 304.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">if</span> <span class="p">(</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_IF_MODIFIED_SINCE&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span>
+</span><span class='line'>    <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_IF_MODIFIED_SINCE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Tue, 15 Jan 2011 12:00 GMT&#39;</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">http_response_code</span><span class="p">(</span><span class="mi">304</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_IF_NONE_MATCH&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span>
+</span><span class='line'>    <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_IF_NONE_MATCH&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">md5</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">http_response_code</span><span class="p">(</span><span class="mi">304</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-Type: text/html&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Last-Modified: Tue, 15 Jan 2011 12:00 GMT&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">header</span><span class="p">(</span><span class="s1">&#39;ETag: &#39;</span> <span class="o">.</span> <span class="nb">md5</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">));</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="s1">&#39;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hello World&lt;/body&gt;&lt;/html&gt;&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note : In the above examples I have hard coded the time and md5 hash. But in the real world you should use file modified time or something like that depending on the use case.</p>
+
+<p>References :</p>
+
+<p>Status Code : <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</a></p>
+
+<p><a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol</a></p>
+
+<p>Response : <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html</a></p>
+
+<p>Caching in Http : <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</a></p>
+
+<p><a href="http://en.wikipedia.org/wiki/List_of_HTTP_header_fields">http://en.wikipedia.org/wiki/List_of_HTTP_header_fields</a></p>
+
+<p><a href="http://en.wikipedia.org/wiki/HTTP_ETag">http://en.wikipedia.org/wiki/HTTP_ETag</a></p>
+
+<p><a href="http://stackoverflow.com/questions/691318/what-headers-do-i-want-to-send-together-with-a-304-response">http://stackoverflow.com/questions/691318/what-headers-do-i-want-to-send-together-with-a-304-response</a></p>
+
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19</a></p>
+
+<p><a href="http://tomayko.com/writings/things-caches-do">http://tomayko.com/writings/things-caches-do</a></p>
+
+<p><a href="http://www.peej.co.uk/articles/http-caching.html">http://www.peej.co.uk/articles/http-caching.html</a></p>
+
+<p><a href="http://www.mnot.net/cache_docs/">http://www.mnot.net/cache_docs/</a></p>
+
+<p><a href="https://developers.google.com/storage/docs/reference-headers#cachecontrol">https://developers.google.com/storage/docs/reference-headers#cachecontrol</a></p>
+
+<p><a href="https://developers.google.com/speed/docs/best-practices/caching#LeverageBrowserCaching">https://developers.google.com/speed/docs/best-practices/caching#LeverageBrowserCaching</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/06/node-227/">Aura.Sql Can Now Make Use of Existing PDO Connection</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-06T19:27:00+05:30" pubdate data-updated="true">Dec 6<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Aura.Sql can now make use of an existing PDO connection with the recent <a href="https://github.com/auraphp/Aura.Sql/commit/79284382ef6351d81719376063076c7e511c28fd">commit here</a> . This all came after a short discussion with Stan Lemon. A big Thanks to him for making a featured request like this.     > @<a href="https://twitter.com/harikt">harikt</a> can I inject an existing Pdo > object? > > — Stan Lemon (@stanlemon) > <a href="https://twitter.com/stanlemon/status/274708971217100800">December 1, 2012</a>     How to make use of an existing PDO?  You want to get a connection object and set the instance of pdo. Note : In this way you are eager loading the PDO. Else Aura.Sql knows when to do the connection. Example of how to make use of it is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">use</span> <span class="nx">Aura\Sql\ConnectionFactory</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$connection_factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConnectionFactory</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$connection</span> <span class="o">=</span> <span class="nv">$connection_factory</span><span class="o">-&gt;</span><span class="na">newInstance</span><span class="p">(</span>
+</span><span class='line'>    <span class="c1">// connection name </span>
+</span><span class='line'>    <span class="s1">&#39;mysql&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="c1">// DSN elements for PDO; this can also be </span>
+</span><span class='line'>    <span class="c1">// an array of key-value pairs </span>
+</span><span class='line'>    <span class="c1">// host=127.0.0.1;dbname=database-name </span>
+</span><span class='line'>    <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="c1">// username for the connection </span>
+</span><span class='line'>    <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="c1">// password for the connection </span>
+</span><span class='line'>    <span class="s1">&#39;&#39;</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'><span class="nv">$connection</span><span class="o">-&gt;</span><span class="na">setPdo</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Normally you need to pass the dsn as a string or array. But if you are having the PDO object and you don&rsquo;t love to do, you can pass it as null. Then to the connection object set the pdo instance. Now you can make use of the Aura.Sql insert ,update , delete queries. For a detailed information of how to do check the docs at <a href="https://github.com/auraphp/Aura.Sql">Aura.Sql</a> .  Assuming you have a PDO object created something like the one below</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$params</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;driver&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;pdo_mysql&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;user&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;dbname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;database-name&#39;</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'><span class="nv">$dsn</span> <span class="o">=</span> <span class="s1">&#39;mysql:host=localhost;dbname=&#39;</span> <span class="o">.</span> <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;dbname&#39;</span><span class="p">];</span>
+</span><span class='line'><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pdo</span><span class="p">(</span>
+</span><span class='line'>    <span class="nv">$dsn</span><span class="p">,</span>
+</span><span class='line'>    <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">MYSQL_ATTR_INIT_COMMAND</span> <span class="o">=&gt;</span> <span class="s1">&#39;SET NAMES utf8&#39;</span><span class="p">,</span> <span class="p">)</span>
+</span><span class='line'><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/04/node-226/">Paid to Speak</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-04T06:03:00+05:30" pubdate data-updated="true">Dec 4<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Before going to speak at osidays, the first thing I did was read the book Paid to Speak. It gave me lots of insights how I can improve. The book was given to me by Jennifer Kumar. I have shared my thoughts on her blog. You can read more from <a href="http://www.authenticjourneys.info/2012/12/9-lessons-on-being-public-speaker.html">9 Lessons on Being a Public Speaker</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/29/node-225/">First Stable Release for Aura Components</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-29T20:46:00+05:30" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So today @Paul M Jones officially declared the first stable release for Aura PHP components. Yes, I am really excited to see this release for it comes with a ton of great improvements for many components, bug fixes and sadly some BC breaks also. The list of packages which became stable are <a href="https://github.com/auraphp/Aura.Autoload">https://github.com/auraphp/Aura.Autoload</a> <a href="https://github.com/auraphp/Aura.Cli">https://github.com/auraphp/Aura.Cli</a> <a href="https://github.com/auraphp/Aura.Di">https://github.com/auraphp/Aura.Di</a> <a href="https://github.com/auraphp/Aura.Http">https://github.com/auraphp/Aura.Http</a> <a href="https://github.com/auraphp/Aura.Marshal">https://github.com/auraphp/Aura.Marshal</a> <a href="https://github.com/auraphp/Aura.Router">https://github.com/auraphp/Aura.Router</a> : Yes I want to update the post at phpmaster.com for it has some breaks. I will be doing it in coming days. <a href="https://github.com/auraphp/Aura.Signal">https://github.com/auraphp/Aura.Signal</a> <a href="https://github.com/auraphp/Aura.Sql">https://github.com/auraphp/Aura.Sql</a> <a href="https://github.com/auraphp/Aura.View">https://github.com/auraphp/Aura.View</a> <a href="https://github.com/auraphp/Aura.Web">https://github.com/auraphp/Aura.Web</a> <a href="https://github.com/auraphp/Aura.Uri">https://github.com/auraphp/Aura.Uri</a> : uri manipulation and there are some packages that are releasing the first Beta. Though these packages have been there for sometime, this is officially declared now only. Yes a bit delay from our part to declare it. <a href="https://github.com/auraphp/Aura.Filter">https://github.com/auraphp/Aura.Filter</a> Filter is an awesome component for Sanitizing and Validating. You guys should look into the core to learn how it works really. Its an awesome piece of work! . I will in the coming days write something about it. <a href="https://github.com/auraphp/Aura.Intl">https://github.com/auraphp/Aura.Intl</a> for Internationalization <a href="https://github.com/auraphp/Aura.Session">https://github.com/auraphp/Aura.Session</a> : for session handling Thanks to all to make the release happen. You can read the official declaration at <a href="http://paul-m-jones.com/archives/2976">http://paul-m-jones.com/archives/2976</a> . Join our mailing list <a href="https://groups.google.com/forum/#!forum/auraphp">https://groups.google.com/forum/#!forum/auraphp</a> or #auraphp at irc.freenode.net .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/24/node-224/">The Making of Hari.Extras</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-24T21:22:00+05:30" pubdate data-updated="true">Nov 24<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you have read my earlier posts, you know I started to love templating
+library like Twig, Mustache etc. So I was interested to in-corporate Twig
+or PhlyMustache or any sort of templating library to auraphp.</p>
+
+<p><a href="https://github.com/auraphp/Aura.Web">Aura.Web</a> makes it easy to do
+without much hassle. What you want to do is create the class which
+extends the <code>Aura\Web\Renderer\AbstractRenderer</code> and have a exec() method.
+For more details checkout <a href="https://github.com/auraphp/Aura.Web/tree/develop#data-and-rendering">Data and Rendering</a></p>
+
+<pre><code>&lt;?php
+namespace Vendor\Package\Web\Renderer;
+
+use Aura\Web\Renderer\AbstractRenderer;
+
+class YourRender extends AbstractRenderer
+{
+    public function exec()
+    {
+    }
+}
+</code></pre>
+
+<p>And you should pass an object of Vendor\Package\Web\Renderer\YourRender to your controller.</p>
+
+<p>Currently I have added support for <a href="http://twig.sensiolabs.org">Twig</a> in <a href="http://github.com/harikt/Hari.Extras">Hari.Extras</a> . I will be adding support for
+PhlyMustache in the coming days. Hari.Extras comes with unit tests.</p>
+
+<p>Running unit tests :
+To run tests you should first install the dependencies. You can run
+{syntaxhighlighter class=&ldquo;php&rdquo;}composer.phar install &mdash;dev{/syntaxhighlighter}
+This will install the dependencies like Aura.Web, Aura.Framework, Twig, vfsstream etc in vendor folder.
+Now you can run the phpunit from tests folder.</p>
+
+<p>A big Thanks to @Paul M Jones and Chris Hartjes and all who have supported
+one way or the other giving me tips and tricks, motivation to make this happen.
+The nice thing is with composer for I don&rsquo;t need to keep everything in the tests folder.
+ Thanks to @Jordi</p>
+
+<p>By the way as <a href="https://github.com/auraphp">auraphp</a> is getting closer and closer for the next release
+I am planning to start a series of posts to get started with using the components. Stay tuned :) .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/24/node-223/">vfsStream and File System</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-24T20:42:00+05:30" pubdate data-updated="true">Nov 24<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Paul M Jones wrote earlier <a href="http://paul-m-jones.com/archives/2487">When Possible, Use File *Resources* Instead Of File *Names*</a> and in comments <a href="http://www.littlehart.net/atthekeyboard">Chris Hartjes</a> was mentioning about <a href="http://vfs.bovigo.org/">vfsStream</a>. So for <a href="https://github.com/auraphp">@auraphp</a> we thought of making to support vfsStream. What the hell it is? vfsStream is a PHP stream wrapper for a virtual file system that may be helpful in unit tests to mock the real file system. It can be used with any unit test framework, like PHPUnit or SimpleTest. So without touching the file system and not bothering too much about the operating system, file permissions, disk quota, removing the files created by tests on tear down etc we can make use of vfsstream. Lets start Go and get it via composer.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;require&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;mikey179/vfsStream&quot;</span><span class="o">:</span> <span class="s2">&quot;1.1.0&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p> Run your composer.phar update.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">require</span> <span class="s1">&#39;vendor/autoload.php&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">org\\bovigo\\vfs\\vfsStream</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">org\\bovigo\\vfs\\visitor\\vfsStreamStructureVisitor</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">org\\bovigo\\vfs\\visitor\\vfsStreamPrintVisitor</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$structure</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;Core&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;AbstractFactory&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;test.php&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="s1">&#39;some text content&#39;</span><span class="p">,</span> <span class="s1">&#39;other.php&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="s1">&#39;Some more text content&#39;</span><span class="p">,</span> <span class="s1">&#39;Invalid.csv&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="s1">&#39;Something else&#39;</span><span class="p">,</span> <span class="p">),</span> <span class="s1">&#39;AnEmptyFolder&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="k">array</span><span class="p">(),</span> <span class="s1">&#39;badlocation.php&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="s1">&#39;some bad content&#39;</span><span class="p">,</span> <span class="p">)</span> <span class="p">);</span>
+</span><span class='line'><span class="nv">$root</span> <span class="o">=</span> <span class="nx">vfsStream</span><span class="o">::</span><span class="na">setup</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$structure</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p> So now we have created a complex structured file system. How can we check whether the structure is same?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">vfsStream</span><span class="o">::</span><span class="na">inspect</span><span class="p">(</span><span class="k">new</span> <span class="nx">vfsStreamPrintVisitor</span><span class="p">());</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p> Now you have the structure how can you get the contents of the file you have created?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">file\_get\_contents</span><span class="p">(</span><span class="nx">vfsStream</span><span class="o">::</span><span class="na">url</span><span class="p">(</span><span class="s1">&#39;root/Core/badlocation.php&#39;</span><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p> Or you can do via</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$root</span><span class="o">-&gt;</span><span class="na">getChild</span><span class="p">(</span><span class="s1">&#39;Core/badlocation.php&#39;</span><span class="p">)</span><span class="o">-</span><span class="nx">\</span><span class="o">&gt;</span><span class="nx">getContent</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p> The question was raised by myself at <a href="https://github.com/mikey179/vfsStream/issues/48">https://github.com/mikey179/vfsStream/issues/48</a> . You can create directory and use vfsStreamPrintVisitor to see how the structure will be</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nb">mkdir</span><span class="p">(</span><span class="nx">vfsStream</span><span class="o">::</span><span class="na">url</span><span class="p">(</span><span class="s1">&#39;root/Core/AnEmptyFolder/hello&#39;</span><span class="p">));</span> <span class="nx">vfsStream</span><span class="o">::</span><span class="na">inspect</span><span class="p">(</span><span class="k">new</span> <span class="nx">vfsStreamPrintVisitor</span><span class="p">());</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p> There is more documentation how you can use in phpunit or have a look into the recent commits on <a href="https://github.com/auraphp/Aura.View/commit/f39e3452116072a3fe7f529584acb862a76fe15e">Aura.View</a> For more documentation have a look into <a href="https://github.com/mikey179/vfsStream/wiki">https://github.com/mikey179/vfsStream/wiki</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/06/node-221/">Design Principles for a Better CMS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-06T21:32:00+05:30" pubdate data-updated="true">Nov 6<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>May be the question is so simple for you. But many times I feel it much complicated. Everyone would have started their website with a custom cms and later moved to Wordpress, Drupal, Joomla or something similar. I used to look for a better book in any language which has design decisions made for the cms to make it such a way that it can be extended. Some of the books that seems interesting to me are 1 ) <a href="http://www.apress.com/9781430218791">Pro Zend Framework CMS</a> 2 ) <a href="http://www.packtpub.com/php-5-cms-framework-development-2nd-edition/book">PHP 5 CMS Framework Development</a> It will be great to see if you have came across such books or do you recommend any other books. I am not just looking for PHP, but I am interested to read any sort of books, which will help me to build the next blogger. Waiting to hear you suggestions on the same.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/4/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/29/conferences-is-it-really-worth/">Conferences : Is It Really Worth?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/28/looking-at-aura-v2/">Looking at Aura Version 2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/19/aura-framework-released/">Aura Framework Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/07/book-on-aura-moved-to-manual/">Book on Aura Moved to Manual</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/05/announcing-winners-of-the-contest/">Announcing Winners of the Contest</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/harikt">@harikt</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'harikt',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Hari K T -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'harikt';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

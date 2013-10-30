@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Random thoughts | Hari KT</title>
+  <meta name="author" content="Hari K T">
+
+  
+  <meta name="description" content="Oh I am lazy for not posting my second cup of lithium over here . But you can check something over http://dev.lithify.me/forks/harikt/lithium_blog/ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://harikt.com/blog/page/9">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/harikt/YKAJ" rel="alternate" title="Random thoughts | Hari KT" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5998889-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Random thoughts | Hari KT</a></h1>
+  
+    <h2>On programming</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/harikt/YKAJ" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:harikt.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/who-am-i/">Who am I?</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/20/local-search-li3docs-zendsearchlucene/">A Local Search for the Li3_docs With Zend_Search_Lucene</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-20T20:25:00+05:30" pubdate data-updated="true">Jan 20<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Oh I am lazy for not posting my second cup of lithium over here . But you can check something over <a href="http://dev.lithify.me/forks/harikt/lithium_blog/wiki/home">http://dev.lithify.me/forks/harikt/lithium_blog/wiki/home</a> . So you know I am a fan boy of Lithium. I used to hang on #li3 irc just for fun, though I am not developing anything serious with lithium for now .  We used to read the documentation with the help of li3_docs plugin. Its so cool. But searching locally was not possible. If you have internet connection then it may not be a trouble too :) . Questions come and go, sometimes we may be knowing where we read it, but don&rsquo;t remember the exact controller action or the property. Oh my :&ndash;)  So I finally decided to hack on li3_docs plugin to make a search locally with the help of the Zend_Search_Lucene &rsquo;s power . You can read more about <a href="http://framework.zend.com/manual/en/zend.search.lucene.overview.html">Zend Lucene component over here</a>. This is also a good point to show you that anything can be integrated with li3 ;). So no more blha blha blha . Just codes coming on the way .  First you need to create the index pointing to /searches/makeindex . Before doing that change the url according to yours. For now I assume <a href="http://lithium.local/docs/">http://lithium.local/docs/</a> which is the only part I have hard coded. Nate has agreed to look into it and make the necessary changes and we will try to make it as plugin if he loves :&ndash;). So the files are below. I hope know something about li3, li3_docs etc. This uses the extractor from li3_docs :&ndash;)  You can see how I have included the Zend library as from <a href="http://dev.lithify.me/lithium/wiki/guides/using/zend">http://dev.lithify.me/lithium/wiki/guides/using/zend</a>  Do create an empty file makeindex.html.php in the searches folder of view before creating index.  Now do your way, may be add a form and point to the controller and action or what ever you love. As always licensed under the same licene of <a href="http://lithify.me/">http://lithify.me/</a> . Hang on to #li3 on irc.freenode.net to ask anything more on it :&ndash;) .  Note : Set time limit to 0 . ie  set_time_limit( 0 ); in bootstrap.php for creating the index. The methods are called recursively and needs sometime to create the index . Once indexed you don&rsquo;t want , just query through it .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/10/31/your-first-cup-lithium/">Your First Cup of Lithium</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-31T08:14:00+05:30" pubdate data-updated="true">Oct 31<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/harikt/4205957193/" title="lithium_php_framework by K T Hari, on Flickr"><img src="http://farm3.static.flickr.com/2697/4205957193_e0e75b521a_m.jpg" alt="Lithium PHP 5.3 framework who loves RAD" /></a>So I hope all of you know that on 22nd July 2010, the <a href="http://www.php.net/archive/2010.php#id2010-07-22-1fvf">php.net</a> announced the end of release cycle of 5.2 series ( &ldquo;This release marks the end of the active support for PHP 5.2. Following this release the <strong><em>PHP 5.2 series will receive no further active bug maintenance</em></strong>. <strong><em>Security</em></strong> fixes for PHP 5.2 <strong><em>might</em></strong> be published on a case by cases basis. All users of PHP 5.2 are encouraged to <strong>upgrade to PHP 5.3</strong>.&lsquo; )  There are lots of beneficts when moving to PHP 5.3 series. 5.3 is completely rewritten core, improved speed and memory utilization. For developers you need to learn something more <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/wink_smile.gif" alt="image" />  . We have <a href="http://in3.php.net/manual/en/language.namespaces.php">namespaces</a> , <a href="http://in3.php.net/manual/en/language.oop5.late-static-bindings.php">Late Static Bindings</a> ,   <a href="http://in3.php.net/manual/en/control-structures.goto.php">jump labels</a> (limited goto) , <a href="http://in3.php.net/manual/en/functions.anonymous.php">Closures</a> (Lambda/Anonymous functions),  new magic methods, <a href="http://in3.php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods">__callStatic</a> and <a href="http://in3.php.net/manual/en/language.oop5.magic.php#language.oop5.magic.invoke">__invoke</a> ,  <a href="http://in3.php.net/manual/en/language.types.string.php#language.types.string.syntax.nowdoc">Nowdoc</a> , <a href="http://in3.php.net/manual/en/language.constants.syntax.php">Constants</a> can now be declared outside a class using the <em>const</em> keyword,   <a href="http://in3.php.net/manual/en/language.operators.comparison.php#language.operators.comparison.ternary">ternary</a> operator now has a shorthand form: <em>?:</em>. , <a href="http://in3.php.net/manual/en/language.exceptions.php">Exceptions</a> can now be nested ,  garbage collector for circular references has been added, and is enabled by default etc . You can look the <a href="http://in3.php.net/manual/en/migration53.new-features.php">new features</a> added on php.net . So before you jump to start looking for a new 5.3 series framework  you have to know what the above are .  You can use the <a href="http://in3.php.net/migration53">migration guide</a> on php.net to move your apps from 5.2 to 5.3 series . Some of the changes are <a href="http://in3.php.net/manual/en/migration53.incompatible.php">backward incompatible</a> so will break <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/cry_smile.gif" alt="image" /> .  Now the game starts , we have a bunch of frameworks started with PHP4 , PHP5 and now on 5.3 . Lithium is stable and many of the apps are working on top of it . Lithium has some core developers who are from Cake , Zend framework etc . And some of them were the leads of that framework. So its not brought to you by some one who don&rsquo;t have any knowledge in PHP or the community . So you have a reason to look right ? Also Lithium uses <a href="http://groups.google.com/group/php-standards">PSR-0 Final Proposal</a> of the PHP Standards Working Group, so you can bring your favourite piece of cake from any other frameworks like Doctrine , Symfony , Zend or any other which follows it . Try not to select a framework which doesnot follow the proposal and after all its your wish <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/shades_smile.gif" alt="image" />.  About the documentation: Ya , there is lots to do in the documentation part , but you can use the li3_docs plugin to read all the doc block comments from the core . The core of the framework is almost compelely documented . You can see how it works from <a href="http://lithify.me/docs">http://lithify.me/docs</a> . The installation guide is here <a href="http://rad-dev.org/lithium/wiki/guides/installation">http://rad-dev.org/lithium/wiki/guides/installation</a> . Its well written so I feel there is nothing I want to introduce here .  One you grabbed your copy you can download the li3_docs plugin to libraries folder and add the line Libraries::add(&#8216;li3_docs&rsquo;); at the end of config/bootstrap/library.php .  I hope you have already pointed your application to the webroot . If not some code below by <a href="http://www.rmauger.co.uk/">Ryan Mauger</a> commonly known as <a href="http://twitter.com/Bittarman">Bittarman</a> on the zf community will help you . I got some help from Bittarman, and which have helped a lot on my future projects . So I hope this will help you too .  So li3 is the command line tool which created models, controllers and does many of them .  Creating for project is as easy .I hope you have already installed and configured Lithium and li3 command line tool as <a href="http://rad-dev.org/lithium/wiki/guides/installation">described</a>. Lets see how and the directory structure look .  Oh simple right ? Your project is ready . Now point it changing the above name blog with hellolithium and to webroot and not public as in the previous gist. Some times this command may not work , as we expects . So the easiest way is also making a copy of the app folder and changing the name to hellolithium or the name you love . I was having some trouble but Nate helped me to resolve the issues on #li3 on freenode . Though there are not a huge fans for li3 at present the support channel is superb . You will defnitely get some helping hands on it . Nate will also be publishing a tutorial soon , so I am also looking forward on it .  So one you have pointed to the webroot it will tell you to make the resources directory writeable. All you want to do is chmod 777 for the resources directory . Now you can change your database connections from the config/bootstrap/connections.php file. Lithium comes with support for mongodb as default. But you can also use other RDBMS like MySQL , Postgre etc or you can also use Doctrine <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/thumbs_up.gif" alt="image" /> . So its your wish to use what .  Moving to command line once again how to create controllers, models etc .  $li3 create &lt;name> will be creating controllers and models .  li3 create -i is used to create on an interactive way . ie once you issued , you will be getting a set of questions  $ li3 create -i What would you like to create? (model/view/controller/test/mock)  > model model could not be created.  I have not figured out why the error occurs. I know many of them are busy on their daily work . So I am looking into it , how it works and all . So you can see some other nice command line features soon on my blog.  Note : At the moment I am not a master in Li3, nor a contributor. So there may be errors from my part, sorry  and let me know if you see it and how I can resolve it .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/09/22/looking-back-osidays-2010/">Walking You Through OSIDays 2010</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-22T16:55:00+05:30" pubdate data-updated="true">Sep 22<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Day 1 :</strong>  <strong>Building Powerful Search in Drupal</strong> by Prajwals Manchikatla : Ya I do have loved to see what the session was. But rather than that I was interested in the talk by Bastian Feder&rsquo;s <strong>The most unknown parts of PHPunit</strong> . He walked through different code examples . He also made it clear for me how @depend works etc. Thanks for his time spending with me.  <strong>Citizen Journalism on Drupal</strong> by Markus Franz : He was telling how Drupal helped them for making Citizen Journalism. A case study . I am a little hard coded techie who loves to see some demos and codes. So it was a disappointing one for me. I didn&rsquo;t attended the <strong>Ingres 10 new features</strong>.  Dave Hall was coming with the session <strong>How to run hundreds of Drupal Sites</strong>. Though I have played with <strong>Aeigr</strong>, through twitter I have promised him that I will be there on his talk. It was an awesome session and I hope everyone has loved it. I feel many of the druplers in the room haven&rsquo;t tried aegir yet. I missed the talk of Jakub Vrana about the <strong>Adminer Editor &ndash; creating administration interface for free in PHP</strong> for both the sessions were on the same time.  Food and networking . We can see a lots of young entreprenurs. I remembered the wordings of Praseed Pai :) . I feel he is always right.  After noon session was with Fabien Potencier to know more about the <strong>Symfony2</strong>. The mic was so poor that sometimes the voice wasn&rsquo;t audible. Also in his slides the blue color( I think it was blue itself ) was not visible for me( not sure about others ). So I missed the session <strong>RDF in Drupal7 and what it means for the web at large</strong> by Gaurav Kumar. But I managed to get into it after Fabiens session and got something about RDF.  I missed <strong>Building &amp; Scaling facebook with opensource</strong> by David Recordon for I was with the session <strong>Typical architecture to scale large Drupal implementations</strong> by Denis Lafont Trevisan.  <strong>Introduction to Kaltura</strong> by Jason Levitt . He was very much worried for there was no internet connection and his laptop was not plugging properly to show the slides. Some of them went to watch the session by Markus Franz <strong>Quality Assurance in PHP projects</strong>. This would have really helped project managers. I was also there for awhile.  The awesome session that I was able to hear was by Marek Sotak who build the root candy admin theme. He moved us through <strong>What&rsquo;s new in Drupal 7 theming</strong>. People who don&rsquo;t know Drupal 6 , may not be having any problem for they are looking D7 for the first time . But it was an interesting session for those who knows Drupal 6 and also to those who want to learn D7. I missed the session by Jonathan Gray about the <strong>NoSQL overview</strong>. I hope he may have told something about MongoDB and all. Anway I want to look into his slides to know what he has covered.  <strong>Day 2 :</strong>  Event started little late around 9:20 . I will not blame Janakiraman for he was there on time . Not sure why he made a delay to start . He talks about the <strong>Windows Azure</strong> and how we can use it for PHP. Azure uses IIS . So hopefully we don&rsquo;t want to look more into Windows Azure, for many of our PHP frameworks relay on apache mod rewrite functionalities , image magick than PHP GD library. So good bye azure :) , I will live in Ubuntu cloud if I need rather than in a properitery cloud like Azure :). And the last demo failed, though he promised he will show it before he leave. But I know him and his knowledge in the cloud, so wishing him a good success. Also got a chance to chit chat with him.  Jonathan Gray introduced <strong>Handoop , HBase and Hive in Facebook</strong>. He also talks about the open-source plans about this in facebook .  Jakub Vrana the co-author of php manuals, a good teacher, the man behind adminer an alternative for phpmyadmin or we can say an admin interface for free, came with the session about notorm. I was hearing about <strong>NOTORM efficiently get relational data in PHP,</strong> for the first time, but from his examples I can understand it was something similar to the Zend_Db_Table . I enjoyed his demos and session.  Bastian Feder came up with the session <strong>Writing beautiful documentation with php Documentator</strong> . It was also a good one when we work with Eclipse , Netbeans or something like that and also for the persons who is trying to use it. ie when we build some API. Doctrine uses phpdocumentator.  Food and networking &hellip;&hellip; ;)  The next session was by Kevin Schroeder an Evangelist for Zend. I was accompaniying with him. Talking about his laptop sticker he remebered the stickers and some of the badges he have brought. Also the troubles he faced at customs for the clearence of the pin in his bag. I loved watching <strong>Using Zend Server to run your PHP Applications</strong>. He showed some demos . I used to watch webinars by Zend. So I was aware how powerful he was. He introduced the community server and some of the beneficts over it. He gave away the Zend Studio licence for a simple question. I was already having one I got from Zend ;). The stickers and badges disappeared within a few seconds when he says about it.  Gaurav Mishra came up with the session <strong>Harnessing CSS3 for a Beautiful Web</strong>. But some times he missed the clear points that need to be told like IE upto 8 was not in the consortium of w3c, and only came now. Many of them were bothered about how we can use CSS3 without bringing the same in IE6. I don&rsquo;t know why they were still bothered about IE6 , which has born in 1998 and still holding in 2010. Its like not using a motor vehicle instead rickshaw( People who lives in BC ).The opera evangalist Shwetank Dixit was present . He was an awesome guy who can really make the event a beutiful one. I have loved if those guys have given him a 10 minutes to speak about HTML5 and CSS3 . He talks to our BCK guys there and also promised a full day session of HTML5 and CSS3 soon.  <strong>PHP 5.3 a walk through</strong> by David Coallier was another awesome one. He was an active person and many of the slides and how he presented was awesome. I don&rsquo;t think if the guy was in love with PHP , would have never told him that we are in short of time. I don&rsquo;t know whether we will get such a session any more. Many of them were unhappy in the decision as PHP an open-source and than promoting an open-source talk, they gave more time for Microsoft Azure. Sorry David, but I no, we missed it :(.  Prajwals Manchikatla came up with another session on <strong>Core Concepts of worlds most misunderstood language Javascript</strong> . It was interesting with some of the examples of classes , objects and all. I loved it .  <strong>Subversion 1.7 and the future features</strong> by Senthil Kumaran S. Senthil was working as the core developer of Subversion , so he was really a nice person to talk about sub-version and its features. I know why he came up with the talk earlier than 1.7 has been realeased :) ( Git ;) ) . He talks about the changes in the library and how it will not effect when its upgraded. He also confirmed that subversion is having many clients from properiery world and so there is no way at present to move as a distributed one, for all will be having the same copy. He also says that when git works for open-source projects , svn works for properietery company who don&rsquo;t love to take the whole bunch of code to their home. He talks about the licencing changes. It was an awesome session to know how subversion works and to hear some history behind it. Some of them shared their doubts.  <strong>Day 3 :</strong>  I was with the session on <strong>Postgre 9.0 features</strong> by Ashutosh Bapat and the next talk by Chetan Suttarway about the <strong>Postgre SQL security threats and solutions</strong>. They were from the Postgre company Enterprise DB and presented it nicely. I missed the talks on <strong>HTML5 state of Art</strong> by Jason Levitt, but I think I will not for Shwetank Dixit will be coming with 1 day session on CSS3 and HTML5 in the coming months. The other session was <strong>Cloud Hosting Uncovered</strong> by Markus Franz.  <strong>Emerging Technologies for Analytics for large Data Volumes</strong> was presented by Roger Burkhardt. This session disappointed me for I thought he will be going with which DB is good for large volume and which DB is good for small volumes , search and many of the things. He was mainly talking about the Ingres Vector solution which still has not released as opensource. I went to know about the drivers so I can connect with PHP. Like pear installation and so on . But I was unsatisfied with the answer I got from the Indian guy. Don&rsquo;t know who he is. He told me to download the whole bunch of thing which I don&rsquo;t want , which my laptop is already with LAMP. I just want to download DB and the driver. So what I feel was it was not an open-source product. So I just walked away from there and I am satisfied with MySQL , Postgre, Maria, MongoDB and so on .  <strong>MySQL performace tuning , top 10 tips by Sonali Minocha</strong> : Yes she took us through some examples , how to use and where not to use EXPLAIN and such stuffs. Where to use CHAR and VARCHAR . Some of the differences and beneficts over MyISAM and InnoDB . Thanks for her tips and tricks.  Food and Networking  Other sessions after the food were <strong>Large Scale Linux Deployments-Automated Solutions</strong> by Murthy Raju and Developing and deploying top PHP applicatios on Windows with Webmatrix and WebAPI . I skipped both .  <strong>Pictures :</strong>  I do have uploaded some of the pics taken by Arun to <a href="http://picasaweb.google.com/kthari85/OSIDays2010">http://picasaweb.google.com/kthari85/OSIDays2010</a> . If you need a higher resolution of the pics shout at me . I am ready to send those .  <strong>Feed Back :</strong>  Feedback for an event is always good I think . Don&rsquo;t feel bad against me. I don&rsquo;t want to harm anyone , but to make it better I feel its always good. 0 ) Good to show the people who have proposed the proposals. As its an open-source event bring community rather than taking a few from the panels or something like that .  1 ) Internet connection and power plugs : I cannot live without internet . Its like oxygen for developers . I was so sad to see such a largest conference with out internet and power points on the desk . When we guys do Barcamps in Kerala, we do have internet connectivity. And I don&rsquo;t know how the guys from international level thinks about such an event :( . For the next time do have good internet connectivity and power plugs .  2 ) First day : Sunday was filled with good sessions and tight schedule . It was really a nice thing if some of the sessions were moved to third day ( We can see third was not having any :( ) . ( Seems they tried to bring many people on sunday itself and didn&rsquo;t even thought about the people who loved to hear )  3 ) There are two halls, and the two was some distance apart . The sessions on the two halls doesn&rsquo;t end on the same time . If we managing something like to cutshort the time , its good to do for every session. Rules are same for everyone :) .  4 ) Give some extra time in the chart for each session. ie around 10 minutes or so. So for a 45 minute session will bring 55 minutes , and this will not make to cutshort the time he speaks. He can take advantage of the extra time. Setting up the system and the whole bunch of stuffs.  Thanks once again for all guys at OSI Days. Hope you will take some of my suggestions .  But I missed J Wage :( and love to bring you one day. Lets see whether it works ;) . I was having a gold pass and have covered the topics as the same . There were other sessions also which I have not described anything.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/09/11/meeting-richard-mathew-stallman-calicut/">Meeting Richard Mathew Stallman at Calicut</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-11T14:07:00+05:30" pubdate data-updated="true">Sep 11<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/harikt/4978701845/" title="Richard Matthew Stallman by K T Hari, on Flickr"><img src="http://farm5.static.flickr.com/4129/4978701845_6c85994243.jpg" alt="Richard Matthew Stallman" /></a>  As NIT was celebrating its Golden Jubilee this year , they was conducting a National Conference on Free Software and Education ie FOSS in Education.  I got a chance to be part of the Inaugral function held on Spetmeber 10th. Ricard Mathew Stallman was the Keynote addresse .  He talks slowly and clearly .  He says FOSS means Free and Open Source Software , I am not here to talk about opensource . I am here to talk about Free Software.  FSF and opensource are two different things .  He started talking about Free Software movement . The clutches of the developer controlling the user ( ie properitery one ) , and the other like the user controls the system .  The below lines are taken from the <a href="http://www.gnu.org/">http://www.gnu.org/</a> website .  “Free software” is a matter of liberty,<strong>not price</strong>. To understand the concept, you should think of “free” as in “free speech”, not as in “free beer”. Free software is a matter of the users&#8217; freedom to run, copy, distribute, study, change and improve the software. More precisely, it refers to four kinds of freedom, for the users of the software:     * The freedom to run the program, for any purpose (freedom 0).     * The freedom to study how the program works, and adapt it to your needs (freedom 1). Access to the source code is a precondition for this.     * The freedom to redistribute copies so you can help your neighbor (freedom 2).     * The freedom to improve the program, and release your improvements to the public, so that the whole community benefits (freedom 3). Access to the source code is a precondition for this.  Example<strong>:</strong>  So are you confused with what Free Software is ?  You are going to build a house . You gave some contract to a builder named X . X build you the house and permits you to live . What will happen if he don&rsquo;t allow you to modify your house ? X says you don&rsquo;t have any right to modify it . You are unable to sell nor give it as rent . You are the person who spends the whole amount and you can&rsquo;t do anything with out X&rsquo;s permission . Is it a right thing ?  Lets come to the software world  So the philosophy is you asks a developer to build something for you and you pays him the money . He will develop all for you, and give you all the rights to use , modify , distribute so others can use it , learn etc as that of FSF policy.  He don&rsquo;t want to hide the code and says the code is ours. Why do he needs the code? If he is hiding the code , fear him , its the developer who is controlling you . You may not be a developer to know the power of coding :) , else you will defnitely fear .  There was a Qn and Answer session and it made everything more clear to those who thought Free Software means free as Price ( $ )  1 ) How can we make money ?  Ans : You can get some local work , and you need to work to earn money .  2 ) There is no MAT Lab . How can I switch to GNU / Linux ?  Ans : If I ( RMS ) found something that is not there in the GNU system , I ( RMS ) build it . So you need to develop one or you can find a developer and pay for it . So you can contribute to FSF .  Also why do you want to switch from GNU / Linux for not having this simple application ? There are very powerful tools in the GNU / Linux and you are loosing it for this simple application.  3 ) Some people says Windows will be effected by Virus and Switching from Windows to GNU / Linux is virus free .  Ans : We cannot gaurantee that virus will not effect your system . As far as I know there is 5 virus in GNU / Linux and may be due to the active presence of the community we are able to close the back doors .  I also met Juan Carlos whom I met at GEC thrissur for the <a href="http://ijust4u.blogspot.com/2009/01/hacker-dom.html">Hacker DOM</a> . He remembers the guys on the event . Asked about the details about <a href="http://sujithh.info/">Sujith H</a> one of the KDE hacker who hacks his Canon Camera in his free time.  The other great people in the inaugral function were  1 ) Welcome Adress : Prof K P Mohandas  2 ) Presidential Address : Dr . G R C Reddy, Director NIT Calicut  3 ) Inaugral Address : Shri Pradeep Kumar , MLA Kozikode  4 ) Felicitations    Dr A Achuthan , Institute of Engineers ( He is also celebrating his Golden Jubliee who joined the NIT, former REC )    Sri Binu A Pazhoor , CEO Kozhikode Cyber Park    Sri Nityananda Kamath , Former President, Calicut IT initiative    Sri R Sreeram Kumar , Counsellor , IEEE student branch    Sri A Rajagopalan , Chairman , Computer Society of India  5 ) Introducing Richard Stallman : Sri Sathish Babu  6 ) Keynote Address : Mr Richard Mathew Stallman ( named RMS inside FSF )  7 ) Discussion Question and Answer  8 ) Vote of Thanks : Hari C M , Student Co-ordinator .  The event started late and when Richard Stallman was given the mic it was around 7 : 00 PM . It was an awesome speech with great humour , but make people think .  He says some people suggest to learn both systems . ie GNU / Linux and Microsoft Windows . Let them learn both . He says its like giving Whisky and Water .  I was not with a camera , to take the snaps . But I and my father enjoyed the session and we left around 8:30 PM talking with Juan Carlos and all others . Lets promote FSF in Education . Let them know what FSF is , and what its for .  For more details  <a href="http://www.fsf.org/">http://www.fsf.org/</a>  <a href="http://www.gnu.org/">http://www.gnu.org/</a>  FSF distro <a href="http://www.gnewsense.org/">http://www.gnewsense.org/</a>  For other GNU distro <a href="http://www.gnu.org/distros/free-distros.html">http://www.gnu.org/distros/free-distros.html</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/09/05/install-mongodb-aptitude-and-not-synaptic/">Install MongoDb via Aptitude and Not via Synaptic</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-05T14:38:00+05:30" pubdate data-updated="true">Sep 5<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/harikt/4959237021/"><img src="%20http://farm5.static.flickr.com/4154/4959237021_38f1029ac5.jpg" alt="Mongo Db" /></a>  I thought of playing with <a href="http://www.mongodb.org">mongodb</a>, one among the No SQL movement. I am using Ubuntu 10.04 . Installed via <strong>synaptic</strong> , installed some GUI admin tools like <a href="http://www.phpmoadmin.com/">phpmoadmin</a> , <a href="http://www.icmfinland.fi/oss/opricot/">opricot</a> (Both these tools are not necessary , just installed those to see how it works on browser ) . Opened my favourite terminal , just typed $<strong>mongod</strong>  mongod: error while loading shared libraries: libmozjs.so: cannot open shared object file: No such file or directory  Wow got some nice errors . I was stuck with it and googled and moved through various blgs and forums . From <a href="http://groups.google.com/group/mongodb-user/browse_thread/thread/7e7fd7fa0313c326?tvc=2&amp;pli=1">one of the group posts</a> I recognised the ubuntu package is broken and you need to install via the <a href="http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages">aptitude after adding the repository</a> . But I have another one which I have not tried , I feel it will work , so you can have a look into <a href="http://dracoater.blogspot.com/2010/08/mongodb-with-c-in-ubuntu.html">JuriTallinn&rsquo;s blog</a> before trying the below one, if you have already installed via synaptic.  So I just edited the <strong>/etc/apt/sources.list</strong> file . You can use either vi or gedit , and add the line      deb <a href="http://downloads.mongodb.org/distros/ubuntu">http://downloads.mongodb.org/distros/ubuntu</a> 10.4 10gen  Save it and run  $ aptitude update  You may get some error like W: GPG error: <a href="http://downloads.mongodb.org">http://downloads.mongodb.org</a> 10.4 Release: The following signatures couldn&rsquo;t be verified because the public key is not available: NO_PUBKEY 9ECBEC467F0CEB10 . If you get something like this just run  $ apt-key adv &mdash;keyserver keyserver.ubuntu.com &mdash;recv 7F0CEB10  And once again run  $ aptitude update   Hope everything works fine . Just run aptitude install and install stable , development or what ever version you love. I am installing a stable one .  $ aptitude install mongodb-stable  Now you can run your favorite mongodb from cmd line via  $mongo  And have fun . I also downloaded the <a href="http://www.php.net/manual/en/mongo.installation.php">PECL driver for PHP</a> which is explained below.  You need to download the php5-dev package before you run . You can use aptitude or synaptic. After the php5-dev installation run  $ pecl install mongo  and adding the line in php.ini . You may be having 2 php.ini if you have installed cli interface also . It will be located at /etc/php5/apache2/php.ini , /etc/php5/cli/php.ini . If you are unsure where it is just use locate command.  $ locate php.ini  Add the below line in php.ini      extension=mongo.so  Restart your apache ;) . Done and have fun with Mongo .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/08/29/integrating-doctrine-zendframework-modules/">Integrating Doctrine With Zendframework for Modules</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-29T21:39:00+05:30" pubdate data-updated="true">Aug 29<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When I started learning PHP framework I started with <a href="http://www.symfony-project.org/">symfony-project</a> . <a href="http://www.doctrine-project.org">Doctrine</a> was one of the coolest feature I loved. So I thought of learning Doctrine to use with <a href="http://framework.zend.com/">Zend-framework</a> . Recently I was looking  <a href="http://zendcasts.com">zendcasts.com</a> to integrate doctrine with zend-framework . I think Jon didn&rsquo;t get much time to think about this solution else he may have come with the module based solution . But I was interested to provide how we can bring the doctrine models to different modules for zendframework. Use the below code in doctrine.php when using <a href="http://www.zendcasts.com/deep-integration-between-zend-and-doctrine-1-2/2010/01/">zendcasts doctrine integration with zendframework</a> .  The way it works is  $./doctrine &lt; arguments for doctrine > module <module name \>  Module name is the zendframework module . If no module is specified or the specified module directory is not found , will create in the application/models folder . Else the models folder of the particular module. Assuming the migrations , schema.yml , fixtures etc are  there for each specific module :) .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/08/29/php5-cms-framework-development/">PHP5 CMS Framework Development</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-29T08:55:00+05:30" pubdate data-updated="true">Aug 29<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Packt publishers who loves opensource have come up with the book <a href="https://www.packtpub.com/php-5-cms-framework-development-second-edition/book">PHP5 CMS Framework Development</a> . I was one of the technical reviewers of the book <a href="https://www.packtpub.com/php-5-cms-framework-development-second-edition/book">PHP5 CMS Framework Development</a> . If you are a developer you may have thought , why I need to read the book . I know how to develop a CMS ( Content Management System ) . Ya I agree, well we all know how to develop a CMS . Anything that store something in db, which has functionalities like CRUD you can call it as CMS. But you may not be developing something that we can extend . Once a website is developed maintaining it is hard . So before developing a system we must know how we can extend it , ie what we call as a CMS framework . Some of the examples of the popular CMS frameworks are <a href="http://drupal.org">Drupal</a> , <a href="http://www.joomla.org/">Joomla</a>, <a href="http://mambo-foundation.org/">Mamboo</a> etc .  The author of the book is Martin Brampton who is a former development team leader on the renowned Mambo open-source content management system. Now he is the project leader of the open-source CMS <a href="http://aliro.org/">Aliro</a> . Joomla , Aliro , MiamiCMS etc were forks of the mamboo project . So if you are looking how these systems works , I suggest you this book . A book has its own limitations of walking you through each and every line . So he has covered all parts of the system in a nice way . I have gained some knowledge reading the book . So I hope you too will enjoy the book . The examples of the book are all from the project Aliro , which is an open-source CMS system . So get it while its hot .  Language :  English Paperback : 416 pages [ 235mm x 191mm ] Release Date : August 2010 ISBN : 1849511349 ISBN 13 : 978-1-84951-134-6 Author(s) : <a href="http://twitter.com/martinbrampton">Martin Brampton</a>  Buy the book from <a href="http://www.packtpub.com/php-5-cms-framework-development-second-edition/book">Packt publishers</a> and you can see Table of Contents <a href="http://www.packtpub.com/toc/php-5-cms-framework-development-2nd-edition-table-contents">here</a> .  Still looking for a chapter by chapter review ? A wonderful review of the book is written <a href="http://www.ds-o.com/archives/76-Book-Review-PHP5-CMS-Framework-Development-by-Martin-Brampton.html">here</a> . I am too lazy to write such a long one :) .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/07/25/osi-days-asias-largest-opensource-conference/">OSI Days , Asia&#8217;s Largest Opensource Conference</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-25T00:38:00+05:30" pubdate data-updated="true">Jul 25<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Hi guys ,  Hope you have already seen my twitter tweets about OSI Days . Its one of the largest opensource conference to be held on Chennai Trade Center from 19th to 21st of September .  <strong>Whom should attend ?</strong>  Are you a person working on opencource technologies like PHP , Drupal , Symfony , Ruby on Rails , MySQL &hellip;.. If you answered yes , then you must . We all are techies and we know or learn things from other techies and not watching a horror or comedy movie <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/regular_smile.gif" alt="image" /> . We are all part of the community , so must share and learn what we have , conferences , barcamps etc are a nice place to meet guys of same taste and interests .  I loved to attend the Zendcon and many other opensource conference held previously . But my 2 to 3 months of salary was for the ticket . Travelling expenses and boarding extra . So if you are a person like me ( especially from India ) , who loves to attend the conferences , then you will never get a good opporchunity than this .  <strong>Sessions and Tutorials</strong> :  I am a fan of Fabien, after I heard about the symfony project  some years back. I read many of his blog posts and it was really awesome . He knows how to teach people . Thought of going to zendcon was to meet some people like him ( But failed ) . Now its time for me to see him and not only just meet him , he is presenting and giving tutorials on  the most explosive one , <strong>symfony2</strong> which will be released in late 2010 . Jonathan wage another awesome person of sensio who is behind the <strong>Doctrine</strong> ORM . There are many more guys from the PHP community . They are Bastian Feder, David Coallier , Jakub Vrana . A good description is given in the osidays website , so I think I don&rsquo;t want to cover all aspects .  As the first list publishes , <strong>Drupal</strong> stands first . There are many sessions on Drupal . If you was looking the drupal community you may already know about aegir . I played with it and is really awesome . There is sessions about aegir by Dave Hall . You may wan to concentrate on this if you are working on Drupal . Marek Sotak who made the admin theme RootCandy , Prajwala Manchikatla , Ipsita Mishra , Siva Kumar Epari , Markus Franz ( also session on PHP like hiphop , quality assurance etc ) are some others who are taking sessions on Drupal ( Theming , Module development etc is covered ).  I am also looking for the session on MySQL by Sonali Minocha who is one of the first MySQL certified DBA ( Source from osidays ).  Facebook may have made some changes or forced some of the Enterprise to think about PHP . David Recordon of Facebook is with the session Building and scaling Facebook with Open Source . So I hope that too will be awesome.  I am not a great fan of building mobile applications . So if you are looking for building mobile applications you may want to concentrate on sessions by Dibya Prakash&rsquo;s on Android , Reetu Raj on iphone application .  <strong>HTML5</strong> has already started , and many of the browser is already supporting it ( I remember the post by sitepoint , somethig like this &ldquo;Don&rsquo;t wait till HTML5 is stable , as HTML6 or someother version may be started at that time &rdquo; . I think it was right ) . So its another topic all webdevelopers and designers must concentrate . Jason Levitt is with the topic . So I hope that will be awesome and I love seeing some demos in the presentation . ( It was in 5th Barcamp Kerala Shwetank Dixit, an evangelist of opera makes it more memorable , so I hope the same may happen here <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/regular_smile.gif" alt="image" />  )  <strong>What is missing ?</strong>  Not seen any sessions on <strong>Zend framework</strong> , <strong>Lithium</strong> the latest framework ( the first one to be released before any others from some of the old project leaders of Cake PHP and some other framework ) for PHP 5.3 awesome :) . <strong>Zend certification training</strong> etc as seen on the home page of osidays . May be coming in the next coming days . Not sure though , if any more speakers will be included .  I was having a wrong thought that many of the developers who are interested in Conferences are Gents than Ladies . But the list corrected me . Nice to see female voice Prajwala Manchikatla , Ipsita Mishr , Reetu Raj , Sonali Minocha .  <strong>What are you waiting for ?</strong>  Yes hope to meet you there . I am looking forward and don&rsquo;t want to miss this chance meeting the awesome guys from the PHP community . Hope you too will be there to learn more about the latest trends and technologies. I hope I have not missed anything , if yes please feel free to let me know .  Thanks and meet you there at Chennai . Oh still more days to go. If any of the speakers are coming to Kerala , I will try to help you . So get in touch with me <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/wink_smile.gif" alt="image" /> .  *offer valid still stocks last ( No worries I will be here to help you , with what ever things I can do ) .  Register your presence : <a href="http://osidays.com/">http://osidays.com/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/06/24/playing-ratproxy-passive-web-application-security-assessment-tool/">Playing With Ratproxy - Passive Web Application Security Assessment Tool</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-24T23:22:00+05:30" pubdate data-updated="true">Jun 24<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I know many of you may be knowing about this google tool. I am little late to play with this. But just posting if someone still missing to checkout . If you was following me on twitter you may have seen my tweet some days back. Even though I thought of writing a blogpost I was too lazy and some what busy :) .  But today I thought of playing with it . Hope you too will enjoy looking the security issues for your website . This is a great tool to check. Its from Michal Zalewski of Google which has been licenced under the Apache Licence agreement .  What is ratproxy ?  So you may have heard about proxy servers .. But this is not a proxy server to by pass any of the social networking websites :) . This a great tool for webdevelopers , web owners or even clients who want to test their website before payment is made. So let me copy the defnition of what ratproxy is  &ldquo;<em>Ratproxy</em> is a semi-automated, largely passive web application security audit tool. It is meant to complement active crawlers and manual proxies more commonly used for this task, and is optimized specifically for an accurate and sensitive detection, and automatic annotation, of potential problems and security-relevant design patterns based on the observation of existing, user-initiated traffic in complex <em>web 2.0</em> environments. The approach taken with <em>ratproxy</em> offers several important advantages over more traditional methods:  &ndash;   <strong>No risk of disruptions.</strong>  &ndash;   <strong>Low effort, high yield.</strong>  &ndash;   <strong>Preserved control flow of human interaction.</strong>   &ndash;   <strong>WYSIWYG data on script behavior.</strong>   &ndash;   <strong>Easy process integration.</strong> &rdquo;  Ratproxy is developed from C , ya was my favourite language at college though I am not so powerful in it :) . I remebered compilling C programs from Linux terminals when I was at college .  You may run with errors when compiling it with make command .  Something like the below .  hari@hari-laptop:/var/www/ratproxy$ make cc ratproxy.c -o ratproxy  -Wall -O3 -Wno-pointer-sign -D_GNU_SOURCE http.c mime.c ssl.c -lcrypto -lssl ratproxy.c:43:25: error: openssl/md5.h: No such file or directory ratproxy.c: In function ‘decode_flash’: ratproxy.c:615: warning: ignoring return value of ‘write’, declared with attribute warn_unused_result  &ldquo;  Just install libssl-dev package using synaptic or apt-get . Compile it once again and yes I hope you have done without errors . Download the Quick Proxy addon for the Mozilla firefox , so you can easily switch from proxy to the other . You need to configure the proxy server . Edit - > Preferences &ndash;> Advanced-> Network tab &ndash;> Settings &ndash;> Mannual proxy and add it . Now just close and start your Mozilla Firefox once again .  Run from the terminal  hari@hari-laptop:/var/www/ratproxy$ ./ratproxy -v dumps -w mysite.log -d mysite.com -XClfscm  ratproxy version 1.58-beta by &lt;lcamtuf@google.com> [*] Proxy configured successfully. Have fun, and please do not be evil.     WARNING: Disruptive tests enabled. use with care. [+] Accepting connections on port 8080/tcp (local only)&hellip;  Browse the mysite.com upload , download and do what ever things you love. Don&rsquo;t forget to pass javascript , some unwanted test queries etc . Try SQL injections also . You will be getting detailed report . You can see how much your server is vulnerable . It may be more than this :) .  Report can be made by running hari@hari-laptop:/var/www/ratproxy$ ./ratproxy-report.sh mysite.log > report.html  Please don&rsquo;t use this tool for EVIL . Do it for good to make a wonderful web tomorrow . I love good techniques and good people . If you are trying to crack I may call you a F*cker . Hope you enjoyed the new tool to fix the issues .  You can get more information from <a href="http://code.google.com/p/ratproxy/wiki/RatproxyDoc">http://code.google.com/p/ratproxy/wiki/RatproxyDoc</a>  This is also a wonderful tutorial <a href="http://isisblogs.poly.edu/2008/07/05/ratproxy-151-tutorial/%C2%A0">http://isisblogs.poly.edu/2008/07/05/ratproxy-151-tutorial/%C2%A0</a> . Don&rsquo;t forget to check it out .  Updated : After playing with ratproxy , I came across other solutions too . Many of them are open-source and the list is  <a href="http://w3af.sourceforge.net/">http://w3af.sourceforge.net/</a>  <a href="http://cirt.net/nikto2">http://cirt.net/nikto2</a>  <a href="http://dawes.za.net/rogan/webscarab/">http://dawes.za.net/rogan/webscarab/</a>  <a href="http://www.metasploit.com/">http://www.metasploit.com/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/06/15/thinking-developing-application-zend-framework/">Thinking of Developing an Application With Zend Framework</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-15T23:35:00+05:30" pubdate data-updated="true">Jun 15<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/harikt/4703475643/"><img src="http://farm5.static.flickr.com/4031/4703475643_c68bbc34ce.jpg" alt="Zendframework 2 logo by zend technologies" /></a>  Picture courtsey to <a href="http://www.facebook.com/pages/Zend-Technologies/190917412139">zend technologies</a> . When I started learning a MVC framework like Zend ( version 1.8 ) with out any prior knowledge in an MVC architectured framework , it was hard for me to figure out many of the things documented in framework.zend.com . I spend lot of time to figure out what they have shown in the examples to <a href="http://harikt.com/content/simple-blog-using-zend-framework-19">develop a simple application which I later published to help people</a> learning zend framework ( Though it was not developed thinking in my mind to publish, I hope it helped some ) . But looking today the zend framework documentation has lots of improvements, may be because I learned something looking other frameworks too. I was interested to see much of the things what symfony does in the command line ( for I love my GNU/Linux terminal and love to work on it ). But after sometime I came to know many of the things that symfony does is with doctrine ORM ( There are lots of other commands too for symfony ) . Doctrine2 will be integrating with zend framework version 2 onwards .  Sometimes I have even blamed zend framework , for I was angry unable to do what I needed spending hours of searching . But I am sorry for that zend. You may ask me why you didn&rsquo;t get into irc or mailing list and ask your doubts . Ya I entered to irc for the first time when I started learning #zf , but its hard to get a quick reply. I saw many people asking questions , but many were not answered . I know the reasons for they will be working on their on projects and getting a quick reply was hard.  Ok let&rsquo;s move on to my topic, I am planning to learn/ sharpen my knowledge in <a href="http://framework.zend.com/">Zend framework</a> . I would you to suggest me some topics , that you love to see implemented with zend framework in my spare time. I will be trying to use <a href="http://www.doctrine-project.org/">Doctrine ORM</a>. I would love to develop it with TDD using <a href="http://www.phpunit.de">phpunit</a> ( Every thing is new just having some knowledge which is harmful <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/regular_smile.gif" alt="image" /> ). If you have anything in your mind let me know .  Thanks for reading my unwanted thoughts .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/10/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/8/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/29/conferences-is-it-really-worth/">Conferences : Is It Really Worth?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/28/looking-at-aura-v2/">Looking at Aura Version 2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/19/aura-framework-released/">Aura Framework Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/07/book-on-aura-moved-to-manual/">Book on Aura Moved to Manual</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/05/announcing-winners-of-the-contest/">Announcing Winners of the Contest</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/harikt">@harikt</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'harikt',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Hari K T -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'harikt';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

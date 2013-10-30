@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: array_merge | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/array-merge/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2013-10-30T15:20:28+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Why you should write test]]></title>
+    <link href="http://harikt.com/blog/2012/06/13/why-you-should-write-test/"/>
+    <updated>2012-06-13T09:25:00+05:30</updated>
+    <id>http://harikt.com/blog/2012/06/13/why-you-should-write-test</id>
+    <content type="html"><![CDATA[<p>Recently I was reading <a href="http://sandeep.shetty.in/2012/05/when-to-use-arraymerge-and-union.html">When to use array_merge and union operator (+)
+in PHP?</a> . Lately working with examples I was also confused how the
+array_merge and union works. Really, that brings a strong thought why
+you should write tests. Lets see some examples .</p>
+
+<p><code>php
+&lt;?php
+$a = array('foo' =&gt; 'bar', 3, 4, '123' =&gt; 3);
+echo '$a = ';
+var_export($a);
+$b = array('foo' =&gt; 'baz', 3, 6, 7, 3);
+echo PHP_EOL . '$b = ';
+var_export($b);
+echo PHP_EOL . 'array_merge( $a, $b) = ';
+var_export( array_merge($a, $b));
+echo PHP_EOL . '$a + $b = ';
+var_export( $a + $b );
+</code></p>
+
+<p>Do you have any thoughts on how the result for array_merge and + comes?</p>
+
+<p><code>php
+$a = array (
+  'foo' =&gt; 'bar',
+  0 =&gt; 3,
+  1 =&gt; 4,
+  123 =&gt; 3,
+)
+$b = array (
+  'foo' =&gt; 'baz',
+  0 =&gt; 3,
+  1 =&gt; 6,
+  2 =&gt; 7,
+  3 =&gt; 3,
+)
+array_merge( $a, $b) = array (
+  'foo' =&gt; 'baz',
+  0 =&gt; 3,
+  1 =&gt; 4,
+  2 =&gt; 3,
+  3 =&gt; 3,
+  4 =&gt; 6,
+  5 =&gt; 7,
+  6 =&gt; 3,
+)
+$a + $b = array (
+  'foo' =&gt; 'bar',
+  0 =&gt; 3,
+  1 =&gt; 4,
+  123 =&gt; 3,
+  2 =&gt; 7,
+  3 =&gt; 3,
+)
+</code></p>
+
+<p>Hope this makes to convince you also , why you should write tests :&ndash;) .
+A detailed post on the working is at
+<a href="">http://unix0.wordpress.com/2012/01/08/php-array_merge-vs-plus-union-operator/</a></p>
+
+<pre><code>http://unix0.wordpress.com/2012/01/08/php-array_merge-vs-plus-union-operator/
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

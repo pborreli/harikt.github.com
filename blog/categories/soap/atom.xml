@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: soap | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/soap/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2013-10-30T15:20:28+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Connecting to Magento via SOAP]]></title>
+    <link href="http://harikt.com/blog/2013/07/12/connecting-to-magento-via-soap/"/>
+    <updated>2013-07-12T14:12:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/07/12/connecting-to-magento-via-soap</id>
+    <content type="html"><![CDATA[<p>In my earlier post I have shown how you can connect to Magento
+with REST api. In this post let us connect via SOAP.</p>
+
+<p>The below class acts like a proxy to call the magento soap api.</p>
+
+<p>```php
+&lt;?php
+/<em>*
+ *
+ * @author Hari K T
+ *
+ </em>/
+class My_Soap_Magento
+{</p>
+
+<pre><code>/**
+ * 
+ * Host name to connect
+ * 
+ * @var string
+ * 
+ */
+protected $hostname;
+
+/**
+ * 
+ * User name
+ * 
+ * @var string
+ * 
+ */
+protected $username;
+
+/**
+ * 
+ * API Key
+ * 
+ * @var string
+ * 
+ */
+protected $apikey;
+
+/**
+ * 
+ * Zend_Soap_Client
+ * 
+ * @var Zend_Soap_Client
+ * 
+ */
+protected $client;
+
+
+protected $session;
+
+/**
+ * 
+ * Constructor
+ * 
+ * @param string $hostname The host name
+ * 
+ * @param string $username The user name of the host
+ * 
+ * @param string $apikey The apikey of the host
+ * 
+ */
+public function __construct($hostname, $username, $apikey)
+{        
+    $this-&gt;hostname = $hostname;
+    $this-&gt;username = $username;
+    $this-&gt;apikey   = $apikey;        
+}
+
+/**
+ * 
+ * Magic method, the methods are named on the basis of Magento SOAP api
+ * You don't need to pass the session as the first argument, for convience.
+ * 
+ * @link http://www.magentocommerce.com/api/soap/introduction.html
+ * 
+ * @param string $function
+ * 
+ * @param mixed $args
+ * 
+ * @return string | null
+ * 
+ */
+public function __call($function, $args)
+{
+    $session = $this-&gt;getSession();
+    $params = array_merge(array($this-&gt;getSession()), $args);
+    $result = call_user_func_array(array($this-&gt;getClient(), $function), $params);
+    if ($result) {
+        // I need to get as json
+        return Zend_Json_Encoder::encode($result);
+    }
+    return null;
+}        
+
+/**
+ * 
+ * Get the session from logging in to the Magento server
+ * 
+ * @return string
+ * 
+ */
+public function getSession()
+{
+    if (! $this-&gt;session) {
+        try {
+            $this-&gt;session = $this-&gt;getClient()-&gt;login($this-&gt;username, $this-&gt;apikey);
+        } catch (Exception $e) {
+
+        }
+    }
+    return $this-&gt;session; 
+}
+
+/**
+ * 
+ * If we already have a session, we can set the session so it don't 
+ * need to login again and get the session. This helps to reduce the 
+ * call for login . 
+ * 
+ * @see getSession()
+ * 
+ * @param string $session
+ * 
+ * @return IM_Soap_Magento
+ * 
+ */
+public function setSession($session)
+{
+    $this-&gt;session = $session;
+    return $this;
+}
+
+/**
+ * 
+ * Get the Zend_Soap_Client object
+ * 
+ * @return Zend_Soap_Client
+ * 
+ */
+public function getClient()
+{
+    if (! $this-&gt;client) {
+        $endpoint  = trim($this-&gt;hostname, '/') . '/api/v2_soap/?wsdl';
+        $this-&gt;client = new Zend_Soap_Client(            
+            $endpoint
+        );
+    }     
+    return $this-&gt;client;   
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>In order to connect you want to create an object of the above
+class <code>My_Soap_Magento</code>. You need to get the username and api key
+from the magento host.</p>
+
+<p>```php
+$object = new My_Soap_Magento(</p>
+
+<pre><code>'the-magento-host',
+'username',
+'apikey'
+</code></pre>
+
+<p>);
+```</p>
+
+<p>Now you are done! You can connect to the soap api version 2 of
+Magento server.</p>
+
+<p>Sample how to get the product information, category tree,
+category information, products list etc are shown below.</p>
+
+<p>See we are not passing the session parameter.</p>
+
+<p>```php
+echo &ldquo;Product Info&rdquo;;
+$result = $proxy->catalogProductInfo(16);
+echo $result;</p>
+
+<p>echo &ldquo;Category Tree&rdquo;;
+$result = $proxy->catalogCategoryTree();
+echo $result;</p>
+
+<p>echo &ldquo;Category Info&rdquo;;
+$result = $proxy->catalogCategoryInfo(10);
+echo $result;</p>
+
+<p>echo &lsquo;Products List&rsquo;;
+$result = $proxy->catalogProductList();
+echo $result;
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

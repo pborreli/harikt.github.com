@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: nette | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/nette/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2013-10-30T15:20:28+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A word about Tracy]]></title>
+    <link href="http://harikt.com/blog/2013/07/12/a-word-about-tracy/"/>
+    <updated>2013-07-12T13:31:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/07/12/a-word-about-tracy</id>
+    <content type="html"><![CDATA[<p>Tracy is a wonderful component from the
+<a href="http://nette.org">nette framework project</a>.</p>
+
+<p>I have been looking at tracy for a while. It has nice awesome panel for
+you to dump and debug things.</p>
+
+<p>Looking exceptions are handy.</p>
+
+<p><img src="http://harikt.com/images/tracy.png" alt="Tracy Panel" /></p>
+
+<h2>Installation</h2>
+
+<p>It is easy to install with composer. So your composer.json will be
+something like below.</p>
+
+<p>```php
+{</p>
+
+<pre><code>"minimum-stability": "dev",
+"require": {
+    "tracy/tracy": "dev-master"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>and finally run the <code>composer.phar update</code></p>
+
+<h2>Enabling the Debugger</h2>
+
+<p>In-order to enable the debugger, you need to add two lines.</p>
+
+<p>```php
+use Tracy\Debugger;</p>
+
+<p>Debugger::enable();
+```</p>
+
+<blockquote><p>Assuming you have already added a line <code>require_once 'path/to/vendor/autoload.php';</code></p></blockquote>
+
+<h2>Dump Data</h2>
+
+<p>There are a variety of options which you can dump data. Some of
+them are to firebug, firelogger etc.</p>
+
+<p>In this  I am interested to show you how to dump data to the
+debug bar.</p>
+
+<p><code>php
+Debugger::barDump('Some SQL Query', 'SQL');
+Debugger::barDump(array('foo' =&gt; 'bar'), 'bar');
+</code></p>
+
+<p>The panel is smart enough to understand and float
+where it stayed when you last opened it.</p>
+
+<p>Try it out guys!</p>
+]]></content>
+  </entry>
+  
+</feed>

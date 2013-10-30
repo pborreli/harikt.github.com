@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: auraphp | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/auraphp/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2013-10-30T15:20:28+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Looking at aura version 2]]></title>
+    <link href="http://harikt.com/blog/2013/09/28/looking-at-aura-v2/"/>
+    <updated>2013-09-28T06:53:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/09/28/looking-at-aura-v2</id>
+    <content type="html"><![CDATA[<p>If you have noticed recently, there have been tons of commits from
+<a href="https://github.com/pmjones">Paul M Jones</a>﻿ for aura version 2.</p>
+
+<p>More standalone repos born. Everyone should try and give feedback as much as possible.</p>
+
+<p>Interesting stuffs split from Aura.Sql v 1.3 are</p>
+
+<p><a href="https://github.com/auraphp/Aura.Sql/tree/develop-2">Extended PDO</a>,</p>
+
+<p>As the name says, it is an extended version of PDO. Good thing is it is
+PHP 5.3 compatible.</p>
+
+<p>If you have worked with PDO you know the good and bad.
+One of the difficulty is, it cannot use an array for an in clause.</p>
+
+<p>```php
+&lt;?php
+// the array to be quoted
+$array = array(&lsquo;foo&rsquo;, &lsquo;bar&rsquo;, &lsquo;baz&rsquo;);</p>
+
+<p>// the statement to prepare
+$stm = &lsquo;SELECT * FROM test WHERE foo IN (:foo) AND bar = :bar&rsquo;</p>
+
+<p>// the native PDO way does not work (PHP Notice:  Array to string conversion)
+$pdo = new Pdo(&hellip;);
+$sth = $pdo->prepare($stm);
+$sth->bindValue(&lsquo;foo&rsquo;, $array);
+```</p>
+
+<p>ExtendedPDO helps you to do it.</p>
+
+<p>```php
+&lt;?php
+$pdo = new ExtendedPdo(&hellip;);
+$stm = &lsquo;SELECT * FROM test WHERE foo IN (:foo)&rsquo;;
+$pdo->bindValues(array(</p>
+
+<pre><code>'foo' =&gt; array('foo', 'bar', 'baz'),
+'bar' =&gt; 'qux',
+</code></pre>
+
+<p>));
+$sth = $pdo->prepare($stm);
+echo $sth->queryString;
+```</p>
+
+<p>Try out an example, and see in action.</p>
+
+<p>Your composer.json will look as</p>
+
+<p>```json
+{</p>
+
+<pre><code>"minimum-stability": "dev",
+"require": {
+    "aura/sql":"dev-develop-2"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Run the below Sql query in your favourite tools like phpmyadmin or adminer.</p>
+
+<p>```sql
+&mdash; Adminer 3.7.1 MySQL dump</p>
+
+<p>SET NAMES utf8;
+SET foreign_key_checks = 0;
+SET time_zone = &lsquo;+05:30&rsquo;;
+SET sql_mode = &lsquo;NO_AUTO_VALUE_ON_ZERO&rsquo;;</p>
+
+<p>DROP TABLE IF EXISTS <code>polls_choice</code>;
+CREATE TABLE <code>polls_choice</code> (
+  <code>id</code> int(11) NOT NULL AUTO_INCREMENT,
+  <code>poll_id</code> int(11) NOT NULL,
+  <code>choice_text</code> varchar(200) NOT NULL,
+  <code>votes</code> int(11) NOT NULL,
+  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
+
+<p>INSERT INTO <code>polls_choice</code> (<code>id</code>, <code>poll_id</code>, <code>choice_text</code>, <code>votes</code>) VALUES
+(1, 1,  &lsquo;Not much&rsquo;, 0),
+(2, 1,  &lsquo;The sky&rsquo;,  0),
+(5, 1,  &lsquo;Hello World&rsquo;,  0);</p>
+
+<p>&mdash; 2013-09-28 11:22:17
+```</p>
+
+<p>Run the below PHP code and see the result.</p>
+
+<p>```php
+&lt;?php
+require <strong>DIR</strong> . &lsquo;/vendor/autoload.php&rsquo;;</p>
+
+<p>use Aura\Sql\ExtendedPdo;
+use Aura\Sql\Profiler;</p>
+
+<p>$pdo = new ExtendedPdo(</p>
+
+<pre><code>'mysql:host=localhost;dbname=dbname',
+'user',
+'password',
+array(), // driver options as key-value pairs
+array()  // attributes as key-value pairs
+</code></pre>
+
+<p>);
+$pdo->setProfiler(new Profiler);
+$pdo->getProfiler()&ndash;>setActive(true);</p>
+
+<p>$stm = &lsquo;SELECT * FROM polls_choice WHERE id IN (:id) AND poll_id = :poll_id&rsquo;;</p>
+
+<p>$bind = array(</p>
+
+<pre><code>'id' =&gt; array('1', '2'),
+'poll_id' =&gt; '1',
+</code></pre>
+
+<p>);
+$results = $pdo->fetchAll($stm, $bind);</p>
+
+<p>foreach ($results as $result) {
+  echo &ldquo;Query Result : &rdquo; . $result[&lsquo;choice_text&rsquo;] . PHP_EOL;
+}</p>
+
+<p>echo &ldquo;Profiler&rdquo; . PHP_EOL;</p>
+
+<p>$profiles = $pdo->getProfiler()&ndash;>getProfiles();</p>
+
+<p>foreach ($profiles as $profile) {
+  echo &lsquo; Function : &rsquo; . $profile[&lsquo;function&rsquo;] . PHP_EOL;
+  echo &lsquo; Duration : &rsquo; . $profile[&lsquo;duration&rsquo;] . PHP_EOL;
+  echo &lsquo; Statement : &rsquo; . $profile[&lsquo;statement&rsquo;] . PHP_EOL;
+  echo &lsquo; Bind Values : &rsquo; . print_r($profile[&lsquo;bind_values&rsquo;], true) . PHP_EOL;
+}
+```</p>
+
+<p>It comes with lazy connection, profiler, connection locator etc. Read more from
+<a href="https://github.com/auraphp/Aura.Sql/tree/develop-2#getting-started">getting started docs</a></p>
+
+<h2><a href="https://github.com/auraphp/Aura.Sql_Schema">Aura.Sql_Schema</a></h2>
+
+<p>An independent schema discovery tool for MySQL, PostgreSQL,
+SQLite, and Microsoft SQL Server. You can
+<a href="https://github.com/auraphp/Aura.Sql_Schema#getting-started">read more from the docs</a></p>
+
+<h2><a href="https://github.com/auraphp/Aura.Sql_Query">Aura.Sql_Query</a></h2>
+
+<p>Independent query builders for MySQL, PostgreSQL, SQLite, and Microsoft SQL Server</p>
+
+<p>Good thing is all are standalone.</p>
+
+<p>Version 2 also comes with a new
+<a href="https://github.com/auraphp/Aura.Dispatcher">Dispatcher</a>
+and <a href="https://github.com/auraphp/Aura.Includer">Includer</a>.</p>
+
+<p>You can read the story behind Dispatcher from
+<a href="https://groups.google.com/d/msg/auraphp/hyjEPEeo6_w/u616Pu3kQrcJ">here</a>
+and Includer from
+<a href="https://groups.google.com/d/msg/auraphp/WOo6TSceqHU/ZdgIkUgU0VIJ">here</a></p>
+
+<p>vi <a href="https://github.com/auraphp/Aura.Includer">Includer</a>
+aura solved one of the problem of reading configuration files.</p>
+
+<p>Let us look into the example of the Aura.Includer and how it works.</p>
+
+<p>The <code>composer.json</code> looks like the one below.</p>
+
+<p>```json
+{</p>
+
+<pre><code>"minimum-stability": "dev",
+"require": {
+    "aura/cli": "dev-develop-2",
+    "aura/web": "dev-develop-2",
+    "aura/autoload": "dev-develop-2",
+    "aura/dispatcher": "dev-develop-2",
+    "aura/html": "dev-master",
+    "aura/input": "dev-master",
+    "aura/view": "2.*",
+    "aura/includer": "dev-develop-2",
+    "aura/router": "dev-develop",
+    "aura/di": "1.*"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>We can use the includer to read the configuration files and store it and
+later use the cached file. The <code>includer.php</code> looks like</p>
+
+<p>```php
+&lt;?php
+$loader = require <strong>DIR</strong> . &lsquo;/vendor/autoload.php&rsquo;;</p>
+
+<p>$includer = new \Aura\Includer\Includer();</p>
+
+<p>$includer->setDirs(array(</p>
+
+<pre><code>__DIR__ . '/vendor/aura/router',
+__DIR__ . '/vendor/aura/dispatcher',
+__DIR__ . '/vendor/aura/web',
+__DIR__ . '/vendor/aura/view',
+__DIR__ . '/vendor/aura/html',
+__DIR__ . '/vendor/aura/cli',
+__DIR__ . '/vendor/aura/input',
+</code></pre>
+
+<p>));</p>
+
+<p>$includer->setFiles(array(</p>
+
+<pre><code>'config/default.php',
+</code></pre>
+
+<p>));</p>
+
+<p>use Aura\Router\Map;
+use Aura\Router\DefinitionFactory;
+use Aura\Router\RouteFactory;</p>
+
+<p>$router = new Map(new DefinitionFactory, new RouteFactory);</p>
+
+<p>use Aura\Di\Container;
+use Aura\Di\Forge;
+use Aura\Di\Config;</p>
+
+<p>$di = new Container(new Forge(new Config));</p>
+
+<p>$includer->setVars(array(</p>
+
+<pre><code>'loader' =&gt; $loader,
+'router' =&gt; $router,
+'di' =&gt; $di,
+</code></pre>
+
+<p>));</p>
+
+<p>if (! file_exists(<strong>DIR</strong> . &lsquo;/cache/includer.php&rsquo;)) {</p>
+
+<pre><code>$includer-&gt;load();
+$text = $includer-&gt;read();
+file_put_contents(__DIR__ . '/cache/includer.php', '&lt;?php' . PHP_EOL . $text);
+</code></pre>
+
+<p>} else {</p>
+
+<pre><code>$includer-&gt;setCacheFile(__DIR__ . '/cache/includer.php');
+$includer-&gt;load();
+</code></pre>
+
+<p>}
+$stdio = $di->newInstance(&lsquo;Aura\Cli\Stdio&rsquo;);
+$stdio->outln(&lsquo;This is normal text.&rsquo;);
+```</p>
+
+<p>Install the dependencies via <code>composer</code> and run via cli <code>php includer.php</code>.</p>
+
+<p>The Aura.Includer is a nice addition for version 2
+( I am also seeing it can be used in version 1 )
+which will help a lot in the making of the framework with the libraries.</p>
+
+<p>If you are interested to use, learn, or have a feedback a warm welcome to
+<a href="https://groups.google.com/forum/#!forum/auraphp">join the google group for aura project for PHP</a></p>
+
+<p>Have a nice day ahead. Enjoy PHPing.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Aura Framework Released]]></title>
+    <link href="http://harikt.com/blog/2013/09/19/aura-framework-released/"/>
+    <updated>2013-09-19T19:58:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/09/19/aura-framework-released</id>
+    <content type="html"><![CDATA[<p>It is a great feeling, and one of the happiest moment in my life when
+<a href="http://auraphp.com/blog/2013/09/18/aura-framework-stable-system-release/">aura releases its stable framework</a>.</p>
+
+<p>Aura is one of my first framework, which helped me to learn the inner
+working of a framework, how to create a framework, rather than playing
+with full stack framework.</p>
+
+<p>If you are interested to learn or contribute in the next version of Aura
+<a href="http://groups.google.com/group/auraphp">join the group</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The book on aura]]></title>
+    <link href="http://harikt.com/blog/2013/07/09/the-book-on-aura/"/>
+    <updated>2013-07-09T06:55:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/07/09/the-book-on-aura</id>
+    <content type="html"><![CDATA[<p>There has been lot of requests to show how the individual packages
+in aura, can be made use inside the framework.</p>
+
+<p>So today I am happy to announce that there is a work in progress
+to make the framework documentation better. I have already started
+the work on the same.</p>
+
+<p>You can <a href="http://auraphp.com/manuals/">read the chapters online</a>.</p>
+
+<p>The examples used in the book are also online at<br/>
+<a href="https://github.com/harikt/Example.Package">https://github.com/harikt/Example.Package</a></p>
+
+<blockquote><p>I hope Something is better than nothing.</p></blockquote>
+
+<h2>Question / Doubts</h2>
+
+<p>Ask your question / doubts in
+<a href="https://groups.google.com/forum/#!forum/auraphp">google groups</a></p>
+
+<h2>Feedback</h2>
+
+<p>I will be more happy to hear your feedback, critics, comments etc.
+So do shout at me.</p>
+
+<h2>Contributing</h2>
+
+<p>If you interested in contributing to make it better, it is available
+at <a href="https://github.com/auraphp/auraphp.github.com">https://github.com/auraphp/auraphp.github.com</a></p>
+
+<p>Written in markdown. Still have hard time understanding things, create
+an issue mentioning the problems you are facing.</p>
+
+<h2>Thanks</h2>
+
+<p>I would like to thank Paul M Jones for the awesome work he has done
+on aura.</p>
+
+<p>A special Thanks to <a href="https://github.com/jsurgeson">Jeff Surgeson</a> for
+continously asking for the book.</p>
+
+<p>Last but not the least, all who have motivated me to write a book.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A sample tutorial package]]></title>
+    <link href="http://harikt.com/blog/2013/06/21/a-sample-tutorial-package/"/>
+    <updated>2013-06-21T22:04:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/06/21/a-sample-tutorial-package</id>
+    <content type="html"><![CDATA[<p>A sample application (still a WIP) to show a real world demo for the aura framework with Propel2.</p>
+
+<p>Things can be done in an improved/advanced way and if you find something wrong create an issue or
+consider giving a Pull Request.</p>
+
+<p>The application is a blog tutorial. Hope this will help you to start with aura. Feel free to use your own orm
+or Aura.Sql and build your own models.</p>
+
+<h2>Installation</h2>
+
+<h2>via zip</h2>
+
+<p>Download the zip, unzip <code>Hari.Sample</code> and place it in the <code>package</code> folder.</p>
+
+<h2>via git</h2>
+
+<p>Move to package folder and clone the repo</p>
+
+<p><code>
+git clone https://github.com/harikt/Hari.Sample.git
+</code></p>
+
+<h2>via composer</h2>
+
+<p>If you have not yet played with <code>aura</code> framework. Download the composer.phar file. I assume the <code>composer.phar</code> is
+globally available in the name composer. Else use the path to the <code>composer.phar</code> according to yours.</p>
+
+<p><code>
+composer create-project --stability=dev aura/system sampleproject
+</code></p>
+
+<p>This will create a folder named <code>sampleproject</code> cloning the <a href="https://github.com/auraphp/system">https://github.com/auraphp/system</a> repo and downloading
+the rest of the packages.</p>
+
+<p>Move to the folder by</p>
+
+<p><code>
+cd sampleproject
+</code></p>
+
+<p>Now let us install the <code>hari/sample</code> via composer.</p>
+
+<p><code>
+"hari/sample": "dev-master"
+</code></p>
+
+<p>So your <code>composer.json</code> will look like</p>
+
+<p>```
+{</p>
+
+<pre><code>"minimum-stability": "dev",
+"require": {
+    "aura/installer-system" : "1.0.0",
+    "aura/framework"        : "dev-develop",
+    "aura/demo"             : "dev-develop",
+    "hari/sample"           : "dev-master"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Let us run composer update and install the <code>hari/sample</code> package and its dependencies.</p>
+
+<p><code>
+composer update
+</code></p>
+
+<p>This will install <code>hari/sample</code> and also the dependency <code>propelorm</code> version 2.</p>
+
+<h2>Building configuration</h2>
+
+<p>Edit the <code>runtime-conf.xml</code> file located at <code>config</code> folder. Change the <code>database</code>, <code>username</code> and <code>password</code>
+according to yours.</p>
+
+<p><code>
+vendor/bin/propel config:convert-xml --output-dir=package/Hari.Sample/config --input-dir=package/Hari.Sample/config
+</code></p>
+
+<h2>Building sql</h2>
+
+<p>Edit the <code>runtime-conf.xml</code> file located at <code>config</code> folder. Change the <code>database</code>, <code>username</code> and <code>password</code>
+according to yours.</p>
+
+<p><code>
+vendor/bin/propel sql:build --input-dir=package/Hari.Sample --output-dir=package/Hari.Sample/data
+</code></p>
+
+<h2>Propel model generation</h2>
+
+<p>The model is generated by propel from the schema located at <code>package/Hari.Sample/schema.xml</code>.
+The package already have the generated classes. If you want to re-generate the model classes
+after modifying the schema run the command.</p>
+
+<p><code>
+vendor/bin/propel model:build --input-dir=package/Hari.Sample --output-dir=package/Hari.Sample/src
+</code></p>
+
+<h2>Enabling the Package</h2>
+
+<p>If you have installed <code>hari/sample</code> via <code>composer</code> then you can skip this step.
+Else you need to edit the <code>config/_packages</code> and add <code>Hari.Sample</code> to the end of file.</p>
+
+<p>Any troubles create an issue or ask in auraphp at googlegroups.com</p>
+
+<h2>What is in it?</h2>
+
+<p>Blog tutorial.</p>
+
+<p>Register a user</p>
+
+<p><img src="https://github.com/harikt/Hari.Sample/raw/master/web/img/register.png" alt="Register a user" /></p>
+
+<p>Login to add posts</p>
+
+<p><img src="https://github.com/harikt/Hari.Sample/raw/master/web/img/login.png" alt="Login as the user" /></p>
+
+<p><img src="https://github.com/harikt/Hari.Sample/raw/master/web/img/add-post.png" alt="Add post" /></p>
+
+<p>List all Posts</p>
+
+<p><img src="https://github.com/harikt/Hari.Sample/raw/master/web/img/posts.png" alt="List all posts" /></p>
+
+<p>Post has threaded comments.</p>
+
+<p><img src="https://github.com/harikt/Hari.Sample/raw/master/web/img/comments.png" alt="Threaded comments" /></p>
+
+<h2>Known problems</h2>
+
+<p><a href="https://groups.google.com/d/msg/propel-users/x6PH_DwLtVE/H84o1cu4W4kJ">The edit post doesn&rsquo;t work</a>.</p>
+
+<p>Comments Thread, probably not the right way to do with Propel? <a href="https://groups.google.com/d/msg/propel-users/d8p-nw_4x4A/YYpkcP-EqUkJ">Question here</a></p>
+
+<p>and much more.</p>
+
+<h2>Credits and Thanks</h2>
+
+<p><a href="https://github.com/simensen">Beau Simensen</a>
+<a href="https://github.com/pmjones">Paul M Jones</a></p>
+
+<p><a href="http://auraphp.com">Aura Packages</a>
+<a href="http://getcomposer.org">Composer</a>
+<a href="http://propelorm.org">Propel</a>
+<a href="http://symfony.com">Symfony</a></p>
+
+<p>to all the people who motivated me to bring this sample application.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Aura.Web, build your own controller class]]></title>
+    <link href="http://harikt.com/blog/2013/06/04/aura-dot-web/"/>
+    <updated>2013-06-04T07:47:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/06/04/aura-dot-web</id>
+    <content type="html"><![CDATA[<p>If you are new to the concept of MVC, or if you are planning to build your
+own framework, probably Aura.Web help you to do the same.</p>
+
+<p>Here is the article in phpmaster.com <a href="http://phpmaster.com/aura-web-auras-page-controller-for-mvc/">Aura.Web: Aura’s Page Controller for MVC</a>.</p>
+
+<p>Probably you may also like the article <a href="http://phpmaster.com/web-routing-in-php-with-aura-router/">Web Routing in PHP with Aura.Router</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

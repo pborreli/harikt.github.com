@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: manuals | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/manuals/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2013-10-30T15:20:28+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Book on Aura moved to Manual]]></title>
+    <link href="http://harikt.com/blog/2013/09/07/book-on-aura-moved-to-manual/"/>
+    <updated>2013-09-07T12:08:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/09/07/book-on-aura-moved-to-manual</id>
+    <content type="html"><![CDATA[<p>Some days back I wrote about a WIP of
+<a href="http://harikt.com/blog/2013/07/09/the-book-on-aura/">The Book on Aura</a></p>
+
+<p>It got some attention and pull requests.</p>
+
+<p><a href="https://github.com/koriym/the-book-on-aura-ja">Akihito Koriyama</a>
+have already started to convert the documentation to Japanese.</p>
+
+<p>And today I am happy to announce that it is officially going to the
+manuals.</p>
+
+<h2>Contributing</h2>
+
+<p>Fork
+<a href="https://github.com/auraphp/auraphp.github.com">https://github.com/auraphp/auraphp.github.com</a>
+and contribute to the manuals.</p>
+
+<p>The manuals are in different languages. Currently<br/>
+<a href="https://github.com/koriym/the-book-on-aura-ja">Akihito Koriyama</a>
+is working on Japanese translation.</p>
+
+<p>We are aware some parts of the manual needs a rewrite / more explanation.
+If you are interested to learn and contribute get in touch via
+<a href="http://groups.google.com/group/auraphp">http://groups.google.com/group/auraphp</a>.</p>
+
+<p>If you are looking for library documentation check
+<a href="http://auraphp.com/packages/">packages documentation</a>.
+The manuals is to show you how to use Aura Framework, which is built
+on top of the <a href="http://auraphp.com/packages/">aura libraries</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

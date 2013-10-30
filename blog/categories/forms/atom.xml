@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: forms | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/forms/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2013-10-30T15:20:28+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Standalone Form component for PHP]]></title>
+    <link href="http://harikt.com/blog/2012/03/06/standalone-form-component-for-php/"/>
+    <updated>2012-03-06T22:18:00+05:30</updated>
+    <id>http://harikt.com/blog/2012/03/06/standalone-form-component-for-php</id>
+    <content type="html"><![CDATA[<p>Update : I wrote an article on <a href="http://harikt.com/blog/2013/05/21/standalone-forms-and-validation/">Standalone Forms and Validation</a></p>
+
+<p>Recently I was reading the post <a href="http://webmozarts.com/2012/03/06/symfony2-form-architecture/">Symfony2 Form Architecture</a> by
+<a href="https://twitter.com/#!/webmozart">Bernhard Schussek</a> . The main aim of his post was to make use of
+Symfony2 form component in Zend Framework 2 as the form architecture
+which was written in <a href="http://framework.zend.com/wiki/display/ZFDEV2/RFC+-+Forms">RFC</a> seems almost the same. This is a small
+feedback I would love to give as I am interested to make the Form as a
+standalone component, what ever framework we are using.</p>
+
+<p>These all started with probably @fabpot tweets about it .</p>
+
+<blockquote><p>Is it just me or is the <a href="https://twitter.com/search/%2523ZF2">#ZF2</a> form RFC heavily inspired by
+<a href="https://twitter.com/search/%2523Symfony2">#Symfony2</a>? /cc @<a href="https://twitter.com/webmozart">webmozart</a>
+<a href="http://t.co/cRf01a3X" title="http://framework.zend.com/wiki/display/ZFDEV2/RFC+-+Forms">framework.zend.com/wiki/display/Z…</a></p>
+
+<p>— Fabien Potencier (@fabpot) <a href="https://twitter.com/fabpot/status/174153351372611584">February 27, 2012</a></p></blockquote>
+
+<script src="http://harikt.com//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>Some months back as of Symfony2 stable was released I tried to
+incorporate the Form component to <a href="https://github.com/auraphp">Aura Project for PHP</a> which was
+aiming for 5.3 at that time. But now looking forward to 5.4 + only</p>
+
+<p>Let have a look into the Symfony2 dependencies for Form component which
+is described in pear.symfony.com</p>
+
+<p>EventDispatcher, Validator, Locale .</p>
+
+<p>AuraPHP already have a Signal / Slot / Event Handler , so it doesn&rsquo;t
+need the EventDispatcher, like the same ZF2 already have one, so I
+feel EventDispatcher is not needed for both the frameworks. Lets don&rsquo;t
+think what we have, lets see whether adding these components
+really solve in creating to make it as a standalone component ?</p>
+
+<p>
+<script src="http://pastie.org/2954729.js"></script>
+</p>
+
+
+<p>[<img src="http://farm8.staticflickr.com/7055/6813319456_3441d6be49.jpg" alt="Sf2Form" />][]</p>
+
+<p>I have taken a screenshot of the tweets I got in reply. Thanks to all
+who tried to help me .Below is the link to the details, and I hope you
+can go more detailed on the tweets if needed.</p>
+
+<p>  [<img src="http://farm8.staticflickr.com/7055/6813319456_3441d6be49.jpg" alt="Sf2Form" />]: <a href="http://www.flickr.com/photos/harikt/6813319456/">http://www.flickr.com/photos/harikt/6813319456/</a></p>
+
+<pre><code>"Sf2Form by K T Hari, on Flickr"
+</code></pre>
+
+<blockquote><p>@<a href="https://twitter.com/harikt">harikt</a> You don&rsquo;t need Twig. Simply the Twig form rendering is
+easier to get standalone. the PHP one is in the bundle @<a href="https://twitter.com/weaverryan">weaverryan</a>
+@<a href="https://twitter.com/fabpot">fabpot</a></p>
+
+<p>— Christophe Coevoet (@Stof70) <a href="https://twitter.com/Stof70/status/142643884047089664">December 2, 2011</a></p></blockquote>
+
+<script src="http://harikt.com//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>So what is missing for Symfony2 form component ? It needs more
+components as shown in the gist  below</p>
+
+<p>
+<script src="https://gist.github.com/1170166.js"> </script>
+</p>
+
+
+<p>So to conclude though the Symfony2 Form mentions as a standalone, its
+not a standalone component at-least looking from a user point of view
+like me. You can see various people asking about how to use Symfony2
+Form component as a standalone in <a href="https://groups.google.com/forum/?fromgroups#!topic/symfony-users/aAqDJjkl2gQ">google groups</a>. But what people
+points is to Silex again build on the shoulder of Symfony2 component . I
+am not against Symfony2 , please don&rsquo;t feel so. But I just want to bring
+the fact that, than writing a big architecture, people would be looking
+how we can integrate it as standalone .</p>
+
+<p>So in my view I am looking forward to see how ZF2 will make a change
+from Symfony2 or will it be the same like binding everything . I am also
+looking forward to see how <a href="http://auraphp.github.com">Aura project for PHP 5.4</a> can bring Form .
+I have limited knowledge, so I may be wrong on the above things too.
+Feel free to correct me</p>
+
+<p>I am looking for something like the one below, yes of-course we need
+validation and stuffs , but it will be standalone , no matter :&ndash;) .</p>
+
+<p>```php
+&lt;?php
+//PFBC 2.x PHP 5 >= 5.3   <br/>
+session_start();   <br/>
+include($_SERVER[&ldquo;DOCUMENT_ROOT&rdquo;] . &ldquo;/PFBC/Form.php&rdquo;);
+$form = new PFBC\Form(&ldquo;GettingStarted&rdquo;, 300);
+$form->addElement(new PFBC\Element\Textbox(&ldquo;My Textbox:&rdquo;, &ldquo;MyTextbox&rdquo;));
+$form->addElement(new PFBC\Element\Select(</p>
+
+<pre><code>"My Select:",
+"MySelect",
+array(
+    "Option #1",
+    "Option #2",
+    "Option #3"
+)
+</code></pre>
+
+<p>));
+$form->addElement(new PFBC\Element\Button);
+$form->render();</p>
+
+<p>//PFBC 2.x PHP 5
+session_start();
+include($_SERVER[&ldquo;DOCUMENT_ROOT&rdquo;] . &ldquo;/PFBC/Form.php&rdquo;);
+$form = new Form(&ldquo;GettingStarted&rdquo;, 300);
+$form->addElement(new Element_Textbox(&ldquo;My Textbox:&rdquo;, &ldquo;MyTextbox&rdquo;));
+$form->addElement(new Element_Select(</p>
+
+<pre><code>"My Select:", 
+"MySelect", 
+array(        
+    "Option #1",        
+    "Option #2",        
+    "Option #3"     
+)
+</code></pre>
+
+<p>));   <br/>
+$form->addElement(new Element_Button);
+$form->render();
+```</p>
+
+<p>An example where I can show such a standalone one is
+<a href="http://code.google.com/p/php-form-builder-class/">http://code.google.com/p/php-form-builder-class/</a> . Currently to render
+the form either you need <a href="https://github.com/symfony/TwigBridge">TwigBridge</a> or <a href="https://github.com/symfony/FrameworkBundle">FrameworkBundle</a> .</p>
+
+<blockquote><p>@<a href="https://twitter.com/harikt">harikt</a> There is 2 implementations: TwigBridge and in
+FrameworkBundle but you could write one for Aura.View /cc
+@<a href="https://twitter.com/webmozart">webmozart</a></p>
+
+<p>— Christophe Coevoet (@Stof70) <a href="https://twitter.com/Stof70/status/177148060881788929">March 6, 2012</a></p></blockquote>
+
+<script src="http://harikt.com//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>If you are using Framework bundle you need <a href="https://github.com/symfony/FrameworkBundle/blob/master/Templating/Helper/FormHelper.php">Templating component</a> and
+to my understanding if you are using TwigBundle you need Twig itself .
+So is this a standalone ? Also if its really a standalone why it didn&rsquo;t
+find a documentation as in
+<a href="http://symfony.com/doc/current/components/index.html">http://symfony.com/doc/current/components/index.html</a> . The Symfony2 has
+released months back, so I don&rsquo;t feel Symfony2 form is a standalone in
+the sense as I shown in the example .</p>
+]]></content>
+  </entry>
+  
+</feed>

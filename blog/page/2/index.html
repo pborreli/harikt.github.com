@@ -1,0 +1,2131 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Random thoughts | Hari KT</title>
+  <meta name="author" content="Hari K T">
+
+  
+  <meta name="description" content="A sample application (still a WIP) to show a real world demo for the aura framework with Propel2. Things can be done in an improved/advanced way and &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://harikt.com/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/harikt/YKAJ" rel="alternate" title="Random thoughts | Hari KT" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5998889-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Random thoughts | Hari KT</a></h1>
+  
+    <h2>On programming</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/harikt/YKAJ" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:harikt.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/who-am-i/">Who am I?</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/21/a-sample-tutorial-package/">A Sample Tutorial Package</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-21T22:04:00+05:30" pubdate data-updated="true">Jun 21<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A sample application (still a WIP) to show a real world demo for the aura framework with Propel2.</p>
+
+<p>Things can be done in an improved/advanced way and if you find something wrong create an issue or
+consider giving a Pull Request.</p>
+
+<p>The application is a blog tutorial. Hope this will help you to start with aura. Feel free to use your own orm
+or Aura.Sql and build your own models.</p>
+
+<h2>Installation</h2>
+
+<h2>via zip</h2>
+
+<p>Download the zip, unzip <code>Hari.Sample</code> and place it in the <code>package</code> folder.</p>
+
+<h2>via git</h2>
+
+<p>Move to package folder and clone the repo</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone https://github.com/harikt/Hari.Sample.git</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>via composer</h2>
+
+<p>If you have not yet played with <code>aura</code> framework. Download the composer.phar file. I assume the <code>composer.phar</code> is
+globally available in the name composer. Else use the path to the <code>composer.phar</code> according to yours.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>composer create-project --stability=dev aura/system sampleproject</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will create a folder named <code>sampleproject</code> cloning the <a href="https://github.com/auraphp/system">https://github.com/auraphp/system</a> repo and downloading
+the rest of the packages.</p>
+
+<p>Move to the folder by</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd sampleproject</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now let us install the <code>hari/sample</code> via composer.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"hari/sample": "dev-master"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So your <code>composer.json</code> will look like</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>    "minimum-stability": "dev",
+</span><span class='line'>    "require": {
+</span><span class='line'>        "aura/installer-system" : "1.0.0",
+</span><span class='line'>        "aura/framework"        : "dev-develop",
+</span><span class='line'>        "aura/demo"             : "dev-develop",
+</span><span class='line'>        "hari/sample"           : "dev-master"
+</span><span class='line'>    }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let us run composer update and install the <code>hari/sample</code> package and its dependencies.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>composer update</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will install <code>hari/sample</code> and also the dependency <code>propelorm</code> version 2.</p>
+
+<h2>Building configuration</h2>
+
+<p>Edit the <code>runtime-conf.xml</code> file located at <code>config</code> folder. Change the <code>database</code>, <code>username</code> and <code>password</code>
+according to yours.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vendor/bin/propel config:convert-xml --output-dir=package/Hari.Sample/config --input-dir=package/Hari.Sample/config</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Building sql</h2>
+
+<p>Edit the <code>runtime-conf.xml</code> file located at <code>config</code> folder. Change the <code>database</code>, <code>username</code> and <code>password</code>
+according to yours.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vendor/bin/propel sql:build --input-dir=package/Hari.Sample --output-dir=package/Hari.Sample/data</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Propel model generation</h2>
+
+<p>The model is generated by propel from the schema located at <code>package/Hari.Sample/schema.xml</code>.
+The package already have the generated classes. If you want to re-generate the model classes
+after modifying the schema run the command.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vendor/bin/propel model:build --input-dir=package/Hari.Sample --output-dir=package/Hari.Sample/src</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Enabling the Package</h2>
+
+<p>If you have installed <code>hari/sample</code> via <code>composer</code> then you can skip this step.
+Else you need to edit the <code>config/_packages</code> and add <code>Hari.Sample</code> to the end of file.</p>
+
+<p>Any troubles create an issue or ask in auraphp at googlegroups.com</p>
+
+<h2>What is in it?</h2>
+
+<p>Blog tutorial.</p>
+
+<p>Register a user</p>
+
+<p><img src="https://github.com/harikt/Hari.Sample/raw/master/web/img/register.png" alt="Register a user" /></p>
+
+<p>Login to add posts</p>
+
+<p><img src="https://github.com/harikt/Hari.Sample/raw/master/web/img/login.png" alt="Login as the user" /></p>
+
+<p><img src="https://github.com/harikt/Hari.Sample/raw/master/web/img/add-post.png" alt="Add post" /></p>
+
+<p>List all Posts</p>
+
+<p><img src="https://github.com/harikt/Hari.Sample/raw/master/web/img/posts.png" alt="List all posts" /></p>
+
+<p>Post has threaded comments.</p>
+
+<p><img src="https://github.com/harikt/Hari.Sample/raw/master/web/img/comments.png" alt="Threaded comments" /></p>
+
+<h2>Known problems</h2>
+
+<p><a href="https://groups.google.com/d/msg/propel-users/x6PH_DwLtVE/H84o1cu4W4kJ">The edit post doesn&rsquo;t work</a>.</p>
+
+<p>Comments Thread, probably not the right way to do with Propel? <a href="https://groups.google.com/d/msg/propel-users/d8p-nw_4x4A/YYpkcP-EqUkJ">Question here</a></p>
+
+<p>and much more.</p>
+
+<h2>Credits and Thanks</h2>
+
+<p><a href="https://github.com/simensen">Beau Simensen</a>
+<a href="https://github.com/pmjones">Paul M Jones</a></p>
+
+<p><a href="http://auraphp.com">Aura Packages</a>
+<a href="http://getcomposer.org">Composer</a>
+<a href="http://propelorm.org">Propel</a>
+<a href="http://symfony.com">Symfony</a></p>
+
+<p>to all the people who motivated me to bring this sample application.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/04/aura-dot-web/">Aura.Web, Build Your Own Controller Class</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-04T07:47:00+05:30" pubdate data-updated="true">Jun 4<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you are new to the concept of MVC, or if you are planning to build your
+own framework, probably Aura.Web help you to do the same.</p>
+
+<p>Here is the article in phpmaster.com <a href="http://phpmaster.com/aura-web-auras-page-controller-for-mvc/">Aura.Web: Aura’s Page Controller for MVC</a>.</p>
+
+<p>Probably you may also like the article <a href="http://phpmaster.com/web-routing-in-php-with-aura-router/">Web Routing in PHP with Aura.Router</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/25/aura-system-released-beta5/">Aura System Released Beta5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-25T21:44:00+05:30" pubdate data-updated="true">May 25<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Yesterday Paul M Jones tagged the beta5 for the system repo.</p>
+
+<p>So you can download the system from <a href="http://auraphp.com/system/downloads">http://auraphp.com/system/downloads/</a></p>
+
+<h2>via composer</h2>
+
+<p>Creating aura framework based projects has been made easy with composer. You can run</p>
+
+<pre><code>php composer.phar create-project -s dev aura/system your-directory
+</code></pre>
+
+<p>What it does is almost similar to git clone and installing via git as below</p>
+
+<p>via git</p>
+
+<pre><code>git clone https://github.com/auraphp/system
+cd system
+php update.php
+</code></pre>
+
+<p>you can also skip php update.php with</p>
+
+<pre><code>php composer.phar install
+</code></pre>
+
+<p>You can read some basic introduction from <a href="http://auraphp.com/system">http://auraphp.com/system/</a></p>
+
+<p>NB : If you haven&rsquo;t heard about composer you can read it from <a href="http://getcomposer.org">getcomposer.org</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/23/standalone-form-for-php/">Standalone Form for PHP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-23T07:03:00+05:30" pubdate data-updated="true">May 23<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Yesterday I wrote about <a href="http://harikt.com/blog/2013/05/21/standalone-forms-and-validation/">Standalone Forms and Validation</a>. It may need
+a little bit knowledge on how the <a href="http://auraphp.com/packages">Aura.Filter</a> works. But that is
+a good start if you want to know how you can integrate the pieces of Aura.</p>
+
+<p>Today I think I need to show you the very minimal approach you can take
+to build the form and validate your form. If you want to
+use a powerful validation and filtering use something like <a href="http://auraphp.com/packages">Aura.Filter</a>
+or bind your favourite components which does the validation <a href="https://github.com/Respect/Validation">Respect</a>, <a href="https://github.com/symfony/validator">Symfony2 Validator</a>,
+<a href="https://github.com/vlucas/valitron">valitron</a> and filtering with something like <a href="https://github.com/rdohms/DMS-Filter">DMS-Filter</a>.</p>
+
+<p>You can see how you can integrate with different components as I did with
+<a href="http://auraphp.com/packages">Aura.Filter</a> in the example in master branch.</p>
+
+<p>I assume you know a bit about <a href="http://getcomposer.org">composer</a> and how to install.</p>
+
+<p>The <code>composer.json</code> file</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;minimum-stability&quot;</span><span class="o">:</span> <span class="s2">&quot;dev&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;require&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;aura/input&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0-beta1&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;aura/view&quot;</span><span class="o">:</span> <span class="s2">&quot;1.1.2&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The page which you need to bring the form.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Builder</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Filter</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Form</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$loader</span> <span class="o">=</span> <span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ContactForm</span> <span class="k">extends</span> <span class="nx">Form</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;cols&#39;</span> <span class="o">=&gt;</span> <span class="mi">40</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;rows&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="s1">&#39;submit&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span><span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;send&#39;</span><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$filter</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFilter</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span>
+</span><span class='line'>            <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="s1">&#39;Name must be alphabetic only.&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="nb">ctype_alpha</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;Enter a valid email address&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;Enter a valid url&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_URL</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;Message should be more than 7 characters&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContactForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">Filter</span><span class="p">());</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span> <span class="o">&amp;&amp;</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;submit&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;send&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">;</span>
+</span><span class='line'>    <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">fill</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">())</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//</span>
+</span><span class='line'>        <span class="k">echo</span> <span class="s2">&quot;Yes successfully validated and filtered&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">exit</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$helper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Aura\View\HelperLocator</span><span class="p">([</span>
+</span><span class='line'>    <span class="s1">&#39;field&#39;</span>         <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Field</span><span class="p">(</span>
+</span><span class='line'>            <span class="k">require</span> <span class="nb">dirname</span><span class="p">(</span><span class="nx">__DIR__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/view/scripts/field_registry.php&#39;</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="s1">&#39;input&#39;</span>         <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Input</span><span class="p">(</span>
+</span><span class='line'>            <span class="k">require</span> <span class="nb">dirname</span><span class="p">(</span><span class="nx">__DIR__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/view/scripts/input_registry.php&#39;</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="s1">&#39;radios&#39;</span>        <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Radios</span><span class="p">(</span><span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Input\Checked</span><span class="p">);</span> <span class="p">},</span>
+</span><span class='line'>    <span class="s1">&#39;repeat&#39;</span>         <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Repeat</span><span class="p">(</span>
+</span><span class='line'>            <span class="k">require</span> <span class="nb">dirname</span><span class="p">(</span><span class="nx">__DIR__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/view/scripts/repeat_registry.php&#39;</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="s1">&#39;select&#39;</span>        <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Select</span><span class="p">;</span> <span class="p">},</span>
+</span><span class='line'>    <span class="s1">&#39;textarea&#39;</span>      <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Textarea</span><span class="p">;</span> <span class="p">},</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$field</span> <span class="o">=</span> <span class="nv">$helper</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;field&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="k">function</span> <span class="nf">showFieldErrors</span><span class="p">(</span><span class="nv">$form</span><span class="p">,</span> <span class="nv">$name</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$errors</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getMessages</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+</span><span class='line'>    <span class="nv">$str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nv">$errors</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$str</span> <span class="o">.=</span> <span class="s1">&#39;&lt;ul&gt;&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$errors</span> <span class="k">as</span> <span class="nv">$error</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$str</span> <span class="o">.=</span> <span class="s1">&#39;&lt;li&gt;&#39;</span> <span class="o">.</span> <span class="nv">$error</span> <span class="o">.</span> <span class="s1">&#39;&lt;/li&gt;&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="nv">$str</span> <span class="o">.=</span> <span class="s1">&#39;&lt;/ul&gt;&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nv">$str</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;html&gt;</span>
+</span><span class='line'><span class="x">&lt;head&gt;</span>
+</span><span class='line'><span class="x">    &lt;title&gt;Aura Form, to make it standalone&lt;/title&gt;</span>
+</span><span class='line'><span class="x">&lt;/head&gt;</span>
+</span><span class='line'><span class="x">&lt;body&gt;</span>
+</span><span class='line'><span class="x">    &lt;form method=&quot;post&quot; action=&quot;&quot; enctype=&quot;multipart/form-data&quot; &gt;</span>
+</span><span class='line'><span class="x">        &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;</span>
+</span><span class='line'><span class="x">            &lt;tr&gt;</span>
+</span><span class='line'><span class="x">                &lt;td&gt;Name : &lt;/td&gt;</span>
+</span><span class='line'><span class="x">                &lt;td&gt;</span>
+</span><span class='line'><span class="x">                </span><span class="cp">&lt;?php</span>
+</span><span class='line'>                    <span class="k">echo</span> <span class="nv">$field</span><span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">));</span>
+</span><span class='line'>                    <span class="k">echo</span> <span class="nx">showFieldErrors</span><span class="p">(</span><span class="nv">$form</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">);</span>
+</span><span class='line'>                <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">                &lt;/td&gt;</span>
+</span><span class='line'><span class="x">            &lt;/tr&gt;</span>
+</span><span class='line'><span class="x">            &lt;tr&gt;</span>
+</span><span class='line'><span class="x">                &lt;td&gt;Email : &lt;/td&gt;</span>
+</span><span class='line'><span class="x">                &lt;td&gt;</span>
+</span><span class='line'><span class="x">                </span><span class="cp">&lt;?php</span>
+</span><span class='line'>                    <span class="k">echo</span> <span class="nv">$field</span><span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">));</span>
+</span><span class='line'>                    <span class="k">echo</span> <span class="nx">showFieldErrors</span><span class="p">(</span><span class="nv">$form</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">);</span>
+</span><span class='line'>                <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">                &lt;/td&gt;</span>
+</span><span class='line'><span class="x">            &lt;/tr&gt;</span>
+</span><span class='line'><span class="x">            &lt;tr&gt;</span>
+</span><span class='line'><span class="x">                &lt;td&gt;Url : &lt;/td&gt;</span>
+</span><span class='line'><span class="x">                &lt;td&gt;</span>
+</span><span class='line'><span class="x">                </span><span class="cp">&lt;?php</span>
+</span><span class='line'>                    <span class="k">echo</span> <span class="nv">$field</span><span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">));</span>
+</span><span class='line'>                    <span class="k">echo</span> <span class="nx">showFieldErrors</span><span class="p">(</span><span class="nv">$form</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">);</span>
+</span><span class='line'>                <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">                &lt;/td&gt;</span>
+</span><span class='line'><span class="x">            &lt;/tr&gt;</span>
+</span><span class='line'><span class="x">            &lt;tr&gt;</span>
+</span><span class='line'><span class="x">                &lt;td&gt;Message : &lt;/td&gt;</span>
+</span><span class='line'><span class="x">                &lt;td&gt;</span>
+</span><span class='line'><span class="x">                </span><span class="cp">&lt;?php</span>
+</span><span class='line'>                    <span class="k">echo</span> <span class="nv">$field</span><span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">));</span>
+</span><span class='line'>                    <span class="k">echo</span> <span class="nx">showFieldErrors</span><span class="p">(</span><span class="nv">$form</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">);</span>
+</span><span class='line'>                <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">                &lt;/td&gt;</span>
+</span><span class='line'><span class="x">            &lt;/tr&gt;</span>
+</span><span class='line'><span class="x">            &lt;tr&gt;</span>
+</span><span class='line'><span class="x">                &lt;td colspan=&quot;2&quot;&gt;</span>
+</span><span class='line'><span class="x">                </span><span class="cp">&lt;?php</span>
+</span><span class='line'>                <span class="k">echo</span> <span class="nv">$field</span><span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">));</span>
+</span><span class='line'>                <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">                &lt;/td&gt;</span>
+</span><span class='line'><span class="x">            &lt;/tr&gt;</span>
+</span><span class='line'><span class="x">        &lt;/table&gt;</span>
+</span><span class='line'><span class="x">    &lt;/form&gt;</span>
+</span><span class='line'><span class="x">&lt;/body&gt;</span>
+</span><span class='line'><span class="x">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&rsquo;s it. Pretty clear I guess. Still having trouble?
+The whole code lies in the <a href="https://github.com/harikt/phpform/tree/minimalview">minimalview</a> branch of the <a href="https://github.com/harikt/phpform">phpform</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/21/standalone-forms-and-validation/">Standalone Forms and Validation</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-21T20:15:00+05:30" pubdate data-updated="true">May 21<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Update : I wrote a very minimal approach <a href="http://harikt.com/blog/2013/05/23/standalone-form-for-php/">here</a></p>
+
+<p>Recently <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> was tagged Beta1. I would like to show you how you
+can use <a href="http://auraphp.com/Aura.Input/">Aura.Input</a>, <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a> and <a href="http://auraphp.com/Aura.View/">Aura.View</a> to create form.</p>
+
+<p>The <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> itself contains a basic filter implementation. As shown
+in earlier post <a href="http://harikt.com/blog/2013/02/22/aura-turns-2/">Aura Turns 2</a></p>
+
+<p>But in this post let us use the power of <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a>. As <a href="http://auraphp.com/Aura.Input/">Aura.Input</a>
+doesn&rsquo;t have a rendering capability you may need to use <a href="http://auraphp.com/Aura.View/">Aura.View</a> as
+templating system ( see Using Aura.View ) or use the helper classes provided by <a href="http://auraphp.com/Aura.View/">Aura.View</a>
+( see below Without using Aura.View completely )
+or create your own helper classes to render the same from the hints
+( see Hints for the view ).</p>
+
+<p>The whole example is in <a href="https://github.com/harikt/phpform">https://github.com/harikt/phpform</a> repo.
+If you don&rsquo;t have composer, you can download it from <a href="http://getcomposer.org">http://getcomposer.org</a>
+and install the dependencies via composer.</p>
+
+<h2>In a nut shell</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone https://github.com/harikt/phpform
+</span><span class='line'>cd phpform
+</span><span class='line'>php composer.phar install
+</span><span class='line'>php -S localhost:8000 web/index.php</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Point your browser to the url <a href="http://localhost:8000">http://localhost:8000</a></p>
+
+<h2>Let us look into some details</h2>
+
+<p>Inorder to use <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a> with <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> we need to implement the
+<code>Aura\Input\FilterInterface</code>.</p>
+
+<p>This is just extending the <code>Aura\Filter\RuleCollection</code> and implementing
+the <code>Aura\Input\FilterInterface</code> as below.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">Domicile\Example</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Filter\RuleCollection</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\FilterInterface</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Filter</span> <span class="k">extends</span> <span class="nx">RuleCollection</span> <span class="k">implements</span> <span class="nx">FilterInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let us create the form class.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">Domicile\Example</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Form</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ContactForm</span> <span class="k">extends</span> <span class="nx">Form</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span>
+</span><span class='line'>                <span class="s1">&#39;cols&#39;</span> <span class="o">=&gt;</span> <span class="mi">40</span><span class="p">,</span>
+</span><span class='line'>                <span class="s1">&#39;rows&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">]);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="s1">&#39;submit&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">-&gt;</span><span class="na">setAttribs</span><span class="p">([</span><span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;send&#39;</span><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$filter</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getFilter</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;strlenMin&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">addSoftRule</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nv">$filter</span><span class="o">::</span><span class="na">IS</span><span class="p">,</span> <span class="s1">&#39;strlenMin&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create the filter object and pass it on instantiation of form.</p>
+
+<p>Please note that the $rootpath in this example is just above the vendor
+folder of the composer.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Domicile\Example\Filter</span><span class="p">(</span>
+</span><span class='line'>    <span class="k">new</span> <span class="nx">RuleLocator</span><span class="p">(</span><span class="nb">array_merge</span><span class="p">(</span>
+</span><span class='line'>        <span class="k">require</span> <span class="nv">$rootpath</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/filter/scripts/registry.php&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">[</span><span class="s1">&#39;any&#39;</span> <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$rule</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Aura\Filter\Rule\Any</span><span class="p">;</span>
+</span><span class='line'>            <span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">setRuleLocator</span><span class="p">(</span><span class="k">new</span> <span class="nx">RuleLocator</span><span class="p">(</span>
+</span><span class='line'>                <span class="k">require</span> <span class="nv">$rootpath</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/filter/scripts/registry.php&#39;</span>
+</span><span class='line'>            <span class="p">));</span>
+</span><span class='line'>            <span class="k">return</span> <span class="nv">$rule</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}]</span>
+</span><span class='line'>    <span class="p">)),</span>
+</span><span class='line'>    <span class="k">new</span> <span class="nx">Translator</span><span class="p">(</span><span class="k">require</span> <span class="nv">$rootpath</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/filter/intl/en_US.php&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Domicile\Example\ContactForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">,</span> <span class="nv">$filter</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> has two methods we can make use.</p>
+
+<p>1 ) fill() method helps us to fill the data values</p>
+
+<p>2 ) filter() method which helps to filter and validate data according to
+the rules specified in the form.</p>
+
+<p>The code will looks like</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span> <span class="o">&amp;&amp;</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;submit&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;send&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">;</span>
+</span><span class='line'>    <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">fill</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">())</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//</span>
+</span><span class='line'>        <span class="k">echo</span> <span class="s2">&quot;Yes successfully validated and filtered&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">exit</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The form element gives you hints for the view. An example from the above</p>
+
+<h2>Hints for the view</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="c1">// get the hints for the name field</span>
+</span><span class='line'><span class="nv">$hints</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// the hints array looks like this:</span>
+</span><span class='line'><span class="nv">$hints</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span>
+</span><span class='line'>  <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s1">&#39;attribs&#39;</span> <span class="o">=&gt;</span>
+</span><span class='line'>  <span class="k">array</span> <span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="k">NULL</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="k">NULL</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;size&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;maxlength&#39;</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+</span><span class='line'>  <span class="p">),</span>
+</span><span class='line'>  <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span>
+</span><span class='line'>  <span class="k">array</span> <span class="p">(</span>
+</span><span class='line'>  <span class="p">),</span>
+</span><span class='line'>  <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="k">NULL</span><span class="p">,</span>
+</span><span class='line'><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Without using Aura.View completely</h2>
+
+<p>If you are not planning to use Aura.View entirely as templating, you can
+make use of <a href="http://auraphp.com/Aura.View/">Aura.View</a> helpers which can render to make the form.</p>
+
+<p>For that you need to instantiate <code>Aura\View\HelperLocator</code> and get the
+field object as below.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$helper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Aura\View\HelperLocator</span><span class="p">([</span>
+</span><span class='line'>    <span class="s1">&#39;field&#39;</span>         <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Field</span><span class="p">(</span>
+</span><span class='line'>            <span class="k">require</span> <span class="nb">dirname</span><span class="p">(</span><span class="nx">__DIR__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/view/scripts/field_registry.php&#39;</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="s1">&#39;input&#39;</span>         <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Input</span><span class="p">(</span>
+</span><span class='line'>            <span class="k">require</span> <span class="nb">dirname</span><span class="p">(</span><span class="nx">__DIR__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/view/scripts/input_registry.php&#39;</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="s1">&#39;radios&#39;</span>        <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Radios</span><span class="p">(</span><span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Input\Checked</span><span class="p">);</span> <span class="p">},</span>
+</span><span class='line'>    <span class="s1">&#39;repeat&#39;</span>         <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Repeat</span><span class="p">(</span>
+</span><span class='line'>            <span class="k">require</span> <span class="nb">dirname</span><span class="p">(</span><span class="nx">__DIR__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/view/scripts/repeat_registry.php&#39;</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="s1">&#39;select&#39;</span>        <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Select</span><span class="p">;</span> <span class="p">},</span>
+</span><span class='line'>    <span class="s1">&#39;textarea&#39;</span>      <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">Aura\View\Helper\Form\Textarea</span><span class="p">;</span> <span class="p">},</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$field</span> <span class="o">=</span> <span class="nv">$helper</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;field&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$field</span><span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">));</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$field</span><span class="p">(</span><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// echo $field($form-&gt;get(&#39;form-element&#39;));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The above will output something like</p>
+
+<p><code>&lt;input id="name" type="text" name="name" size="20" maxlength="20" /&gt;</code></p>
+
+<h2>Using Aura.View</h2>
+
+<p>But you can use <a href="http://auraphp.com/Aura.View/">Aura.View</a> to render it nicely. An example is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">field</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">form</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">));</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can still look more closely on the <a href="https://github.com/harikt/phpform/blob/master/templates/default.php">templates</a> to see how it is used
+in the example.</p>
+
+<p>If you have any problems or confusions, let me know by comments.
+I will try to address the same.</p>
+
+<p>I would like to express huge Thanks to Paul M Jones for spending his
+valuable time on the project, giving valuable feedback on the implementations.</p>
+
+<p>Happy PhPing!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/27/seriously-tab-vs-spaces/">Seriously? Tab vs Spaces</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-27T07:38:00+05:30" pubdate data-updated="true">Feb 27<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have created a repo <a href="https://github.com/harikt/seriosuly">seriously</a>, and have <a href="https://github.com/harikt/seriosuly/commits/master">3 commits</a> as of now .</p>
+
+<p>It has a file <a href="https://github.com/harikt/seriosuly/blob/master/hell.php">hell.php</a>. I have created it by logging into <code>user X</code>
+and with vim as the editor without any settings in .vimrc.</p>
+
+<p><img class="center" src="/assets/images/vim-tab.png" title="vim with no settings, and used tab" alt="vim with no settings, and used tab"></p>
+
+<p>Then from user <code>harikt</code> I have edited with vim which has some .vimrc
+setting like 1 tab = 4 spaces. Look into the <a href="https://github.com/harikt/seriosuly/blob/master/hell.php">code</a> and see how beautiful
+it is.</p>
+
+<p>Opening with geany it looks</p>
+
+<p><img class="center" src="/assets/images/geany.png" title="Oh from geany with settings 1 tab = 4 spaces" alt="Oh from geany with settings 1 tab = 4 spaces"></p>
+
+<p>Let us don&rsquo;t create problems, but solutions!</p>
+
+<p>It is just one line you need to mention</p>
+
+<p>&ldquo;According to your editor settings set 1 tab = 4 spaces.&rdquo; . no?</p>
+
+<p>Or you don&rsquo;t need to convert the tab at all?</p>
+
+<p>Is your tabs 4 spaces, 8 spaces, 2 spaces?</p>
+
+<p>Please fork and commit with your favourite editor mentioning the settings,
+editor in your commit.</p>
+
+<p>As as user I prefer consistency . And as I work with Aura, Symfony2,
+ZF1, ZF2 I love to follow spaces, than individual projects choosing their
+own styles which is a main benefit probably mostly to its users like me
+than the core developers of individual system who don&rsquo;t care about
+other projects or its users?</p>
+
+<p>After all when your project says we use tabs, do you care people who love
+to use spaces there? Do you merge when something like this comes?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/22/aura-turns-2/">Aura Turns 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-22T23:07:00+05:30" pubdate data-updated="true">Feb 22<span>nd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Looking over <a href="https://github.com/auraphp/Aura.Router/commit/8de403dc49bf803a1fd641f55726079853716ab7">the commits on Aura.Router</a>, <a href="https://github.com/auraphp/Aura.Signal">Aura.Signal</a> etc you will
+notice, <a href="https://github.com/auraphp">aura project</a> has turned 2.</p>
+
+<p>And today, I would like to introduce you, the new born baby still under active
+development and refactoring based on user feedback, the
+<a href="https://github.com/auraphp/Aura.Input">form library for php, Aura.Input</a>.</p>
+
+<p>The <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>, doesn&rsquo;t have a rendering functionality. But you can always
+use Aura.View or create your own helpers.</p>
+
+<p>A basic filtering based on closure exists in <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>. But you are
+not limited, you can use your own filtering components or
+integrate <a href="https://github.com/auraphp/Aura.Filter">Aura.Filter</a>.</p>
+
+<p>Let us look at some code.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="c1">// use composer or require &#39;/path/to/Aura.Input/src.php&#39;;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Form</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Builder</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Filter</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Aura\Input\Filter</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// validate</span>
+</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Name should be alpha only&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nb">ctype_alpha</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;Enter a valid email address&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;Enter a valid url&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_URL</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;Message should be more than 7 characters&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ContactForm</span> <span class="k">extends</span> <span class="nx">Form</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$name</span>    <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$email</span>   <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$url</span>     <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$message</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContactForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">,</span> <span class="nv">$filter</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$values</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hari K T&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;oh will it works!&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;google.com&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Aweso&#39;</span>
+</span><span class='line'><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">setValues</span><span class="p">(</span><span class="nv">$values</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$passed</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// &#39;foo&#39; is invalid</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$passed</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// get all messages</span>
+</span><span class='line'>    <span class="nv">$actual</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getMessages</span><span class="p">();</span>
+</span><span class='line'>    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$actual</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Try it out, we have some more documentation for the <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>. I warn
+the api is still not stable for <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a> and is not yet released a Beta.</p>
+
+<p>But it is a good start!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/16/aura-dot-http-request-and-response/">Aura.Http : Request and Response</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-16T14:44:00+05:30" pubdate data-updated="true">Feb 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The <code>Aura.Http</code> package provide you the tool to build and send request and response.</p>
+
+<h1>Instantiation:</h1>
+
+<p>The easiest way is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$http</span> <span class="o">=</span> <span class="k">require</span> <span class="s1">&#39;path/to/Aura.Http/scripts/instance.php&#39;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What it gives you is an object of <code>Aura\Http\Manager</code>. If you want to create
+manually you can look into the <code>instance.php</code></p>
+
+<h1>Building your Response</h1>
+
+<p>Probably you may not have bothered too much on building the http response
+either the framework does it for you, or until you need to send the correct
+response.</p>
+
+<p>To create a proper http response via <code>Aura.Http</code> we need to create a
+response object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span> <span class="o">=</span> <span class="nv">$http</span><span class="o">-&gt;</span><span class="na">newResponse</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you have the response object. You can set the <code>header</code> via</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Header&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you have an array of headers you can use <code>setAll</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">setAll</span><span class="p">([</span>
+</span><span class='line'>    <span class="s1">&#39;Header-One&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;header one value&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;Header-Two&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;header two value A&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;header two value B&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;header two value C&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So a basic example of setting header value is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Setting Content</h2>
+
+<p>The header values are for the browser to understand what is coming from
+server, and how it should render etc.</p>
+
+<p>So we need to set the content. This can be achieved via <code>setContent</code> method.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can always get the content via calling <code>getContent</code>.</p>
+
+<h2>Setting and Getting Cookies</h2>
+
+<p>Sometimes we may want to set the cookies. You can do it as</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">cookies</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;cookie_name&#39;</span><span class="p">,</span> <span class="p">[</span>
+</span><span class='line'>    <span class="s1">&#39;value&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;cookie value&#39;</span><span class="p">,</span> <span class="c1">// cookie value</span>
+</span><span class='line'>    <span class="s1">&#39;expire&#39;</span>   <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">,</span>  <span class="c1">// expiration time in unix epoch seconds</span>
+</span><span class='line'>    <span class="s1">&#39;path&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;/path&#39;</span><span class="p">,</span>        <span class="c1">// server path for the cookie</span>
+</span><span class='line'>    <span class="s1">&#39;domain&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;example.com&#39;</span><span class="p">,</span>  <span class="c1">// domain for the cookie</span>
+</span><span class='line'>    <span class="s1">&#39;secure&#39;</span>   <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>          <span class="c1">// send by ssl only?</span>
+</span><span class='line'>    <span class="s1">&#39;httponly&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>           <span class="c1">// send by http/https only?</span>
+</span><span class='line'><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The array keys mimic the <a href="http://php.net/setcookies">setcookie</a> parameters. If you have an array
+you can use <code>setAll</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">cookies</span><span class="o">-&gt;</span><span class="na">setAll</span><span class="p">([</span>
+</span><span class='line'>    <span class="s1">&#39;cookie_foo&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value for cookie foo&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="s1">&#39;cookie_bar&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value for cookie bar&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can get a cookie by calling <code>get</code> method on cookies.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">cookies</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;cookie_name&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Setting and Getting Status</h2>
+
+<p>By default the status code is 200. But at some point of time
+like the one I explained earlier in <a href="http://harikt.com/blog/2012/12/16/status-code-304/">Status Code 304</a>, we don&rsquo;t need to
+send the whole content. But just the status code.</p>
+
+<p>This is possible via <code>setStatusCode</code> and <code>setStatusText</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">304</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusText</span><span class="p">(</span><span class="s1">&#39;Same As It Ever Was&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Sending your response</h2>
+
+<p>And finally we can send the response back. We can call the <code>send</code>
+method and pass the <code>response</code> object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$http</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The full source code of example is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$http</span> <span class="o">=</span> <span class="k">require</span> <span class="s1">&#39;path/to/Aura.Http/scripts/instance.php&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="c1">// send a response</span>
+</span><span class='line'><span class="nv">$response</span> <span class="o">=</span> <span class="nv">$http</span><span class="o">-&gt;</span><span class="na">newResponse</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$http</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>From terminal start the server by <code>php -S localhost:8000 example.php</code> and
+pointintg to <code>localhost:8000</code> in your browser.</p>
+
+<p>In order to render just <code>Hello World!</code> in the browser the <code>Content-Type</code> we added should be
+<code>text/html</code>.</p>
+
+<p>We can always change the header status code, content-type etc
+before we call <code>send()</code> method.</p>
+
+<p>Let us modify the example at <a href="http://harikt.com/blog/2012/12/16/status-code-304/">Status Code 304</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$http</span> <span class="o">=</span> <span class="k">require</span> <span class="s1">&#39;path/to/Aura.Http/scripts/instance.php&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$response</span> <span class="o">=</span> <span class="nv">$http</span><span class="o">-&gt;</span><span class="na">newResponse</span><span class="p">();</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_IF_MODIFIED_SINCE&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span>
+</span><span class='line'>    <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_IF_MODIFIED_SINCE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Tue, 15 Jan 2011 12:00 GMT&#39;</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">304</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/html&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Last-Modified&#39;</span><span class="p">,</span> <span class="s1">&#39;Tue, 15 Jan 2011 12:00 GMT&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nv">$http</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You would have noticed I have used <code>$_SERVER</code> variable. In <code>Aura.Http</code>,
+there is no methods to access the global server values. This is because
+the <code>$_SERVER</code> values are not the exact http requested header. The server
+modifies the request and we will be only getting the manipulated values
+if we use <code>$_SERVER</code>, <code>$_GET</code>, <code>$_POST</code> values.</p>
+
+<p><code>Aura.Http</code> only helps you to build, create, modify response and request.</p>
+
+<h1>Creating Http Request</h1>
+
+<p>We talked about response so far. What does Request actually mean?</p>
+
+<p>Client &ndash;> Request something &ndash;> Server Responds</p>
+
+<p>So that means we are trying to be a client or a browser, and making the necessary
+headers and sending to server to get the corresponding response.</p>
+
+<p>We can get all the repos of a user in github via curl.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">curl</span> <span class="o">-</span><span class="nx">i</span> <span class="nx">https</span><span class="o">://</span><span class="nx">api</span><span class="o">.</span><span class="nx">github</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">users</span><span class="o">/</span><span class="nx">pmjones</span><span class="o">/</span><span class="nx">repos</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The same can be achieved via <a href="https://github.com/auraphp/Aura.Http">Aura.Http</a>. The <a href="https://github.com/auraphp/Aura.Http">Aura.Http</a> provides a
+means to do the same with PHP. It uses <code>curl</code> if it is available or <code>stream</code>
+to make this happen.</p>
+
+<p>You need to create a Request object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$request</span> <span class="o">=</span> <span class="nv">$http</span><span class="o">-&gt;</span><span class="na">newRequest</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Set the url via <code>setUrl</code> method and send.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">&#39;https://api.github.com/users/pmjones/repos&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$stack</span> <span class="o">=</span> <span class="nv">$http</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$repos</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$stack</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">content</span><span class="p">);</span>
+</span><span class='line'><span class="k">foreach</span> <span class="p">(</span><span class="nv">$repos</span> <span class="k">as</span> <span class="nv">$repo</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="nv">$repo</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There are more things to say. It can do basic authentication, post values etc.
+Browse the documentation examples, source code, tests, and api.</p>
+
+<p>Source Code : <a href="https://github.com/auraphp/Aura.Http">https://github.com/auraphp/Aura.Http</a></p>
+
+<p>Documentation : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/">http://auraphp.github.com/Aura.Http/version/1.0.0/</a></p>
+
+<p>API : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/api/">http://auraphp.github.com/Aura.Http/version/1.0.0/api/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/09/our-awesome-php-people/">Our Awesome Php People</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-09T20:00:00+05:30" pubdate data-updated="true">Jan 9<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently github introduces contributions chart. So I peeped into some of the people of our php community. It seems <a href="https://github.com/fabpot">@fabpot</a> is the one who contributes almost every day. Just 21 days without any contribution.</p>
+
+<p><a href="https://github.com/fabpot"><img class="center" src="/assets/images/github/fabpot.png" width="687" height="299" title="Contributions by fabpot" alt="Contributions by fabpot"></a>
+<a href="https://github.com/weierophinney"><img class="center" src="/assets/images/github/weierophinney.png" width="687" height="299" title="Contributions by weierophinney" alt="Contributions by weierophinney"></a>
+<a href="https://github.com/pmjones"><img class="center" src="/assets/images/github/pmjones.png" width="687" height="299" title="Contributions by pmjones" alt="Contributions by pmjones"></a>
+<a href="https://github.com/willdurand"><img class="center" src="/assets/images/github/willdurand.png" width="687" height="299" title="Contributions by willdurand" alt="Contributions by willdurand"></a>
+<a href="https://github.com/Seldaek"><img class="center" src="/assets/images/github/Seldaek.png" width="687" height="299" title="Contributions by Seldaek" alt="Contributions by Seldaek"></a>
+<a href="https://github.com/markstory"><img class="center" src="/assets/images/github/markstory.png" width="687" height="299" title="Contributions by markstory" alt="Contributions by markstory"></a>
+<a href="https://github.com/taylorotwell"><img class="center" src="/assets/images/github/taylorotwell.png" width="687" height="299" title="Contributions by taylorotwell" alt="Contributions by taylorotwell"></a>
+<a href="https://github.com/WanWizard"><img class="center" src="/assets/images/github/WanWizard.png" width="687" height="299" title="Contributions by WanWizard" alt="Contributions by WanWizard"></a>
+<a href="https://github.com/drak"><img class="center" src="/assets/images/github/drak.png" width="687" height="299" title="Contributions by drak" alt="Contributions by drak"></a>
+<a href="https://github.com/nikic"><img class="center" src="/assets/images/github/nikic.png" width="687" height="299" title="Contributions by nikic" alt="Contributions by nikic"></a>
+<a href="https://github.com/avalanche123"><img class="center" src="/assets/images/github/avalanche123.png" width="687" height="299" title="Contributions by avalanche123" alt="Contributions by avalanche123"></a>
+<a href="https://github.com/shama"><img class="center" src="/assets/images/github/shama.png" width="687" height="299" title="Contributions by shama" alt="Contributions by shama"></a>
+<a href="https://github.com/vrana"><img class="center" src="/assets/images/github/vrana.png" width="687" height="299" title="Contributions by vrana" alt="Contributions by vrana"></a>
+<a href="https://github.com/philsturgeon"><img class="center" src="/assets/images/github/philsturgeon.png" width="687" height="299" title="Contributions by philsturgeon" alt="Contributions by philsturgeon"></a>
+<a href="https://github.com/DASPRiD"><img class="center" src="/assets/images/github/DASPRiD.png" width="687" height="299" title="Contributions by DASPRiD" alt="Contributions by DASPRiD"></a>
+<a href="https://github.com/mvriel"><img class="center" src="/assets/images/github/mvriel.png" width="687" height="299" title="Contributions by mvriel" alt="Contributions by mvriel"></a>
+<a href="https://github.com/c9s"><img class="center" src="/assets/images/github/c9s.png" width="687" height="299" title="Contributions by c9s" alt="Contributions by c9s"></a>
+<a href="https://github.com/weaverryan"><img class="center" src="/assets/images/github/weaverryan.png" width="687" height="299" title="Contributions by weaverryan" alt="Contributions by weaverryan"></a>
+<a href="https://github.com/bschussek"><img class="center" src="/assets/images/github/bschussek.png" width="687" height="299" title="Contributions by bschussek" alt="Contributions by bschussek"></a>
+<a href="https://github.com/vicb"><img class="center" src="/assets/images/github/vicb.png" width="687" height="299" title="Contributions by vicb" alt="Contributions by nateabele"></a>
+<a href="https://github.com/garak"><img class="center" src="/assets/images/github/garak.png" width="687" height="299" title="Contributions by garak" alt="Contributions by garak"></a>
+<a href="https://github.com/beberlei"><img class="center" src="/assets/images/github/beberlei.png" width="687" height="299" title="Contributions by beberlei" alt="Contributions by beberlei"></a>
+<a href="https://github.com/codeguy"><img class="center" src="/assets/images/github/codeguy.png" width="687" height="299" title="Contributions by codeguy" alt="Contributions by codeguy"></a>
+<a href="https://github.com/lsmith77"><img class="center" src="/assets/images/github/lsmith77.png" width="687" height="299" title="Contributions by lsmith77" alt="Contributions by lsmith77"></a>
+<a href="https://github.com/stof"><img class="center" src="/assets/images/github/stof.png" width="687" height="299" title="Contributions by stof" alt="Contributions by stof"></a>
+<a href="https://github.com/EavnDotPro"><img class="center" src="/assets/images/github/EavnDotPro.png" width="687" height="299" title="Contributions by EavnDotPro" alt="Contributions by EavnDotPro"></a>
+<a href="https://github.com/nateabele"><img class="center" src="/assets/images/github/nateabele.png" width="687" height="299" title="Contributions by nateabele" alt="Contributions by nateabele"></a>
+<a href="https://github.com/kriswallsmith"><img class="center" src="/assets/images/github/kriswallsmith.png" width="687" height="299" title="Contributions by kriswallsmith" alt="Contributions by kriswallsmith"></a>
+<a href="https://github.com/nrk"><img class="center" src="/assets/images/github/nrk.png" width="687" height="299" title="Contributions by nrk" alt="Contributions by nrk"></a>
+<a href="https://github.com/naderman"><img class="center" src="/assets/images/github/naderman.png" width="687" height="299" title="Contributions by naderman" alt="Contributions by naderman"></a>
+<a href="https://github.com/gwoo"><img class="center" src="/assets/images/github/gwoo.png" width="687" height="299" title="Contributions by gwoo" alt="Contributions by gwoo"></a>
+<a href="https://github.com/jwage"><img class="center" src="/assets/images/github/jwage.png" width="687" height="299" title="Contributions by jwage" alt="Contributions by jwage"></a>
+<a href="https://github.com/chartjes"><img class="center" src="/assets/images/github/chartjes.png" width="687" height="299" title="Contributions by chartjes" alt="Contributions by chartjes"></a>
+<a href="https://github.com/Tocacar"><img class="center" src="/assets/images/github/Tocacar.png" width="687" height="299" title="Contributions by Tocacar" alt="Contributions by Tocacar"></a>
+<a href="https://github.com/FrenkyNet"><img class="center" src="/assets/images/github/FrenkyNet.png" width="687" height="299" title="Contributions by FrenkyNet" alt="Contributions by FrenkyNet"></a>
+<a href="https://github.com/till"><img class="center" src="/assets/images/github/till.png" width="687" height="299" title="Contributions by till" alt="Contributions by till"></a>
+<a href="https://github.com/Ocramius"><img class="center" src="/assets/images/github/Ocramius.png" width="687" height="299" title="Contributions by Ocramius" alt="Contributions by Ocramius"></a>
+<a href="https://github.com/odino"><img class="center" src="/assets/images/github/odino.png" width="687" height="299" title="Contributions by odino" alt="Contributions by odino"></a>
+<a href="https://github.com/josegonzalez"><img class="center" src="/assets/images/github/josegonzalez.png" width="687" height="299" title="Contributions by josegonzalez" alt="Contributions by josegonzalez"></a>
+<a href="https://github.com/dereuromark"><img class="center" src="/assets/images/github/dereuromark.png" width="687" height="299" title="Contributions by dereuromark" alt="Contributions by dereuromark"></a>
+<a href="https://github.com/HosipLan"><img class="center" src="/assets/images/github/HosipLan.png" width="687" height="299" title="Contributions by HosipLan" alt="Contributions by HosipLan"></a>
+<a href="https://github.com/alganet"><img class="center" src="/assets/images/github/alganet.png" width="687" height="299" title="Contributions by alganet" alt="Contributions by alganet"></a>
+<a href="https://github.com/ezimuel"><img class="center" src="/assets/images/github/ezimuel.png" width="687" height="299" title="Contributions by ezimuel" alt="Contributions by ezimuel"></a>
+<a href="https://github.com/auroraeosrose"><img class="center" src="/assets/images/github/auroraeosrose.png" width="687" height="299" title="Contributions by auroraeosrose" alt="Contributions by auroraeosrose"></a>
+<a href="https://github.com/enygma"><img class="center" src="/assets/images/github/enygma.png" width="687" height="299" title="Contributions by enygma" alt="Contributions by enygma"></a>
+<a href="https://github.com/ralphschindler"><img class="center" src="/assets/images/github/ralphschindler.png" width="687" height="299" title="Contributions by ralphschindler" alt="Contributions by ralphschindler"></a>
+<a href="https://github.com/AD7six"><img class="center" src="/assets/images/github/AD7six.png" width="687" height="299" title="Contributions by AD7six" alt="Contributions by AD7six"></a>
+<a href="https://github.com/ADmad"><img class="center" src="/assets/images/github/ADmad.png" width="687" height="299" title="Contributions by ADmad" alt="Contributions by ADmad"></a>
+<a href="https://github.com/augustohp"><img class="center" src="/assets/images/github/augustohp.png" width="687" height="299" title="Contributions by augustohp" alt="Contributions by augustohp"></a>
+<a href="https://github.com/BlaineSch"><img class="center" src="/assets/images/github/BlaineSch.png" width="687" height="299" title="Contributions by BlaineSch" alt="Contributions by BlaineSch"></a>
+<a href="https://github.com/alexbilbie"><img class="center" src="/assets/images/github/alexbilbie.png" width="687" height="299" title="Contributions by alexbilbie" alt="Contributions by alexbilbie"></a>
+<a href="https://github.com/narfbg"><img class="center" src="/assets/images/github/narfbg.png" width="687" height="299" title="Contributions by narfbg" alt="Contributions by narfbg"></a>
+<a href="https://github.com/dg"><img class="center" src="/assets/images/github/dg.png" width="687" height="299" title="Contributions by dg" alt="Contributions by dg"></a>
+<a href="https://github.com/schmittjoh"><img class="center" src="/assets/images/github/schmittjoh.png" width="687" height="299" title="Contributions by schmittjoh" alt="Contributions by schmittjoh"></a>
+<a href="https://github.com/jschreuder"><img class="center" src="/assets/images/github/jschreuder.png" width="687" height="299" title="Contributions by jschreuder" alt="Contributions by jschreuder"></a>
+<a href="https://github.com/Geczy"><img class="center" src="/assets/images/github/Geczy.png" width="687" height="299" title="Contributions by Geczy" alt="Contributions by Geczy"></a>
+<a href="https://github.com/dzuelke"><img class="center" src="/assets/images/github/dzuelke.png" width="687" height="299" title="Contributions by dzuelke" alt="Contributions by dzuelke"></a>
+<a href="https://github.com/evert"><img class="center" src="/assets/images/github/evert.png" width="687" height="299" title="Contributions by evert" alt="Contributions by evert"></a>
+<a href="https://github.com/akrabat"><img class="center" src="/assets/images/github/akrabat.png" width="687" height="299" title="Contributions by akrabat" alt="Contributions by akrabat"></a>
+<a href="https://github.com/seejohnrun"><img class="center" src="/assets/images/github/seejohnrun.png" width="687" height="299" title="Contributions by seejohnrun" alt="Contributions by seejohnrun"></a>
+<a href="https://github.com/guilhermeblanco"><img class="center" src="/assets/images/github/guilhermeblanco.png" width="687" height="299" title="Contributions by guilhermeblanco" alt="Contributions by guilhermeblanco"></a>
+<a href="https://github.com/Maks3w"><img class="center" src="/assets/images/github/Maks3w.png" width="687" height="299" title="Contributions by Maks3w" alt="Contributions by Maks3w"></a>
+<a href="https://github.com/kore"><img class="center" src="/assets/images/github/kore.png" width="687" height="299" title="Contributions by kore" alt="Contributions by kore"></a>
+<a href="https://github.com/dragoonis"><img class="center" src="/assets/images/github/dragoonis.png" width="687" height="299" title="Contributions by dragoonis" alt="Contributions by dragoonis"></a>
+<a href="https://github.com/daschl"><img class="center" src="/assets/images/github/daschl.png" width="687" height="299" title="Contributions by daschl" alt="Contributions by daschl"></a>
+<a href="https://github.com/wilmoore"><img class="center" src="/assets/images/github/wilmoore.png" width="687" height="299" title="Contributions by wilmoore" alt="Contributions by wilmoore"></a>
+<a href="https://github.com/TheFrozenFire"><img class="center" src="/assets/images/github/TheFrozenFire.png" width="687" height="299" title="Contributions by TheFrozenFire" alt="Contributions by TheFrozenFire"></a>
+<a href="https://github.com/nickl-"><img class="center" src="/assets/images/github/nickl-.png" width="687" height="299" title="Contributions by nickl-" alt="Contributions by nickl-"></a>
+<a href="https://github.com/lorenzo"><img class="center" src="/assets/images/github/lorenzo.png" width="687" height="299" title="Contributions by lorenzo" alt="Contributions by lorenzo"></a>
+<a href="https://github.com/rchavik"><img class="center" src="/assets/images/github/rchavik.png" width="687" height="299" title="Contributions by rchavik" alt="Contributions by rchavik"></a>
+<a href="https://github.com/davidpersson"><img class="center" src="/assets/images/github/davidpersson.png" width="687" height="299" title="Contributions by davidpersson" alt="Contributions by davidpersson"></a>
+<a href="https://github.com/henriquemoody"><img class="center" src="/assets/images/github/henriquemoody.png" width="687" height="299" title="Contributions by henriquemoody" alt="Contributions by henriquemoody"></a>
+<a href="https://github.com/Freeaqingme"><img class="center" src="/assets/images/github/Freeaqingme.png" width="687" height="299" title="Contributions by Freeaqingme" alt="Contributions by Freeaqingme"></a>
+<a href="https://github.com/dbu"><img class="center" src="/assets/images/github/dbu.png" width="687" height="299" title="Contributions by dbu" alt="Contributions by dbu"></a>
+<a href="https://github.com/dshafik"><img class="center" src="/assets/images/github/dshafik.png" width="687" height="299" title="Contributions by dshafik" alt="Contributions by dshafik"></a>
+<a href="https://github.com/Vrtak-CZ"><img class="center" src="/assets/images/github/Vrtak-CZ.png" width="687" height="299" title="Contributions by Vrtak-CZ" alt="Contributions by Vrtak-CZ"></a>
+<a href="https://github.com/padraic"><img class="center" src="/assets/images/github/padraic.png" width="687" height="299" title="Contributions by padraic" alt="Contributions by padraic"></a>
+<a href="https://github.com/saltybeagle"><img class="center" src="/assets/images/github/saltybeagle.png" width="687" height="299" title="Contributions by saltybeagle" alt="Contributions by saltybeagle"></a>
+<a href="https://github.com/Hounddog"><img class="center" src="/assets/images/github/Hounddog.png" width="687" height="299" title="Contributions by Hounddog" alt="Contributions by Hounddog"></a>
+<a href="https://github.com/ceeram"><img class="center" src="/assets/images/github/ceeram.png" width="687" height="299" title="Contributions by ceeram" alt="Contributions by ceeram"></a>
+<a href="https://github.com/jmikola"><img class="center" src="/assets/images/github/jmikola.png" width="687" height="299" title="Contributions by jmikola" alt="Contributions by jmikola"></a>
+<a href="https://github.com/cweiske"><img class="center" src="/assets/images/github/cweiske.png" width="687" height="299" title="Contributions by cweiske" alt="Contributions by cweiske"></a>
+<a href="https://github.com/rdohms"><img class="center" src="/assets/images/github/rdohms.png" width="687" height="299" title="Contributions by rdohms" alt="Contributions by rdohms"></a></p>
+
+<p>and I too did some contributions in 2012 for <a href="https://github.com/auraphp">auraphp</a> and other projects.</p>
+
+<p><a href="https://github.com/harikt"><img class="center" src="/assets/images/github/harikt.png" width="687" height="299" title="Contributions by harikt" alt="Contributions by harikt"></a></p>
+
+<p>The list is not complete, if you feel I missed your name or someone you feel needs to be added just give a tweet to me or fork the repo from github and send a PR.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/04/thoughts-on-package-or-component/">Thoughts on Package/Component Structure</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-04T06:15:00+05:30" pubdate data-updated="true">Jan 4<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Comparing a software X with Y will not make anything worst, but makes it better. But many of them will think it as a promotional stuff. It is not anyones&rsquo;s problem. Some like to build it that way, some like the other way.</p>
+
+<p>So I am not comparing X with Y here.</p>
+
+<p>Not talking about package like Guzzle:</p>
+
+<p>I am not mentioning building something like Guzzle, which is a framework that includes the tools needed to create a robust web service client.</p>
+
+<p>But I am interested in talking about the packages which can be used to build something like Guzzle when you look into the require of composer.json.</p>
+
+<p>That means something like Aura.Http which can be used to make a request to google and do the search if needed or post etc.</p>
+
+<p>Structure of Package or Component:</p>
+
+<p>1 ) We need to name a package.</p>
+
+<p>Let us go for the <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md">PSR-0</a> naming.</p>
+
+<p>Each namespace must have a top-level namespace (&ldquo;Vendor Name&rdquo;), and a Package name. Probably you will end up with Vendor.Package or Vendor_Package .</p>
+
+<p>2 ) <a href="http://getcomposer.org/">Composer</a>/<a href="https://github.com/crodas/Eath">Eath</a>, are great tools which help you to manage the dependency management in your PHP projects. So we need a composer.json or package.yml .</p>
+
+<p>3 ) We are creating a package or component, so obviously it will contain source files and test files. It will be a mess when we keep all tests and source files in a same place. Most of them uses either <code>src</code> folder or <code>lib</code> or <code>library</code> to keep source files and <code>tests</code> to keep test files. Probably you have some documentation, a <code>docs</code> folder may help. May be some executable scripts. You can also add a <code>scripts</code> or <code>bin</code> folder.</p>
+
+<p>Now your structure will be something like</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Vendor.Package
+</span><span class='line'>  ├── composer.json
+</span><span class='line'>  ├── package.yml
+</span><span class='line'>  ├── docs
+</span><span class='line'>  ├── src
+</span><span class='line'>  │   └── Vendor
+</span><span class='line'>  │       └── Package
+</span><span class='line'>  └── tests
+</span><span class='line'>      └── Vendor
+</span><span class='line'>          └── Package
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The above structure follows a PSR-0 naming convention for package/component.</p>
+
+<p>NIH : We all create new packages for we don&rsquo;t like some other package invented here, not for its not invented here or probably to make use of newer stuffs like traits, closures etc available in PHP 5.4 than sticking with PHP 5 or sometimes it is not inveneted here.</p>
+
+<p>So add your depenedencies to composer.json or package.yml</p>
+
+<p>Let us assume we are going to create a Validation pacakge. Probably you love annotations or yml format. It is always a better idea to keep the annotations, yaml etc on a bridge than in the Validation package. Remember you have composer, let the bridge package composer.json helps you to download validation package, annotation library. This also helps you to write your integration tests in bridge package than making a dependency on the Validation package.</p>
+
+<p>And also help people to use different annotations library than a single one or you will end up messing with more annotation classes.</p>
+
+<p>I guess this helps people to</p>
+
+<p>1 ) fork and contribute</p>
+
+<p>2 ) Even if there is no documentation, it helps to look into the source and get the point. Else a lot of classes confuses people.</p>
+
+<p>Nothing is developed to make it bad, everything is made for good. Though at-times it acts badly.</p>
+
+<p>These are some of the principles I learned looking at various projects like Aura, Symfony2, ZF2, Lithium, Fuel2, Illuminate&hellip; you name it.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/29/conferences-is-it-really-worth/">Conferences : Is It Really Worth?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/28/looking-at-aura-v2/">Looking at Aura Version 2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/19/aura-framework-released/">Aura Framework Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/07/book-on-aura-moved-to-manual/">Book on Aura Moved to Manual</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/05/announcing-winners-of-the-contest/">Announcing Winners of the Contest</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/harikt">@harikt</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'harikt',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Hari K T -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'harikt';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

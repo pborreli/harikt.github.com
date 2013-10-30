@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: contest | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/contest/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2013-10-30T15:20:28+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Announcing winners of the contest]]></title>
+    <link href="http://harikt.com/blog/2013/09/05/announcing-winners-of-the-contest/"/>
+    <updated>2013-09-05T20:25:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/09/05/announcing-winners-of-the-contest</id>
+    <content type="html"><![CDATA[<p>A few days back I ran a contest to Win Free Copies of Packt’s New Book on
+<a href="http://harikt.com/blog/2013/08/23/chance-to-win-free-copies-of-packts-new-book-on-zend-framework-2-dot-0/">Zend Framework 2.0 by Example</a>.</p>
+
+<p>So the lucky 3 are</p>
+
+<ul>
+<li>Nick Stanton</li>
+<li>Kristopher Wilson</li>
+<li>Dave Hall</li>
+</ul>
+
+
+<p>You may be having a question how I choose the winners.</p>
+
+<p>What I did is created the list of people in an excel sheet and ran
+the script.</p>
+
+<p>```php
+&lt;?php
+for ($i=0; $i &lt; 3; $i++) {</p>
+
+<pre><code>echo rand(1, 18) . PHP_EOL;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>There were 19 people who participated in the contest.
+Dibin joseph was late and commented on Saturday August 31,
+as the contest ended on 30th August 2013.</p>
+
+<p>You can guess, why I opted to run such a script. Many of them are
+known to me, and I don&rsquo;t want to do any partiality.</p>
+
+<p>Congrats to the winners and I hope you will find the book interesting.</p>
+
+<p>Thanks to all for actively participating, tweeting and promoting the
+contest.</p>
+]]></content>
+  </entry>
+  
+</feed>

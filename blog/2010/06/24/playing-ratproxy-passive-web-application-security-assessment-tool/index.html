@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Playing with ratproxy - passive web application security assessment tool - Random thoughts | Hari KT</title>
+  <meta name="author" content="Hari K T">
+
+  
+  <meta name="description" content="I know many of you may be knowing about this google tool. I am little late to play with this. But just posting if someone still missing to checkout &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://harikt.com/blog/2010/06/24/playing-ratproxy-passive-web-application-security-assessment-tool">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/harikt/YKAJ" rel="alternate" title="Random thoughts | Hari KT" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5998889-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Random thoughts | Hari KT</a></h1>
+  
+    <h2>On programming</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/harikt/YKAJ" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:harikt.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/who-am-i/">Who am I?</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Playing With Ratproxy - Passive Web Application Security Assessment Tool</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-24T23:22:00+05:30" pubdate data-updated="true">Jun 24<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I know many of you may be knowing about this google tool. I am little late to play with this. But just posting if someone still missing to checkout . If you was following me on twitter you may have seen my tweet some days back. Even though I thought of writing a blogpost I was too lazy and some what busy :) .  But today I thought of playing with it . Hope you too will enjoy looking the security issues for your website . This is a great tool to check. Its from Michal Zalewski of Google which has been licenced under the Apache Licence agreement .  What is ratproxy ?  So you may have heard about proxy servers .. But this is not a proxy server to by pass any of the social networking websites :) . This a great tool for webdevelopers , web owners or even clients who want to test their website before payment is made. So let me copy the defnition of what ratproxy is  &ldquo;<em>Ratproxy</em> is a semi-automated, largely passive web application security audit tool. It is meant to complement active crawlers and manual proxies more commonly used for this task, and is optimized specifically for an accurate and sensitive detection, and automatic annotation, of potential problems and security-relevant design patterns based on the observation of existing, user-initiated traffic in complex <em>web 2.0</em> environments. The approach taken with <em>ratproxy</em> offers several important advantages over more traditional methods:  &ndash;   <strong>No risk of disruptions.</strong>  &ndash;   <strong>Low effort, high yield.</strong>  &ndash;   <strong>Preserved control flow of human interaction.</strong>   &ndash;   <strong>WYSIWYG data on script behavior.</strong>   &ndash;   <strong>Easy process integration.</strong> &rdquo;  Ratproxy is developed from C , ya was my favourite language at college though I am not so powerful in it :) . I remebered compilling C programs from Linux terminals when I was at college .  You may run with errors when compiling it with make command .  Something like the below .  hari@hari-laptop:/var/www/ratproxy$ make cc ratproxy.c -o ratproxy  -Wall -O3 -Wno-pointer-sign -D_GNU_SOURCE http.c mime.c ssl.c -lcrypto -lssl ratproxy.c:43:25: error: openssl/md5.h: No such file or directory ratproxy.c: In function ‘decode_flash’: ratproxy.c:615: warning: ignoring return value of ‘write’, declared with attribute warn_unused_result  &ldquo;  Just install libssl-dev package using synaptic or apt-get . Compile it once again and yes I hope you have done without errors . Download the Quick Proxy addon for the Mozilla firefox , so you can easily switch from proxy to the other . You need to configure the proxy server . Edit - > Preferences &ndash;> Advanced-> Network tab &ndash;> Settings &ndash;> Mannual proxy and add it . Now just close and start your Mozilla Firefox once again .  Run from the terminal  hari@hari-laptop:/var/www/ratproxy$ ./ratproxy -v dumps -w mysite.log -d mysite.com -XClfscm  ratproxy version 1.58-beta by &lt;lcamtuf@google.com> [*] Proxy configured successfully. Have fun, and please do not be evil.     WARNING: Disruptive tests enabled. use with care. [+] Accepting connections on port 8080/tcp (local only)&hellip;  Browse the mysite.com upload , download and do what ever things you love. Don&rsquo;t forget to pass javascript , some unwanted test queries etc . Try SQL injections also . You will be getting detailed report . You can see how much your server is vulnerable . It may be more than this :) .  Report can be made by running hari@hari-laptop:/var/www/ratproxy$ ./ratproxy-report.sh mysite.log > report.html  Please don&rsquo;t use this tool for EVIL . Do it for good to make a wonderful web tomorrow . I love good techniques and good people . If you are trying to crack I may call you a F*cker . Hope you enjoyed the new tool to fix the issues .  You can get more information from <a href="http://code.google.com/p/ratproxy/wiki/RatproxyDoc">http://code.google.com/p/ratproxy/wiki/RatproxyDoc</a>  This is also a wonderful tutorial <a href="http://isisblogs.poly.edu/2008/07/05/ratproxy-151-tutorial/%C2%A0">http://isisblogs.poly.edu/2008/07/05/ratproxy-151-tutorial/%C2%A0</a> . Don&rsquo;t forget to check it out .  Updated : After playing with ratproxy , I came across other solutions too . Many of them are open-source and the list is  <a href="http://w3af.sourceforge.net/">http://w3af.sourceforge.net/</a>  <a href="http://cirt.net/nikto2">http://cirt.net/nikto2</a>  <a href="http://dawes.za.net/rogan/webscarab/">http://dawes.za.net/rogan/webscarab/</a>  <a href="http://www.metasploit.com/">http://www.metasploit.com/</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Hari K T</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-24T23:22:00+05:30" pubdate data-updated="true">Jun 24<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/security/'>security</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://harikt.com/blog/2010/06/24/playing-ratproxy-passive-web-application-security-assessment-tool/" data-via="harikt" data-counturl="http://harikt.com/blog/2010/06/24/playing-ratproxy-passive-web-application-security-assessment-tool/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2010/06/15/thinking-developing-application-zend-framework/" title="Previous Post: Thinking of developing an application with Zend framework">&laquo; Thinking of developing an application with Zend framework</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/07/25/osi-days-asias-largest-opensource-conference/" title="Next Post: OSI Days , Asia's Largest opensource conference">OSI Days , Asia's Largest opensource conference &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/29/conferences-is-it-really-worth/">Conferences : Is It Really Worth?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/28/looking-at-aura-v2/">Looking at Aura Version 2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/19/aura-framework-released/">Aura Framework Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/07/book-on-aura-moved-to-manual/">Book on Aura Moved to Manual</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/05/announcing-winners-of-the-contest/">Announcing Winners of the Contest</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/harikt">@harikt</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'harikt',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Hari K T -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'harikt';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

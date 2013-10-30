@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: tabs | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/tabs/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2013-10-30T15:20:28+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Seriously? Tab Vs Spaces]]></title>
+    <link href="http://harikt.com/blog/2013/02/27/seriously-tab-vs-spaces/"/>
+    <updated>2013-02-27T07:38:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/02/27/seriously-tab-vs-spaces</id>
+    <content type="html"><![CDATA[<p>I have created a repo <a href="https://github.com/harikt/seriosuly">seriously</a>, and have <a href="https://github.com/harikt/seriosuly/commits/master">3 commits</a> as of now .</p>
+
+<p>It has a file <a href="https://github.com/harikt/seriosuly/blob/master/hell.php">hell.php</a>. I have created it by logging into <code>user X</code>
+and with vim as the editor without any settings in .vimrc.</p>
+
+<p><img class="center" src="/assets/images/vim-tab.png" title="&lsquo;vim with no settings, and used tab&rsquo; &lsquo;vim with no settings, and used tab&rsquo;" ></p>
+
+<p>Then from user <code>harikt</code> I have edited with vim which has some .vimrc
+setting like 1 tab = 4 spaces. Look into the <a href="https://github.com/harikt/seriosuly/blob/master/hell.php">code</a> and see how beautiful
+it is.</p>
+
+<p>Opening with geany it looks</p>
+
+<p><img class="center" src="/assets/images/geany.png" title="&lsquo;Oh from geany with settings 1 tab = 4 spaces&rsquo; &lsquo;Oh from geany with settings 1 tab = 4 spaces&rsquo;" ></p>
+
+<p>Let us don&rsquo;t create problems, but solutions!</p>
+
+<p>It is just one line you need to mention</p>
+
+<p>&ldquo;According to your editor settings set 1 tab = 4 spaces.&rdquo; . no?</p>
+
+<p>Or you don&rsquo;t need to convert the tab at all?</p>
+
+<p>Is your tabs 4 spaces, 8 spaces, 2 spaces?</p>
+
+<p>Please fork and commit with your favourite editor mentioning the settings,
+editor in your commit.</p>
+
+<p>As as user I prefer consistency . And as I work with Aura, Symfony2,
+ZF1, ZF2 I love to follow spaces, than individual projects choosing their
+own styles which is a main benefit probably mostly to its users like me
+than the core developers of individual system who don&rsquo;t care about
+other projects or its users?</p>
+
+<p>After all when your project says we use tabs, do you care people who love
+to use spaces there? Do you merge when something like this comes?</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: filter | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/filter/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2013-10-30T15:20:28+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Standalone Forms and Validation]]></title>
+    <link href="http://harikt.com/blog/2013/05/21/standalone-forms-and-validation/"/>
+    <updated>2013-05-21T20:15:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/05/21/standalone-forms-and-validation</id>
+    <content type="html"><![CDATA[<p>Update : I wrote a very minimal approach <a href="http://harikt.com/blog/2013/05/23/standalone-form-for-php/">here</a></p>
+
+<p>Recently <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> was tagged Beta1. I would like to show you how you
+can use <a href="http://auraphp.com/Aura.Input/">Aura.Input</a>, <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a> and <a href="http://auraphp.com/Aura.View/">Aura.View</a> to create form.</p>
+
+<p>The <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> itself contains a basic filter implementation. As shown
+in earlier post <a href="http://harikt.com/blog/2013/02/22/aura-turns-2/">Aura Turns 2</a></p>
+
+<p>But in this post let us use the power of <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a>. As <a href="http://auraphp.com/Aura.Input/">Aura.Input</a>
+doesn&rsquo;t have a rendering capability you may need to use <a href="http://auraphp.com/Aura.View/">Aura.View</a> as
+templating system ( see Using Aura.View ) or use the helper classes provided by <a href="http://auraphp.com/Aura.View/">Aura.View</a>
+( see below Without using Aura.View completely )
+or create your own helper classes to render the same from the hints
+( see Hints for the view ).</p>
+
+<p>The whole example is in <a href="https://github.com/harikt/phpform">https://github.com/harikt/phpform</a> repo.
+If you don&rsquo;t have composer, you can download it from <a href="http://getcomposer.org">http://getcomposer.org</a>
+and install the dependencies via composer.</p>
+
+<h2>In a nut shell</h2>
+
+<p><code>
+git clone https://github.com/harikt/phpform
+cd phpform
+php composer.phar install
+php -S localhost:8000 web/index.php
+</code></p>
+
+<p>Point your browser to the url <a href="http://localhost:8000">http://localhost:8000</a></p>
+
+<h2>Let us look into some details</h2>
+
+<p>Inorder to use <a href="http://auraphp.com/Aura.Filter/">Aura.Filter</a> with <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> we need to implement the
+<code>Aura\Input\FilterInterface</code>.</p>
+
+<p>This is just extending the <code>Aura\Filter\RuleCollection</code> and implementing
+the <code>Aura\Input\FilterInterface</code> as below.</p>
+
+<p>```php
+&lt;?php
+namespace Domicile\Example;</p>
+
+<p>use Aura\Filter\RuleCollection;
+use Aura\Input\FilterInterface;</p>
+
+<p>class Filter extends RuleCollection implements FilterInterface
+{
+}</p>
+
+<p>```</p>
+
+<p>Let us create the form class.</p>
+
+<p>```php
+&lt;?php
+namespace Domicile\Example;</p>
+
+<p>use Aura\Input\Form;</p>
+
+<p>class ContactForm extends Form
+{</p>
+
+<pre><code>public function init()
+{
+    $this-&gt;setField('name')
+        -&gt;setAttribs([
+            'id' =&gt; 'name',
+            'size' =&gt; 20,
+            'maxlength' =&gt; 20,
+        ]);
+    $this-&gt;setField('email')
+        -&gt;setAttribs([
+            'size' =&gt; 20,
+            'maxlength' =&gt; 20,
+        ]);
+    $this-&gt;setField('url')
+        -&gt;setAttribs([
+            'size' =&gt; 20,
+            'maxlength' =&gt; 20,
+        ]);
+    $this-&gt;setField('message', 'textarea')
+        -&gt;setAttribs([
+            'cols' =&gt; 40,
+            'rows' =&gt; 5,
+        ]);
+    $this-&gt;setField('submit', 'submit')
+        -&gt;setAttribs(['value' =&gt; 'send']);
+
+    $filter = $this-&gt;getFilter();
+
+    $filter-&gt;addSoftRule('name', $filter::IS, 'string');
+    $filter-&gt;addSoftRule('name', $filter::IS, 'strlenMin', 4);
+    $filter-&gt;addSoftRule('email', $filter::IS, 'email');
+    $filter-&gt;addSoftRule('url', $filter::IS, 'url');
+    $filter-&gt;addSoftRule('message', $filter::IS, 'string');
+    $filter-&gt;addSoftRule('message', $filter::IS, 'strlenMin', 6);
+}
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+
+<p>Create the filter object and pass it on instantiation of form.</p>
+
+<p>Please note that the $rootpath in this example is just above the vendor
+folder of the composer.</p>
+
+<p>```php
+$filter = new Domicile\Example\Filter(</p>
+
+<pre><code>new RuleLocator(array_merge(
+    require $rootpath . '/vendor/aura/filter/scripts/registry.php',
+    ['any' =&gt; function () {
+        $rule = new \Aura\Filter\Rule\Any;
+        $rule-&gt;setRuleLocator(new RuleLocator(
+            require $rootpath . '/vendor/aura/filter/scripts/registry.php'
+        ));
+        return $rule;
+    }]
+)),
+new Translator(require $rootpath . '/vendor/aura/filter/intl/en_US.php')
+</code></pre>
+
+<p>);</p>
+
+<p>$form = new Domicile\Example\ContactForm(new Builder, $filter);
+```</p>
+
+<p>The <a href="http://auraphp.com/Aura.Input/">Aura.Input</a> has two methods we can make use.</p>
+
+<p>1 ) fill() method helps us to fill the data values</p>
+
+<p>2 ) filter() method which helps to filter and validate data according to
+the rules specified in the form.</p>
+
+<p>The code will looks like</p>
+
+<p>```php</p>
+
+<p>if ($<em>POST &amp;&amp; $</em>POST[&lsquo;submit&rsquo;] == &lsquo;send&rsquo;) {</p>
+
+<pre><code>$data = $_POST;
+$form-&gt;fill($data);
+if ($form-&gt;filter()) {
+    //
+    echo "Yes successfully validated and filtered";
+    var_dump($data);
+    exit;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>The form element gives you hints for the view. An example from the above</p>
+
+<h2>Hints for the view</h2>
+
+<p>```php
+// get the hints for the name field
+$hints = $form->get(&lsquo;name&rsquo;);</p>
+
+<p>// the hints array looks like this:
+$hints = array (
+  &lsquo;type&rsquo; => &lsquo;text&rsquo;,
+  &lsquo;name&rsquo; => &lsquo;name&rsquo;,
+  &lsquo;attribs&rsquo; =>
+  array (</p>
+
+<pre><code>'id' =&gt; 'name',
+'type' =&gt; NULL,
+'name' =&gt; NULL,
+'size' =&gt; 20,
+'maxlength' =&gt; 20,
+</code></pre>
+
+<p>  ),
+  &lsquo;options&rsquo; =>
+  array (
+  ),
+  &lsquo;value&rsquo; => NULL,
+)
+```</p>
+
+<h2>Without using Aura.View completely</h2>
+
+<p>If you are not planning to use Aura.View entirely as templating, you can
+make use of <a href="http://auraphp.com/Aura.View/">Aura.View</a> helpers which can render to make the form.</p>
+
+<p>For that you need to instantiate <code>Aura\View\HelperLocator</code> and get the
+field object as below.</p>
+
+<p>```php
+$helper = new Aura\View\HelperLocator([</p>
+
+<pre><code>'field'         =&gt; function () { 
+    return new Aura\View\Helper\Form\Field(
+        require dirname(__DIR__) . '/vendor/aura/view/scripts/field_registry.php'
+    ); 
+},
+'input'         =&gt; function () { return new Aura\View\Helper\Form\Input(
+        require dirname(__DIR__) . '/vendor/aura/view/scripts/input_registry.php'
+    ); 
+},
+'radios'        =&gt; function () { return new Aura\View\Helper\Form\Radios(new Aura\View\Helper\Form\Input\Checked); },
+'repeat'         =&gt; function () { return new Aura\View\Helper\Form\Repeat(
+        require dirname(__DIR__) . '/vendor/aura/view/scripts/repeat_registry.php'
+    ); 
+},
+'select'        =&gt; function () { return new Aura\View\Helper\Form\Select; },
+'textarea'      =&gt; function () { return new Aura\View\Helper\Form\Textarea; },
+</code></pre>
+
+<p>]);</p>
+
+<p>$field = $helper->get(&lsquo;field&rsquo;);
+echo $field($form->get(&lsquo;name&rsquo;));
+echo $field($form->get(&lsquo;message&rsquo;));</p>
+
+<p>// echo $field($form->get(&lsquo;form-element&rsquo;));</p>
+
+<p>```</p>
+
+<p>The above will output something like</p>
+
+<p><code>&lt;input id="name" type="text" name="name" size="20" maxlength="20" /&gt;</code></p>
+
+<h2>Using Aura.View</h2>
+
+<p>But you can use <a href="http://auraphp.com/Aura.View/">Aura.View</a> to render it nicely. An example is</p>
+
+<p>```php
+&lt;?php</p>
+
+<pre><code>echo $this-&gt;field($this-&gt;form-&gt;get('name'));
+</code></pre>
+
+<p>?>
+```
+You can still look more closely on the <a href="https://github.com/harikt/phpform/blob/master/templates/default.php">templates</a> to see how it is used
+in the example.</p>
+
+<p>If you have any problems or confusions, let me know by comments.
+I will try to address the same.</p>
+
+<p>I would like to express huge Thanks to Paul M Jones for spending his
+valuable time on the project, giving valuable feedback on the implementations.</p>
+
+<p>Happy PhPing!</p>
+]]></content>
+  </entry>
+  
+</feed>

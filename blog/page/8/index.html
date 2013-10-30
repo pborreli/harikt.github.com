@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Random thoughts | Hari KT</title>
+  <meta name="author" content="Hari K T">
+
+  
+  <meta name="description" content="Some months back I read the article php|architect&rsquo;s guide to Web Scraping with PHP &ndash; Don&rsquo;t let the title fool you. It was a review &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://harikt.com/blog/page/8">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/harikt/YKAJ" rel="alternate" title="Random thoughts | Hari KT" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5998889-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Random thoughts | Hari KT</a></h1>
+  
+    <h2>On programming</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/harikt/YKAJ" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:harikt.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/who-am-i/">Who am I?</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/09/03/scraping-web-goutte/">Scraping the Web With Goutte</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-03T13:38:00+05:30" pubdate data-updated="true">Sep 3<span>rd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Some months back I read the article <a href="http://devzone.zend.com/article/12584">php|architect&rsquo;s guide to Web Scraping with PHP &ndash; Don&rsquo;t let the title fool you</a>. It was a review for the <a href="http://www.phparch.com/books/phparchitects-guide-to-web-scraping-with-php/">book</a> of Mathew Turland ( <a href="http://twitter.com/elazar">@elazar</a> ) by Cal Evans . But I didnot read the book too . Days passes I saw <a href="https://github.com/fabpot/Goutte">Goutte</a> a simple web scrapper by @fabpot (  <a href="http://fabien.potencier.org">Fabien Potentier</a> ) .  But two days back I was looking how I can download my friends contact details from facebook. I didnot find a means to get the mobile numbers or email address. I looked the API , but it didnot provide some functionalities like that . Then what to do ?  If I have got the email and phone number I can sync with my gmail and via it to my android handset . But I didnot find anything , may be other softwares will be there . But I simply thought of learning scraping than going to do something .  Goutte is a simple library which can be downloaded as a phar file also. So you just want to add a require for the phar file . It utilises some of the symfony components and zend http component . You can login , select links , clicks on it , filter the content , fetch data etc.  I was able to make the script going through some of the articles below .  Read me of <a href="https://github.com/fabpot/Goutte">https://github.com/fabpot/Goutte</a>  <a href="http://www.phparch.com/2010/04/four-new-php-5-3-components-and-goutte-a-simple-web-scraper/">http://www.phparch.com/2010/04/four-new-php-5-3-components-and-goutte-a-simple-web-scraper/</a>  <a href="http://fabien.potencier.org/article/42/parsing-xml-documents-with-css-selectors">http://fabien.potencier.org/article/42/parsing-xml-documents-with-css-selectors</a>  Also the api :) . Its really a powerful php scraping tool. Yes its easy if you know how the css selectors work .  Download Goutte over <a href="https://github.com/fabpot/Goutte">https://github.com/fabpot/Goutte</a> or using wget <a href="https://raw.github.com/fabpot/Goutte/master/goutte.phar">https://raw.github.com/fabpot/Goutte/master/goutte.phar</a> . Start scraping :) .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/08/21/contributing-php/">Contributing to PHP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-21T14:21:00+05:30" pubdate data-updated="true">Aug 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>You don&rsquo;t want to be a strong C programmer to contribute to PHP. You just need to know some XML to contriute to the documentation of PHP and improve it . Recently I was going through some of the functions . I noticed an example which was not for that function. There was a link just next to it to file a Bug . Though I clicked and moved , I didn&rsquo;t felt it as a huge issue to report as Bug . I came back to the page and saw the edit on the top right . Clicked on it and went to edit . I logged in with my open-id , though the docbook didn&rsquo;t redirected me , I just logged in as annonymous . I made the necessary changes .  <a href="http://www.flickr.com/photos/harikt/6065016304/in/photostream/"><img src="http://farm7.static.flickr.com/6181/6065016304_574fec7e1a.jpg" alt="image" /></a>  Though it says it saved , I didnot see it reflected quickly . I guess some of the peers need to review it and push to see it . Anyway what I want you guys of PHP community is rather than filing a bug in documentation if you know what to do , then go for an edit . This will help the people of our PHP community rather than looking what the bug is verifying it, then assigning a person if he is not familiar with that language etc. I am writing this post for I noticed the same thing . If I had made the bug rather than editing the appropriate files the number of bugs will increase . After all the person who does the documentation is doing things as a community effort and not paid for it. Let us try to help those people, after all we all are in PHP and enjoying the awesome Language. You can also vote for the bugs so that will help the core developers to do the needful .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/08/05/documentation-help-sphinx-and-readthedocs/">Documentation With Help of Sphinx and Readthedocs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-05T23:23:00+05:30" pubdate data-updated="true">Aug 5<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://sphinx.pocoo.org/">Sphinx</a> is a tool that makes it easy to create intelligent and beautiful documentation, written by Georg Brandl and licensed under the BSD license.  I was trying to help the Aura Project with some documentation . When it comes to gh-pages branch I find difficult to push, merge upstreams. I just was browsing some of the repos in github. From the <a href="https://github.com/avalanche123/Imagine/">Imagine</a> I came to know about <a href="http://readthedocs.org/">http://readthedocs.org/</a> which works with the help of sphinx project. We just want to create a doc folder and create the .rst files of the format <a href="http://sphinx.pocoo.org/rest.html">http://sphinx.pocoo.org/rest.html</a> and place in our repo and point it in <a href="http://readthedocs.org/.">http://readthedocs.org/.</a> I feel its so easy to do, for people can just clone the docs repo and make the necessary changes in the .rst files and give a pull request than the gh-pages. Some times the gh-pages waste a huge amount of time with some unexpected errors :( .  So I thought of trying the readthedocs. From the <a href="http://readthedocs.org/docs/read-the-docs/en/latest/getting_started.html">getting started page of readthedocs</a> I went and installed sphinx . It was easy for me to run from synaptic package manager. Installed and run the command $ sphinx-quickstart . It asks a few questions I am keeping the gist over here  Running $ make html , we get the html in the _build/html folder. We can just browse through it , make the necessary changes in the .rst files run and run until we love. No commits , no push and pull and check the errors in gh-pages as we did. As the html is generated we can host either directly in gh-pages branch of github.com or we can just push the .rst files and utilize the <a href="http://readthedocs.org/">http://readthedocs.org/</a>  I have asked my friends at <a href="http://auraphp.github.com">http://auraphp.github.com</a> for their suggestion about this. We are having a search coming , code high lighting etc. Sphinx is not new for me, but I never tried to use it until now. I have been seeing the name over the www.doctrine-project.org and some other. I hope this is one of the best tool to utilize for documentation of any projects . I welcome your thoughts :&ndash;)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/07/17/get-set-go-yes-come-lets-start-playing-aura-packages/">Get Set Go &#8230; Yes Come, Lets Start Playing With Aura Packages</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-17T17:47:00+05:30" pubdate data-updated="true">Jul 17<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Some of you may be knowing that I have been playing with <a href="https://github.com/auraphp">Aura</a> components for the past few months . The Aura is a PHP 5.3 collection of library . Its the next major release of Solar PHP framework of Paul M Jones. If you want to use it as a framework the <a href="https://github.com/auraphp/system">system</a> makes it possible. Aura uses dependency injection in the core .  I have been trying different things with the aura , testing, fixing some bugs if any and pull to it etc . Currently I have an example repo which will help you to get started .  <a href="https://github.com/harikt/Bridge.Careers">Bridge.Careers</a> contains different branches, the ViewHelper branch will help you to learn how to create your own view helpers . The MInSrc branch is set of Model related files you want to integrate Aura.Sql in the Aura framework . In the branch the models reside in the src folder itself .  You may also see other branches in the coming days.  Play with it and let us know what you have in your mind .  <a href="https://github.com/harikt/Bridge.Careers">https://github.com/harikt/Bridge.Careers</a>  Code of Aura PHP : <a href="https://github.com/auraphp">https://github.com/auraphp</a>  Aura PHP Website : <a href="http://auraphp.github.com/">http://auraphp.github.com/</a>  Still have some components missing( I mean Porting the Solar components ), but don&rsquo;t worry we will be coming with it in the coming days, or you can even contribute to it. You can join and discuss with us in <a href="http://groups.google.com/group/auraphp">http://groups.google.com/group/auraphp</a> or in #auraphp irc channel at freenode.net .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/07/17/wordpress-3-ultimate-security/">Wordpress 3 Ultimate Security</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-17T17:17:00+05:30" pubdate data-updated="true">Jul 17<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was little busy with different things. Sometimes with <a href="http://auraphp.github.com/">Aura</a>. So it took sometime to inform you that the second book <a href="http://www.packtpub.com/wordpress-3-ultimate-security/book">Wordpress 3 Ultimate Security</a> I have reviewed is available .  If you was following me in <a href="https://plus.google.com/103027363195624770971/posts/iyGbNtMpXQY">Google +</a> or Twitter you may have already known this. Its a nice book, you will definitely learn how to secure your site.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/04/29/contributing-opensource-project-github/">Contributing to an Opensource Project in Github</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-29T10:51:00+05:30" pubdate data-updated="true">Apr 29<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There are lots of open-source projects in <a href="http://github.com">github.com</a> . I love contibuting to open-source projects. It may not be that much easy as github. But it didn&rsquo;t happened until I did a pull request to <a href="https://github.com/auraphp">AuraPHP</a>. I was really excited that it was merged with more changes made by <a href="http://paul-m-jones.com/">Paul M Jones</a> .  So if you are interested like me to contribiute or to make the project more shiny fork it <a href="http://help.github.com/fork-a-repo/">http://help.github.com/fork-a-repo/</a>  Do your changes and make a pull request <a href="http://help.github.com/pull-requests/">http://help.github.com/pull-requests/</a>  Enjoy !</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/04/15/peep-through-php-53-frameworks/">A Peep Through PHP 5.3 Frameworks</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-15T10:29:00+05:30" pubdate data-updated="true">Apr 15<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>AuraPHP</strong> : AuraPHP is not a new framework, its by Paul M Jones who is one behind the bench marking of PHP frameworks and also the Solar PHP framework. A good thing I loved in AuraPHP is all things are discussed and implemented by Paul and the team in google groups. So you never miss bcoz your timezone is different. You always know what is happening, also if you love to know how a framework should be developed its good to join in the discusssion. I learned a lot from Paul and many of them in the group. The name was changed beacuse they don&rsquo;t want to confuse with the solar search project, else it would have been called Solar2 :) . Its developed as component based framework, but if you want to utilize whole framework then the system is for it. Some of the components are already available in github. They are the Dependency Injection , Router , Signal ( Event driven ) , Command Line , Http Request and Response , View etc .  Grab it from : <a href="https://github.com/auraphp">https://github.com/auraphp</a>  Support : on IRC FreeNode #auraphp , <a href="http://groups.google.com/group/auraphp">http://groups.google.com/group/auraphp</a> ( Discussions usually happen in groups , ie always a + point )  Current : Slow Development  <strong>FatFree</strong> : Fatfree is another nice light weight framework ( 55K ) which already may have got some attention from <a href="http://www.phpbuilder.com/columns/php-fat-free-framework/Jason_Gilmore04052011.php3">phpbuilder</a> article.  Grab it from : <a href="http://fatfree.sourceforge.net/">http://fatfree.sourceforge.net/</a>  Support : FreeNode #fatfree channel  <strong>Flow3</strong> : Flow3 is one of the promising framework founded by the TYPO3 association for the next development of TYPO3. Yes TYPO3 from version 5 will be using this new framework. It uses many of the concepts like AOP ( Lithium uses it ) , Signal Slot ( Zend , Aura etc ) etc. Flow3 is always a good one to check for they have a huge experience building websites with PHP. The major pitfalls of a framework or a system is understood once you start developing an application. So Flow3 tries to resolve most of the problems as they would have came when building a CMS like TYPO3.  Grab it from : <a href="http://flow3.typo3.org/download/">http://flow3.typo3.org/download/</a>  Current Version : Beta  Support : IRC , Mailing List  <strong>FuelPHP</strong> : Beware its not a PSR-0 Standard one. I don&rsquo;t recommend until you are sure you love it. When Fuel started I do have written in the comments of Dan Horrigan blog. Why you need to write another framework for 5.2, but later they decided to move it to 5.3 ie great to hear. And the latest post by Phil Sturgeon also made me think he is right . Why we want to reinvent a wheel :) . Inbuilt ORM and OIL which will make your life easier. FUEL is a good one to check. Phil Sturgeon is the Engineer for the Codeignitter Reactor . Hope you know codeigniter and reactor ;) .  Grab it from : <a href="https://github.com/fuel/fuel">https://github.com/fuel/fuel</a>  Support : <a href="http://fuelphp.com/forums">http://fuelphp.com/forums</a>  Released  <strong>Lithium</strong> : Lithium is a light weight framework for those who hate frameworks. People who are behind Lithium are Nate Abele ( X lead developer of cake php ) , Gwoo ( x project leader of cake php ) , Win Sinchlair ( x lead developer of zend ), David Persson, Joel Perras are some of them.  The most interesting thing I loved in Lithium is the filter system. Lithium will defnitely teach you to write Beautiful Code .  Grab it from : <a href="https://github.com/UnionOfRAD/framework">https://github.com/UnionOfRAD/framework</a> or <a href="http://lithify.me">http://lithify.me</a> ( Need to create an account )  Support : FreeNode #li3 channel  Current Version is 0.99 * .  <strong>Symfony2</strong> :  Symfony2 is indeed the fastest growing and may be the next largest community driven framework. The main contributor of Symfony is Fabien Potentier who is the founder of Sensio Labs and ofcourse its backed by them. Symfony2 uses many of the concepts from symfony 1 and also decoupling the framework to components something like previously Zend framework was doing. So you can utilize symfony2 components seperately without using the whole framework.  Grab it from : <a href="https://github.com/symfony/symfony">https://github.com/symfony/symfony</a>  Support : Group and IRC .  Current Version : Released 2.0.3  <strong>Silex</strong> : A microframework based on Symfony2  <a href="https://github.com/fabpot/Silex">https://github.com/fabpot/Silex</a> . Silex can utilize many of the symfony2 components , swiftmailer , forms etc . Fabien is also working on a small admin generation tool.  <strong>Zend</strong>: Zend framework 2 development has started. From the latest webinars I came to know they will be releasing a stable version in this year.  Grab it from : <a href="https://github.com/zendframework/zf2">https://github.com/zendframework/zf2</a>  Support : ? , I am not sure whether there is #zf2 support in irc is happening.  An interesting thing is mostly all the above frameworks utilizes phpunit , as the unit testing suite. So you can grab phpunit and this will help in the TDD development of any any product which utilizes phpunit. I love AuraPHP &rsquo;s implementation of phpunit inside it. So there is no tedious task installing and configuring phpunit for aura. Hands of to Paul for the wonderful way he has done.  Another notable one is Doctrine2 which can be used by all the frameworks . ie also a great thing that you just need to know one ORM and utilize it every where. Especially if you are like me, and are working on different projects which uses different frameworks.   If you love doctrine, the best framework which utilizes it in the core is Symfony. Symfony2 has a better documentation, and it will improve too for you can see the community.  Lithium was mainly concentrating on nosql ( built in support from 0.3 I guess ), the RDBMS support still in progress ( Rome was not built in a day ). Lithium tries to make everything that a developer needs into the core. For the same it has more todo ( RDBMS ) though you can utilize other libraries. Its one of the promising framework once it reaches 1.0 . Never ever forget to check.  Check the latest and utilize according to your needs.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/03/13/replacing-mysql-query-browser-and-phpmyadmin-adminer/">Replacing Mysql Query Browser and Phpmyadmin With Adminer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-13T11:10:00+05:30" pubdate data-updated="true">Mar 13<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you have read my post on OSI Days you may have already heard about <a href="http://www.vrana.cz/">Jakub Vrana</a>. Jakub Vrana is one of the active contributors of <a href="http://php.net">php.net</a> . He introduced <a href="http://www.adminer.org/">adminer</a> and <a href="http://www.notorm.com/">NotORM</a> before us at OSI Days.  After that I have been promoting <a href="http://www.adminer.org/">adminer</a>, to my friends and collegues who were mostly using <a href="http://phpmyadmin.net">phpmyadmin</a>. Also if you were on phpmyadmin groups you may already have gone through the conversation with Jakub Vrana.  I am not going into it and why I prefer Adminer, its all personal preference. Anyway my friends who started using are impressed with this single php file which can do almost all stuffs which they have been doing in phpmyadmin, and additionaly which is fast, secure and powerful tool.  Today I replaced completely the mysql query browser which was consuming around 10MB of my hard disk with this single php file Adminer. Yes now life rocks with more MB to use as I was running out of disk space.  Also I started using <a href="http://jush.sourceforge.net/">Jush</a> . Jush is a JavaScript Syntax Highlighter which can be used for client-side syntax highlighting of following languages: HTML, CSS, JavaScript, PHP, SQL, HTTP and SMTP protocol, php.ini and Apache config. Its available as a jQuery plugin also.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/03/12/adding-html-purifier-library-lithium/">Adding HTML Purifier Library in Lithium</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-12T08:06:00+05:30" pubdate data-updated="true">Mar 12<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Hope everyone knows about <a href="http://htmlpurifier.org/">HTMLPurifier</a> and why its used. Martin Brampton&rsquo;s new book <a href="https://www.packtpub.com/php-5-cms-framework-development-second-edition/book">PHP 5 CMS Framework Development</a> includes a discussion of using HTML Purifier in your content managementsystem.  Today I thought of adding HTMLPurifier to Lithium . Its easy but sometimes we may want to look the autoloader and how its implemented. So this is a small contribution from me.  There is also another way. ie go and clone <a href="https://github.com/harikt/li3_htmlpurifier.">https://github.com/harikt/li3_htmlpurifier.</a> Download all the files to HTMLPurifier . And add Libraries::add(&lsquo;li3_htmlpurifier&rsquo;);  Hope you liked :&ndash;) . Have fun .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/03/10/relationship-support-lithium-aka-li3/">Relationship Support in Lithium Aka Li3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-10T08:37:00+05:30" pubdate data-updated="true">Mar 10<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So now some of the relationship support has been there in lithium&rsquo;s x-relationships branch . I was talking with Howard Lince and Nateabele about the progress in relationships .  You can see the updated roadmap <a href="http://dev.lithify.me/lithium/wiki/about/roadmap">here</a> .  So lets start playing with relationships right ?  Currently we have  1 ) hasOne => 1 to 1  2 ) hasMany = > 1 to N  3 ) belongsTo => N to 1 or 1 to 1  4 ) HABTM work in progress  Eg 1 : A user has one profile . hasOne  Eg 2 : A user has many posts  Eg 3 : A user has many comments  Eg 4 : Single or many comments belongs to user .  Eg 5 : A single or many posts belongs to user .  Currently as the work for relationships is in progress I cannot point you to <a href="http://lithify.me/docs.">http://lithify.me/docs.</a> But Cake PHP has good documentation of the concepts. You can read it from <a href="http://book.cakephp.org/view/1039/Associations-Linking-Models-">cakephp</a>  I am going to show only some snippets of code how to create relationships. Once you have done with it , you will be a master.  Note :The command &ldquo;li3 create model&rdquo; previoulsy was creating models as singular. But from now onwards its Plural, so the command may be creating singular named file. So you need to do the necessary changes , will be fixed soon before 1.0 release.  We are moving to x-relationships branch. ie  $git checkout x-relationships  What I am going to show is relationship with user and post and user with comments. I assume only registered users can add posts and comments .  So lets dive into it .  Below is the table structure  Now you want to create Comments , Posts , Users models in your app/models folder .  Comments are posted for a particular post by a user .  So we are relating it via variable belongsTo . It must be public.  The $_schema is the array which is the same order the fields are created in table.  The $validates array contains the validations needed.  A user can post many comments and posts . Here in hasMany we have shown the relationship to the other .But its not needed as lithium is smart enough to know your foreign key relationships if you followed it.  Lithium uses filters. Filters are essentially an efficient way of introducing event-driven communication between classes in your application. You can read over <a href="http://dev.lithify.me/drafts/source/en/02_lithium_basics/02_filters.wiki">filters</a> .  So in your controllers action , you can fetch data like the below.  The Post::find() fetches the post of that particular id and the user who posted it .The Comments::find() fetches the comments and the user who posted it .  If you are storing the users name , email etc in comments table and not like the one I showed then the best way is to add Comments also to the with in Post::find()  A print_r for $post->data() will show the values. You can use a filter to check whether a query is fired and dump the query.  Add the below code in bootstrap.php  Thanks to Nate Abele , Howard and all my #li3 friends who helped me to make this post.  You can see the whole things over <a href="https://github.com/harikt/li3_tests">https://github.com/harikt/li3_tests</a> . More experiments will be added to it :) .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/9/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/7/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/29/conferences-is-it-really-worth/">Conferences : Is It Really Worth?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/28/looking-at-aura-v2/">Looking at Aura Version 2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/19/aura-framework-released/">Aura Framework Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/07/book-on-aura-moved-to-manual/">Book on Aura Moved to Manual</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/05/announcing-winners-of-the-contest/">Announcing Winners of the Contest</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/harikt">@harikt</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'harikt',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Hari K T -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'harikt';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
