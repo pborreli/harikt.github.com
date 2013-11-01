@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>REST: Is DELETE Idempotent? - Random thoughts | Hari KT</title>
+  <meta name="author" content="Hari K T">
+
+  
+  <meta name="description" content="This post is a thrive to learn, and not to show anyone is incorrect.
+Feel free to share your thoughts. Lukas Kahwe Smith was having a nice post &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://harikt.com/blog/2013/11/01/rest-is-delete-idempotent">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/harikt/YKAJ" rel="alternate" title="Random thoughts | Hari KT" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5998889-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Random thoughts | Hari KT</a></h1>
+  
+    <h2>On programming</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/harikt/YKAJ" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:harikt.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/who-am-i/">Who am I?</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">REST: Is DELETE Idempotent?</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-01T05:28:00+05:30" pubdate data-updated="true">Nov 1<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post is a thrive to learn, and not to show anyone is incorrect.
+Feel free to share your thoughts.</p>
+
+<p>Lukas Kahwe Smith was having a nice post
+<a href="https://blog.liip.ch/archive/2013/10/28/resting-with-symfony2.html">RESTing with Symfony2</a></p>
+
+<p>Quoting a few words from the post on REST</p>
+
+<h2>DELETE and 404</h2>
+
+<blockquote><p>I started my talk on RESTing with Symfony2 with an introduction to REST itself.
+On slide 7 of my talk I explained the concept of &ldquo;safe&rdquo; and
+&ldquo;idempotent&rdquo; HTTP methods. Many people were surprised when I explained
+that DELETE should be idempotent, meaning that sending a DELETE request
+to a resource that has been removed should infact not return a 404.</p></blockquote>
+
+<p>I am not a REST guru, but in fact I got curious on the same, and
+was looking at http status <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11">410 Gone</a></p>
+
+<blockquote><p><a href="https://twitter.com/harikt">@harikt</a> 1st Q that must be answered is if
+DELETE is idempotent. if it is then the status code shouldn&#39;t
+change on subsequent delete requests
+&mdash; Lukas Kahwe Smith (@lsmith) <a href="https://twitter.com/lsmith/statuses/395160219376164864">October 29, 2013</a></p></blockquote>
+
+<h2>What is idempotent?</h2>
+
+<p>Quoting from <a href="http://en.wikipedia.org/wiki/Idempotence">Wikipedia</a></p>
+
+<blockquote><p>Idempotence is the property of certain operations in mathematics and
+computer science, that can be applied multiple times without changing
+the result beyond the initial application. The concept of idempotence
+arises in a number of places in abstract algebra (in particular, in
+the theory of projectors and closure operators) and functional
+programming (in which it is connected to the property of referential transparency).</p>
+
+<p>There are several meanings of idempotence, depending on what the concept is applied to:</p>
+
+<ul>
+<li>A unary operation (or function) is idempotent if, whenever it is applied twice to any value, it gives the same result as if it were applied once; i.e., ƒ(ƒ(x)) ≡ ƒ(x). For example, the absolute value: abs(abs(x)) ≡ abs(x).</li>
+<li>A binary operation is idempotent if, whenever it is applied to two equal values, it gives that value as the result. For example, the operation giving the maximum value of two values is idempotent: max (x, x) ≡ x.</li>
+<li>Given a binary operation, an idempotent element (or simply an idempotent) for the operation is a value for which the operation, when given that value for both of its operands, gives the value as the result. For example, the number 1 is an idempotent of multiplication: 1 × 1 = 1.</li>
+</ul>
+</blockquote>
+
+<p>Christophe Coevoet also feel the same</p>
+
+<blockquote><p><a href="https://twitter.com/lsmith">@lsmith</a> then 410 is probably the best status
+code here, and 404 otherwise /cc <a href="https://twitter.com/harikt">@harikt</a> <a href="https://twitter.com/_m6w6">@_m6w6</a>
+&mdash; Christophe Coevoet (@Stof70) <a href="https://twitter.com/Stof70/statuses/395193333347135488">October 29, 2013</a></p></blockquote>
+
+<p>Why?</p>
+
+<blockquote><p><a href="https://twitter.com/lsmith">@lsmith</a> The definition says &quot;without changing the result&quot;.
+the HTTP spec says that the result is the state of the app <a href="https://twitter.com/_m6w6">@_m6w6</a> <a href="https://twitter.com/harikt">@harikt</a>
+&mdash; Christophe Coevoet (@Stof70) <a href="https://twitter.com/Stof70/statuses/395193644585480192">October 29, 2013</a></p></blockquote>
+
+<p><img src="/assets/images/http-delete.png" alt=" Status code of DELETE " /></p>
+
+<p>The above screenshot is limited, you can check all the messages passed from
+<a href="https://twitter.com/harikt/status/395154834426314752">https://twitter.com/harikt/status/395154834426314752</a></p>
+
+<p>Woke up early morning and I noticed a subsequent post
+<a href="http://www.duckheads.co.uk/is-a-http-delete-requests-idempotent/491">Is a HTTP DELETE request idempotent?</a>
+by Lee Davis. Interesting to read his thoughts on the same.
+There was a nice discussion by <a href="http://www.jasonlotito.com/">Jason Lotito</a>,
+do consider reading it.</p>
+
+<p>I felt Jason Lotito is correct.</p>
+
+<h2>Wikipedia has something to say aboout Idempotent methods</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Idempotent_methods_and_web_applications">Hypertext Transfer Protocol Idempotent methods</a></p>
+
+<blockquote><p>Methods PUT and DELETE are defined to be idempotent, meaning that multiple
+identical requests should have the same effect as a single request
+(Note that idempotence refers to the state of the system after the
+request has completed, so while the action the server takes
+(e.g. deleting a record) or the response code it returns may be
+different on subsequent requests, the system state will be the same every time).</p></blockquote>
+
+<p>So what does that mean?</p>
+
+<p>Let us look into a real world example deleting <a href="http://example.com/post/121">http://example.com/post/121</a></p>
+
+<p>We send a DELETE method via REST. What is going to happen?</p>
+
+<p>I am quoting from
+<a href="http://www.restapitutorial.com/lessons/httpmethods.html">http://www.restapitutorial.com/lessons/httpmethods.html</a></p>
+
+<blockquote><p>On successful deletion, return HTTP status 200 (OK) along with a response body,
+perhaps the representation of the deleted item (often demands too much bandwidth),
+or a wrapped response (see Return Values below). Either that or
+return HTTP status 204 (NO CONTENT) with no response body</p></blockquote>
+
+<p>so far, so good.</p>
+
+<p>What is going to happen on your subsequent request?</p>
+
+<p>2nd time we are sending a DELETE method via REST, what do you expect to get?</p>
+
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.5">204 No Content</a>. What does that mean?</p>
+
+<blockquote><p>The server has fulfilled the request but does not need to return an
+entity-body, and might want to return updated metainformation.</p></blockquote>
+
+<p>No Content is a good status, which means the server has exectuted your
+delete operation successfully is a wrong information.</p>
+
+<p>iirc I have learned in Software Engineering, the wrong information
+is too bad than sending an error. Eg : 5+2 returning 9. I read some where
+at <a href="http://www.joelonsoftware.com/">http://www.joelonsoftware.com/</a> the bug
+they want to deal with when he was at microsoft. ( If anyone have the link
+please comment it)</p>
+
+<p>So if you know that a request for <a href="http://example.com/post/121">http://example.com/post/121</a> is already
+deleted, then <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11">410 Gone</a>
+will be the right status.</p>
+
+<p>If you don&rsquo;t know <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a>
+is the best status. Say it is not created, do we send 204?.</p>
+
+<p>So here <a href="http://example.com/post/121">http://example.com/post/121</a> is already deleted.
+(That means your subsequent response should be same,
+note that not response status code)</p>
+
+<p>It is upto your application how to deal with making it truely RESTful. Else
+passing false information as response always is a wrong way.</p>
+
+<p>I have also tried to get RSDL (RESTful Service Description Language)
+<a href="http://en.wikipedia.org/wiki/RSDL#Maintainer">Maintainer</a> to know
+the real information.</p>
+
+<p>Probably I am wrong, but I am still learning REST.</p>
+
+<p>Thank you.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Hari K T</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-01T05:28:00+05:30" pubdate data-updated="true">Nov 1<span>st</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rest/'>REST</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://harikt.com/blog/2013/11/01/rest-is-delete-idempotent/" data-via="harikt" data-counturl="http://harikt.com/blog/2013/11/01/rest-is-delete-idempotent/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/10/29/conferences-is-it-really-worth/" title="Previous Post: Conferences : Is it really worth?">&laquo; Conferences : Is it really worth?</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/11/01/rest-is-delete-idempotent/">REST: Is DELETE Idempotent?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/29/conferences-is-it-really-worth/">Conferences : Is It Really Worth?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/28/looking-at-aura-v2/">Looking at Aura Version 2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/19/aura-framework-released/">Aura Framework Released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/07/book-on-aura-moved-to-manual/">Book on Aura Moved to Manual</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/harikt">@harikt</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'harikt',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Hari K T -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'harikt';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://harikt.com/blog/2013/11/01/rest-is-delete-idempotent/';
+        var disqus_url = 'http://harikt.com/blog/2013/11/01/rest-is-delete-idempotent/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

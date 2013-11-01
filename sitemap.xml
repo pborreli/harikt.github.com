@@ -993,6 +993,10 @@
         <lastmod>2013-10-30T15:10:19+05:30</lastmod>
     </url>
     <url>
+        <loc>http://harikt.com/blog/2013/11/01/rest-is-delete-idempotent/</loc>
+        <lastmod>2013-11-01T07:16:21+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://harikt.com/who-am-i/</loc>
         <lastmod>2013-10-29T22:06:25+05:30</lastmod>
     </url>
@@ -1002,10 +1006,10 @@
     </url>
     <url>
         <loc>http://harikt.com/</loc>
-        <lastmod>2013-10-30T15:10:19+05:30</lastmod>
+        <lastmod>2013-11-01T07:16:21+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/blog/archives/</loc>
-        <lastmod>2013-10-30T15:10:19+05:30</lastmod>
+        <lastmod>2013-11-01T07:16:21+05:30</lastmod>
     </url>
 </urlset>

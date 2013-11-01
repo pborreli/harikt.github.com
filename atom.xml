@@ -4,7 +4,7 @@
   <title><![CDATA[Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-10-30T15:20:28+05:30</updated>
+  <updated>2013-11-01T07:16:30+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,149 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[REST: Is DELETE Idempotent?]]></title>
+    <link href="http://harikt.com/blog/2013/11/01/rest-is-delete-idempotent/"/>
+    <updated>2013-11-01T05:28:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/11/01/rest-is-delete-idempotent</id>
+    <content type="html"><![CDATA[<p>This post is a thrive to learn, and not to show anyone is incorrect.
+Feel free to share your thoughts.</p>
+
+<p>Lukas Kahwe Smith was having a nice post
+<a href="https://blog.liip.ch/archive/2013/10/28/resting-with-symfony2.html">RESTing with Symfony2</a></p>
+
+<p>Quoting a few words from the post on REST</p>
+
+<h2>DELETE and 404</h2>
+
+<blockquote><p>I started my talk on RESTing with Symfony2 with an introduction to REST itself.
+On slide 7 of my talk I explained the concept of &ldquo;safe&rdquo; and
+&ldquo;idempotent&rdquo; HTTP methods. Many people were surprised when I explained
+that DELETE should be idempotent, meaning that sending a DELETE request
+to a resource that has been removed should infact not return a 404.</p></blockquote>
+
+<p>I am not a REST guru, but in fact I got curious on the same, and
+was looking at http status <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11">410 Gone</a></p>
+
+<blockquote><p><a href="https://twitter.com/harikt">@harikt</a> 1st Q that must be answered is if
+DELETE is idempotent. if it is then the status code shouldn&#39;t
+change on subsequent delete requests
+&mdash; Lukas Kahwe Smith (@lsmith) <a href="https://twitter.com/lsmith/statuses/395160219376164864">October 29, 2013</a></p></blockquote>
+
+<h2>What is idempotent?</h2>
+
+<p>Quoting from <a href="http://en.wikipedia.org/wiki/Idempotence">Wikipedia</a></p>
+
+<blockquote><p>Idempotence is the property of certain operations in mathematics and
+computer science, that can be applied multiple times without changing
+the result beyond the initial application. The concept of idempotence
+arises in a number of places in abstract algebra (in particular, in
+the theory of projectors and closure operators) and functional
+programming (in which it is connected to the property of referential transparency).</p>
+
+<p>There are several meanings of idempotence, depending on what the concept is applied to:</p>
+
+<ul>
+<li>A unary operation (or function) is idempotent if, whenever it is applied twice to any value, it gives the same result as if it were applied once; i.e., ƒ(ƒ(x)) ≡ ƒ(x). For example, the absolute value: abs(abs(x)) ≡ abs(x).</li>
+<li>A binary operation is idempotent if, whenever it is applied to two equal values, it gives that value as the result. For example, the operation giving the maximum value of two values is idempotent: max (x, x) ≡ x.</li>
+<li>Given a binary operation, an idempotent element (or simply an idempotent) for the operation is a value for which the operation, when given that value for both of its operands, gives the value as the result. For example, the number 1 is an idempotent of multiplication: 1 × 1 = 1.</li>
+</ul>
+</blockquote>
+
+<p>Christophe Coevoet also feel the same</p>
+
+<blockquote><p><a href="https://twitter.com/lsmith">@lsmith</a> then 410 is probably the best status
+code here, and 404 otherwise /cc <a href="https://twitter.com/harikt">@harikt</a> <a href="https://twitter.com/_m6w6">@_m6w6</a>
+&mdash; Christophe Coevoet (@Stof70) <a href="https://twitter.com/Stof70/statuses/395193333347135488">October 29, 2013</a></p></blockquote>
+
+<p>Why?</p>
+
+<blockquote><p><a href="https://twitter.com/lsmith">@lsmith</a> The definition says &quot;without changing the result&quot;.
+the HTTP spec says that the result is the state of the app <a href="https://twitter.com/_m6w6">@_m6w6</a> <a href="https://twitter.com/harikt">@harikt</a>
+&mdash; Christophe Coevoet (@Stof70) <a href="https://twitter.com/Stof70/statuses/395193644585480192">October 29, 2013</a></p></blockquote>
+
+<p><img src="http://harikt.com/assets/images/http-delete.png" alt=" Status code of DELETE " /></p>
+
+<p>The above screenshot is limited, you can check all the messages passed from
+<a href="https://twitter.com/harikt/status/395154834426314752">https://twitter.com/harikt/status/395154834426314752</a></p>
+
+<p>Woke up early morning and I noticed a subsequent post
+<a href="http://www.duckheads.co.uk/is-a-http-delete-requests-idempotent/491">Is a HTTP DELETE request idempotent?</a>
+by Lee Davis. Interesting to read his thoughts on the same.
+There was a nice discussion by <a href="http://www.jasonlotito.com/">Jason Lotito</a>,
+do consider reading it.</p>
+
+<p>I felt Jason Lotito is correct.</p>
+
+<h2>Wikipedia has something to say aboout Idempotent methods</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Idempotent_methods_and_web_applications">Hypertext Transfer Protocol Idempotent methods</a></p>
+
+<blockquote><p>Methods PUT and DELETE are defined to be idempotent, meaning that multiple
+identical requests should have the same effect as a single request
+(Note that idempotence refers to the state of the system after the
+request has completed, so while the action the server takes
+(e.g. deleting a record) or the response code it returns may be
+different on subsequent requests, the system state will be the same every time).</p></blockquote>
+
+<p>So what does that mean?</p>
+
+<p>Let us look into a real world example deleting <a href="http://example.com/post/121">http://example.com/post/121</a></p>
+
+<p>We send a DELETE method via REST. What is going to happen?</p>
+
+<p>I am quoting from
+<a href="http://www.restapitutorial.com/lessons/httpmethods.html">http://www.restapitutorial.com/lessons/httpmethods.html</a></p>
+
+<blockquote><p>On successful deletion, return HTTP status 200 (OK) along with a response body,
+perhaps the representation of the deleted item (often demands too much bandwidth),
+or a wrapped response (see Return Values below). Either that or
+return HTTP status 204 (NO CONTENT) with no response body</p></blockquote>
+
+<p>so far, so good.</p>
+
+<p>What is going to happen on your subsequent request?</p>
+
+<p>2nd time we are sending a DELETE method via REST, what do you expect to get?</p>
+
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.5">204 No Content</a>. What does that mean?</p>
+
+<blockquote><p>The server has fulfilled the request but does not need to return an
+entity-body, and might want to return updated metainformation.</p></blockquote>
+
+<p>No Content is a good status, which means the server has exectuted your
+delete operation successfully is a wrong information.</p>
+
+<p>iirc I have learned in Software Engineering, the wrong information
+is too bad than sending an error. Eg : 5+2 returning 9. I read some where
+at <a href="http://www.joelonsoftware.com/">http://www.joelonsoftware.com/</a> the bug
+they want to deal with when he was at microsoft. ( If anyone have the link
+please comment it)</p>
+
+<p>So if you know that a request for <a href="http://example.com/post/121">http://example.com/post/121</a> is already
+deleted, then <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11">410 Gone</a>
+will be the right status.</p>
+
+<p>If you don&rsquo;t know <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a>
+is the best status. Say it is not created, do we send 204?.</p>
+
+<p>So here <a href="http://example.com/post/121">http://example.com/post/121</a> is already deleted.
+(That means your subsequent response should be same,
+note that not response status code)</p>
+
+<p>It is upto your application how to deal with making it truely RESTful. Else
+passing false information as response always is a wrong way.</p>
+
+<p>I have also tried to get RSDL (RESTful Service Description Language)
+<a href="http://en.wikipedia.org/wiki/RSDL#Maintainer">Maintainer</a> to know
+the real information.</p>
+
+<p>Probably I am wrong, but I am still learning REST.</p>
+
+<p>Thank you.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Conferences : Is it really worth?]]></title>
@@ -2913,82 +3056,6 @@ Browse the documentation examples, source code, tests, and api.</p>
 <p><a href="https://github.com/harikt"><img class="center" src="http://harikt.com/assets/images/github/harikt.png" width="687" height="299" title="Contributions by harikt" alt="Contributions by harikt"></a></p>
 
 <p>The list is not complete, if you feel I missed your name or someone you feel needs to be added just give a tweet to me or fork the repo from github and send a PR.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Thoughts on Package/Component Structure]]></title>
-    <link href="http://harikt.com/blog/2013/01/04/thoughts-on-package-or-component/"/>
-    <updated>2013-01-04T06:15:00+05:30</updated>
-    <id>http://harikt.com/blog/2013/01/04/thoughts-on-package-or-component</id>
-    <content type="html"><![CDATA[<p>Comparing a software X with Y will not make anything worst, but makes it better. But many of them will think it as a promotional stuff. It is not anyones&rsquo;s problem. Some like to build it that way, some like the other way.</p>
-
-<p>So I am not comparing X with Y here.</p>
-
-<p>Not talking about package like Guzzle:</p>
-
-<p>I am not mentioning building something like Guzzle, which is a framework that includes the tools needed to create a robust web service client.</p>
-
-<p>But I am interested in talking about the packages which can be used to build something like Guzzle when you look into the require of composer.json.</p>
-
-<p>That means something like Aura.Http which can be used to make a request to google and do the search if needed or post etc.</p>
-
-<p>Structure of Package or Component:</p>
-
-<p>1 ) We need to name a package.</p>
-
-<p>Let us go for the <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md">PSR-0</a> naming.</p>
-
-<p>Each namespace must have a top-level namespace (&ldquo;Vendor Name&rdquo;), and a Package name. Probably you will end up with Vendor.Package or Vendor_Package .</p>
-
-<p>2 ) <a href="http://getcomposer.org/">Composer</a>/<a href="https://github.com/crodas/Eath">Eath</a>, are great tools which help you to manage the dependency management in your PHP projects. So we need a composer.json or package.yml .</p>
-
-<p>3 ) We are creating a package or component, so obviously it will contain source files and test files. It will be a mess when we keep all tests and source files in a same place. Most of them uses either <code>src</code> folder or <code>lib</code> or <code>library</code> to keep source files and <code>tests</code> to keep test files. Probably you have some documentation, a <code>docs</code> folder may help. May be some executable scripts. You can also add a <code>scripts</code> or <code>bin</code> folder.</p>
-
-<p>Now your structure will be something like</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>Vendor.Package
-</span><span class='line'>  ├── composer.json
-</span><span class='line'>  ├── package.yml
-</span><span class='line'>  ├── docs
-</span><span class='line'>  ├── src
-</span><span class='line'>  │   └── Vendor
-</span><span class='line'>  │       └── Package
-</span><span class='line'>  └── tests
-</span><span class='line'>      └── Vendor
-</span><span class='line'>          └── Package
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The above structure follows a PSR-0 naming convention for package/component.</p>
-
-<p>NIH : We all create new packages for we don&rsquo;t like some other package invented here, not for its not invented here or probably to make use of newer stuffs like traits, closures etc available in PHP 5.4 than sticking with PHP 5 or sometimes it is not inveneted here.</p>
-
-<p>So add your depenedencies to composer.json or package.yml</p>
-
-<p>Let us assume we are going to create a Validation pacakge. Probably you love annotations or yml format. It is always a better idea to keep the annotations, yaml etc on a bridge than in the Validation package. Remember you have composer, let the bridge package composer.json helps you to download validation package, annotation library. This also helps you to write your integration tests in bridge package than making a dependency on the Validation package.</p>
-
-<p>And also help people to use different annotations library than a single one or you will end up messing with more annotation classes.</p>
-
-<p>I guess this helps people to</p>
-
-<p>1 ) fork and contribute</p>
-
-<p>2 ) Even if there is no documentation, it helps to look into the source and get the point. Else a lot of classes confuses people.</p>
-
-<p>Nothing is developed to make it bad, everything is made for good. Though at-times it acts badly.</p>
-
-<p>These are some of the principles I learned looking at various projects like Aura, Symfony2, ZF2, Lithium, Fuel2, Illuminate&hellip; you name it.</p>
 ]]></content>
   </entry>
   
