@@ -4,7 +4,7 @@
   <title><![CDATA[Category: silex | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/silex/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-06T13:05:26+05:30</updated>
+  <updated>2013-11-06T22:00:40+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -92,8 +92,9 @@ public function delete($id)
 
 <p>});</p>
 
-<p>$app = new Silex\Application();
-$app->get(&lsquo;/hello/{name}&rsquo;, function ($name) use ($dispatcher, $app) {</p>
+<p>$app = new Silex\Application();</p>
+
+<p>$app->get(&lsquo;/hello/{name}&rsquo;, function ($name) use ($dispatcher, $app) {</p>
 
 <pre><code>$params = [
     'controller' =&gt; 'blog',
@@ -113,6 +114,61 @@ return $result;
 <p>See how we moved the <code>return 'Hello '. ucfirst($app-&gt;escape($name));</code>
 to a controller and action. I haven&rsquo;t used Silex extensively, so there
 can be better ways for integration.</p>
+
+<blockquote><p>Update : I was asking <a href="https://twitter.com/beausimensen">Beau D. Simensen</a>
+on the integration, and he gave another shot.</p></blockquote>
+
+<p>```php
+// all code as same as above, upto the route</p>
+
+<p>$app->get(&lsquo;/hello/{name}&rsquo;, function ($name) use ($app) {</p>
+
+<pre><code>return [
+    'controller' =&gt; 'blog',
+    'action' =&gt; 'hello',
+    'name' =&gt; $name,
+    'app' =&gt; $app,
+];
+</code></pre>
+
+<p>});</p>
+
+<p>$app->on(\Symfony\Component\HttpKernel\KernelEvents::VIEW, function ($event) use ($app, $dispatcher) {</p>
+
+<pre><code>$view = $event-&gt;getControllerResult();
+
+if (is_null($view) || is_string($view)) {
+    return;
+}
+
+if ( ! is_array($view)) {
+    // we can only handle array data in the view
+    return;
+}
+
+if (! (isset($view['controller']) &amp;&amp; isset($view['action']))) {
+    // at this point we don't know what is going on.
+    return;
+}
+
+$response = $dispatcher($view);
+
+if ( ! $response instanceof \Symfony\Component\HttpFoundation\Response) {
+    // If the response is not a Response instance, wrap it in one
+    // and assume that it was something appropriate as a response
+    // body.
+    $response = new \Symfony\Component\HttpFoundation\Response($response);
+}
+
+$event-&gt;setResponse($response);
+</code></pre>
+
+<p>});</p>
+
+<p>$app->run();
+```</p>
+
+<blockquote><p>I have purposefully kept the full path like <code>\Symfony\Component\HttpFoundation\Response</code></p></blockquote>
 
 <p>Hope you love <a href="http://github.com/auraphp/Aura.Dispatcher">Aura.Dispatcher</a>
 and use when you need architecural changes.</p>
