@@ -4,7 +4,7 @@
   <title><![CDATA[Category: auraphp | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/auraphp/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-01T07:16:30+05:30</updated>
+  <updated>2013-11-06T13:05:26+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,119 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using Aura Dispatcher in Silex]]></title>
+    <link href="http://harikt.com/blog/2013/11/06/using-aura-dispatcher-in-silex/"/>
+    <updated>2013-11-06T12:42:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/11/06/using-aura-dispatcher-in-silex</id>
+    <content type="html"><![CDATA[<p>2 days back <a href="http://paul-m-jones.com/">Paul M Jones</a> wrote an awesome post
+<a href="http://auraphp.com/blog/2013/11/04/aura-v2-dispatcher/">A Peek At Aura v2 &mdash; Aura.Dispatcher</a>
+the idea behind <a href="http://github.com/auraphp/Aura.Dispatcher/">Aura.Dispatcher</a>
+and how it was born.</p>
+
+<p>So today, let us try to integrate
+<a href="http://github.com/auraphp/Aura.Dispatcher">Aura.Dispatcher</a> with
+<a href="https://github.com/silexphp/Silex">Silex</a>. This post is inspired by the
+<a href="http://auraphp.com/blog/2013/11/04/aura-v2-dispatcher/#comment-1109657910">comment</a>
+made by <a href="https://twitter.com/cordoval">Luis Cordova</a>. Thank you.</p>
+
+<p><code>bash
+composer create-project silex/silex --no-dev silexproject
+cd silexproject
+composer require aura/dispatcher dev-develop-2
+</code></p>
+
+<blockquote><p>I hope you have composer installed else <a href="http://getcomposer.org/">get composer</a>.</p></blockquote>
+
+<p>I am not going to explain each and everything, the code is self explanatory.
+You can move the classes according to your wish (may be to another folder).
+I am trying to show a simple use case.</p>
+
+<p>```php
+&lt;?php
+require <strong>DIR</strong> . &lsquo;/vendor/autoload.php&rsquo;;</p>
+
+<p>use Aura\Dispatcher\Dispatcher;</p>
+
+<p>$dispatcher = new Dispatcher;</p>
+
+<p>$dispatcher->setMethodParam(&lsquo;action&rsquo;);
+$dispatcher->setObjectParam(&lsquo;controller&rsquo;);</p>
+
+<p>class Blog
+{</p>
+
+<pre><code>public function browse()
+{
+    // ...
+}
+
+public function hello($name, $app)
+{
+    return 'Hello '. ucfirst($app-&gt;escape($name));
+}
+
+public function edit($id)
+{
+    echo "Here";
+    exit;
+    // ...
+}
+
+public function add()
+{
+    // ...
+}
+
+public function delete($id)
+{
+    // ...
+}
+</code></pre>
+
+<p>}</p>
+
+<p>$dispatcher->setObject(&lsquo;blog&rsquo;, function () {</p>
+
+<pre><code>return new Blog;
+</code></pre>
+
+<p>});</p>
+
+<p>$app = new Silex\Application();
+$app->get(&lsquo;/hello/{name}&rsquo;, function ($name) use ($dispatcher, $app) {</p>
+
+<pre><code>$params = [
+    'controller' =&gt; 'blog',
+    'action' =&gt; 'hello',
+    'name' =&gt; $name,
+    'app' =&gt; $app,
+];
+$result = $dispatcher-&gt;__invoke($params);    
+return $result;
+</code></pre>
+
+<p>});</p>
+
+<p>$app->run();
+```</p>
+
+<p>See how we moved the <code>return 'Hello '. ucfirst($app-&gt;escape($name));</code>
+to a controller and action. I haven&rsquo;t used Silex extensively, so there
+can be better ways for integration.</p>
+
+<p>Hope you love <a href="http://github.com/auraphp/Aura.Dispatcher">Aura.Dispatcher</a>
+and use when you need architecural changes.</p>
+
+<p>Please do take time to read
+<a href="https://github.com/auraphp/Aura.Dispatcher#refactoring-to-architecture-changes">Refactoring To Architecture Changes</a></p>
+
+<p>Thank you and if you loved the post please do a tweet :&ndash;).</p>
+
+<p>Happy PhPing!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Looking at aura version 2]]></title>
@@ -507,20 +620,6 @@ Else you need to edit the <code>config/_packages</code> and add <code>Hari.Sampl
 <a href="http://symfony.com">Symfony</a></p>
 
 <p>to all the people who motivated me to bring this sample application.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Aura.Web, build your own controller class]]></title>
-    <link href="http://harikt.com/blog/2013/06/04/aura-dot-web/"/>
-    <updated>2013-06-04T07:47:00+05:30</updated>
-    <id>http://harikt.com/blog/2013/06/04/aura-dot-web</id>
-    <content type="html"><![CDATA[<p>If you are new to the concept of MVC, or if you are planning to build your
-own framework, probably Aura.Web help you to do the same.</p>
-
-<p>Here is the article in phpmaster.com <a href="http://phpmaster.com/aura-web-auras-page-controller-for-mvc/">Aura.Web: Aura’s Page Controller for MVC</a>.</p>
-
-<p>Probably you may also like the article <a href="http://phpmaster.com/web-routing-in-php-with-aura-router/">Web Routing in PHP with Aura.Router</a>.</p>
 ]]></content>
   </entry>
   

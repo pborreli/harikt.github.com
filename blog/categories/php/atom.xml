@@ -4,7 +4,7 @@
   <title><![CDATA[Category: php | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-01T07:16:30+05:30</updated>
+  <updated>2013-11-06T13:05:26+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,119 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using Aura Dispatcher in Silex]]></title>
+    <link href="http://harikt.com/blog/2013/11/06/using-aura-dispatcher-in-silex/"/>
+    <updated>2013-11-06T12:42:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/11/06/using-aura-dispatcher-in-silex</id>
+    <content type="html"><![CDATA[<p>2 days back <a href="http://paul-m-jones.com/">Paul M Jones</a> wrote an awesome post
+<a href="http://auraphp.com/blog/2013/11/04/aura-v2-dispatcher/">A Peek At Aura v2 &mdash; Aura.Dispatcher</a>
+the idea behind <a href="http://github.com/auraphp/Aura.Dispatcher/">Aura.Dispatcher</a>
+and how it was born.</p>
+
+<p>So today, let us try to integrate
+<a href="http://github.com/auraphp/Aura.Dispatcher">Aura.Dispatcher</a> with
+<a href="https://github.com/silexphp/Silex">Silex</a>. This post is inspired by the
+<a href="http://auraphp.com/blog/2013/11/04/aura-v2-dispatcher/#comment-1109657910">comment</a>
+made by <a href="https://twitter.com/cordoval">Luis Cordova</a>. Thank you.</p>
+
+<p><code>bash
+composer create-project silex/silex --no-dev silexproject
+cd silexproject
+composer require aura/dispatcher dev-develop-2
+</code></p>
+
+<blockquote><p>I hope you have composer installed else <a href="http://getcomposer.org/">get composer</a>.</p></blockquote>
+
+<p>I am not going to explain each and everything, the code is self explanatory.
+You can move the classes according to your wish (may be to another folder).
+I am trying to show a simple use case.</p>
+
+<p>```php
+&lt;?php
+require <strong>DIR</strong> . &lsquo;/vendor/autoload.php&rsquo;;</p>
+
+<p>use Aura\Dispatcher\Dispatcher;</p>
+
+<p>$dispatcher = new Dispatcher;</p>
+
+<p>$dispatcher->setMethodParam(&lsquo;action&rsquo;);
+$dispatcher->setObjectParam(&lsquo;controller&rsquo;);</p>
+
+<p>class Blog
+{</p>
+
+<pre><code>public function browse()
+{
+    // ...
+}
+
+public function hello($name, $app)
+{
+    return 'Hello '. ucfirst($app-&gt;escape($name));
+}
+
+public function edit($id)
+{
+    echo "Here";
+    exit;
+    // ...
+}
+
+public function add()
+{
+    // ...
+}
+
+public function delete($id)
+{
+    // ...
+}
+</code></pre>
+
+<p>}</p>
+
+<p>$dispatcher->setObject(&lsquo;blog&rsquo;, function () {</p>
+
+<pre><code>return new Blog;
+</code></pre>
+
+<p>});</p>
+
+<p>$app = new Silex\Application();
+$app->get(&lsquo;/hello/{name}&rsquo;, function ($name) use ($dispatcher, $app) {</p>
+
+<pre><code>$params = [
+    'controller' =&gt; 'blog',
+    'action' =&gt; 'hello',
+    'name' =&gt; $name,
+    'app' =&gt; $app,
+];
+$result = $dispatcher-&gt;__invoke($params);    
+return $result;
+</code></pre>
+
+<p>});</p>
+
+<p>$app->run();
+```</p>
+
+<p>See how we moved the <code>return 'Hello '. ucfirst($app-&gt;escape($name));</code>
+to a controller and action. I haven&rsquo;t used Silex extensively, so there
+can be better ways for integration.</p>
+
+<p>Hope you love <a href="http://github.com/auraphp/Aura.Dispatcher">Aura.Dispatcher</a>
+and use when you need architecural changes.</p>
+
+<p>Please do take time to read
+<a href="https://github.com/auraphp/Aura.Dispatcher#refactoring-to-architecture-changes">Refactoring To Architecture Changes</a></p>
+
+<p>Thank you and if you loved the post please do a tweet :&ndash;).</p>
+
+<p>Happy PhPing!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Looking at aura version 2]]></title>
@@ -578,117 +691,6 @@ on aura.</p>
 continously asking for the book.</p>
 
 <p>Last but not the least, all who have motivated me to write a book.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Aura turns 2]]></title>
-    <link href="http://harikt.com/blog/2013/02/22/aura-turns-2/"/>
-    <updated>2013-02-22T23:07:00+05:30</updated>
-    <id>http://harikt.com/blog/2013/02/22/aura-turns-2</id>
-    <content type="html"><![CDATA[<p>Looking over <a href="https://github.com/auraphp/Aura.Router/commit/8de403dc49bf803a1fd641f55726079853716ab7">the commits on Aura.Router</a>, <a href="https://github.com/auraphp/Aura.Signal">Aura.Signal</a> etc you will
-notice, <a href="https://github.com/auraphp">aura project</a> has turned 2.</p>
-
-<p>And today, I would like to introduce you, the new born baby still under active
-development and refactoring based on user feedback, the
-<a href="https://github.com/auraphp/Aura.Input">form library for php, Aura.Input</a>.</p>
-
-<p>The <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>, doesn&rsquo;t have a rendering functionality. But you can always
-use Aura.View or create your own helpers.</p>
-
-<p>A basic filtering based on closure exists in <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>. But you are
-not limited, you can use your own filtering components or
-integrate <a href="https://github.com/auraphp/Aura.Filter">Aura.Filter</a>.</p>
-
-<p>Let us look at some code.</p>
-
-<p>```php
-&lt;?php
-// use composer or require &lsquo;/path/to/Aura.Input/src.php&rsquo;;</p>
-
-<p>use Aura\Input\Form;
-use Aura\Input\Builder;
-use Aura\Input\Filter;</p>
-
-<p>$filter = new Aura\Input\Filter();</p>
-
-<p>// validate
-$filter->setRule(&lsquo;name&rsquo;, &lsquo;Name should be alpha only&rsquo;, function ($value) {</p>
-
-<pre><code>return ctype_alpha($value);
-</code></pre>
-
-<p>});</p>
-
-<p>$filter->setRule(&lsquo;email&rsquo;, &lsquo;Enter a valid email address&rsquo;, function ($value) {</p>
-
-<pre><code>return filter_var($value, FILTER_VALIDATE_EMAIL);
-</code></pre>
-
-<p>});</p>
-
-<p>$filter->setRule(&lsquo;url&rsquo;, &lsquo;Enter a valid url&rsquo;, function ($value) {</p>
-
-<pre><code>return filter_var($value, FILTER_VALIDATE_URL);
-</code></pre>
-
-<p>});</p>
-
-<p>$filter->setRule(&lsquo;message&rsquo;, &lsquo;Message should be more than 7 characters&rsquo;, function ($value) {</p>
-
-<pre><code>if (strlen($value) &gt; 7) {
-    return true;
-}
-return false;
-</code></pre>
-
-<p>});</p>
-
-<p>class ContactForm extends Form
-{</p>
-
-<pre><code>public function init()
-{
-    $name    = $this-&gt;setField('name');
-    $email   = $this-&gt;setField('email');
-    $url     = $this-&gt;setField('url');
-    $message = $this-&gt;setField('message', 'textarea');
-}
-</code></pre>
-
-<p>}</p>
-
-<p>$form = new ContactForm(new Builder, $filter);</p>
-
-<p>$values = [</p>
-
-<pre><code>'name' =&gt; 'Hari K T',
-'email' =&gt; 'oh will it works!',
-'url' =&gt; 'google.com',
-'message' =&gt; 'Aweso'
-</code></pre>
-
-<p>];</p>
-
-<p>$form->setValues($values);</p>
-
-<p>$passed = $form->filter();</p>
-
-<p>// &lsquo;foo&rsquo; is invalid
-if (! $passed) {</p>
-
-<pre><code>// get all messages
-$actual = $form-&gt;getMessages();
-var_dump($actual);
-</code></pre>
-
-<p>}
-```</p>
-
-<p>Try it out, we have some more documentation for the <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>. I warn
-the api is still not stable for <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a> and is not yet released a Beta.</p>
-
-<p>But it is a good start!</p>
 ]]></content>
   </entry>
   

@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="If you have never heard or came to know about Aura Project for PHP or love to know something what I know, come join on a healthy conversation at &hellip;">
+  <meta name="description" content="So I got a chance to be at Bangalore for Open Hack India 2012 conducted by Yahoo. It was really a great time to learn and do some of the experiments &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/16/yahoo-open-hack-india-2012/">Yahoo Open Hack India 2012</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-16T11:38:00+05:30" pubdate data-updated="true">Aug 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So I got a chance to be at Bangalore for Open Hack India 2012 conducted by Yahoo.  <a href="http://www.flickr.com/photos/mrowan/7751044880/" title="IMG_5052 by mrowan, on Flickr"><img src="http://farm9.staticflickr.com/8286/7751044880_e0cb1fea0b.jpg" alt="IMG_5052" /></a>  <a href="http://www.flickr.com/photos/mrowan/7751030446/" title="IMG_5065 by mrowan, on Flickr"><img src="http://farm9.staticflickr.com/8296/7751030446_54abd3bc44.jpg" alt="IMG_5065" /></a>  It was really a great time to learn and do some of the experiments on Yahoo developer network (ydn) tools.  So we ended up trying to do some stuff with <a href="http://open.dapper.net/">dapper</a>. Dapper is a tool used for scrapping. It seems interesting from the workshop. But when I started using it, I was not successful. The dapper stopped responding / showing updating preview and stuffs.  What I was trying todo?&lt; /p>  I used to buy books comparing prices from isbn.net.in . It helped me a lot in buying books very cheap in India. But isbn.net.in was not having a feature called search for book title, and isbn details and as it does currently. Yes there were various other services that do the same. But if you think so then you must think why gmail was developed for there were yahoo mail, aol, msn etc were there.  So anyway learning was the idea, but as dapper fails to respond, it seems hard. I tried to contact the developers via the contact form. But I didn&rsquo;t got a reply on Hack days to further proceed on it. So I tried various other methods via Yahoo pipes, yql etc.  It was really nice to learn and make my hands dirty with yql. I tried different stuffs. Exploring it I found the url shortner from Yahoo.  So once I reached home I made a url shortner which is currently in github ( <a href="http://harikt.github.com/openhackindia/">http://harikt.github.com/openhackindia/</a> ) . Its simple with a few lines.  {syntaxhighlighter class=&ldquo;html&rdquo;} {/syntaxhighlighter} YQL is powerful, try and play. Its awesome guys.  I also came to know about Boomerang from Yahoo.  I was planning to buy a Bean Bag, and yes I got as a present from Yahoo.  Thank you guys for the awesome event. I am really sad for not able to submit a Hack :( . But I will explore more the ydn resoucres in future. Hope to see you next time if everything permits.  References :  YUI for jQuery Developers and vice versa : <a href="http://www.jsrosettastone.com/">http://www.jsrosettastone.com/</a>  Quick start to learn YUI : <a href="http://yuilibrary.com/yui/quick-start/">http://yuilibrary.com/yui/quick-start/</a>  Using YQL with YUI : <a href="http://yuilibrary.com/yui/docs/yql/">http://yuilibrary.com/yui/docs/yql/</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -505,42 +541,6 @@ A detailed post on the working is at
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/17/neon-simple-yaml-parser-for-php/">Introducing Neon, Simple Yaml Parser for PHP</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-17T22:15:00+05:30" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Hi guys, have you heard about Neon ? Probably no I guess.  Neon is the project by David Grudl (<a href="http://davidgrudl.com">http://davidgrudl.com</a>) which is part of Nette Framework (<a href="http://nette.org">http://nette.org</a>) . I recently found Neon , but it was not in github for people may not have noticed that much. Also David Grudl tweets almost everything in Czech. So I assume he may be having less followers in twitter who speaks English or any language other than Czech. But he is an awesome guy who has some awesome projects. One of it is <a href="http://ne-on.org/">Neon</a> and the other one is Texy . I will cover texy in another post.  You can create the php array from json, yaml etc with Neon . See the example below we are parsing as a json and getting $data as array . And then later we are encoding it and you will get Yaml. You can see the live demo at Neon website : <a href="http://ne-on.org/">http://ne-on.org/</a>  {syntaxhighlighter class=&ldquo;php&rdquo;} $data = Neon::decode(&lsquo; { &ldquo;repo&rdquo;: [ { &ldquo;name&rdquo;: &ldquo;resque&rdquo; }, { &ldquo;name&rdquo;: &ldquo;hub&rdquo; }, { &ldquo;name&rdquo;: &ldquo;rip&rdquo; }, ] } &rsquo;); print_r($data); echo &lsquo;   * * * * *  &rsquo;; $neon = Neon::encode($data, Neon::BLOCK); {/syntaxhighlighter} PHP array  {syntaxhighlighter class=&ldquo;php&rdquo;} Array ( [repo] => Array ( [0] => Array ( [name] => resque ) [1] => Array ( [name] => hub ) [2] => Array ( [name] => rip ) ) ) repo: &ndash; name: resque &ndash; name: hub &ndash; name: rip {/syntaxhighlighter}  You can see the source code at <a href="https://github.com/harikt/Neon">https://github.com/harikt/Neon</a> for David Grudl has not kept in github. You can get more details from Neon Website <a href="http://ne-on.org/">http://ne-on.org/</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -558,6 +558,10 @@ A detailed post on the working is at
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/11/06/using-aura-dispatcher-in-silex/">Using Aura Dispatcher in Silex</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/11/01/rest-is-delete-idempotent/">REST: Is DELETE Idempotent?</a>
       </li>
     
@@ -571,10 +575,6 @@ A detailed post on the working is at
     
       <li class="post">
         <a href="/blog/2013/09/19/aura-framework-released/">Aura Framework Released</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/09/07/book-on-aura-moved-to-manual/">Book on Aura Moved to Manual</a>
       </li>
     
   </ul>
