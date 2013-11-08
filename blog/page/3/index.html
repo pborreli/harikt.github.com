@@ -9,7 +9,10 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="Recently github introduces contributions chart. So I peeped into some of the people of our php community. It seems @fabpot is the one who contributes &hellip;">
+  <meta name="description" content="The Aura.Http package provide you the tool to build and send request and response. Instantiation: The easiest way is 1
+2
+3
+&lt;?php $http = require &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +81,368 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/16/aura-dot-http-request-and-response/">Aura.Http : Request and Response</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-16T14:44:00+05:30" pubdate data-updated="true">Feb 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The <code>Aura.Http</code> package provide you the tool to build and send request and response.</p>
+
+<h1>Instantiation:</h1>
+
+<p>The easiest way is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$http</span> <span class="o">=</span> <span class="k">require</span> <span class="s1">&#39;path/to/Aura.Http/scripts/instance.php&#39;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What it gives you is an object of <code>Aura\Http\Manager</code>. If you want to create
+manually you can look into the <code>instance.php</code></p>
+
+<h1>Building your Response</h1>
+
+<p>Probably you may not have bothered too much on building the http response
+either the framework does it for you, or until you need to send the correct
+response.</p>
+
+<p>To create a proper http response via <code>Aura.Http</code> we need to create a
+response object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span> <span class="o">=</span> <span class="nv">$http</span><span class="o">-&gt;</span><span class="na">newResponse</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now you have the response object. You can set the <code>header</code> via</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Header&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you have an array of headers you can use <code>setAll</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">setAll</span><span class="p">([</span>
+</span><span class='line'>    <span class="s1">&#39;Header-One&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;header one value&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;Header-Two&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;header two value A&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;header two value B&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;header two value C&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So a basic example of setting header value is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Setting Content</h2>
+
+<p>The header values are for the browser to understand what is coming from
+server, and how it should render etc.</p>
+
+<p>So we need to set the content. This can be achieved via <code>setContent</code> method.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can always get the content via calling <code>getContent</code>.</p>
+
+<h2>Setting and Getting Cookies</h2>
+
+<p>Sometimes we may want to set the cookies. You can do it as</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">cookies</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;cookie_name&#39;</span><span class="p">,</span> <span class="p">[</span>
+</span><span class='line'>    <span class="s1">&#39;value&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;cookie value&#39;</span><span class="p">,</span> <span class="c1">// cookie value</span>
+</span><span class='line'>    <span class="s1">&#39;expire&#39;</span>   <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">,</span>  <span class="c1">// expiration time in unix epoch seconds</span>
+</span><span class='line'>    <span class="s1">&#39;path&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;/path&#39;</span><span class="p">,</span>        <span class="c1">// server path for the cookie</span>
+</span><span class='line'>    <span class="s1">&#39;domain&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;example.com&#39;</span><span class="p">,</span>  <span class="c1">// domain for the cookie</span>
+</span><span class='line'>    <span class="s1">&#39;secure&#39;</span>   <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>          <span class="c1">// send by ssl only?</span>
+</span><span class='line'>    <span class="s1">&#39;httponly&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>           <span class="c1">// send by http/https only?</span>
+</span><span class='line'><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The array keys mimic the <a href="http://php.net/setcookies">setcookie</a> parameters. If you have an array
+you can use <code>setAll</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">cookies</span><span class="o">-&gt;</span><span class="na">setAll</span><span class="p">([</span>
+</span><span class='line'>    <span class="s1">&#39;cookie_foo&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value for cookie foo&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="s1">&#39;cookie_bar&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value for cookie bar&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can get a cookie by calling <code>get</code> method on cookies.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">cookies</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;cookie_name&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Setting and Getting Status</h2>
+
+<p>By default the status code is 200. But at some point of time
+like the one I explained earlier in <a href="http://harikt.com/blog/2012/12/16/status-code-304/">Status Code 304</a>, we don&rsquo;t need to
+send the whole content. But just the status code.</p>
+
+<p>This is possible via <code>setStatusCode</code> and <code>setStatusText</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">304</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusText</span><span class="p">(</span><span class="s1">&#39;Same As It Ever Was&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Sending your response</h2>
+
+<p>And finally we can send the response back. We can call the <code>send</code>
+method and pass the <code>response</code> object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$http</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The full source code of example is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$http</span> <span class="o">=</span> <span class="k">require</span> <span class="s1">&#39;path/to/Aura.Http/scripts/instance.php&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="c1">// send a response</span>
+</span><span class='line'><span class="nv">$response</span> <span class="o">=</span> <span class="nv">$http</span><span class="o">-&gt;</span><span class="na">newResponse</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$http</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>From terminal start the server by <code>php -S localhost:8000 example.php</code> and
+pointintg to <code>localhost:8000</code> in your browser.</p>
+
+<p>In order to render just <code>Hello World!</code> in the browser the <code>Content-Type</code> we added should be
+<code>text/html</code>.</p>
+
+<p>We can always change the header status code, content-type etc
+before we call <code>send()</code> method.</p>
+
+<p>Let us modify the example at <a href="http://harikt.com/blog/2012/12/16/status-code-304/">Status Code 304</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$http</span> <span class="o">=</span> <span class="k">require</span> <span class="s1">&#39;path/to/Aura.Http/scripts/instance.php&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$response</span> <span class="o">=</span> <span class="nv">$http</span><span class="o">-&gt;</span><span class="na">newResponse</span><span class="p">();</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_IF_MODIFIED_SINCE&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span>
+</span><span class='line'>    <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_IF_MODIFIED_SINCE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Tue, 15 Jan 2011 12:00 GMT&#39;</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setStatusCode</span><span class="p">(</span><span class="mi">304</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/html&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;Last-Modified&#39;</span><span class="p">,</span> <span class="s1">&#39;Tue, 15 Jan 2011 12:00 GMT&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nv">$http</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You would have noticed I have used <code>$_SERVER</code> variable. In <code>Aura.Http</code>,
+there is no methods to access the global server values. This is because
+the <code>$_SERVER</code> values are not the exact http requested header. The server
+modifies the request and we will be only getting the manipulated values
+if we use <code>$_SERVER</code>, <code>$_GET</code>, <code>$_POST</code> values.</p>
+
+<p><code>Aura.Http</code> only helps you to build, create, modify response and request.</p>
+
+<h1>Creating Http Request</h1>
+
+<p>We talked about response so far. What does Request actually mean?</p>
+
+<p>Client &ndash;> Request something &ndash;> Server Responds</p>
+
+<p>So that means we are trying to be a client or a browser, and making the necessary
+headers and sending to server to get the corresponding response.</p>
+
+<p>We can get all the repos of a user in github via curl.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">curl</span> <span class="o">-</span><span class="nx">i</span> <span class="nx">https</span><span class="o">://</span><span class="nx">api</span><span class="o">.</span><span class="nx">github</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">users</span><span class="o">/</span><span class="nx">pmjones</span><span class="o">/</span><span class="nx">repos</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The same can be achieved via <a href="https://github.com/auraphp/Aura.Http">Aura.Http</a>. The <a href="https://github.com/auraphp/Aura.Http">Aura.Http</a> provides a
+means to do the same with PHP. It uses <code>curl</code> if it is available or <code>stream</code>
+to make this happen.</p>
+
+<p>You need to create a Request object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$request</span> <span class="o">=</span> <span class="nv">$http</span><span class="o">-&gt;</span><span class="na">newRequest</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Set the url via <code>setUrl</code> method and send.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">&#39;https://api.github.com/users/pmjones/repos&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$stack</span> <span class="o">=</span> <span class="nv">$http</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$repos</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$stack</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">content</span><span class="p">);</span>
+</span><span class='line'><span class="k">foreach</span> <span class="p">(</span><span class="nv">$repos</span> <span class="k">as</span> <span class="nv">$repo</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="nv">$repo</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There are more things to say. It can do basic authentication, post values etc.
+Browse the documentation examples, source code, tests, and api.</p>
+
+<p>Source Code : <a href="https://github.com/auraphp/Aura.Http">https://github.com/auraphp/Aura.Http</a></p>
+
+<p>Documentation : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/">http://auraphp.github.com/Aura.Http/version/1.0.0/</a></p>
+
+<p>API : <a href="http://auraphp.github.com/Aura.Http/version/1.0.0/api/">http://auraphp.github.com/Aura.Http/version/1.0.0/api/</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1039,81 +1404,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/24/node-224/">The Making of Hari.Extras</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-24T21:22:00+05:30" pubdate data-updated="true">Nov 24<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you have read my earlier posts, you know I started to love templating
-library like Twig, Mustache etc. So I was interested to in-corporate Twig
-or PhlyMustache or any sort of templating library to auraphp.</p>
-
-<p><a href="https://github.com/auraphp/Aura.Web">Aura.Web</a> makes it easy to do
-without much hassle. What you want to do is create the class which
-extends the <code>Aura\Web\Renderer\AbstractRenderer</code> and have a exec() method.
-For more details checkout <a href="https://github.com/auraphp/Aura.Web/tree/develop#data-and-rendering">Data and Rendering</a></p>
-
-<pre><code>&lt;?php
-namespace Vendor\Package\Web\Renderer;
-
-use Aura\Web\Renderer\AbstractRenderer;
-
-class YourRender extends AbstractRenderer
-{
-    public function exec()
-    {
-    }
-}
-</code></pre>
-
-<p>And you should pass an object of Vendor\Package\Web\Renderer\YourRender to your controller.</p>
-
-<p>Currently I have added support for <a href="http://twig.sensiolabs.org">Twig</a> in <a href="http://github.com/harikt/Hari.Extras">Hari.Extras</a> . I will be adding support for
-PhlyMustache in the coming days. Hari.Extras comes with unit tests.</p>
-
-<p>Running unit tests :
-To run tests you should first install the dependencies. You can run
-{syntaxhighlighter class=&ldquo;php&rdquo;}composer.phar install &mdash;dev{/syntaxhighlighter}
-This will install the dependencies like Aura.Web, Aura.Framework, Twig, vfsstream etc in vendor folder.
-Now you can run the phpunit from tests folder.</p>
-
-<p>A big Thanks to @Paul M Jones and Chris Hartjes and all who have supported
-one way or the other giving me tips and tricks, motivation to make this happen.
-The nice thing is with composer for I don&rsquo;t need to keep everything in the tests folder.
- Thanks to @Jordi</p>
-
-<p>By the way as <a href="https://github.com/auraphp">auraphp</a> is getting closer and closer for the next release
-I am planning to start a series of posts to get started with using the components. Stay tuned :) .</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -1131,6 +1421,10 @@ I am planning to start a series of posts to get started with using the component
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/11/08/assets-for-processwire/">Assets for Processwire</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/11/06/using-aura-dispatcher-in-silex/">Using Aura Dispatcher in Silex</a>
       </li>
     
@@ -1144,10 +1438,6 @@ I am planning to start a series of posts to get started with using the component
     
       <li class="post">
         <a href="/blog/2013/09/28/looking-at-aura-v2/">Looking at Aura Version 2</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/09/19/aura-framework-released/">Aura Framework Released</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: module | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/module/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-06T22:00:40+05:30</updated>
+  <updated>2013-11-08T18:58:20+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Assets for Processwire]]></title>
+    <link href="http://harikt.com/blog/2013/11/08/assets-for-processwire/"/>
+    <updated>2013-11-08T17:35:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/11/08/assets-for-processwire</id>
+    <content type="html"><![CDATA[<p><a href="http://processwire.com/">Processwire</a> is a content management framework.</p>
+
+<p>I was looking to change the directory structure of the Processwire.</p>
+
+<p><code>bash
+|-- index.php
+|-- installer.php
+|-- README.md
+|-- site
+`-- wire
+</code></p>
+
+<p>I am not the first person to talk on the subject. There are other threads
+like
+<a href="http://processwire.com/talk/topic/876-installation-paths-and-moving-folders/">Installation paths and moving folders</a>,
+<a href="http://processwire.com/talk/topic/3445-common-practices/">Common practices</a></p>
+
+<p>Anyway I thought of trying the same and for serving the <code>js</code>, <code>css</code>, <code>images</code>
+I wrote my first processwire module <a href="https://github.com/harikt/Assets">Assets</a></p>
+
+<p>Some of the portions are from
+<a href="https://github.com/auraphp/Aura.Framework/blob/f122f77b7f97d3bec9dbf930a66e706d2b89b6f8/src/Aura/Framework/Web/Asset/Page.php#L123-L147">Aura.Framework</a>
+and <a href="https://github.com/auraphp/Aura.View/blob/613286b1122bd7ef78a12550afdb10f78813d040/src/Aura/View/FormatTypes.php#L31-L113">Aura.View</a></p>
+
+<p><code>``bash
+|-- cli
+|-- composer.json
+|-- index.php ( which is moved to web folder )
+|-- installer.php
+|-- README.md
+|-- site
+|   |-- assets
+|   |-- config.php
+|   |-- hello.css
+|   |-- install
+|   |-- modules
+|  </code>&mdash; templates
+|&mdash; vendor (3rd party vendors from PHP, Eg: Aura.Includer )
+|&mdash; httpdocs ( you can name this folder what ever you like )
+|   |&mdash; index.php
+|   |&mdash; site ( css, js and images copied from realpath )
+|   <code>-- wire ( css, js and images copied from realpath )
+</code>&mdash; wire</p>
+
+<pre><code>|-- config.php
+|-- core
+|-- index.config.php
+|-- modules
+|-- README.txt
+`-- templates-admin
+</code></pre>
+
+<p>```</p>
+
+<p>You also need to change the <code>$rootPath</code> in <code>index.php</code> accordingly.
+Hope someone will find it useful.
+I am releasing it under <a href="http://opensource.org/licenses/BSD-2-Clause">BSD-2-Clause</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Base files to start your Zend framework project]]></title>
