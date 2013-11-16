@@ -4,7 +4,7 @@
   <title><![CDATA[Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-08T18:58:20+05:30</updated>
+  <updated>2013-11-16T11:49:51+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,97 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Composer support for ProcessWire modules]]></title>
+    <link href="http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules/"/>
+    <updated>2013-11-16T11:22:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules</id>
+    <content type="html"><![CDATA[<p>I am a huge fan of <a href="http://getcomposer.org/" title="External link">composer</a>. <a href="http://processwire.com/">PW</a> ( ProcessWire) is missing one of the good parts of <a href="http://getcomposer.org/" title="External link">composer</a>.
+So here is a <a href="https://github.com/harikt/pwmoduleinstaller">new installer</a>
+to install the 3rd party modules of <a href="http://processwire.com/">PW</a> via <a href="http://getcomposer.org/" title="External link">composer</a>.</p>
+
+<p>If you have created a module for PW, what you need to do is add a
+<code>composer.json</code> file in your <a href="https://github.com/harikt/Assets/blob/master/composer.json" title="External link">github repo</a> and add it to <a href="https://packagist.org" title="External link">packagist</a>.
+An example <a href="https://github.com/harikt/Assets/blob/master/composer.json" title="External link">composer.json</a> is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;vendor/package-name&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pw-module&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Your module what it does&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;keywords&quot;</span><span class="p">,</span> <span class="s2">&quot;comma&quot;</span><span class="p">,</span> <span class="s2">&quot;seprated&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;homepage&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/harikt/Assets&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;license&quot;</span><span class="p">:</span> <span class="s2">&quot;BSD-2-Clause&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Assets Contributors&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;homepage&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/harikt/Assets/contributors&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;php&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=5.3.0&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;hari/pw-module&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-master&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note the minimum requirement is PHP 5.3 for composer is 5.3 .</p>
+
+<p>An example of a module that works with this is <a href="https://github.com/harikt/Assets">https://github.com/harikt/Assets</a>
+( Move the index.php to any where :&ndash;) ).
+You are read more about Assets from <a href="http://harikt.com/blog/2013/11/08/assets-for-processwire/">here</a></p>
+
+<h2>Installing modules</h2>
+
+<p>How do you install the PW modules and the 3rd party dependencies ? Assuming you are in the PW folder.</p>
+
+<p>First download composer from <a href="http://getcomposer.org/download/">http://getcomposer.org/download/</a>.</p>
+
+<p>Hope you have <code>composer.phar</code> now.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>php composer.phar require vendor/package-name version-name
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Will install if the <code>vendor/package-name</code> to <code>site/modules/PackageName</code>.
+All packages <code>vendor/package-name</code> of <code>"type": "pw-module"</code> will be converted to <code>PackageName</code>.</p>
+
+<p>Example you can try</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>php composer.phar require hari/assets dev-master
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Try the above and see where it is installed. If you are a module maintainer,
+please add a <code>composer.json</code> to your github module and add it to <a href="https://packagist.org" title="External link">packagist</a>.</p>
+
+<p>Of-course inspired and modified composer installer from
+<a href="https://github.com/auraphp/installer-system">Aura Project for PHP</a></p>
+
+<p>Thank you. Happy PhPing!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Assets for Processwire]]></title>
@@ -2820,155 +2911,6 @@ other projects or its users?</p>
 
 <p>After all when your project says we use tabs, do you care people who love
 to use spaces there? Do you merge when something like this comes?</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Aura turns 2]]></title>
-    <link href="http://harikt.com/blog/2013/02/22/aura-turns-2/"/>
-    <updated>2013-02-22T23:07:00+05:30</updated>
-    <id>http://harikt.com/blog/2013/02/22/aura-turns-2</id>
-    <content type="html"><![CDATA[<p>Looking over <a href="https://github.com/auraphp/Aura.Router/commit/8de403dc49bf803a1fd641f55726079853716ab7">the commits on Aura.Router</a>, <a href="https://github.com/auraphp/Aura.Signal">Aura.Signal</a> etc you will
-notice, <a href="https://github.com/auraphp">aura project</a> has turned 2.</p>
-
-<p>And today, I would like to introduce you, the new born baby still under active
-development and refactoring based on user feedback, the
-<a href="https://github.com/auraphp/Aura.Input">form library for php, Aura.Input</a>.</p>
-
-<p>The <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>, doesn&rsquo;t have a rendering functionality. But you can always
-use Aura.View or create your own helpers.</p>
-
-<p>A basic filtering based on closure exists in <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>. But you are
-not limited, you can use your own filtering components or
-integrate <a href="https://github.com/auraphp/Aura.Filter">Aura.Filter</a>.</p>
-
-<p>Let us look at some code.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="c1">// use composer or require &#39;/path/to/Aura.Input/src.php&#39;;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Form</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Builder</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Filter</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Aura\Input\Filter</span><span class="p">();</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// validate</span>
-</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Name should be alpha only&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="nb">ctype_alpha</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;Enter a valid email address&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;Enter a valid url&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_URL</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;Message should be more than 7 characters&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">ContactForm</span> <span class="k">extends</span> <span class="nx">Form</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$name</span>    <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$email</span>   <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$url</span>     <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$message</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea&#39;</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContactForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">,</span> <span class="nv">$filter</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$values</span> <span class="o">=</span> <span class="p">[</span>
-</span><span class='line'>    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hari K T&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;oh will it works!&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;google.com&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Aweso&#39;</span>
-</span><span class='line'><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">setValues</span><span class="p">(</span><span class="nv">$values</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$passed</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">();</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// &#39;foo&#39; is invalid</span>
-</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$passed</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// get all messages</span>
-</span><span class='line'>    <span class="nv">$actual</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getMessages</span><span class="p">();</span>
-</span><span class='line'>    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$actual</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Try it out, we have some more documentation for the <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>. I warn
-the api is still not stable for <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a> and is not yet released a Beta.</p>
-
-<p>But it is a good start!</p>
 ]]></content>
   </entry>
   

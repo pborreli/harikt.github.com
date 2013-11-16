@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: modules | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/modules/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2013-11-16T11:49:51+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Composer support for ProcessWire modules]]></title>
+    <link href="http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules/"/>
+    <updated>2013-11-16T11:22:00+05:30</updated>
+    <id>http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules</id>
+    <content type="html"><![CDATA[<p>I am a huge fan of <a href="http://getcomposer.org/" title="External link">composer</a>. <a href="http://processwire.com/">PW</a> ( ProcessWire) is missing one of the good parts of <a href="http://getcomposer.org/" title="External link">composer</a>.
+So here is a <a href="https://github.com/harikt/pwmoduleinstaller">new installer</a>
+to install the 3rd party modules of <a href="http://processwire.com/">PW</a> via <a href="http://getcomposer.org/" title="External link">composer</a>.</p>
+
+<p>If you have created a module for PW, what you need to do is add a
+<code>composer.json</code> file in your <a href="https://github.com/harikt/Assets/blob/master/composer.json" title="External link">github repo</a> and add it to <a href="https://packagist.org" title="External link">packagist</a>.
+An example <a href="https://github.com/harikt/Assets/blob/master/composer.json" title="External link">composer.json</a> is</p>
+
+<p>```json
+{</p>
+
+<pre><code>"name": "vendor/package-name",
+"type": "pw-module",
+"description": "Your module what it does",
+"keywords": [ "keywords", "comma", "seprated"],
+"homepage": "https://github.com/harikt/Assets",
+"license": "BSD-2-Clause",
+"authors": [
+    {
+        "name": "Assets Contributors",
+        "homepage": "https://github.com/harikt/Assets/contributors"
+    }
+],
+"require": {
+    "php": "&gt;=5.3.0",
+    "hari/pw-module": "dev-master"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Note the minimum requirement is PHP 5.3 for composer is 5.3 .</p>
+
+<p>An example of a module that works with this is <a href="https://github.com/harikt/Assets">https://github.com/harikt/Assets</a>
+( Move the index.php to any where :&ndash;) ).
+You are read more about Assets from <a href="http://harikt.com/blog/2013/11/08/assets-for-processwire/">here</a></p>
+
+<h2>Installing modules</h2>
+
+<p>How do you install the PW modules and the 3rd party dependencies ? Assuming you are in the PW folder.</p>
+
+<p>First download composer from <a href="http://getcomposer.org/download/">http://getcomposer.org/download/</a>.</p>
+
+<p>Hope you have <code>composer.phar</code> now.</p>
+
+<p><code>bash
+php composer.phar require vendor/package-name version-name
+</code></p>
+
+<p>Will install if the <code>vendor/package-name</code> to <code>site/modules/PackageName</code>.
+All packages <code>vendor/package-name</code> of <code>"type": "pw-module"</code> will be converted to <code>PackageName</code>.</p>
+
+<p>Example you can try</p>
+
+<p><code>bash
+php composer.phar require hari/assets dev-master
+</code></p>
+
+<p>Try the above and see where it is installed. If you are a module maintainer,
+please add a <code>composer.json</code> to your github module and add it to <a href="https://packagist.org" title="External link">packagist</a>.</p>
+
+<p>Of-course inspired and modified composer installer from
+<a href="https://github.com/auraphp/installer-system">Aura Project for PHP</a></p>
+
+<p>Thank you. Happy PhPing!</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -9,10 +9,8 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="The Aura.Http package provide you the tool to build and send request and response. Instantiation: The easiest way is 1
-2
-3
-&lt;?php $http = require &hellip;">
+  <meta name="description" content="Looking over the commits on Aura.Router, Aura.Signal etc you will
+notice, aura project has turned 2. And today, I would like to introduce you, the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +79,182 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/22/aura-turns-2/">Aura Turns 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-22T23:07:00+05:30" pubdate data-updated="true">Feb 22<span>nd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Looking over <a href="https://github.com/auraphp/Aura.Router/commit/8de403dc49bf803a1fd641f55726079853716ab7">the commits on Aura.Router</a>, <a href="https://github.com/auraphp/Aura.Signal">Aura.Signal</a> etc you will
+notice, <a href="https://github.com/auraphp">aura project</a> has turned 2.</p>
+
+<p>And today, I would like to introduce you, the new born baby still under active
+development and refactoring based on user feedback, the
+<a href="https://github.com/auraphp/Aura.Input">form library for php, Aura.Input</a>.</p>
+
+<p>The <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>, doesn&rsquo;t have a rendering functionality. But you can always
+use Aura.View or create your own helpers.</p>
+
+<p>A basic filtering based on closure exists in <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>. But you are
+not limited, you can use your own filtering components or
+integrate <a href="https://github.com/auraphp/Aura.Filter">Aura.Filter</a>.</p>
+
+<p>Let us look at some code.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="c1">// use composer or require &#39;/path/to/Aura.Input/src.php&#39;;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Form</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Builder</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Input\Filter</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Aura\Input\Filter</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// validate</span>
+</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Name should be alpha only&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nb">ctype_alpha</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;Enter a valid email address&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;Enter a valid url&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_URL</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$filter</span><span class="o">-&gt;</span><span class="na">setRule</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;Message should be more than 7 characters&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ContactForm</span> <span class="k">extends</span> <span class="nx">Form</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$name</span>    <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$email</span>   <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$url</span>     <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$message</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setField</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ContactForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">Builder</span><span class="p">,</span> <span class="nv">$filter</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$values</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hari K T&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;oh will it works!&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;google.com&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Aweso&#39;</span>
+</span><span class='line'><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$form</span><span class="o">-&gt;</span><span class="na">setValues</span><span class="p">(</span><span class="nv">$values</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$passed</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// &#39;foo&#39; is invalid</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$passed</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// get all messages</span>
+</span><span class='line'>    <span class="nv">$actual</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">getMessages</span><span class="p">();</span>
+</span><span class='line'>    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$actual</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Try it out, we have some more documentation for the <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>. I warn
+the api is still not stable for <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a> and is not yet released a Beta.</p>
+
+<p>But it is a good start!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1368,42 +1542,6 @@ Browse the documentation examples, source code, tests, and api.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/29/node-225/">First Stable Release for Aura Components</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-29T20:46:00+05:30" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So today @Paul M Jones officially declared the first stable release for Aura PHP components. Yes, I am really excited to see this release for it comes with a ton of great improvements for many components, bug fixes and sadly some BC breaks also. The list of packages which became stable are <a href="https://github.com/auraphp/Aura.Autoload">https://github.com/auraphp/Aura.Autoload</a> <a href="https://github.com/auraphp/Aura.Cli">https://github.com/auraphp/Aura.Cli</a> <a href="https://github.com/auraphp/Aura.Di">https://github.com/auraphp/Aura.Di</a> <a href="https://github.com/auraphp/Aura.Http">https://github.com/auraphp/Aura.Http</a> <a href="https://github.com/auraphp/Aura.Marshal">https://github.com/auraphp/Aura.Marshal</a> <a href="https://github.com/auraphp/Aura.Router">https://github.com/auraphp/Aura.Router</a> : Yes I want to update the post at phpmaster.com for it has some breaks. I will be doing it in coming days. <a href="https://github.com/auraphp/Aura.Signal">https://github.com/auraphp/Aura.Signal</a> <a href="https://github.com/auraphp/Aura.Sql">https://github.com/auraphp/Aura.Sql</a> <a href="https://github.com/auraphp/Aura.View">https://github.com/auraphp/Aura.View</a> <a href="https://github.com/auraphp/Aura.Web">https://github.com/auraphp/Aura.Web</a> <a href="https://github.com/auraphp/Aura.Uri">https://github.com/auraphp/Aura.Uri</a> : uri manipulation and there are some packages that are releasing the first Beta. Though these packages have been there for sometime, this is officially declared now only. Yes a bit delay from our part to declare it. <a href="https://github.com/auraphp/Aura.Filter">https://github.com/auraphp/Aura.Filter</a> Filter is an awesome component for Sanitizing and Validating. You guys should look into the core to learn how it works really. Its an awesome piece of work! . I will in the coming days write something about it. <a href="https://github.com/auraphp/Aura.Intl">https://github.com/auraphp/Aura.Intl</a> for Internationalization <a href="https://github.com/auraphp/Aura.Session">https://github.com/auraphp/Aura.Session</a> : for session handling Thanks to all to make the release happen. You can read the official declaration at <a href="http://paul-m-jones.com/archives/2976">http://paul-m-jones.com/archives/2976</a> . Join our mailing list <a href="https://groups.google.com/forum/#!forum/auraphp">https://groups.google.com/forum/#!forum/auraphp</a> or #auraphp at irc.freenode.net .</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -1421,6 +1559,10 @@ Browse the documentation examples, source code, tests, and api.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/11/16/composer-support-for-processwire-modules/">Composer Support for ProcessWire Modules</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/11/08/assets-for-processwire/">Assets for Processwire</a>
       </li>
     
@@ -1434,10 +1576,6 @@ Browse the documentation examples, source code, tests, and api.</p>
     
       <li class="post">
         <a href="/blog/2013/10/29/conferences-is-it-really-worth/">Conferences : Is It Really Worth?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/09/28/looking-at-aura-v2/">Looking at Aura Version 2</a>
       </li>
     
   </ul>

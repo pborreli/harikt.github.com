@@ -9,9 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="If you have read my earlier posts, you know I started to love templating
-library like Twig, Mustache etc. So I was interested to in-corporate Twig
-or &hellip;">
+  <meta name="description" content="So today @Paul M Jones officially declared the first stable release for Aura PHP components. Yes, I am really excited to see this release for it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +78,42 @@ or &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/29/node-225/">First Stable Release for Aura Components</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-29T20:46:00+05:30" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So today @Paul M Jones officially declared the first stable release for Aura PHP components. Yes, I am really excited to see this release for it comes with a ton of great improvements for many components, bug fixes and sadly some BC breaks also. The list of packages which became stable are <a href="https://github.com/auraphp/Aura.Autoload">https://github.com/auraphp/Aura.Autoload</a> <a href="https://github.com/auraphp/Aura.Cli">https://github.com/auraphp/Aura.Cli</a> <a href="https://github.com/auraphp/Aura.Di">https://github.com/auraphp/Aura.Di</a> <a href="https://github.com/auraphp/Aura.Http">https://github.com/auraphp/Aura.Http</a> <a href="https://github.com/auraphp/Aura.Marshal">https://github.com/auraphp/Aura.Marshal</a> <a href="https://github.com/auraphp/Aura.Router">https://github.com/auraphp/Aura.Router</a> : Yes I want to update the post at phpmaster.com for it has some breaks. I will be doing it in coming days. <a href="https://github.com/auraphp/Aura.Signal">https://github.com/auraphp/Aura.Signal</a> <a href="https://github.com/auraphp/Aura.Sql">https://github.com/auraphp/Aura.Sql</a> <a href="https://github.com/auraphp/Aura.View">https://github.com/auraphp/Aura.View</a> <a href="https://github.com/auraphp/Aura.Web">https://github.com/auraphp/Aura.Web</a> <a href="https://github.com/auraphp/Aura.Uri">https://github.com/auraphp/Aura.Uri</a> : uri manipulation and there are some packages that are releasing the first Beta. Though these packages have been there for sometime, this is officially declared now only. Yes a bit delay from our part to declare it. <a href="https://github.com/auraphp/Aura.Filter">https://github.com/auraphp/Aura.Filter</a> Filter is an awesome component for Sanitizing and Validating. You guys should look into the core to learn how it works really. Its an awesome piece of work! . I will in the coming days write something about it. <a href="https://github.com/auraphp/Aura.Intl">https://github.com/auraphp/Aura.Intl</a> for Internationalization <a href="https://github.com/auraphp/Aura.Session">https://github.com/auraphp/Aura.Session</a> : for session handling Thanks to all to make the release happen. You can read the official declaration at <a href="http://paul-m-jones.com/archives/2976">http://paul-m-jones.com/archives/2976</a> . Join our mailing list <a href="https://groups.google.com/forum/#!forum/auraphp">https://groups.google.com/forum/#!forum/auraphp</a> or #auraphp at irc.freenode.net .</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -516,42 +550,6 @@ I am planning to start a series of posts to get started with using the component
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/10/thoughts-on-installing-zend-frameowork-via-composer/">Thoughts on Installing Zend Framework via Composer</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-10T11:04:00+05:30" pubdate data-updated="true">Sep 10<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Note : First I thought of creating an issue, and it was not in github. These are not serious issues, but just my thoughts when installing ZF2 via composer. I am not sure whether its composer related or the way the zf2 is packaged to do it via composer. Normally the composer.json will be something like {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &ldquo;require&rdquo;: { &ldquo;zendframework/zend-form&rdquo;: &ldquo;2.0&rdquo; } } hari@local:/var/www/composer/zf2$ php ../composer.phar install Loading composer repositories with package information Installing dependencies &ndash; Installing zendframework/zendframework (2.0.0) Downloading: 25%^C hari@local:/var/www/composer/zf2$ ^C {/syntaxhighlighter} But you can see the composer tries to install the whole zend-framework. The problem is you need to add some more lines for its hosted in packages.framework.com and not in packagist.org . So your composer.json will be as below . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &ldquo;repositories&rdquo;: [ { &ldquo;type&rdquo;: &ldquo;composer&rdquo;, &ldquo;url&rdquo;: &ldquo;<a href="http://packages.zendframework.com/">http://packages.zendframework.com/</a>&rdquo; } ], &ldquo;require&rdquo;: { &ldquo;zendframework/zend-form&rdquo;: &ldquo;2.0&rdquo; } } hari@local:/var/www/composer/zf2$ php ../composer.phar install Loading composer repositories with package information Installing dependencies &ndash; Installing zendframework/zend-form (2.0.0) Downloading: 100% zendframework/zend-form suggests installing zendframework/zendservice-recaptcha (ZendService\ReCaptcha component) Writing lock file Generating autoload files {/syntaxhighlighter} Great you installed the zf2 form component. Now you can see where the form is installed . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ ls vendor/ autoload.php composer zendframework hari@local:/var/www/composer/zf2$ ls vendor/zendframework/ zend-form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/ Form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/ Annotation FieldsetInterface.php composer.json Fieldset.php Element FieldsetPrepareAwareInterface.php ElementInterface.php FormFactoryAwareInterface.php Element.php FormInterface.php ElementPrepareAwareInterface.php Form.php Exception TODO.md Factory.php View {/syntaxhighlighter} Assume you have more zf2 packages which you have added. At a later point you think of installing the framework as a whole itself than adding more packages in the composer.json . So your composer.json will be some what like {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &ldquo;repositories&rdquo;: [ { &ldquo;type&rdquo;: &ldquo;composer&rdquo;, &ldquo;url&rdquo;: &ldquo;<a href="http://packages.zendframework.com/">http://packages.zendframework.com/</a>&rdquo; } ], &ldquo;require&rdquo;: { &ldquo;zendframework/zendframework&rdquo;: &ldquo;2.0&rdquo; } } hari@local:/var/www/composer/zf2$ php ../composer.phar update Loading composer repositories with package information Updating dependencies &ndash; Removing zendframework/zend-form (2.0.0) &ndash; Installing zendframework/zendframework (2.0.0) Downloading: 100% Writing lock file Generating autoload files {/syntaxhighlighter} The form has been removed and framework is installed. Lets have a look where its installed . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ ls vendor/ autoload.php composer zendframework hari@local:/var/www/composer/zf2$ ls vendor/zendframework/ zend-form hari@local:/var/www/composer/zf2$ cat composer.json { &ldquo;repositories&rdquo;: [ { &ldquo;type&rdquo;: &ldquo;composer&rdquo;, &ldquo;url&rdquo;: &ldquo;<a href="http://packages.zendframework.com/">http://packages.zendframework.com/</a>&rdquo; } ], &ldquo;require&rdquo;: { &ldquo;zendframework/zendframework&rdquo;: &ldquo;2.0&rdquo; } } hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/ Form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/ bin INSTALL.md README-DEV.md resources composer.json library README-GIT.md tests demos LICENSE.txt README.md vendor hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/library/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/library/Zend/ Authentication Di InputFilter Mvc Stdlib Barcode Dom Json Navigation Tag Cache Escaper Ldap Paginator Text Captcha EventManager Loader Permissions Uri Code Feed Log ProgressBar Validator Config File Mail Serializer Version Console Filter Math Server View Crypt Form Memory ServiceManager XmlRpc Db Http Mime Session Debug I18n ModuleManager Soap {/syntaxhighlighter} You can notice its going on the wrong place. vendor/zendframework/zend-form . I am not sure whether every one needs to remove all the installed packages to install the framework . It seems possible with naming zendframework/package . Thus it don&rsquo;t remove the installed packages. May be there are some other issues related to it for the naming of zendframework/zend-form like that.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -569,6 +567,10 @@ I am planning to start a series of posts to get started with using the component
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/11/16/composer-support-for-processwire-modules/">Composer Support for ProcessWire Modules</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/11/08/assets-for-processwire/">Assets for Processwire</a>
       </li>
     
@@ -582,10 +584,6 @@ I am planning to start a series of posts to get started with using the component
     
       <li class="post">
         <a href="/blog/2013/10/29/conferences-is-it-really-worth/">Conferences : Is It Really Worth?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/09/28/looking-at-aura-v2/">Looking at Aura Version 2</a>
       </li>
     
   </ul>
