@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="Integrated Development Environment or IDE in short . I am some what an active user in the php classes group . Recently an editor was the talk . He &hellip;">
+  <meta name="description" content="I am a fan of Swaroop C H, after knowing him . He was in Yahoo, resigned his job and now working for ion labs . He is the author of the book , a byte &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,78 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/20/59-track-every-coin-to-save-your-budget-a-product-from-ion-labs/">Track Every Coin to Save Your Budget, a Product From Ion Labs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-20T09:30:00+05:30" pubdate data-updated="true">May 20<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I am a fan of Swaroop C H, after knowing him . He was in Yahoo, resigned his job and now working for ion labs . He is the author of the book , a byte of python which is released in pdf, online html and printed copy. The pdf and online mannual is free.  Talking about ion labs, Swaroop C H , the dreamer , Vikram Chadaga and Varun Prabhakar are the brain behind ion labs have founded the new hardware and software to keep track of your money or we can say finance calculator from ion labs . Yes , the new product is launching on july 2009 . Lots of offers are there for those who books the product now. I would like to promote it , so thought of writing this article. I don&rsquo;t have enough money for now to help him . But if this article can help him in anyway I am greatful . <a href="http://www.trackeverycoin.com/" title="Track every coin to save your budget">Visit Track a coin for more details</a>.  The previous product was the ion usb charger . After the success of it , they have really thought of running a startup firm and is now with the new product . If you have not heard about ion before , its the smallest usb charger which can be used to charge your ipod or any usb storage devices. Its pretty small in size .  <img src="http://farm3.static.flickr.com/2423/3551926824_0f7ec0dbf3.jpg?v=0" title="ion usb charger" alt="ion usb charger" /> Here comes the picture of the charger taken from the ions site . The cost of it is just 599/&ndash; INR and is available free of shipping . I hope its an affordable cost . It satisfies many standards . The iON works anywhere in the world &ndash; no more voltage conversions. Its an all in one charger . Now you don&rsquo;t want to carry your mobile charger , ipod charger and all. Just ion charger will do the job . Easy to carry and makes your life easy . If you are interested do get one from the site using direct payment , check or DD . Visit <a href="http://ion.co.in/" title="ion the usb charger">ion</a> for more details .  </p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/20/57-getting-value-of-objects-inside-a-multidimensional-array-in-php/">Getting Value of Objects Inside a Multidimensional Array in Php</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-20T09:23:00+05:30" pubdate data-updated="true">May 20<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is some what interesting post to many of you . I have tried some time to make this correct for one of my friend Jaisenan . I like debugging, so spend some time to make this working. We was looking to get the value in a multidimensional array . One of the value in the array was an object. And this was the big problem , and was looking to solve it . Here is the array  $x = Array ( [#theme] => content_multiple_values [#title] => Face to Face Time [#required] => 0 [#description] => [0] => Array ( [#type] => duration_combo [#default_value] => Duration Object ( [duration] => Array ( [years] => 0 [months] => 0 [days] => 0 [hours] => 0 [minutes] => 0 [seconds] => 0 )  [is_negative] => [is_valid] => 1 [conversion_factors] => Array ( [seconds/minutes] => 60 [minutes/hours] => 60 [hours/days] => 24 [days/weeks] => 7 [days/months] => 30 [weeks/years] => 52.142857142857 [months/years] => 12 )  )  [#largest_metric] => hours [#smallest_metric] => minutes [#element_validate] => Array ( [0] => duration_combo_validate )  [#title] => Face to Face Time [#description] => [#required] => [#weight] => 0 [#delta] => 0 [#columns] => Array ( [0] => iso8601 [1] => approx_seconds )  [#field_name] => field_pn_ff_time_1 [#type_name] => progress_note )  [#field_name] => field_pn_ff_time_1 [#tree] => 1 [#weight] => 4 [#access] => 1 [#count] => 5 )  Let the array name be x . Now let me walk through this associative array in PHP . $x[&lsquo;#theme&rsquo;] , $x[&lsquo;#title&rsquo;] etc . Now we where looking to get the value of hours , minutes etc of the array duration . The &lsquo;#default_value&rsquo; was a Duration object .  So here comes the solution for you .  <strong>$x[0][&lsquo;#default_value&rsquo;]&ndash;>duration[&lsquo;hours&rsquo;]</strong> . You can assign values or get values of this array . I spend some hours to make this small code work. So thought of publishing this for some one who is in search for an example like this . This was a small debugging from Drupal .   $x[&lsquo;#tree&rsquo;] , $x[&lsquo;0&rsquo;][&lsquo;#type&rsquo;] are some other example to retrieve value from this multidimensional array . The example above is used to get the value from the object . Cheers guys and Have a great day .</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -367,78 +439,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/05/02/43-booting-gnewsense-gnulinux-from-usb/">Booting Gnewsense Gnu/linux From USB Flash Drive</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-05-02T09:07:00+05:30" pubdate data-updated="true">May 2<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>There are various distribution of GNU/Linux available now. I think every disto have a Live CD . So people can try it out and if they love it , can install it . So what I am talking is, it may not be possible to create a Live CD to try each and every distro and their newer versions . If you are a person like me , then you may love to use an alternative to boot from CD, something like a USB flash drive ( popularly called pen drive , thumb )  for its reusable .  Some days before I found the new GNU/ Linux which is entirely free removing all the restricted packages which is supported by the FSF ( Free software foundation) . Gnewsense is an Ubuntu based free software distribution without non-free binary blobs in the kernel. You may think whether Ubuntu is a free one , then why gnewsense . If you have any such doubts you can have a look in the <a href="http://www.gnewsense.org/index.php?n=FAQ.FAQ" title="FAQ of the gnewsense">FAQ of the gnewsense .</a>  <a href="http://www.flickr.com/photos/harikt/3491574392/"><img src="http://farm4.static.flickr.com/3628/3491574392_a807a17c45.jpg?v=0" title="gnewsense desktop" alt="gnewsense desktop" /></a>    <a href="http://www.flickr.com/photos/harikt/3491575834/"><img src="http://farm4.static.flickr.com/3576/3491575834_a0206ca88e.jpg?v=0" title="gnewsense desktop with applications" alt="gnewsense desktop with applications" /></a>       Though I uses Ubuntu , I want to try it out, so thought of downloading the iso and use from USB pen drive . There was a documentation in the gnewsense about <a href="http://wiki.gnewsense.org/Documentation/BootingFromUSB">booting gnewsense gnu/linux from usb</a> . I worked as they have written . Though I am not powerful in those commands I thought of learning the new commands . Fallen to trouble partitioning USB and all . And finally recovered every thing and restarted after finishing all the steps.  When it started I changed to boot from USB flash drive . But got a black screen with just a message error . What to do now . Changed to other usb ports , the same ( error booting gnewsense ) . hm&hellip;&hellip;.. Anyway I want to try it, booted to Ubuntu connected net and searched , I don&rsquo;t find an answer for it . Anyway got another software Free USB installer ( Either youu can try <a href="http://aligunduz.org/FUSBi/">http://aligunduz.org/FUSBi/</a> or usb-creator . usb-creator is a good choice for the aligunduz . Download the usb-creator using synaptic and issue the command usb-creator in terminal . A graphical view will appear . <a href="https://help.ubuntu.com/community/Installation/FromUSBStick">Read more from ubuntu help</a> ) from iso package. Free USB installer can install iso image to usb flash drive . Yes downloaded it, and tried it. Restarted again , now it works . Now its pretty simple booting gnu/linux from usb flash drive . Yes , I would like to express my Thanks to Mr Ali for his wonderful work . Yes it may have saved many people. I guess if users are not powerful in command line too or don&rsquo;t know the basics or some times to people who may have failed like me <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/regular_smile.gif" alt="image" /> . Anyway failure is not the end, its the begining <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/shades_smile.gif" alt="image" /> .  <a href="http://www.flickr.com/photos/harikt/3491572538/"><img src="http://farm4.static.flickr.com/3582/3491572538_a6cc8b2d3c.jpg?v=0" title="gnewsense iso to usb with fusbi installer" alt="gnewsense iso to usb with fusb installer" /></a> I have taken a screen shot of the gnewsense and also the free usb installer. You can see how it looks . What I feel after working with it is, there is not much difference in menu and all, but a good color for the selection . Improved graphics . You too can try it from usb . Cheers guys , Have a great day .</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/04/28/41-google-maps-yahoo-maps-and-open-street-maps/">Google Maps, Yahoo Maps and Open Street Maps</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-04-28T09:08:00+05:30" pubdate data-updated="true">Apr 28<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Every one may have heard about the Google maps , Yahoo maps and have used atleast once or may have seen once . Now a days every web page too is using the maps to show their location and all . You will be getting a google maps api key in-order to show in your web page. I have used to show the IP location of the user&rsquo;s in my previous site . Found another open source maps called the open street maps promoted by the GNU .     <img src="http://farm4.static.flickr.com/3664/3490762953_defeb72c4c.jpg?v=0" title="Screen shot of open street map " alt="Screen shot of open street map " />    The places are not marked completely , but in the future , it defnitely will be one of the best maps as its open source . You can have a look into the site <a href="http://www.openstreetmap.org/">http://www.openstreetmap.org/</a> and also you can edit the places , which you are familiar, so it will help others . I don&rsquo;t know from which server it&rsquo;s getting the data&rsquo;s. But the Yahoo logo seems to be on the right side when editing .  I want to investigate into the matter , and will add more details . Thanks for reading .</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/20/">&larr; Older</a>
@@ -456,6 +456,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/11/19/composer-support-for-processwire-part-2/">Composer Support for ProcessWire : Part-2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/18/experimenting-with-satis/">Experimenting With Satis</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/11/16/composer-support-for-processwire-modules/">Composer Support for ProcessWire Modules</a>
       </li>
     
@@ -465,14 +473,6 @@
     
       <li class="post">
         <a href="/blog/2013/11/06/using-aura-dispatcher-in-silex/">Using Aura Dispatcher in Silex</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/11/01/rest-is-delete-idempotent/">REST: Is DELETE Idempotent?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/10/29/conferences-is-it-really-worth/">Conferences : Is It Really Worth?</a>
       </li>
     
   </ul>

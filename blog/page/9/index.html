@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="AuraPHP : AuraPHP is not a new framework, its by Paul M Jones who is one behind the bench marking of PHP frameworks and also the Solar PHP framework &hellip;">
+  <meta name="description" content="I was little busy with different things. Sometimes with Aura. So it took sometime to inform you that the second book Wordpress 3 Ultimate Security I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,78 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/07/17/wordpress-3-ultimate-security/">Wordpress 3 Ultimate Security</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-17T17:17:00+05:30" pubdate data-updated="true">Jul 17<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was little busy with different things. Sometimes with <a href="http://auraphp.github.com/">Aura</a>. So it took sometime to inform you that the second book <a href="http://www.packtpub.com/wordpress-3-ultimate-security/book">Wordpress 3 Ultimate Security</a> I have reviewed is available .  If you was following me in <a href="https://plus.google.com/103027363195624770971/posts/iyGbNtMpXQY">Google +</a> or Twitter you may have already known this. Its a nice book, you will definitely learn how to secure your site.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/04/29/contributing-opensource-project-github/">Contributing to an Opensource Project in Github</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-29T10:51:00+05:30" pubdate data-updated="true">Apr 29<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There are lots of open-source projects in <a href="http://github.com">github.com</a> . I love contibuting to open-source projects. It may not be that much easy as github. But it didn&rsquo;t happened until I did a pull request to <a href="https://github.com/auraphp">AuraPHP</a>. I was really excited that it was merged with more changes made by <a href="http://paul-m-jones.com/">Paul M Jones</a> .  So if you are interested like me to contribiute or to make the project more shiny fork it <a href="http://help.github.com/fork-a-repo/">http://help.github.com/fork-a-repo/</a>  Do your changes and make a pull request <a href="http://help.github.com/pull-requests/">http://help.github.com/pull-requests/</a>  Enjoy !</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -367,78 +439,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/09/05/install-mongodb-aptitude-and-not-synaptic/">Install MongoDb via Aptitude and Not via Synaptic</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-09-05T14:38:00+05:30" pubdate data-updated="true">Sep 5<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/harikt/4959237021/"><img src="%20http://farm5.static.flickr.com/4154/4959237021_38f1029ac5.jpg" alt="Mongo Db" /></a>  I thought of playing with <a href="http://www.mongodb.org">mongodb</a>, one among the No SQL movement. I am using Ubuntu 10.04 . Installed via <strong>synaptic</strong> , installed some GUI admin tools like <a href="http://www.phpmoadmin.com/">phpmoadmin</a> , <a href="http://www.icmfinland.fi/oss/opricot/">opricot</a> (Both these tools are not necessary , just installed those to see how it works on browser ) . Opened my favourite terminal , just typed $<strong>mongod</strong>  mongod: error while loading shared libraries: libmozjs.so: cannot open shared object file: No such file or directory  Wow got some nice errors . I was stuck with it and googled and moved through various blgs and forums . From <a href="http://groups.google.com/group/mongodb-user/browse_thread/thread/7e7fd7fa0313c326?tvc=2&amp;pli=1">one of the group posts</a> I recognised the ubuntu package is broken and you need to install via the <a href="http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages">aptitude after adding the repository</a> . But I have another one which I have not tried , I feel it will work , so you can have a look into <a href="http://dracoater.blogspot.com/2010/08/mongodb-with-c-in-ubuntu.html">JuriTallinn&rsquo;s blog</a> before trying the below one, if you have already installed via synaptic.  So I just edited the <strong>/etc/apt/sources.list</strong> file . You can use either vi or gedit , and add the line      deb <a href="http://downloads.mongodb.org/distros/ubuntu">http://downloads.mongodb.org/distros/ubuntu</a> 10.4 10gen  Save it and run  $ aptitude update  You may get some error like W: GPG error: <a href="http://downloads.mongodb.org">http://downloads.mongodb.org</a> 10.4 Release: The following signatures couldn&rsquo;t be verified because the public key is not available: NO_PUBKEY 9ECBEC467F0CEB10 . If you get something like this just run  $ apt-key adv &mdash;keyserver keyserver.ubuntu.com &mdash;recv 7F0CEB10  And once again run  $ aptitude update   Hope everything works fine . Just run aptitude install and install stable , development or what ever version you love. I am installing a stable one .  $ aptitude install mongodb-stable  Now you can run your favorite mongodb from cmd line via  $mongo  And have fun . I also downloaded the <a href="http://www.php.net/manual/en/mongo.installation.php">PECL driver for PHP</a> which is explained below.  You need to download the php5-dev package before you run . You can use aptitude or synaptic. After the php5-dev installation run  $ pecl install mongo  and adding the line in php.ini . You may be having 2 php.ini if you have installed cli interface also . It will be located at /etc/php5/apache2/php.ini , /etc/php5/cli/php.ini . If you are unsure where it is just use locate command.  $ locate php.ini  Add the below line in php.ini      extension=mongo.so  Restart your apache ;) . Done and have fun with Mongo .</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/08/29/integrating-doctrine-zendframework-modules/">Integrating Doctrine With Zendframework for Modules</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-29T21:39:00+05:30" pubdate data-updated="true">Aug 29<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When I started learning PHP framework I started with <a href="http://www.symfony-project.org/">symfony-project</a> . <a href="http://www.doctrine-project.org">Doctrine</a> was one of the coolest feature I loved. So I thought of learning Doctrine to use with <a href="http://framework.zend.com/">Zend-framework</a> . Recently I was looking  <a href="http://zendcasts.com">zendcasts.com</a> to integrate doctrine with zend-framework . I think Jon didn&rsquo;t get much time to think about this solution else he may have come with the module based solution . But I was interested to provide how we can bring the doctrine models to different modules for zendframework. Use the below code in doctrine.php when using <a href="http://www.zendcasts.com/deep-integration-between-zend-and-doctrine-1-2/2010/01/">zendcasts doctrine integration with zendframework</a> .  The way it works is  $./doctrine &lt; arguments for doctrine > module <module name \>  Module name is the zendframework module . If no module is specified or the specified module directory is not found , will create in the application/models folder . Else the models folder of the particular module. Assuming the migrations , schema.yml , fixtures etc are  there for each specific module :) .</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/10/">&larr; Older</a>
@@ -456,6 +456,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/11/19/composer-support-for-processwire-part-2/">Composer Support for ProcessWire : Part-2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/18/experimenting-with-satis/">Experimenting With Satis</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/11/16/composer-support-for-processwire-modules/">Composer Support for ProcessWire Modules</a>
       </li>
     
@@ -465,14 +473,6 @@
     
       <li class="post">
         <a href="/blog/2013/11/06/using-aura-dispatcher-in-silex/">Using Aura Dispatcher in Silex</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/11/01/rest-is-delete-idempotent/">REST: Is DELETE Idempotent?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/10/29/conferences-is-it-really-worth/">Conferences : Is It Really Worth?</a>
       </li>
     
   </ul>

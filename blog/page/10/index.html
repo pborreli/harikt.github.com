@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="Packt publishers who loves opensource have come up with the book PHP5 CMS Framework Development . I was one of the technical reviewers of the book &hellip;">
+  <meta name="description" content="I thought of playing with mongodb, one among the No SQL movement. I am using Ubuntu 10.04 . Installed via synaptic , installed some GUI admin tools &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,78 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/09/05/install-mongodb-aptitude-and-not-synaptic/">Install MongoDb via Aptitude and Not via Synaptic</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-05T14:38:00+05:30" pubdate data-updated="true">Sep 5<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/harikt/4959237021/"><img src="%20http://farm5.static.flickr.com/4154/4959237021_38f1029ac5.jpg" alt="Mongo Db" /></a>  I thought of playing with <a href="http://www.mongodb.org">mongodb</a>, one among the No SQL movement. I am using Ubuntu 10.04 . Installed via <strong>synaptic</strong> , installed some GUI admin tools like <a href="http://www.phpmoadmin.com/">phpmoadmin</a> , <a href="http://www.icmfinland.fi/oss/opricot/">opricot</a> (Both these tools are not necessary , just installed those to see how it works on browser ) . Opened my favourite terminal , just typed $<strong>mongod</strong>  mongod: error while loading shared libraries: libmozjs.so: cannot open shared object file: No such file or directory  Wow got some nice errors . I was stuck with it and googled and moved through various blgs and forums . From <a href="http://groups.google.com/group/mongodb-user/browse_thread/thread/7e7fd7fa0313c326?tvc=2&amp;pli=1">one of the group posts</a> I recognised the ubuntu package is broken and you need to install via the <a href="http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages">aptitude after adding the repository</a> . But I have another one which I have not tried , I feel it will work , so you can have a look into <a href="http://dracoater.blogspot.com/2010/08/mongodb-with-c-in-ubuntu.html">JuriTallinn&rsquo;s blog</a> before trying the below one, if you have already installed via synaptic.  So I just edited the <strong>/etc/apt/sources.list</strong> file . You can use either vi or gedit , and add the line      deb <a href="http://downloads.mongodb.org/distros/ubuntu">http://downloads.mongodb.org/distros/ubuntu</a> 10.4 10gen  Save it and run  $ aptitude update  You may get some error like W: GPG error: <a href="http://downloads.mongodb.org">http://downloads.mongodb.org</a> 10.4 Release: The following signatures couldn&rsquo;t be verified because the public key is not available: NO_PUBKEY 9ECBEC467F0CEB10 . If you get something like this just run  $ apt-key adv &mdash;keyserver keyserver.ubuntu.com &mdash;recv 7F0CEB10  And once again run  $ aptitude update   Hope everything works fine . Just run aptitude install and install stable , development or what ever version you love. I am installing a stable one .  $ aptitude install mongodb-stable  Now you can run your favorite mongodb from cmd line via  $mongo  And have fun . I also downloaded the <a href="http://www.php.net/manual/en/mongo.installation.php">PECL driver for PHP</a> which is explained below.  You need to download the php5-dev package before you run . You can use aptitude or synaptic. After the php5-dev installation run  $ pecl install mongo  and adding the line in php.ini . You may be having 2 php.ini if you have installed cli interface also . It will be located at /etc/php5/apache2/php.ini , /etc/php5/cli/php.ini . If you are unsure where it is just use locate command.  $ locate php.ini  Add the below line in php.ini      extension=mongo.so  Restart your apache ;) . Done and have fun with Mongo .</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/08/29/integrating-doctrine-zendframework-modules/">Integrating Doctrine With Zendframework for Modules</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-29T21:39:00+05:30" pubdate data-updated="true">Aug 29<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When I started learning PHP framework I started with <a href="http://www.symfony-project.org/">symfony-project</a> . <a href="http://www.doctrine-project.org">Doctrine</a> was one of the coolest feature I loved. So I thought of learning Doctrine to use with <a href="http://framework.zend.com/">Zend-framework</a> . Recently I was looking  <a href="http://zendcasts.com">zendcasts.com</a> to integrate doctrine with zend-framework . I think Jon didn&rsquo;t get much time to think about this solution else he may have come with the module based solution . But I was interested to provide how we can bring the doctrine models to different modules for zendframework. Use the below code in doctrine.php when using <a href="http://www.zendcasts.com/deep-integration-between-zend-and-doctrine-1-2/2010/01/">zendcasts doctrine integration with zendframework</a> .  The way it works is  $./doctrine &lt; arguments for doctrine > module <module name \>  Module name is the zendframework module . If no module is specified or the specified module directory is not found , will create in the application/models folder . Else the models folder of the particular module. Assuming the migrations , schema.yml , fixtures etc are  there for each specific module :) .</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -367,78 +439,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/04/06/kerala-google-technology-users-group-and-adobe-launch-event/">Kerala Google Technology Users Group and Adobe Launch Event</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-04-06T19:23:00+05:30" pubdate data-updated="true">Apr 6<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This Saturday April 10th 2010 , two big events are going to happen in Kerala . If you were following me in twitter you may have noticed it . 1 ) Google Technology User&rsquo;s Group and 2 ) The Adobe Users Group launch event .   <a href="http://www.flickr.com/photos/harikt/4497299898/"><img src="http://farm3.static.flickr.com/2739/4497299898_9872bb6922.jpg" alt="Google Technology Users Group Launch Event at Technopark" /></a>  I am Happy that kerala is also getting some user groups . Previously Bangalore was the hub and now we can see small groups peeping here and there all over kerala. The GTUG event venue is UST Global6th Floor (Zentith Hall) ,Bhavani,Technopark , Trivandrum. Timing is between 10 AM to 1 PM .   <a href="http://www.flickr.com/photos/harikt/4497302818/"><img src="http://farm5.static.flickr.com/4070/4497302818_ffcec8241d.jpg" alt="Adobe Kerla Users Group Launch Event at Cochin" /></a>  Adobe Users Group Launch event is at Woods Manor Hotel , Cochin. I loved to attend both the events , but both on the same day at different locations . Though I am at cochin I will be moving to technopark , Trivandrum for the GTUG launch event. If you was following me , you may have seen my tweet some days back. I am little late to post in my blog due to certain reasons. The seats for both the events are limited and for the GTUG I think its almost finished . I am not sure about the Adobe event . So you guys can look both the events and can be part of your loving group . You can get more details about Adobe Users Group from <a href="http://godsowndevelopers.com/kad/launchevent/">http://godsowndevelopers.com/kad/launchevent/</a> and the Kerala Google Technology Users group from <a href="http://www.kerala-gtug.org/30/launch-event/">http://www.kerala-gtug.org/30/launch-event/</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/03/28/looking-back-barcamp-8-mar-athanasios-college-advanced-studies-macfast/">Looking Back Barcamp 8 at Mar Athanasios College for Advanced Studies ( MACFAST )</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-03-28T22:49:00+05:30" pubdate data-updated="true">Mar 28<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Mar Athanasios College For Advanced Studies ( MACFAST ) hosted the eighth Barcamp of Kerala.  <a href="http://www.flickr.com/photos/harikt/4470034917/" title="mar athanasios college for advanced studies by K T Hari, on Flickr"><img src="http://farm5.static.flickr.com/4057/4470034917_023d0cc7af.jpg" alt="mar-athanasios-college-for-advanced-studies" /></a>  It may be the one of the only college which runs a radio. Got pictures from@deepakp7 and @arunbasillal . The college was the sponsor of BCK8 and he offered us to be there at any time we want. We are really Thankful for the Management and the Principal Father Abraham Mulamootil.  <a href="http://www.flickr.com/photos/harikt/4469923633/" title="campus-radio-macfast by K T Hari, on Flickr"><img src="http://farm5.static.flickr.com/4025/4469923633_53e3c445fe.jpg" alt="campus-radio-macfast" /></a>  Entrepreneurship by Adv. Ivin Gancius was the one I loved, though the presentation was not so colourful. He answered many of the questions raised by the attendees. The other one was Statistical Machine Translation by @deepakp7. He demonstrated how the translations are working and all with some examples. This time @shwetank( The evangelist of opera ) disappointed me. The session registered was The HTML5 Bandwagon and he went with Mobile Web. I was expecting something similar to the awesome presentation made by him at BCK5, Technopark Trivandrum.  Y Perl? by Alan Haggai Alavi was also an interesting one. He was interested to show more stuffs related to Perl if any of us are willing to learn. There was other sessions like Spara &ndash; Energy Conservation Product by Deepa Eswar. You may be knowing her, she was one of the anchor at Kairali TV ( The Malayalam Communications Limited ) , Web Penetration in Kerala &ndash; Status Report &amp; Forecast by Aravind Jose, No Negative Day etc was some other sessions. Niju Mohan presented his experience on Tata Jagriti Yatra. Ajith Sam John a BTech student speaks about Social Media Recruitment. Its interesting to see he too recuits people to do work :). Kenny Jacob is going to getting married soon. May be the reason he came with Cultural Invasion Vs Social Evolution. Arun Basil Lal went with a session WordPress-ing It. He started with installation of wordpress, plugins, themes etc. Though these were the stuffs we do often, but there are people who don&rsquo;t know how to install it. I think it was very useful for those people and hope they will explore wordpress. Its really nice to see Engineering Students active in Barcamps. The last session was by Binny V A launching the product  eNGO.  <a href="http://www.flickr.com/photos/harikt/4484449720/"><img src="http://farm5.static.flickr.com/4007/4484449720_a15ea94ddb.jpg" alt="8th Barcamp Kerala at MACFAST" /></a>  A snapshot from BCK8 . Photo credits to <a href="http://picasaweb.google.com/aravindjose/BCK8">Aravind Jose</a>  The lunch and evenining tea was provided by the college. The food was so delicious. We all enjoyed the lunch and tea made some conversations with the Principal Father Abraham Mulamootil. He was also an active attendee and its nice to see such a college and Principal. The college provide internet facility 24 X 7 for the students. When I was at CUIET doing my BTech ( 2003-2007 ), our lab was not open 24 X 7 or we was not having full time internet facility. But its really nice to see colleges like MACFAST and a good principal who motivates his students. Motivation is a key factor that makes a professional. If it lags then its something like schooling than doing BTech as a professional Degree . So the campus needs such colleges, lectures , pricipals to make a better next generation. So bye for now hoping to see you for the next Barcamp 9.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -456,6 +456,14 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/11/19/composer-support-for-processwire-part-2/">Composer Support for ProcessWire : Part-2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/18/experimenting-with-satis/">Experimenting With Satis</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/11/16/composer-support-for-processwire-modules/">Composer Support for ProcessWire Modules</a>
       </li>
     
@@ -465,14 +473,6 @@
     
       <li class="post">
         <a href="/blog/2013/11/06/using-aura-dispatcher-in-silex/">Using Aura Dispatcher in Silex</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/11/01/rest-is-delete-idempotent/">REST: Is DELETE Idempotent?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/10/29/conferences-is-it-really-worth/">Conferences : Is It Really Worth?</a>
       </li>
     
   </ul>

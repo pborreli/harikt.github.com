@@ -1009,6 +1009,14 @@
         <lastmod>2013-11-16T11:48:48+05:30</lastmod>
     </url>
     <url>
+        <loc>http://harikt.com/blog/2013/11/18/experimenting-with-satis/</loc>
+        <lastmod>2013-11-18T22:56:35+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://harikt.com/blog/2013/11/19/composer-support-for-processwire-part-2/</loc>
+        <lastmod>2013-11-19T08:51:37+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://harikt.com/who-am-i/</loc>
         <lastmod>2013-10-29T22:06:25+05:30</lastmod>
     </url>
@@ -1018,10 +1026,10 @@
     </url>
     <url>
         <loc>http://harikt.com/</loc>
-        <lastmod>2013-11-16T11:48:48+05:30</lastmod>
+        <lastmod>2013-11-19T08:51:37+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/blog/archives/</loc>
-        <lastmod>2013-11-16T11:48:48+05:30</lastmod>
+        <lastmod>2013-11-19T08:51:37+05:30</lastmod>
     </url>
 </urlset>
