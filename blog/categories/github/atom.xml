@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: github | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Github | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Resolving RPC failed for github]]></title>
+    <title type="html"><![CDATA[Resolving RPC Failed for Github]]></title>
     <link href="http://harikt.com/blog/2011/10/02/resolving-rpc-failed-for-github/"/>
     <updated>2011-10-02T15:07:00+05:30</updated>
     <id>http://harikt.com/blog/2011/10/02/resolving-rpc-failed-for-github</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Contributing to an opensource Project in github]]></title>
+    <title type="html"><![CDATA[Contributing to an Opensource Project in Github]]></title>
     <link href="http://harikt.com/blog/2011/04/29/contributing-opensource-project-github/"/>
     <updated>2011-04-29T10:51:00+05:30</updated>
     <id>http://harikt.com/blog/2011/04/29/contributing-opensource-project-github</id>

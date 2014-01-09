@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: symfony2 | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Symfony2 | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/symfony2/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Is there a design flaw for the Components or Packages made by Symfony2 and Zend Framework 2]]></title>
+    <title type="html"><![CDATA[Is There a Design Flaw for the Components or Packages Made by Symfony2 and Zend Framework 2]]></title>
     <link href="http://harikt.com/blog/2012/03/09/any-design-flaw-for-components-packages-for-symfony2-zf2/"/>
     <updated>2012-03-09T04:29:00+05:30</updated>
     <id>http://harikt.com/blog/2012/03/09/any-design-flaw-for-components-packages-for-symfony2-zf2</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Standalone Form component for PHP]]></title>
+    <title type="html"><![CDATA[Standalone Form Component for PHP]]></title>
     <link href="http://harikt.com/blog/2012/03/06/standalone-form-component-for-php/"/>
     <updated>2012-03-06T22:18:00+05:30</updated>
     <id>http://harikt.com/blog/2012/03/06/standalone-form-component-for-php</id>
@@ -180,7 +180,7 @@ the sense as I shown in the example .</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Symfony2 the future of PHP ?]]></title>
+    <title type="html"><![CDATA[Symfony2 the Future of PHP ?]]></title>
     <link href="http://harikt.com/blog/2011/10/02/symfony2-the-future-of-php/"/>
     <updated>2011-10-02T11:53:00+05:30</updated>
     <id>http://harikt.com/blog/2011/10/02/symfony2-the-future-of-php</id>

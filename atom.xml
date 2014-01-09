@@ -4,7 +4,7 @@
   <title><![CDATA[Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,115 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Composer support for ProcessWire : Part-2]]></title>
+    <title type="html"><![CDATA[Frameworks Are Good, Components Are Awesome!]]></title>
+    <link href="http://harikt.com/blog/2014/01/09/frameworks-are-good/"/>
+    <updated>2014-01-09T11:06:17+05:30</updated>
+    <id>http://harikt.com/blog/2014/01/09/frameworks-are-good</id>
+    <content type="html"><![CDATA[<p>Some of the recent discussions in the PHP world are</p>
+
+<ul>
+<li><p><a href="http://philsturgeon.co.uk/blog/2014/01/the-tribal-framework-mindset">The Tribal Framework Mindset</a></p></li>
+<li><p><a href="http://adamwathan.me/2014/01/05/decoupling-your-packages-from-your-framework">Decoupling your packages from your framework</a></p></li>
+<li><p><a href="http://www.brandonsavage.net/you-dont-need-a-framework/">You don’t need a framework</a></p></li>
+<li><p><a href="http://afilina.com/frameworks-for-everyone/">Frameworks for everyone</a></p></li>
+</ul>
+
+
+<h2>Framework is not a bad idea</h2>
+
+<p>If you don&rsquo;t use a framework, probably you will be using a bunch
+of independent libraries glued together or some code which
+help you to achieve your task.</p>
+
+<p>Whether we use a framework or independent library, our ultimate aim
+is building the right product for our customer.</p>
+
+<p>If you are building an app, and if you strongly feel symfony is the
+right choice you should go with it. And if you feel zend framework,
+auraphp, fuelphp, cake .. (you name it) is the right one you should go for it.</p>
+
+<p>The ultimate aim of any framework developers is to make a living from
+it or to advertise his capability. So all will advertise it as good
+and never say a bad word even if they know the pit falls.</p>
+
+<p>One of the recent problem we can notice is every php framework
+tries to advertise they are developed from components.</p>
+
+<h2>First</h2>
+
+<p>Laravel is an awesome framework, so do <a href="http://symfony.com">symfony</a>,
+<a href="http://framework.zend.com">zend framework</a> and you name it.</p>
+
+<blockquote><p>and not to your surprise &ldquo;I love <a href="http://auraphp.com">auraphp</a>&rdquo;</p></blockquote>
+
+<h2>Don&rsquo;t call all are build from libraries</h2>
+
+<p>May be we need to define how/why we call it as library.</p>
+
+<p>Consider a routing library : You give a URL path and <code>$_SERVER</code> values it extracts the route information.</p>
+
+<p>Some of the libraries that does the work are
+<a href="https://packagist.org/packages/aura/router">aura/router</a>,
+<a href="https://packagist.org/packages/symfony/routing">symfony/routing</a>,
+<a href="https://packagist.org/packages/illuminate/routing">illuminate/routing</a></p>
+
+<p>Apart from aura, I did a search for routing in <a href="https://packagist.org/search/?q=routing">packagist</a></p>
+
+<p>If you have a good eye, you would have understood looking at the packagist
+dependencies.</p>
+
+<p>The next one is regarding the <code>require-dev</code>. The <code>require-dev</code> dependency
+is when you want to bind other components.
+The best way is to get rid of the <code>require-dev</code>. The glue package should
+be another independent package.</p>
+
+<p>Consider <a href="https://github.com/Lusitanian/PHPoAuthLib/tree/e9160f45ee1a32d2087e1c792a1e1da131ac332e/src/OAuth/Common/Storage">Lusitanian/PHPoAuthLib</a>
+Symfony session has one. What will happen when someone who loves zend, aura, fuel etc
+love to have the session. It gets overly complicated.
+So is <a href="https://github.com/friendsofaura/OAuthSession">https://github.com/friendsofaura/OAuthSession</a> repo born.
+Another good example I would like to show is
+<a href="https://packagist.org/packages/aura/project-kernel">aura/project-kernel</a></p>
+
+<p>Yes it is a bit of hack, to run tests. Have a look into
+<a href="https://github.com/auraphp/Aura.Project_Kernel/blob/e8add743613f86147534b502145e2e3ef909f344/.travis.yml">travis</a></p>
+
+<p>What I love to see in the PHP world is have a single repo where
+the pull request, create issues can be made rather than going and
+forking the entire code base. And not to mix the source and tests.</p>
+
+<p>The <a href="http://packagist.org/">packagist</a> need a way to sort
+dependent packages, independent packages and framework dependent packages.</p>
+
+<p>If you are new to PHP, I will recommend you to use components and glue
+it together.</p>
+
+<ul>
+<li>Start with a <a href="https://github.com/auraphp/Aura.Router/tree/develop-2">routing library</a>,
+see how <a href="https://github.com/auraphp/Aura.Router/tree/develop-2#dispatching-a-route">dispatching</a> can be done.</li>
+<li>Try integrating a much better <a href="https://github.com/auraphp/Aura.Dispatcher">dispatcher</a></li>
+<li>Now your controller need
+<a href="https://github.com/auraphp/Aura.Web/blob/develop-2/README-REQUEST.md">request</a>/
+<a href="https://github.com/auraphp/Aura.Web/blob/develop-2/README-RESPONSE.md">response</a>.</li>
+</ul>
+
+
+<p>Your application defnitely at some point of time need
+<a href="http://websec.io/2013/12/31/Input-Filtering-Validation-Aura-Filter.html">Input Filtering &amp; Validation</a></p>
+
+<p>May want to introduce <a href="http://harikt.com/phpform/">form libraries</a> to glue with your legacy code.</p>
+
+<p>You will learn PHP, and not the magic of a framework.
+Depending upon the dependencies it will be easy to replace the component.
+That is the ultimate aim of components, not to trap you.</p>
+
+<p>Thanks for reading.</p>
+
+<p>Happy PhPing!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Composer Support for ProcessWire : Part-2]]></title>
     <link href="http://harikt.com/blog/2013/11/19/composer-support-for-processwire-part-2/"/>
     <updated>2013-11-19T08:37:00+05:30</updated>
     <id>http://harikt.com/blog/2013/11/19/composer-support-for-processwire-part-2</id>
@@ -93,16 +201,7 @@ So if you have caps in between name put a hyphen in the naming</p></blockquote>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Experimenting with Satis]]></title>
-    <link href="http://harikt.com/blog/2013/11/18/experimenting-with-satis/"/>
-    <updated>2013-11-18T22:56:00+05:30</updated>
-    <id>http://harikt.com/blog/2013/11/18/experimenting-with-satis</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Composer support for ProcessWire modules]]></title>
+    <title type="html"><![CDATA[Composer Support for ProcessWire Modules]]></title>
     <link href="http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules/"/>
     <updated>2013-11-16T11:22:00+05:30</updated>
     <id>http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules</id>
@@ -683,7 +782,7 @@ the real information.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Conferences : Is it really worth?]]></title>
+    <title type="html"><![CDATA[Conferences : Is It Really Worth?]]></title>
     <link href="http://harikt.com/blog/2013/10/29/conferences-is-it-really-worth/"/>
     <updated>2013-10-29T22:33:00+05:30</updated>
     <id>http://harikt.com/blog/2013/10/29/conferences-is-it-really-worth</id>
@@ -760,7 +859,7 @@ looking at you tomorrow.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Looking at aura version 2]]></title>
+    <title type="html"><![CDATA[Looking at Aura Version 2]]></title>
     <link href="http://harikt.com/blog/2013/09/28/looking-at-aura-v2/"/>
     <updated>2013-09-28T06:53:00+05:30</updated>
     <id>http://harikt.com/blog/2013/09/28/looking-at-aura-v2</id>
@@ -1171,7 +1270,7 @@ with full stack framework.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Book on Aura moved to Manual]]></title>
+    <title type="html"><![CDATA[Book on Aura Moved to Manual]]></title>
     <link href="http://harikt.com/blog/2013/09/07/book-on-aura-moved-to-manual/"/>
     <updated>2013-09-07T12:08:00+05:30</updated>
     <id>http://harikt.com/blog/2013/09/07/book-on-aura-moved-to-manual</id>
@@ -1208,7 +1307,7 @@ on top of the <a href="http://auraphp.com/packages/">aura libraries</a>.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Announcing winners of the contest]]></title>
+    <title type="html"><![CDATA[Announcing Winners of the Contest]]></title>
     <link href="http://harikt.com/blog/2013/09/05/announcing-winners-of-the-contest/"/>
     <updated>2013-09-05T20:25:00+05:30</updated>
     <id>http://harikt.com/blog/2013/09/05/announcing-winners-of-the-contest</id>
@@ -1255,7 +1354,7 @@ contest.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Chance to Win Free Copies of Packt’s new book on Zend Framework 2.0]]></title>
+    <title type="html"><![CDATA[Chance to Win Free Copies of Packt’s New Book on Zend Framework 2.0]]></title>
     <link href="http://harikt.com/blog/2013/08/23/chance-to-win-free-copies-of-packts-new-book-on-zend-framework-2-dot-0/"/>
     <updated>2013-08-23T11:59:00+05:30</updated>
     <id>http://harikt.com/blog/2013/08/23/chance-to-win-free-copies-of-packts-new-book-on-zend-framework-2-dot-0</id>
@@ -1659,7 +1758,7 @@ category information, products list etc are shown below.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[A word about Tracy]]></title>
+    <title type="html"><![CDATA[A Word About Tracy]]></title>
     <link href="http://harikt.com/blog/2013/07/12/a-word-about-tracy/"/>
     <updated>2013-07-12T13:31:00+05:30</updated>
     <id>http://harikt.com/blog/2013/07/12/a-word-about-tracy</id>
@@ -1733,7 +1832,7 @@ where it stayed when you last opened it.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[The book on aura]]></title>
+    <title type="html"><![CDATA[The Book on Aura]]></title>
     <link href="http://harikt.com/blog/2013/07/09/the-book-on-aura/"/>
     <updated>2013-07-09T06:55:00+05:30</updated>
     <id>http://harikt.com/blog/2013/07/09/the-book-on-aura</id>
@@ -1782,7 +1881,7 @@ continously asking for the book.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Magento and REST api]]></title>
+    <title type="html"><![CDATA[Magento and REST Api]]></title>
     <link href="http://harikt.com/blog/2013/07/05/magento-and-rest-api/"/>
     <updated>2013-07-05T08:31:00+05:30</updated>
     <id>http://harikt.com/blog/2013/07/05/magento-and-rest-api</id>
@@ -2010,7 +2109,7 @@ simple. So if you have not tried it is time for it.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[A sample tutorial package]]></title>
+    <title type="html"><![CDATA[A Sample Tutorial Package]]></title>
     <link href="http://harikt.com/blog/2013/06/21/a-sample-tutorial-package/"/>
     <updated>2013-06-21T22:04:00+05:30</updated>
     <id>http://harikt.com/blog/2013/06/21/a-sample-tutorial-package</id>
@@ -2170,7 +2269,7 @@ Else you need to edit the <code>config/_packages</code> and add <code>Hari.Sampl
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Aura.Web, build your own controller class]]></title>
+    <title type="html"><![CDATA[Aura.Web, Build Your Own Controller Class]]></title>
     <link href="http://harikt.com/blog/2013/06/04/aura-dot-web/"/>
     <updated>2013-06-04T07:47:00+05:30</updated>
     <id>http://harikt.com/blog/2013/06/04/aura-dot-web</id>
@@ -2184,7 +2283,7 @@ own framework, probably Aura.Web help you to do the same.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Aura System released beta5]]></title>
+    <title type="html"><![CDATA[Aura System Released Beta5]]></title>
     <link href="http://harikt.com/blog/2013/05/25/aura-system-released-beta5/"/>
     <updated>2013-05-25T21:44:00+05:30</updated>
     <id>http://harikt.com/blog/2013/05/25/aura-system-released-beta5</id>
@@ -2220,7 +2319,7 @@ php update.php
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Standalone form for PHP]]></title>
+    <title type="html"><![CDATA[Standalone Form for PHP]]></title>
     <link href="http://harikt.com/blog/2013/05/23/standalone-form-for-php/"/>
     <updated>2013-05-23T07:03:00+05:30</updated>
     <id>http://harikt.com/blog/2013/05/23/standalone-form-for-php</id>

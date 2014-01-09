@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: digg | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Digg | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/digg/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Adding Digg , del.icio.us button in Blogger]]></title>
+    <title type="html"><![CDATA[Adding Digg , del.icio.us Button in Blogger]]></title>
     <link href="http://harikt.com/blog/2009/03/08/16-adding-digg-delicious-button-in-blogger/"/>
     <updated>2009-03-08T08:47:00+05:30</updated>
     <id>http://harikt.com/blog/2009/03/08/16-adding-digg-delicious-button-in-blogger</id>

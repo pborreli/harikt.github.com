@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: jaunty | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Jaunty | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/jaunty/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Playing video in Ubuntu 9.04 ( jaunty ) ends session fixed]]></title>
+    <title type="html"><![CDATA[Playing Video in Ubuntu 9.04 ( Jaunty ) Ends Session Fixed]]></title>
     <link href="http://harikt.com/blog/2009/06/21/playing-video-ubuntu-904-jaunty-ends-session-fixed/"/>
     <updated>2009-06-21T11:49:00+05:30</updated>
     <id>http://harikt.com/blog/2009/06/21/playing-video-ubuntu-904-jaunty-ends-session-fixed</id>

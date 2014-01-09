@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: li3 | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Li3 | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/li3/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Relationship support in Lithium aka li3]]></title>
+    <title type="html"><![CDATA[Relationship Support in Lithium Aka Li3]]></title>
     <link href="http://harikt.com/blog/2011/03/10/relationship-support-lithium-aka-li3/"/>
     <updated>2011-03-10T08:37:00+05:30</updated>
     <id>http://harikt.com/blog/2011/03/10/relationship-support-lithium-aka-li3</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[A local search for the li3_docs with Zend_Search_Lucene]]></title>
+    <title type="html"><![CDATA[A Local Search for the Li3_docs With Zend_Search_Lucene]]></title>
     <link href="http://harikt.com/blog/2011/01/20/local-search-li3docs-zendsearchlucene/"/>
     <updated>2011-01-20T20:25:00+05:30</updated>
     <id>http://harikt.com/blog/2011/01/20/local-search-li3docs-zendsearchlucene</id>

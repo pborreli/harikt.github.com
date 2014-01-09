@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ibm | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Ibm | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/ibm/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[New advertisement of Oracle and Sun and message to IBM]]></title>
+    <title type="html"><![CDATA[New Advertisement of Oracle and Sun and Message to IBM]]></title>
     <link href="http://harikt.com/blog/2009/09/10/new-advertisement-oracle-and-sun-and-message-ibm/"/>
     <updated>2009-09-10T20:45:00+05:30</updated>
     <id>http://harikt.com/blog/2009/09/10/new-advertisement-oracle-and-sun-and-message-ibm</id>

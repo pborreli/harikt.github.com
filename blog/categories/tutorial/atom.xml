@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: tutorial | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Tutorial | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/tutorial/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Easy tutorial to quickly learn ZendFramework 1.8]]></title>
+    <title type="html"><![CDATA[Easy Tutorial to Quickly Learn ZendFramework 1.8]]></title>
     <link href="http://harikt.com/blog/2009/07/23/easy-tutorial-quickly-learn-zendframework-18/"/>
     <updated>2009-07-23T08:51:00+05:30</updated>
     <id>http://harikt.com/blog/2009/07/23/easy-tutorial-quickly-learn-zendframework-18</id>

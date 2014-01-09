@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: webhosting | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Webhosting | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/webhosting/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Things that you must take care before selecting a hosting]]></title>
+    <title type="html"><![CDATA[Things That You Must Take Care Before Selecting a Hosting]]></title>
     <link href="http://harikt.com/blog/2009/05/13/54-things-that-you-must-take-care-before-selecting-a-hosting/"/>
     <updated>2009-05-13T09:48:00+05:30</updated>
     <id>http://harikt.com/blog/2009/05/13/54-things-that-you-must-take-care-before-selecting-a-hosting</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Web Hosting service]]></title>
+    <title type="html"><![CDATA[Web Hosting Service]]></title>
     <link href="http://harikt.com/blog/2009/04/12/32-web-hosting-service-/"/>
     <updated>2009-04-12T09:50:00+05:30</updated>
     <id>http://harikt.com/blog/2009/04/12/32-web-hosting-service-</id>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: technopark | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Technopark | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/technopark/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Enjoyed Barcamp 5 from Park Center, Technopark]]></title>
+    <title type="html"><![CDATA[Enjoyed Barcamp 5 From Park Center, Technopark]]></title>
     <link href="http://harikt.com/blog/2009/05/04/47-enjoyed-barcamp-5-from-park-center-technopark/"/>
     <updated>2009-05-04T09:32:00+05:30</updated>
     <id>http://harikt.com/blog/2009/05/04/47-enjoyed-barcamp-5-from-park-center-technopark</id>
@@ -32,7 +32,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Barcamp Kerala 5th edition on May 3rd @ Technopark , Trivandrum]]></title>
+    <title type="html"><![CDATA[Barcamp Kerala 5th Edition on May 3rd @ Technopark , Trivandrum]]></title>
     <link href="http://harikt.com/blog/2009/04/10/30-barcamp-kerala-5th-edition-on-may-3rd-technopark-trivandrum/"/>
     <updated>2009-04-10T09:14:00+05:30</updated>
     <id>http://harikt.com/blog/2009/04/10/30-barcamp-kerala-5th-edition-on-may-3rd-technopark-trivandrum</id>

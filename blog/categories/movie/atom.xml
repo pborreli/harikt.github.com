@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: movie | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Movie | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/movie/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Google comes with movie search for your location]]></title>
+    <title type="html"><![CDATA[Google Comes With Movie Search for Your Location]]></title>
     <link href="http://harikt.com/blog/2009/11/19/google-comes-movie-search-your-location/"/>
     <updated>2009-11-19T13:12:00+05:30</updated>
     <id>http://harikt.com/blog/2009/11/19/google-comes-movie-search-your-location</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Bad day , but enjoyed a good movie]]></title>
+    <title type="html"><![CDATA[Bad Day , but Enjoyed a Good Movie]]></title>
     <link href="http://harikt.com/blog/2009/04/19/34-bad-day-but-enjoyed-a-good-movie/"/>
     <updated>2009-04-19T09:03:00+05:30</updated>
     <id>http://harikt.com/blog/2009/04/19/34-bad-day-but-enjoyed-a-good-movie</id>

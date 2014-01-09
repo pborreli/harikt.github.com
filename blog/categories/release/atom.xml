@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: release | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Release | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -31,7 +31,7 @@ with full stack framework.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Aura System released beta5]]></title>
+    <title type="html"><![CDATA[Aura System Released Beta5]]></title>
     <link href="http://harikt.com/blog/2013/05/25/aura-system-released-beta5/"/>
     <updated>2013-05-25T21:44:00+05:30</updated>
     <id>http://harikt.com/blog/2013/05/25/aura-system-released-beta5</id>
@@ -67,7 +67,7 @@ php update.php
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[First stable release for Aura components]]></title>
+    <title type="html"><![CDATA[First Stable Release for Aura Components]]></title>
     <link href="http://harikt.com/blog/2012/11/29/node-225/"/>
     <updated>2012-11-29T20:46:00+05:30</updated>
     <id>http://harikt.com/blog/2012/11/29/node-225</id>

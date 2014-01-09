@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: php download script | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Php Download Script | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/php-download-script/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Downloading a file]]></title>
+    <title type="html"><![CDATA[Downloading a File]]></title>
     <link href="http://harikt.com/blog/2009/02/01/7-downloading-a-file/"/>
     <updated>2009-02-01T08:24:00+05:30</updated>
     <id>http://harikt.com/blog/2009/02/01/7-downloading-a-file</id>

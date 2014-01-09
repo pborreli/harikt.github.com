@@ -9,8 +9,9 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="In my earlier post
-I mentioned about adding a composer.json in the root of the github repo. Sometimes you may see a non composer.json repo or some &hellip;">
+  <meta name="description" content="Some of the recent discussions in the PHP world are The Tribal Framework Mindset
+Decoupling your packages from your framework
+You don’t need a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -25,7 +26,7 @@ I mentioned about adding a composer.json in the root of the github repo. Sometim
   <link href="http://feeds.feedburner.com/harikt/YKAJ" rel="alternate" title="Random thoughts | Hari KT" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -79,6 +80,141 @@ I mentioned about adding a composer.json in the root of the github repo. Sometim
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/09/frameworks-are-good/">Frameworks Are Good, Components Are Awesome!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-09T11:06:17+05:30" pubdate data-updated="true">Jan 9<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Some of the recent discussions in the PHP world are</p>
+
+<ul>
+<li><p><a href="http://philsturgeon.co.uk/blog/2014/01/the-tribal-framework-mindset">The Tribal Framework Mindset</a></p></li>
+<li><p><a href="http://adamwathan.me/2014/01/05/decoupling-your-packages-from-your-framework">Decoupling your packages from your framework</a></p></li>
+<li><p><a href="http://www.brandonsavage.net/you-dont-need-a-framework/">You don’t need a framework</a></p></li>
+<li><p><a href="http://afilina.com/frameworks-for-everyone/">Frameworks for everyone</a></p></li>
+</ul>
+
+
+<h2>Framework is not a bad idea</h2>
+
+<p>If you don&rsquo;t use a framework, probably you will be using a bunch
+of independent libraries glued together or some code which
+help you to achieve your task.</p>
+
+<p>Whether we use a framework or independent library, our ultimate aim
+is building the right product for our customer.</p>
+
+<p>If you are building an app, and if you strongly feel symfony is the
+right choice you should go with it. And if you feel zend framework,
+auraphp, fuelphp, cake .. (you name it) is the right one you should go for it.</p>
+
+<p>The ultimate aim of any framework developers is to make a living from
+it or to advertise his capability. So all will advertise it as good
+and never say a bad word even if they know the pit falls.</p>
+
+<p>One of the recent problem we can notice is every php framework
+tries to advertise they are developed from components.</p>
+
+<h2>First</h2>
+
+<p>Laravel is an awesome framework, so do <a href="http://symfony.com">symfony</a>,
+<a href="http://framework.zend.com">zend framework</a> and you name it.</p>
+
+<blockquote><p>and not to your surprise &ldquo;I love <a href="http://auraphp.com">auraphp</a>&rdquo;</p></blockquote>
+
+<h2>Don&rsquo;t call all are build from libraries</h2>
+
+<p>May be we need to define how/why we call it as library.</p>
+
+<p>Consider a routing library : You give a URL path and <code>$_SERVER</code> values it extracts the route information.</p>
+
+<p>Some of the libraries that does the work are
+<a href="https://packagist.org/packages/aura/router">aura/router</a>,
+<a href="https://packagist.org/packages/symfony/routing">symfony/routing</a>,
+<a href="https://packagist.org/packages/illuminate/routing">illuminate/routing</a></p>
+
+<p>Apart from aura, I did a search for routing in <a href="https://packagist.org/search/?q=routing">packagist</a></p>
+
+<p>If you have a good eye, you would have understood looking at the packagist
+dependencies.</p>
+
+<p>The next one is regarding the <code>require-dev</code>. The <code>require-dev</code> dependency
+is when you want to bind other components.
+The best way is to get rid of the <code>require-dev</code>. The glue package should
+be another independent package.</p>
+
+<p>Consider <a href="https://github.com/Lusitanian/PHPoAuthLib/tree/e9160f45ee1a32d2087e1c792a1e1da131ac332e/src/OAuth/Common/Storage">Lusitanian/PHPoAuthLib</a>
+Symfony session has one. What will happen when someone who loves zend, aura, fuel etc
+love to have the session. It gets overly complicated.
+So is <a href="https://github.com/friendsofaura/OAuthSession">https://github.com/friendsofaura/OAuthSession</a> repo born.
+Another good example I would like to show is
+<a href="https://packagist.org/packages/aura/project-kernel">aura/project-kernel</a></p>
+
+<p>Yes it is a bit of hack, to run tests. Have a look into
+<a href="https://github.com/auraphp/Aura.Project_Kernel/blob/e8add743613f86147534b502145e2e3ef909f344/.travis.yml">travis</a></p>
+
+<p>What I love to see in the PHP world is have a single repo where
+the pull request, create issues can be made rather than going and
+forking the entire code base. And not to mix the source and tests.</p>
+
+<p>The <a href="http://packagist.org/">packagist</a> need a way to sort
+dependent packages, independent packages and framework dependent packages.</p>
+
+<p>If you are new to PHP, I will recommend you to use components and glue
+it together.</p>
+
+<ul>
+<li>Start with a <a href="https://github.com/auraphp/Aura.Router/tree/develop-2">routing library</a>,
+see how <a href="https://github.com/auraphp/Aura.Router/tree/develop-2#dispatching-a-route">dispatching</a> can be done.</li>
+<li>Try integrating a much better <a href="https://github.com/auraphp/Aura.Dispatcher">dispatcher</a></li>
+<li>Now your controller need
+<a href="https://github.com/auraphp/Aura.Web/blob/develop-2/README-REQUEST.md">request</a>/
+<a href="https://github.com/auraphp/Aura.Web/blob/develop-2/README-RESPONSE.md">response</a>.</li>
+</ul>
+
+
+<p>Your application defnitely at some point of time need
+<a href="http://websec.io/2013/12/31/Input-Filtering-Validation-Aura-Filter.html">Input Filtering &amp; Validation</a></p>
+
+<p>May want to introduce <a href="http://harikt.com/phpform/">form libraries</a> to glue with your legacy code.</p>
+
+<p>You will learn PHP, and not the magic of a framework.
+Depending upon the dependencies it will be easy to replace the component.
+That is the ultimate aim of components, not to trap you.</p>
+
+<p>Thanks for reading.</p>
+
+<p>Happy PhPing!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -179,42 +315,6 @@ The package is of type <a href="https://github.com/harikt/pwmoduleinstaller">pw-
 
 <blockquote><p>The name process-export-profile is converted to ProcessExportProfile .
 So if you have caps in between name put a hyphen in the naming</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/18/experimenting-with-satis/">Experimenting With Satis</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-18T22:56:00+05:30" pubdate data-updated="true">Nov 18<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">
 </div>
   
   
@@ -1559,11 +1659,11 @@ on top of the <a href="http://auraphp.com/packages/">aura libraries</a>.</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/11/19/composer-support-for-processwire-part-2/">Composer Support for ProcessWire : Part-2</a>
+        <a href="/blog/2014/01/09/frameworks-are-good/">Frameworks Are Good, Components Are Awesome!</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/11/18/experimenting-with-satis/">Experimenting With Satis</a>
+        <a href="/blog/2013/11/19/composer-support-for-processwire-part-2/">Composer Support for ProcessWire : Part-2</a>
       </li>
     
       <li class="post">
@@ -1620,7 +1720,7 @@ on top of the <a href="http://auraphp.com/packages/">aura libraries</a>.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Hari K T -
+  Copyright &copy; 2014 - Hari K T -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

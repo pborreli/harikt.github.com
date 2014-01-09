@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ubuntu 9.04 | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Ubuntu 9.04 | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/ubuntu-9-dot-04/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Playing video in Ubuntu 9.04 ( jaunty ) ends session fixed]]></title>
+    <title type="html"><![CDATA[Playing Video in Ubuntu 9.04 ( Jaunty ) Ends Session Fixed]]></title>
     <link href="http://harikt.com/blog/2009/06/21/playing-video-ubuntu-904-jaunty-ends-session-fixed/"/>
     <updated>2009-06-21T11:49:00+05:30</updated>
     <id>http://harikt.com/blog/2009/06/21/playing-video-ubuntu-904-jaunty-ends-session-fixed</id>
@@ -32,7 +32,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Celebrating my 24 th B'day with Ubuntu 9.04, colleagues at ISPG, friends and dear ones]]></title>
+    <title type="html"><![CDATA[Celebrating My 24 Th B'day With Ubuntu 9.04, Colleagues at ISPG, Friends and Dear Ones]]></title>
     <link href="http://harikt.com/blog/2009/04/23/38-celebrating-my-24-th-bday-with-ubuntu-904-colleagues-at-ispg-friends-and-dear-o/"/>
     <updated>2009-04-23T09:01:00+05:30</updated>
     <id>http://harikt.com/blog/2009/04/23/38-celebrating-my-24-th-bday-with-ubuntu-904-colleagues-at-ispg-friends-and-dear-o</id>
@@ -41,7 +41,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Ubuntu 9.04 is about to release]]></title>
+    <title type="html"><![CDATA[Ubuntu 9.04 Is About to Release]]></title>
     <link href="http://harikt.com/blog/2009/04/21/36-ubuntu-904-is-about-to-release/"/>
     <updated>2009-04-21T09:10:00+05:30</updated>
     <id>http://harikt.com/blog/2009/04/21/36-ubuntu-904-is-about-to-release</id>

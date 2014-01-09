@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: mongodb | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Mongodb | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/mongodb/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Install MongoDb via aptitude and not via Synaptic]]></title>
+    <title type="html"><![CDATA[Install MongoDb via Aptitude and Not via Synaptic]]></title>
     <link href="http://harikt.com/blog/2010/09/05/install-mongodb-aptitude-and-not-synaptic/"/>
     <updated>2010-09-05T14:38:00+05:30</updated>
     <id>http://harikt.com/blog/2010/09/05/install-mongodb-aptitude-and-not-synaptic</id>

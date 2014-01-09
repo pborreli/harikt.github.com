@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: evolution | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Evolution | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/evolution/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Change Thunderbird to Microsoft Outlook 2007 look and feel]]></title>
+    <title type="html"><![CDATA[Change Thunderbird to Microsoft Outlook 2007 Look and Feel]]></title>
     <link href="http://harikt.com/blog/2010/05/07/change-thunderbird-microsoft-outlook-2007/"/>
     <updated>2010-05-07T20:59:00+05:30</updated>
     <id>http://harikt.com/blog/2010/05/07/change-thunderbird-microsoft-outlook-2007</id>

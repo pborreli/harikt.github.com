@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: composer | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Composer | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/composer/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Composer support for ProcessWire : Part-2]]></title>
+    <title type="html"><![CDATA[Composer Support for ProcessWire : Part-2]]></title>
     <link href="http://harikt.com/blog/2013/11/19/composer-support-for-processwire-part-2/"/>
     <updated>2013-11-19T08:37:00+05:30</updated>
     <id>http://harikt.com/blog/2013/11/19/composer-support-for-processwire-part-2</id>
@@ -71,7 +71,7 @@ So if you have caps in between name put a hyphen in the naming</p></blockquote>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Composer support for ProcessWire modules]]></title>
+    <title type="html"><![CDATA[Composer Support for ProcessWire Modules]]></title>
     <link href="http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules/"/>
     <updated>2013-11-16T11:22:00+05:30</updated>
     <id>http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules</id>
@@ -145,7 +145,7 @@ please add a <code>composer.json</code> to your github module and add it to <a h
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[The making of Hari.Extras]]></title>
+    <title type="html"><![CDATA[The Making of Hari.Extras]]></title>
     <link href="http://harikt.com/blog/2012/11/24/node-224/"/>
     <updated>2012-11-24T21:22:00+05:30</updated>
     <id>http://harikt.com/blog/2012/11/24/node-224</id>
@@ -202,7 +202,7 @@ I am planning to start a series of posts to get started with using the component
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Thoughts on installing Zend Framework via composer]]></title>
+    <title type="html"><![CDATA[Thoughts on Installing Zend Framework via Composer]]></title>
     <link href="http://harikt.com/blog/2012/09/10/thoughts-on-installing-zend-frameowork-via-composer/"/>
     <updated>2012-09-10T11:04:00+05:30</updated>
     <id>http://harikt.com/blog/2012/09/10/thoughts-on-installing-zend-frameowork-via-composer</id>

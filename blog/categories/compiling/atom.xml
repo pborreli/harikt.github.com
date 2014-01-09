@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: compiling | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Compiling | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/compiling/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Installing and configuring PHP 5.4]]></title>
+    <title type="html"><![CDATA[Installing and Configuring PHP 5.4]]></title>
     <link href="http://harikt.com/blog/2012/01/05/installing-configuring-php54/"/>
     <updated>2012-01-05T22:33:00+05:30</updated>
     <id>http://harikt.com/blog/2012/01/05/installing-configuring-php54</id>

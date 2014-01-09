@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: security | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Security | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/security/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Playing with ratproxy - passive web application security assessment tool]]></title>
+    <title type="html"><![CDATA[Playing With Ratproxy - Passive Web Application Security Assessment Tool]]></title>
     <link href="http://harikt.com/blog/2010/06/24/playing-ratproxy-passive-web-application-security-assessment-tool/"/>
     <updated>2010-06-24T23:22:00+05:30</updated>
     <id>http://harikt.com/blog/2010/06/24/playing-ratproxy-passive-web-application-security-assessment-tool</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Is your network secure ?]]></title>
+    <title type="html"><![CDATA[Is Your Network Secure ?]]></title>
     <link href="http://harikt.com/blog/2009/10/12/your-network-secure/"/>
     <updated>2009-10-12T22:27:00+05:30</updated>
     <id>http://harikt.com/blog/2009/10/12/your-network-secure</id>

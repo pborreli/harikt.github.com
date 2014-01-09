@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: fireftp | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Fireftp | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/fireftp/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[FireFTP , Filezilla a wonderful tool for web developers]]></title>
+    <title type="html"><![CDATA[FireFTP , Filezilla a Wonderful Tool for Web Developers]]></title>
     <link href="http://harikt.com/blog/2009/03/27/28-fireftp-filezilla-a-wonderful-tool-for-web-developers/"/>
     <updated>2009-03-27T08:44:00+05:30</updated>
     <id>http://harikt.com/blog/2009/03/27/28-fireftp-filezilla-a-wonderful-tool-for-web-developers</id>

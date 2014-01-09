@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: gmail | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Gmail | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/gmail/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Gmail voice and video chat plugin]]></title>
+    <title type="html"><![CDATA[Gmail Voice and Video Chat Plugin]]></title>
     <link href="http://harikt.com/blog/2009/07/11/gmail-voice-and-video-chat-plugin/"/>
     <updated>2009-07-11T22:10:00+05:30</updated>
     <id>http://harikt.com/blog/2009/07/11/gmail-voice-and-video-chat-plugin</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Gmail password recovery on phone]]></title>
+    <title type="html"><![CDATA[Gmail Password Recovery on Phone]]></title>
     <link href="http://harikt.com/blog/2009/07/11/gmail-password-recovery-phone/"/>
     <updated>2009-07-11T21:57:00+05:30</updated>
     <id>http://harikt.com/blog/2009/07/11/gmail-password-recovery-phone</id>
@@ -32,7 +32,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Yahoo like folder in Gmail]]></title>
+    <title type="html"><![CDATA[Yahoo Like Folder in Gmail]]></title>
     <link href="http://harikt.com/blog/2009/03/21/23-yahoo-like-folder-in-gmail/"/>
     <updated>2009-03-21T08:27:00+05:30</updated>
     <id>http://harikt.com/blog/2009/03/21/23-yahoo-like-folder-in-gmail</id>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: drupal-camp | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Drupal-camp | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/drupal-camp/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Dries Visiting India, We have Drupal Camp]]></title>
+    <title type="html"><![CDATA[Dries Visiting India, We Have Drupal Camp]]></title>
     <link href="http://harikt.com/blog/2011/10/03/dries-coming-for-drupal-camp-india/"/>
     <updated>2011-10-03T19:58:00+05:30</updated>
     <id>http://harikt.com/blog/2011/10/03/dries-coming-for-drupal-camp-india</id>

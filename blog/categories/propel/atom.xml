@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: propel | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Propel | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/propel/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[A sample tutorial package]]></title>
+    <title type="html"><![CDATA[A Sample Tutorial Package]]></title>
     <link href="http://harikt.com/blog/2013/06/21/a-sample-tutorial-package/"/>
     <updated>2013-06-21T22:04:00+05:30</updated>
     <id>http://harikt.com/blog/2013/06/21/a-sample-tutorial-package</id>

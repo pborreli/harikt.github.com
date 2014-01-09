@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: resize | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Resize | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/resize/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Resize image keeping aspect ratio in Imagine]]></title>
+    <title type="html"><![CDATA[Resize Image Keeping Aspect Ratio in Imagine]]></title>
     <link href="http://harikt.com/blog/2012/12/17/resize-image-keeping-aspect-ratio-in-imagine/"/>
     <updated>2012-12-17T22:24:00+05:30</updated>
     <id>http://harikt.com/blog/2012/12/17/resize-image-keeping-aspect-ratio-in-imagine</id>
@@ -81,7 +81,7 @@ $preserve->paste($resizeimg, new Imagine\Image\Point($startX, $startY))</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Resizing Image using command line in GNU/Linux]]></title>
+    <title type="html"><![CDATA[Resizing Image Using Command Line in GNU/Linux]]></title>
     <link href="http://harikt.com/blog/2009/04/12/31-resizing-image-using-command-line-in-gnulinux/"/>
     <updated>2009-04-12T09:12:00+05:30</updated>
     <id>http://harikt.com/blog/2009/04/12/31-resizing-image-using-command-line-in-gnulinux</id>

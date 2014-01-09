@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ie8 | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Ie8 | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/ie8/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[The world's most secure browser]]></title>
+    <title type="html"><![CDATA[The World's Most Secure Browser]]></title>
     <link href="http://harikt.com/blog/2010/04/28/worlds-most-secure-browser/"/>
     <updated>2010-04-28T21:08:00+05:30</updated>
     <id>http://harikt.com/blog/2010/04/28/worlds-most-secure-browser</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Converting from PSD to XHTML and cross browser compatibility]]></title>
+    <title type="html"><![CDATA[Converting From PSD to XHTML and Cross Browser Compatibility]]></title>
     <link href="http://harikt.com/blog/2010/03/22/converting-psd-xhtml-and-cross-browser-compatibility/"/>
     <updated>2010-03-22T23:09:00+05:30</updated>
     <id>http://harikt.com/blog/2010/03/22/converting-psd-xhtml-and-cross-browser-compatibility</id>

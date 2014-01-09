@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: zend tool kit | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Zend Tool Kit | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/zend-tool-kit/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Administration module generation for ZendFramework 1.9]]></title>
+    <title type="html"><![CDATA[Administration Module Generation for ZendFramework 1.9]]></title>
     <link href="http://harikt.com/blog/2009/08/23/administration-module-generation-zendframework-greater-18/"/>
     <updated>2009-08-23T09:56:00+05:30</updated>
     <id>http://harikt.com/blog/2009/08/23/administration-module-generation-zendframework-greater-18</id>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: opensource | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Opensource | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/opensource/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[OSI Days , Asia's Largest opensource conference]]></title>
+    <title type="html"><![CDATA[OSI Days , Asia's Largest Opensource Conference]]></title>
     <link href="http://harikt.com/blog/2010/07/25/osi-days-asias-largest-opensource-conference/"/>
     <updated>2010-07-25T00:38:00+05:30</updated>
     <id>http://harikt.com/blog/2010/07/25/osi-days-asias-largest-opensource-conference</id>
@@ -32,7 +32,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Opensource Microblogging ( twitter ) Clients for GNU/Linux]]></title>
+    <title type="html"><![CDATA[Opensource Microblogging ( Twitter ) Clients for GNU/Linux]]></title>
     <link href="http://harikt.com/blog/2009/10/13/opensource-microblogging-client-gwibber-gnulinux/"/>
     <updated>2009-10-13T22:31:00+05:30</updated>
     <id>http://harikt.com/blog/2009/10/13/opensource-microblogging-client-gwibber-gnulinux</id>
@@ -41,7 +41,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Google coming with the Google Chrome OS lately in 2010]]></title>
+    <title type="html"><![CDATA[Google Coming With the Google Chrome OS Lately in 2010]]></title>
     <link href="http://harikt.com/blog/2009/07/08/google-coming-google-chrome-os-lately-2010/"/>
     <updated>2009-07-08T20:29:00+05:30</updated>
     <id>http://harikt.com/blog/2009/07/08/google-coming-google-chrome-os-lately-2010</id>

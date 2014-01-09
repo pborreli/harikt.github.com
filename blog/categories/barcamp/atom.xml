@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: barcamp | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Barcamp | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/barcamp/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Speaking about Aura Project for PHP at Barcamp Kerala]]></title>
+    <title type="html"><![CDATA[Speaking About Aura Project for PHP at Barcamp Kerala]]></title>
     <link href="http://harikt.com/blog/2012/03/27/speaking-about-aura-project-barcamp-kerala/"/>
     <updated>2012-03-27T21:13:00+05:30</updated>
     <id>http://harikt.com/blog/2012/03/27/speaking-about-aura-project-barcamp-kerala</id>
@@ -41,7 +41,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Looking back Barcamp 8 at Mar Athanasios College For Advanced Studies ( MACFAST )]]></title>
+    <title type="html"><![CDATA[Looking Back Barcamp 8 at Mar Athanasios College for Advanced Studies ( MACFAST )]]></title>
     <link href="http://harikt.com/blog/2010/03/28/looking-back-barcamp-8-mar-athanasios-college-advanced-studies-macfast/"/>
     <updated>2010-03-28T22:49:00+05:30</updated>
     <id>http://harikt.com/blog/2010/03/28/looking-back-barcamp-8-mar-athanasios-college-advanced-studies-macfast</id>
@@ -50,7 +50,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[8th Barcamp Kerala at Mar Athanasios College For Advanced Studies, Tiruvalla (MACFAST)]]></title>
+    <title type="html"><![CDATA[8th Barcamp Kerala at Mar Athanasios College for Advanced Studies, Tiruvalla (MACFAST)]]></title>
     <link href="http://harikt.com/blog/2010/03/05/8th-barcamp-kerala-mar-athanasios-college-advanced-studies-tiruvalla-macfast/"/>
     <updated>2010-03-05T12:56:00+05:30</updated>
     <id>http://harikt.com/blog/2010/03/05/8th-barcamp-kerala-mar-athanasios-college-advanced-studies-tiruvalla-macfast</id>

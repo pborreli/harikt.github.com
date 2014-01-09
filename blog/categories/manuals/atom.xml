@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: manuals | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Manuals | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/manuals/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Book on Aura moved to Manual]]></title>
+    <title type="html"><![CDATA[Book on Aura Moved to Manual]]></title>
     <link href="http://harikt.com/blog/2013/09/07/book-on-aura-moved-to-manual/"/>
     <updated>2013-09-07T12:08:00+05:30</updated>
     <id>http://harikt.com/blog/2013/09/07/book-on-aura-moved-to-manual</id>

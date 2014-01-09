@@ -1,0 +1,1685 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Random thoughts | Hari KT</title>
+  <meta name="author" content="Hari K T">
+
+  
+  <meta name="description" content="Some of the recent discussions in the PHP world are The Tribal Framework Mindset
+Decoupling your packages from your framework
+You don’t need a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://harikt.com/blog">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/harikt/YKAJ" rel="alternate" title="Random thoughts | Hari KT" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5998889-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Random thoughts | Hari KT</a></h1>
+  
+    <h2>On programming</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/harikt/YKAJ" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:harikt.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/who-am-i/">Who am I?</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/09/frameworks-are-good/">Frameworks Are Good, Components Are Awesome!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-09T11:06:17+05:30" pubdate data-updated="true">Jan 9<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Some of the recent discussions in the PHP world are</p>
+
+<ul>
+<li><p><a href="http://philsturgeon.co.uk/blog/2014/01/the-tribal-framework-mindset">The Tribal Framework Mindset</a></p></li>
+<li><p><a href="http://adamwathan.me/2014/01/05/decoupling-your-packages-from-your-framework">Decoupling your packages from your framework</a></p></li>
+<li><p><a href="http://www.brandonsavage.net/you-dont-need-a-framework/">You don’t need a framework</a></p></li>
+<li><p><a href="http://afilina.com/frameworks-for-everyone/">Frameworks for everyone</a></p></li>
+</ul>
+
+
+<h2>Framework is not a bad idea</h2>
+
+<p>If you don&rsquo;t use a framework, probably you will be using a bunch
+of independent libraries glued together or some code which
+help you to achieve your task.</p>
+
+<p>Whether we use a framework or independent library, our ultimate aim
+is building the right product for our customer.</p>
+
+<p>If you are building an app, and if you strongly feel symfony is the
+right choice you should go with it. And if you feel zend framework,
+auraphp, fuelphp, cake .. (you name it) is the right one you should go for it.</p>
+
+<p>The ultimate aim of any framework developers is to make a living from
+it or to advertise his capability. So all will advertise it as good
+and never say a bad word even if they know the pit falls.</p>
+
+<p>One of the recent problem we can notice is every php framework
+tries to advertise they are developed from components.</p>
+
+<h2>First</h2>
+
+<p>Laravel is an awesome framework, so do <a href="http://symfony.com">symfony</a>,
+<a href="http://framework.zend.com">zend framework</a> and you name it.</p>
+
+<blockquote><p>and not to your surprise &ldquo;I love <a href="http://auraphp.com">auraphp</a>&rdquo;</p></blockquote>
+
+<h2>Don&rsquo;t call all are build from libraries</h2>
+
+<p>May be we need to define how/why we call it as library.</p>
+
+<p>Consider a routing library : You give a URL path and <code>$_SERVER</code> values it extracts the route information.</p>
+
+<p>Some of the libraries that does the work are
+<a href="https://packagist.org/packages/aura/router">aura/router</a>,
+<a href="https://packagist.org/packages/symfony/routing">symfony/routing</a>,
+<a href="https://packagist.org/packages/illuminate/routing">illuminate/routing</a></p>
+
+<p>Apart from aura, I did a search for routing in <a href="https://packagist.org/search/?q=routing">packagist</a></p>
+
+<p>If you have a good eye, you would have understood looking at the packagist
+dependencies.</p>
+
+<p>The next one is regarding the <code>require-dev</code>. The <code>require-dev</code> dependency
+is when you want to bind other components.
+The best way is to get rid of the <code>require-dev</code>. The glue package should
+be another independent package.</p>
+
+<p>Consider <a href="https://github.com/Lusitanian/PHPoAuthLib/tree/e9160f45ee1a32d2087e1c792a1e1da131ac332e/src/OAuth/Common/Storage">Lusitanian/PHPoAuthLib</a>
+Symfony session has one. What will happen when someone who loves zend, aura, fuel etc
+love to have the session. It gets overly complicated.
+So is <a href="https://github.com/friendsofaura/OAuthSession">https://github.com/friendsofaura/OAuthSession</a> repo born.
+Another good example I would like to show is
+<a href="https://packagist.org/packages/aura/project-kernel">aura/project-kernel</a></p>
+
+<p>Yes it is a bit of hack, to run tests. Have a look into
+<a href="https://github.com/auraphp/Aura.Project_Kernel/blob/e8add743613f86147534b502145e2e3ef909f344/.travis.yml">travis</a></p>
+
+<p>What I love to see in the PHP world is have a single repo where
+the pull request, create issues can be made rather than going and
+forking the entire code base. And not to mix the source and tests.</p>
+
+<p>The <a href="http://packagist.org/">packagist</a> need a way to sort
+dependent packages, independent packages and framework dependent packages.</p>
+
+<p>If you are new to PHP, I will recommend you to use components and glue
+it together.</p>
+
+<ul>
+<li>Start with a <a href="https://github.com/auraphp/Aura.Router/tree/develop-2">routing library</a>,
+see how <a href="https://github.com/auraphp/Aura.Router/tree/develop-2#dispatching-a-route">dispatching</a> can be done.</li>
+<li>Try integrating a much better <a href="https://github.com/auraphp/Aura.Dispatcher">dispatcher</a></li>
+<li>Now your controller need
+<a href="https://github.com/auraphp/Aura.Web/blob/develop-2/README-REQUEST.md">request</a>/
+<a href="https://github.com/auraphp/Aura.Web/blob/develop-2/README-RESPONSE.md">response</a>.</li>
+</ul>
+
+
+<p>Your application defnitely at some point of time need
+<a href="http://websec.io/2013/12/31/Input-Filtering-Validation-Aura-Filter.html">Input Filtering &amp; Validation</a></p>
+
+<p>May want to introduce <a href="http://harikt.com/phpform/">form libraries</a> to glue with your legacy code.</p>
+
+<p>You will learn PHP, and not the magic of a framework.
+Depending upon the dependencies it will be easy to replace the component.
+That is the ultimate aim of components, not to trap you.</p>
+
+<p>Thanks for reading.</p>
+
+<p>Happy PhPing!</p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/19/composer-support-for-processwire-part-2/">Composer Support for ProcessWire : Part-2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-19T08:37:00+05:30" pubdate data-updated="true">Nov 19<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In my <a href="http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules/">earlier post</a>
+I mentioned about adding a <code>composer.json</code> in the root of the github repo.</p>
+
+<p>Sometimes you may see a non <code>composer.json</code> repo or some times people reject
+it, you still can do like the below.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;minimum-stability&quot;</span><span class="o">:</span> <span class="s2">&quot;dev&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;repositories&quot;</span><span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;package&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="s2">&quot;package&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ryancramerdesign/process-export-profile&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;source&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://github.com/ryancramerdesign/ProcessExportProfile&quot;</span><span class="p">,</span>
+</span><span class='line'>                    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;git&quot;</span><span class="p">,</span>
+</span><span class='line'>                    <span class="s2">&quot;reference&quot;</span><span class="o">:</span> <span class="s2">&quot;master&quot;</span>
+</span><span class='line'>                <span class="p">},</span>
+</span><span class='line'>                <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;pw-module&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;require&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="s2">&quot;hari/pw-module&quot;</span><span class="o">:</span> <span class="s2">&quot;dev-master&quot;</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="s2">&quot;require&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;ryancramerdesign/process-export-profile&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And run</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>php composer.phar update
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>Don&rsquo;t forget you need <code>composer.phar</code>. If you don&rsquo;t have get from <a href="http://getcomposer.org/download/">getcomposer.org</a></p></blockquote>
+
+<p>The module is downloaded to <code>site/modules/ProcessExportProfile</code>.
+The package is of type <a href="https://github.com/harikt/pwmoduleinstaller">pw-module</a></p>
+
+<blockquote><p>The name process-export-profile is converted to ProcessExportProfile .
+So if you have caps in between name put a hyphen in the naming</p></blockquote>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/16/composer-support-for-processwire-modules/">Composer Support for ProcessWire Modules</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-16T11:22:00+05:30" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I am a huge fan of <a href="http://getcomposer.org/" title="External link">composer</a>. <a href="http://processwire.com/">PW</a> ( ProcessWire) is missing one of the good parts of <a href="http://getcomposer.org/" title="External link">composer</a>.
+So here is a <a href="https://github.com/harikt/pwmoduleinstaller">new installer</a>
+to install the 3rd party modules of <a href="http://processwire.com/">PW</a> via <a href="http://getcomposer.org/" title="External link">composer</a>.</p>
+
+<p>If you have created a module for PW, what you need to do is add a
+<code>composer.json</code> file in your <a href="https://github.com/harikt/Assets/blob/master/composer.json" title="External link">github repo</a> and add it to <a href="https://packagist.org" title="External link">packagist</a>.
+An example <a href="https://github.com/harikt/Assets/blob/master/composer.json" title="External link">composer.json</a> is</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;vendor/package-name&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pw-module&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Your module what it does&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;keywords&quot;</span><span class="p">,</span> <span class="s2">&quot;comma&quot;</span><span class="p">,</span> <span class="s2">&quot;seprated&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;homepage&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/harikt/Assets&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;license&quot;</span><span class="p">:</span> <span class="s2">&quot;BSD-2-Clause&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Assets Contributors&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;homepage&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/harikt/Assets/contributors&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;php&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=5.3.0&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;hari/pw-module&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-master&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note the minimum requirement is PHP 5.3 for composer is 5.3 .</p>
+
+<p>An example of a module that works with this is <a href="https://github.com/harikt/Assets">https://github.com/harikt/Assets</a>
+( Move the index.php to any where :&ndash;) ).
+You are read more about Assets from <a href="http://harikt.com/blog/2013/11/08/assets-for-processwire/">here</a></p>
+
+<h2>Installing modules</h2>
+
+<p>How do you install the PW modules and the 3rd party dependencies ? Assuming you are in the PW folder.</p>
+
+<p>First download composer from <a href="http://getcomposer.org/download/">http://getcomposer.org/download/</a>.</p>
+
+<p>Hope you have <code>composer.phar</code> now.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>php composer.phar require vendor/package-name version-name
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Will install if the <code>vendor/package-name</code> to <code>site/modules/PackageName</code>.
+All packages <code>vendor/package-name</code> of <code>"type": "pw-module"</code> will be converted to <code>PackageName</code>.</p>
+
+<p>Example you can try</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>php composer.phar require hari/assets dev-master
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Try the above and see where it is installed. If you are a module maintainer,
+please add a <code>composer.json</code> to your github module and add it to <a href="https://packagist.org" title="External link">packagist</a>.</p>
+
+<p>Of-course inspired and modified composer installer from
+<a href="https://github.com/auraphp/installer-system">Aura Project for PHP</a></p>
+
+<p>Thank you. Happy PhPing!</p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/08/assets-for-processwire/">Assets for Processwire</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-08T17:35:00+05:30" pubdate data-updated="true">Nov 8<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://processwire.com/">Processwire</a> is a content management framework.</p>
+
+<p>I was looking to change the directory structure of the Processwire.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>|-- index.php
+</span><span class='line'>|-- installer.php
+</span><span class='line'>|-- README.md
+</span><span class='line'>|-- site
+</span><span class='line'><span class="sb">`</span>-- wire
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I am not the first person to talk on the subject. There are other threads
+like
+<a href="http://processwire.com/talk/topic/876-installation-paths-and-moving-folders/">Installation paths and moving folders</a>,
+<a href="http://processwire.com/talk/topic/3445-common-practices/">Common practices</a></p>
+
+<p>Anyway I thought of trying the same and for serving the <code>js</code>, <code>css</code>, <code>images</code>
+I wrote my first processwire module <a href="https://github.com/harikt/Assets">Assets</a></p>
+
+<p>Some of the portions are from
+<a href="https://github.com/auraphp/Aura.Framework/blob/f122f77b7f97d3bec9dbf930a66e706d2b89b6f8/src/Aura/Framework/Web/Asset/Page.php#L123-L147">Aura.Framework</a>
+and <a href="https://github.com/auraphp/Aura.View/blob/613286b1122bd7ef78a12550afdb10f78813d040/src/Aura/View/FormatTypes.php#L31-L113">Aura.View</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>|-- cli
+</span><span class='line'>|-- composer.json
+</span><span class='line'>|-- index.php <span class="o">(</span> which is moved to web folder <span class="o">)</span>
+</span><span class='line'>|-- installer.php
+</span><span class='line'>|-- README.md
+</span><span class='line'>|-- site
+</span><span class='line'>|   |-- assets
+</span><span class='line'>|   |-- config.php
+</span><span class='line'>|   |-- hello.css
+</span><span class='line'>|   |-- install
+</span><span class='line'>|   |-- modules
+</span><span class='line'>|   <span class="sb">`</span>-- templates
+</span><span class='line'>|-- vendor <span class="o">(</span>3rd party vendors from PHP, Eg: Aura.Includer <span class="o">)</span>
+</span><span class='line'>|-- httpdocs <span class="o">(</span> you can name this folder what ever you like <span class="o">)</span>
+</span><span class='line'>|   |-- index.php
+</span><span class='line'>|   |-- site <span class="o">(</span> css, js and images copied from realpath <span class="o">)</span>
+</span><span class='line'>|   <span class="sb">`</span>-- wire <span class="o">(</span> css, js and images copied from realpath <span class="o">)</span>
+</span><span class='line'><span class="sb">`</span>-- wire
+</span><span class='line'>    |-- config.php
+</span><span class='line'>    |-- core
+</span><span class='line'>    |-- index.config.php
+</span><span class='line'>    |-- modules
+</span><span class='line'>    |-- README.txt
+</span><span class='line'>    <span class="sb">`</span>-- templates-admin
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You also need to change the <code>$rootPath</code> in <code>index.php</code> accordingly.
+Hope someone will find it useful.
+I am releasing it under <a href="http://opensource.org/licenses/BSD-2-Clause">BSD-2-Clause</a></p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/06/using-aura-dispatcher-in-silex/">Using Aura Dispatcher in Silex</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-06T12:42:00+05:30" pubdate data-updated="true">Nov 6<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>2 days back <a href="http://paul-m-jones.com/">Paul M Jones</a> wrote an awesome post
+<a href="http://auraphp.com/blog/2013/11/04/aura-v2-dispatcher/">A Peek At Aura v2 &mdash; Aura.Dispatcher</a>
+the idea behind <a href="http://github.com/auraphp/Aura.Dispatcher/">Aura.Dispatcher</a>
+and how it was born.</p>
+
+<p>So today, let us try to integrate
+<a href="http://github.com/auraphp/Aura.Dispatcher">Aura.Dispatcher</a> with
+<a href="https://github.com/silexphp/Silex">Silex</a>. This post is inspired by the
+<a href="http://auraphp.com/blog/2013/11/04/aura-v2-dispatcher/#comment-1109657910">comment</a>
+made by <a href="https://twitter.com/cordoval">Luis Cordova</a>. Thank you.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer create-project silex/silex --no-dev silexproject
+</span><span class='line'><span class="nb">cd </span>silexproject
+</span><span class='line'>composer require aura/dispatcher dev-develop-2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>I hope you have composer installed else <a href="http://getcomposer.org/">get composer</a>.</p></blockquote>
+
+<p>I am not going to explain each and everything, the code is self explanatory.
+You can move the classes according to your wish (may be to another folder).
+I am trying to show a simple use case.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Dispatcher\Dispatcher</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$dispatcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dispatcher</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">setMethodParam</span><span class="p">(</span><span class="s1">&#39;action&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">setObjectParam</span><span class="p">(</span><span class="s1">&#39;controller&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Blog</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">browse</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// ...</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">hello</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$app</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="s1">&#39;Hello &#39;</span><span class="o">.</span> <span class="nx">ucfirst</span><span class="p">(</span><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">escape</span><span class="p">(</span><span class="nv">$name</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">echo</span> <span class="s2">&quot;Here&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">exit</span><span class="p">;</span>
+</span><span class='line'>        <span class="c1">// ...</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// ...</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// ...</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">setObject</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="nx">Blog</span><span class="p">;</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Silex\Application</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/hello/{name}&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$dispatcher</span><span class="p">,</span> <span class="nv">$app</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$params</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;blog&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;action&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;app&#39;</span> <span class="o">=&gt;</span> <span class="nv">$app</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">];</span>
+</span><span class='line'>    <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nv">$result</span><span class="p">;</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>See how we moved the <code>return 'Hello '. ucfirst($app-&gt;escape($name));</code>
+to a controller and action. I haven&rsquo;t used Silex extensively, so there
+can be better ways for integration.</p>
+
+<blockquote><p>Update : I was asking <a href="https://twitter.com/beausimensen">Beau D. Simensen</a>
+on the integration, and he gave another shot.</p></blockquote>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="c1">// all code as same as above, upto the route</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/hello/{name}&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$app</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;blog&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;action&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;app&#39;</span> <span class="o">=&gt;</span> <span class="nv">$app</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">];</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">on</span><span class="p">(</span><span class="nx">\Symfony\Component\HttpKernel\KernelEvents</span><span class="o">::</span><span class="na">VIEW</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$event</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$app</span><span class="p">,</span> <span class="nv">$dispatcher</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$view</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getControllerResult</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">is_null</span><span class="p">(</span><span class="nv">$view</span><span class="p">)</span> <span class="o">||</span> <span class="nb">is_string</span><span class="p">(</span><span class="nv">$view</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$view</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// we can only handle array data in the view</span>
+</span><span class='line'>        <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;controller&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">])))</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// at this point we don&#39;t know what is going on.</span>
+</span><span class='line'>        <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$dispatcher</span><span class="p">(</span><span class="nv">$view</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nv">$response</span> <span class="nx">instanceof</span> <span class="nx">\Symfony\Component\HttpFoundation\Response</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// If the response is not a Response instance, wrap it in one</span>
+</span><span class='line'>        <span class="c1">// and assume that it was something appropriate as a response</span>
+</span><span class='line'>        <span class="c1">// body.</span>
+</span><span class='line'>        <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Symfony\Component\HttpFoundation\Response</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setResponse</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>I have purposefully kept the full path like <code>\Symfony\Component\HttpFoundation\Response</code></p></blockquote>
+
+<p>Hope you love <a href="http://github.com/auraphp/Aura.Dispatcher">Aura.Dispatcher</a>
+and use when you need architecural changes.</p>
+
+<p>Please do take time to read
+<a href="https://github.com/auraphp/Aura.Dispatcher#refactoring-to-architecture-changes">Refactoring To Architecture Changes</a></p>
+
+<p>Thank you and if you loved the post please do a tweet :&ndash;).</p>
+
+<p>Happy PhPing!</p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/01/rest-is-delete-idempotent/">REST: Is DELETE Idempotent?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-01T05:28:00+05:30" pubdate data-updated="true">Nov 1<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is a thrive to learn, and not to show anyone is incorrect.
+Feel free to share your thoughts.</p>
+
+<p>Lukas Kahwe Smith was having a nice post
+<a href="https://blog.liip.ch/archive/2013/10/28/resting-with-symfony2.html">RESTing with Symfony2</a></p>
+
+<p>Quoting a few words from the post on REST</p>
+
+<h2>DELETE and 404</h2>
+
+<blockquote><p>I started my talk on RESTing with Symfony2 with an introduction to REST itself.
+On slide 7 of my talk I explained the concept of &ldquo;safe&rdquo; and
+&ldquo;idempotent&rdquo; HTTP methods. Many people were surprised when I explained
+that DELETE should be idempotent, meaning that sending a DELETE request
+to a resource that has been removed should infact not return a 404.</p></blockquote>
+
+<p>I am not a REST guru, but in fact I got curious on the same, and
+was looking at http status <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11">410 Gone</a></p>
+
+<blockquote><p><a href="https://twitter.com/harikt">@harikt</a> 1st Q that must be answered is if
+DELETE is idempotent. if it is then the status code shouldn&#39;t
+change on subsequent delete requests
+&mdash; Lukas Kahwe Smith (@lsmith) <a href="https://twitter.com/lsmith/statuses/395160219376164864">October 29, 2013</a></p></blockquote>
+
+<h2>What is idempotent?</h2>
+
+<p>Quoting from <a href="http://en.wikipedia.org/wiki/Idempotence">Wikipedia</a></p>
+
+<blockquote><p>Idempotence is the property of certain operations in mathematics and
+computer science, that can be applied multiple times without changing
+the result beyond the initial application. The concept of idempotence
+arises in a number of places in abstract algebra (in particular, in
+the theory of projectors and closure operators) and functional
+programming (in which it is connected to the property of referential transparency).</p>
+
+<p>There are several meanings of idempotence, depending on what the concept is applied to:</p>
+
+<ul>
+<li>A unary operation (or function) is idempotent if, whenever it is applied twice to any value, it gives the same result as if it were applied once; i.e., ƒ(ƒ(x)) ≡ ƒ(x). For example, the absolute value: abs(abs(x)) ≡ abs(x).</li>
+<li>A binary operation is idempotent if, whenever it is applied to two equal values, it gives that value as the result. For example, the operation giving the maximum value of two values is idempotent: max (x, x) ≡ x.</li>
+<li>Given a binary operation, an idempotent element (or simply an idempotent) for the operation is a value for which the operation, when given that value for both of its operands, gives the value as the result. For example, the number 1 is an idempotent of multiplication: 1 × 1 = 1.</li>
+</ul>
+</blockquote>
+
+<p>Christophe Coevoet also feel the same</p>
+
+<blockquote><p><a href="https://twitter.com/lsmith">@lsmith</a> then 410 is probably the best status
+code here, and 404 otherwise /cc <a href="https://twitter.com/harikt">@harikt</a> <a href="https://twitter.com/_m6w6">@_m6w6</a>
+&mdash; Christophe Coevoet (@Stof70) <a href="https://twitter.com/Stof70/statuses/395193333347135488">October 29, 2013</a></p></blockquote>
+
+<p>Why?</p>
+
+<blockquote><p><a href="https://twitter.com/lsmith">@lsmith</a> The definition says &quot;without changing the result&quot;.
+the HTTP spec says that the result is the state of the app <a href="https://twitter.com/_m6w6">@_m6w6</a> <a href="https://twitter.com/harikt">@harikt</a>
+&mdash; Christophe Coevoet (@Stof70) <a href="https://twitter.com/Stof70/statuses/395193644585480192">October 29, 2013</a></p></blockquote>
+
+<p><img src="/assets/images/http-delete.png" alt=" Status code of DELETE " /></p>
+
+<p>The above screenshot is limited, you can check all the messages passed from
+<a href="https://twitter.com/harikt/status/395154834426314752">https://twitter.com/harikt/status/395154834426314752</a></p>
+
+<p>Woke up early morning and I noticed a subsequent post
+<a href="http://www.duckheads.co.uk/is-a-http-delete-requests-idempotent/491">Is a HTTP DELETE request idempotent?</a>
+by Lee Davis. Interesting to read his thoughts on the same.
+There was a nice discussion by <a href="http://www.jasonlotito.com/">Jason Lotito</a>,
+do consider reading it.</p>
+
+<p>I felt Jason Lotito is correct.</p>
+
+<h2>Wikipedia has something to say aboout Idempotent methods</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Idempotent_methods_and_web_applications">Hypertext Transfer Protocol Idempotent methods</a></p>
+
+<blockquote><p>Methods PUT and DELETE are defined to be idempotent, meaning that multiple
+identical requests should have the same effect as a single request
+(Note that idempotence refers to the state of the system after the
+request has completed, so while the action the server takes
+(e.g. deleting a record) or the response code it returns may be
+different on subsequent requests, the system state will be the same every time).</p></blockquote>
+
+<p>So what does that mean?</p>
+
+<p>Let us look into a real world example deleting <a href="http://example.com/post/121">http://example.com/post/121</a></p>
+
+<p>We send a DELETE method via REST. What is going to happen?</p>
+
+<p>I am quoting from
+<a href="http://www.restapitutorial.com/lessons/httpmethods.html">http://www.restapitutorial.com/lessons/httpmethods.html</a></p>
+
+<blockquote><p>On successful deletion, return HTTP status 200 (OK) along with a response body,
+perhaps the representation of the deleted item (often demands too much bandwidth),
+or a wrapped response (see Return Values below). Either that or
+return HTTP status 204 (NO CONTENT) with no response body</p></blockquote>
+
+<p>so far, so good.</p>
+
+<p>What is going to happen on your subsequent request?</p>
+
+<p>2nd time we are sending a DELETE method via REST, what do you expect to get?</p>
+
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.5">204 No Content</a>. What does that mean?</p>
+
+<blockquote><p>The server has fulfilled the request but does not need to return an
+entity-body, and might want to return updated metainformation.</p></blockquote>
+
+<p>No Content is a good status, which means the server has exectuted your
+delete operation successfully is a wrong information.</p>
+
+<p>iirc I have learned in Software Engineering, the wrong information
+is too bad than sending an error. Eg : 5+2 returning 9. I read some where
+at <a href="http://www.joelonsoftware.com/">http://www.joelonsoftware.com/</a> the bug
+they want to deal with when he was at microsoft. ( If anyone have the link
+please comment it)</p>
+
+<p>So if you know that a request for <a href="http://example.com/post/121">http://example.com/post/121</a> is already
+deleted, then <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11">410 Gone</a>
+will be the right status.</p>
+
+<p>If you don&rsquo;t know <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a>
+is the best status. Say it is not created, do we send 204?.</p>
+
+<p>So here <a href="http://example.com/post/121">http://example.com/post/121</a> is already deleted.
+(That means your subsequent response should be same,
+note that not response status code)</p>
+
+<p>It is upto your application how to deal with making it truely RESTful. Else
+passing false information as response always is a wrong way.</p>
+
+<p>I have also tried to get RSDL (RESTful Service Description Language)
+<a href="http://en.wikipedia.org/wiki/RSDL#Maintainer">Maintainer</a> to know
+the real information.</p>
+
+<p>Probably I am wrong, but I am still learning REST.</p>
+
+<p>Thank you.</p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/10/29/conferences-is-it-really-worth/">Conferences : Is It Really Worth?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-29T22:33:00+05:30" pubdate data-updated="true">Oct 29<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>What do you think, Is it really worth to go to a conference,
+and spend so much money?</p>
+
+<p>Yes, it is really worth. You don&rsquo;t know what will happen tomorrow.</p>
+
+<p>These are some of the things that you can take from a conference</p>
+
+<ul>
+<li><p>Mingle with people and get new contacts</p></li>
+<li><p>Learn from the mistakes they did</p></li>
+<li><p>Not re-inveting the wheels others already did</p></li>
+<li><p>Who knows whether you are getting new job opportunities ;&ndash;).</p></li>
+<li><p>Improve your work from the experience you learned.</p></li>
+</ul>
+
+
+<p>I would like to give a shout at what I learned/earned going to conferences</p>
+
+<ul>
+<li><p>I got different job opportuntities and many new friends.</p></li>
+<li><p>I was able to meet different prominent persons of the PHP community
+like <a href="https://github.com/fabpot">Fabien Potencier</a>, <a href="https://github.com/vrana">Jakub Vrána</a>,
+<a href="https://github.com/davidcoallier">David Coallier</a>, <a href="https://github.com/skwashd">Dave Hall</a>,
+<a href="https://github.com/lapistano">Bastian Feder</a>, <a href="https://github.com/odino">Alessandro Nadalin</a>
+and many more.</p></li>
+</ul>
+
+
+<p>Some of the conferences I attended are osidays 2010(as an attendee) and
+2012 (as a speaker), yahoo open hack 2012, hasgeek events.
+<a href="https://hasgeek.com/">Hasgeek</a> events are one of the best events.
+One of the best conference I atteneded by Hasgeek
+is <a href="https://fifthelephant.in/2012/">Fifth elephant</a>.
+It is well organized and have strict timing. I got more interested in
+data mining, analysis, processing etc.
+Also got introduced to Hadoop and much more.</p>
+
+<p>I wasn&rsquo;t aware where I will be using stuffs like <a href="http://gearman.org/">gearman</a>,
+<a href="http://nltk.org/">nltk</a>, <a href="http://www.elasticsearch.org/">Elastic Search</a>,
+<a href="http://graylog2.org/">GrayLog2</a>, <a href="http://www.logstash.net/">Log Stash</a> etc.
+Fifth elephant and Yahoo open hack really helped me a lot to learn more about
+what the people at the conference is working on, what are the challenges
+they are facing, how they resolved etc.</p>
+
+<p>If you are like me, who love to attend conference, but
+unable to move to the location where it is happening,
+then <a href="http://nomadphp.com/">NomadPHP</a> is looking at you.
+One of the good feature is you can watch the videos later
+(if you are unable to attend at the time).
+Please Thank <a href="https://twitter.com/CalEvans">Cal Evans</a> for
+the greatest initiative.</p>
+
+<p>Do attend the talk by <a href="http://auraphp.com/">Aura PHP</a> guru
+<a href="http://paul-m-jones.com/">Paul M Jones</a> who will be speaking for NomadPHP
+titled <a href="http://nomadphp.com/2013/10/18/january-2014-eu/">A Stitch In Time Saves 9; or,Solving the N+1 Problem</a></p>
+
+<p>Chek the site <a href="http://nomadphp.com/">NomadPHP</a> for more talks.</p>
+
+<p>If you have a feeling like conferences just introduce stuffs,
+and you are left to learn from there, then you should join
+mastering <a href="http://objectorientedphpmasterclass.com/">Object Oriented PHP</a>
+by <a href="http://www.brandonsavage.net">Brandon Savage</a></p>
+
+<p>There is also a great initiative by
+<a href="https://twitter.com/noufalibrahim">Noufal Ibrahim</a> called
+<a href="http://thelycaeum.in/">The Lycaeum</a>, you can learn some Python.</p>
+
+<p>So do attend a conference, and don&rsquo;t miss opportunities that are
+looking at you tomorrow.</p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/09/28/looking-at-aura-v2/">Looking at Aura Version 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-28T06:53:00+05:30" pubdate data-updated="true">Sep 28<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you have noticed recently, there have been tons of commits from
+<a href="https://github.com/pmjones">Paul M Jones</a>﻿ for aura version 2.</p>
+
+<p>More standalone repos born. Everyone should try and give feedback as much as possible.</p>
+
+<p>Interesting stuffs split from Aura.Sql v 1.3 are</p>
+
+<p><a href="https://github.com/auraphp/Aura.Sql/tree/develop-2">Extended PDO</a>,</p>
+
+<p>As the name says, it is an extended version of PDO. Good thing is it is
+PHP 5.3 compatible.</p>
+
+<p>If you have worked with PDO you know the good and bad.
+One of the difficulty is, it cannot use an array for an in clause.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="c1">// the array to be quoted</span>
+</span><span class='line'><span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// the statement to prepare</span>
+</span><span class='line'><span class="nv">$stm</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM test WHERE foo IN (:foo) AND bar = :bar&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// the native PDO way does not work (PHP Notice:  Array to string conversion)</span>
+</span><span class='line'><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pdo</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$sth</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$stm</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">bindValue</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="nv">$array</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ExtendedPDO helps you to do it.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtendedPdo</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$stm</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM test WHERE foo IN (:foo)&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">bindValues</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">),</span>
+</span><span class='line'>    <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;qux&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="p">));</span>
+</span><span class='line'><span class="nv">$sth</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$stm</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">queryString</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Try out an example, and see in action.</p>
+
+<p>Your composer.json will look as</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;minimum-stability&quot;</span><span class="p">:</span> <span class="s2">&quot;dev&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;aura/sql&quot;</span><span class="p">:</span><span class="s2">&quot;dev-develop-2&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Run the below Sql query in your favourite tools like phpmyadmin or adminer.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="c1">-- Adminer 3.7.1 MySQL dump</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">SET</span> <span class="k">NAMES</span> <span class="n">utf8</span><span class="p">;</span>
+</span><span class='line'><span class="k">SET</span> <span class="n">foreign_key_checks</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="k">SET</span> <span class="n">time_zone</span> <span class="o">=</span> <span class="s1">&#39;+05:30&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="k">SET</span> <span class="n">sql_mode</span> <span class="o">=</span> <span class="s1">&#39;NO_AUTO_VALUE_ON_ZERO&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">polls_choice</span><span class="o">`</span><span class="p">;</span>
+</span><span class='line'><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">polls_choice</span><span class="o">`</span> <span class="p">(</span>
+</span><span class='line'>  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+</span><span class='line'>  <span class="o">`</span><span class="n">poll_id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+</span><span class='line'>  <span class="o">`</span><span class="n">choice_text</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+</span><span class='line'>  <span class="o">`</span><span class="n">votes</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+</span><span class='line'>  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
+</span><span class='line'><span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">polls_choice</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">poll_id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">choice_text</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">votes</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
+</span><span class='line'><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>   <span class="s1">&#39;Not much&#39;</span><span class="p">,</span>  <span class="mi">0</span><span class="p">),</span>
+</span><span class='line'><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>   <span class="s1">&#39;The sky&#39;</span><span class="p">,</span>   <span class="mi">0</span><span class="p">),</span>
+</span><span class='line'><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>   <span class="s1">&#39;Hello World&#39;</span><span class="p">,</span>   <span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">-- 2013-09-28 11:22:17</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Run the below PHP code and see the result.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Sql\ExtendedPdo</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Sql\Profiler</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtendedPdo</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;mysql:host=localhost;dbname=dbname&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;user&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="k">array</span><span class="p">(),</span> <span class="c1">// driver options as key-value pairs</span>
+</span><span class='line'>    <span class="k">array</span><span class="p">()</span>  <span class="c1">// attributes as key-value pairs</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'><span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">setProfiler</span><span class="p">(</span><span class="k">new</span> <span class="nx">Profiler</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">getProfiler</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$stm</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM polls_choice WHERE id IN (:id) AND poll_id = :poll_id&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$bind</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">),</span>
+</span><span class='line'>    <span class="s1">&#39;poll_id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'><span class="nv">$results</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">(</span><span class="nv">$stm</span><span class="p">,</span> <span class="nv">$bind</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">foreach</span> <span class="p">(</span><span class="nv">$results</span> <span class="k">as</span> <span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">echo</span> <span class="s2">&quot;Query Result : &quot;</span> <span class="o">.</span> <span class="nv">$result</span><span class="p">[</span><span class="s1">&#39;choice_text&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">echo</span> <span class="s2">&quot;Profiler&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$profiles</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">getProfiler</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getProfiles</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">foreach</span> <span class="p">(</span><span class="nv">$profiles</span> <span class="k">as</span> <span class="nv">$profile</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">echo</span> <span class="s1">&#39; Function : &#39;</span> <span class="o">.</span> <span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;function&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">echo</span> <span class="s1">&#39; Duration : &#39;</span> <span class="o">.</span> <span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">echo</span> <span class="s1">&#39; Statement : &#39;</span> <span class="o">.</span> <span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;statement&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">echo</span> <span class="s1">&#39; Bind Values : &#39;</span> <span class="o">.</span> <span class="nb">print_r</span><span class="p">(</span><span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;bind_values&#39;</span><span class="p">],</span> <span class="k">true</span><span class="p">)</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It comes with lazy connection, profiler, connection locator etc. Read more from
+<a href="https://github.com/auraphp/Aura.Sql/tree/develop-2#getting-started">getting started docs</a></p>
+
+<h2><a href="https://github.com/auraphp/Aura.Sql_Schema">Aura.Sql_Schema</a></h2>
+
+<p>An independent schema discovery tool for MySQL, PostgreSQL,
+SQLite, and Microsoft SQL Server. You can
+<a href="https://github.com/auraphp/Aura.Sql_Schema#getting-started">read more from the docs</a></p>
+
+<h2><a href="https://github.com/auraphp/Aura.Sql_Query">Aura.Sql_Query</a></h2>
+
+<p>Independent query builders for MySQL, PostgreSQL, SQLite, and Microsoft SQL Server</p>
+
+<p>Good thing is all are standalone.</p>
+
+<p>Version 2 also comes with a new
+<a href="https://github.com/auraphp/Aura.Dispatcher">Dispatcher</a>
+and <a href="https://github.com/auraphp/Aura.Includer">Includer</a>.</p>
+
+<p>You can read the story behind Dispatcher from
+<a href="https://groups.google.com/d/msg/auraphp/hyjEPEeo6_w/u616Pu3kQrcJ">here</a>
+and Includer from
+<a href="https://groups.google.com/d/msg/auraphp/WOo6TSceqHU/ZdgIkUgU0VIJ">here</a></p>
+
+<p>vi <a href="https://github.com/auraphp/Aura.Includer">Includer</a>
+aura solved one of the problem of reading configuration files.</p>
+
+<p>Let us look into the example of the Aura.Includer and how it works.</p>
+
+<p>The <code>composer.json</code> looks like the one below.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;minimum-stability&quot;</span><span class="p">:</span> <span class="s2">&quot;dev&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;aura/cli&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-develop-2&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;aura/web&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-develop-2&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;aura/autoload&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-develop-2&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;aura/dispatcher&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-develop-2&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;aura/html&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-master&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;aura/input&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-master&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;aura/view&quot;</span><span class="p">:</span> <span class="s2">&quot;2.*&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;aura/includer&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-develop-2&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;aura/router&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-develop&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;aura/di&quot;</span><span class="p">:</span> <span class="s2">&quot;1.*&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We can use the includer to read the configuration files and store it and
+later use the cached file. The <code>includer.php</code> looks like</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="nv">$loader</span> <span class="o">=</span> <span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$includer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Aura\Includer\Includer</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">setDirs</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/router&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/dispatcher&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/web&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/view&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/html&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/cli&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/input&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">setFiles</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;config/default.php&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Router\Map</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Router\DefinitionFactory</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Router\RouteFactory</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">(</span><span class="k">new</span> <span class="nx">DefinitionFactory</span><span class="p">,</span> <span class="k">new</span> <span class="nx">RouteFactory</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Di\Container</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Di\Forge</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Di\Config</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$di</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Container</span><span class="p">(</span><span class="k">new</span> <span class="nx">Forge</span><span class="p">(</span><span class="k">new</span> <span class="nx">Config</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">setVars</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;loader&#39;</span> <span class="o">=&gt;</span> <span class="nv">$loader</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;router&#39;</span> <span class="o">=&gt;</span> <span class="nv">$router</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;di&#39;</span> <span class="o">=&gt;</span> <span class="nv">$di</span><span class="p">,</span>
+</span><span class='line'><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">file_exists</span><span class="p">(</span><span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/cache/includer.php&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">read</span><span class="p">();</span>
+</span><span class='line'>    <span class="nb">file_put_contents</span><span class="p">(</span><span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/cache/includer.php&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;?php&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="nv">$text</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">setCacheFile</span><span class="p">(</span><span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/cache/includer.php&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nv">$stdio</span> <span class="o">=</span> <span class="nv">$di</span><span class="o">-&gt;</span><span class="na">newInstance</span><span class="p">(</span><span class="s1">&#39;Aura\Cli\Stdio&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$stdio</span><span class="o">-&gt;</span><span class="na">outln</span><span class="p">(</span><span class="s1">&#39;This is normal text.&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Install the dependencies via <code>composer</code> and run via cli <code>php includer.php</code>.</p>
+
+<p>The Aura.Includer is a nice addition for version 2
+( I am also seeing it can be used in version 1 )
+which will help a lot in the making of the framework with the libraries.</p>
+
+<p>If you are interested to use, learn, or have a feedback a warm welcome to
+<a href="https://groups.google.com/forum/#!forum/auraphp">join the google group for aura project for PHP</a></p>
+
+<p>Have a nice day ahead. Enjoy PHPing.</p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/09/19/aura-framework-released/">Aura Framework Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-19T19:58:00+05:30" pubdate data-updated="true">Sep 19<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It is a great feeling, and one of the happiest moment in my life when
+<a href="http://auraphp.com/blog/2013/09/18/aura-framework-stable-system-release/">aura releases its stable framework</a>.</p>
+
+<p>Aura is one of my first framework, which helped me to learn the inner
+working of a framework, how to create a framework, rather than playing
+with full stack framework.</p>
+
+<p>If you are interested to learn or contribute in the next version of Aura
+<a href="http://groups.google.com/group/auraphp">join the group</a>.</p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/09/07/book-on-aura-moved-to-manual/">Book on Aura Moved to Manual</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-07T12:08:00+05:30" pubdate data-updated="true">Sep 7<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Some days back I wrote about a WIP of
+<a href="http://harikt.com/blog/2013/07/09/the-book-on-aura/">The Book on Aura</a></p>
+
+<p>It got some attention and pull requests.</p>
+
+<p><a href="https://github.com/koriym/the-book-on-aura-ja">Akihito Koriyama</a>
+have already started to convert the documentation to Japanese.</p>
+
+<p>And today I am happy to announce that it is officially going to the
+manuals.</p>
+
+<h2>Contributing</h2>
+
+<p>Fork
+<a href="https://github.com/auraphp/auraphp.github.com">https://github.com/auraphp/auraphp.github.com</a>
+and contribute to the manuals.</p>
+
+<p>The manuals are in different languages. Currently<br/>
+<a href="https://github.com/koriym/the-book-on-aura-ja">Akihito Koriyama</a>
+is working on Japanese translation.</p>
+
+<p>We are aware some parts of the manual needs a rewrite / more explanation.
+If you are interested to learn and contribute get in touch via
+<a href="http://groups.google.com/group/auraphp">http://groups.google.com/group/auraphp</a>.</p>
+
+<p>If you are looking for library documentation check
+<a href="http://auraphp.com/packages/">packages documentation</a>.
+The manuals is to show you how to use Aura Framework, which is built
+on top of the <a href="http://auraphp.com/packages/">aura libraries</a>.</p>
+</div>
+  
+  
+
+</article>
+
+<nav id="pagenavi">
+    
+    
+        <a href="/blog/page/2/" class="next">Next</a>
+    
+    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
+</nav>
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Hari K T -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'harikt';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

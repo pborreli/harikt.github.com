@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: operating system | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Operating System | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/operating-system/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Google Builder and supported Operating Systems]]></title>
+    <title type="html"><![CDATA[Google Builder and Supported Operating Systems]]></title>
     <link href="http://harikt.com/blog/2009/10/13/google-builder-and-supported-operating-systems/"/>
     <updated>2009-10-13T21:14:00+05:30</updated>
     <id>http://harikt.com/blog/2009/10/13/google-builder-and-supported-operating-systems</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Browser war seems to end but OS war starts]]></title>
+    <title type="html"><![CDATA[Browser War Seems to End but OS War Starts]]></title>
     <link href="http://harikt.com/blog/2009/07/31/browser-ware-seems-end-os-war-starts/"/>
     <updated>2009-07-31T01:51:00+05:30</updated>
     <id>http://harikt.com/blog/2009/07/31/browser-ware-seems-end-os-war-starts</id>

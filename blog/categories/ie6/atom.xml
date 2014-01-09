@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ie6 | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Ie6 | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/ie6/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Converting from PSD to XHTML and cross browser compatibility]]></title>
+    <title type="html"><![CDATA[Converting From PSD to XHTML and Cross Browser Compatibility]]></title>
     <link href="http://harikt.com/blog/2010/03/22/converting-psd-xhtml-and-cross-browser-compatibility/"/>
     <updated>2010-03-22T23:09:00+05:30</updated>
     <id>http://harikt.com/blog/2010/03/22/converting-psd-xhtml-and-cross-browser-compatibility</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Select box poking out through menu in IE 6]]></title>
+    <title type="html"><![CDATA[Select Box Poking Out Through Menu in IE 6]]></title>
     <link href="http://harikt.com/blog/2009/03/20/22-select-box-poking-out-through-menu-in-ie-6/"/>
     <updated>2009-03-20T08:45:00+05:30</updated>
     <id>http://harikt.com/blog/2009/03/20/22-select-box-poking-out-through-menu-in-ie-6</id>

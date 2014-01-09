@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: symfony | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Symfony | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/symfony/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Symfony Workshop at Bangalore brings qaeet application]]></title>
+    <title type="html"><![CDATA[Symfony Workshop at Bangalore Brings Qaeet Application]]></title>
     <link href="http://harikt.com/blog/2010/02/18/symfony-workshop-bangalore-brings-qaeet-application/"/>
     <updated>2010-02-18T21:27:00+05:30</updated>
     <id>http://harikt.com/blog/2010/02/18/symfony-workshop-bangalore-brings-qaeet-application</id>
@@ -41,7 +41,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Netbeans 6.8 comes with support for Symfony framework , Zend framework]]></title>
+    <title type="html"><![CDATA[Netbeans 6.8 Comes With Support for Symfony Framework , Zend Framework]]></title>
     <link href="http://harikt.com/blog/2009/12/16/netbeans-68-comes-support-symfony-framework/"/>
     <updated>2009-12-16T19:53:00+05:30</updated>
     <id>http://harikt.com/blog/2009/12/16/netbeans-68-comes-support-symfony-framework</id>
@@ -50,7 +50,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Do we , PHP Developers need to follow a single framework ?]]></title>
+    <title type="html"><![CDATA[Do We , PHP Developers Need to Follow a Single Framework ?]]></title>
     <link href="http://harikt.com/blog/2009/11/07/do-we-php-developers-need-follow-single-framework/"/>
     <updated>2009-11-07T12:59:00+05:30</updated>
     <id>http://harikt.com/blog/2009/11/07/do-we-php-developers-need-follow-single-framework</id>

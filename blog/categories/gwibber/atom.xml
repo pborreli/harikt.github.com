@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: gwibber | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Gwibber | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/gwibber/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Opensource Microblogging ( twitter ) Clients for GNU/Linux]]></title>
+    <title type="html"><![CDATA[Opensource Microblogging ( Twitter ) Clients for GNU/Linux]]></title>
     <link href="http://harikt.com/blog/2009/10/13/opensource-microblogging-client-gwibber-gnulinux/"/>
     <updated>2009-10-13T22:31:00+05:30</updated>
     <id>http://harikt.com/blog/2009/10/13/opensource-microblogging-client-gwibber-gnulinux</id>

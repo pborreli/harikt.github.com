@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: firefox | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Firefox | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/firefox/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[The world's most secure browser]]></title>
+    <title type="html"><![CDATA[The World's Most Secure Browser]]></title>
     <link href="http://harikt.com/blog/2010/04/28/worlds-most-secure-browser/"/>
     <updated>2010-04-28T21:08:00+05:30</updated>
     <id>http://harikt.com/blog/2010/04/28/worlds-most-secure-browser</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Making firefox look similar to google chrome]]></title>
+    <title type="html"><![CDATA[Making Firefox Look Similar to Google Chrome]]></title>
     <link href="http://harikt.com/blog/2010/04/19/making-firefox-look-similar-google-chrome/"/>
     <updated>2010-04-19T00:15:00+05:30</updated>
     <id>http://harikt.com/blog/2010/04/19/making-firefox-look-similar-google-chrome</id>
@@ -32,7 +32,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Great wonders in the World of Mozilla firefox]]></title>
+    <title type="html"><![CDATA[Great Wonders in the World of Mozilla Firefox]]></title>
     <link href="http://harikt.com/blog/2009/10/19/great-wonders-world-mozilla-firefox/"/>
     <updated>2009-10-19T19:05:00+05:30</updated>
     <id>http://harikt.com/blog/2009/10/19/great-wonders-world-mozilla-firefox</id>
@@ -41,7 +41,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Spread Fire from Fox ie Firefox]]></title>
+    <title type="html"><![CDATA[Spread Fire From Fox Ie Firefox]]></title>
     <link href="http://harikt.com/blog/2009/06/30/spread-fire-fox-ie-firefox/"/>
     <updated>2009-06-30T19:28:00+05:30</updated>
     <id>http://harikt.com/blog/2009/06/30/spread-fire-fox-ie-firefox</id>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ide | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Ide | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/ide/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Netbeans 6.8 comes with support for Symfony framework , Zend framework]]></title>
+    <title type="html"><![CDATA[Netbeans 6.8 Comes With Support for Symfony Framework , Zend Framework]]></title>
     <link href="http://harikt.com/blog/2009/12/16/netbeans-68-comes-support-symfony-framework/"/>
     <updated>2009-12-16T19:53:00+05:30</updated>
     <id>http://harikt.com/blog/2009/12/16/netbeans-68-comes-support-symfony-framework</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[IDE's for PHP Development or PHP development softwares]]></title>
+    <title type="html"><![CDATA[IDE's for PHP Development or PHP Development Softwares]]></title>
     <link href="http://harikt.com/blog/2009/05/20/58-ides-for-php-development-or-php-development-softwares/"/>
     <updated>2009-05-20T09:22:00+05:30</updated>
     <id>http://harikt.com/blog/2009/05/20/58-ides-for-php-development-or-php-development-softwares</id>

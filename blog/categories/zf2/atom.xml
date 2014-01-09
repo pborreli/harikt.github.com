@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: zf2 | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Zf2 | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/zf2/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Announcing winners of the contest]]></title>
+    <title type="html"><![CDATA[Announcing Winners of the Contest]]></title>
     <link href="http://harikt.com/blog/2013/09/05/announcing-winners-of-the-contest/"/>
     <updated>2013-09-05T20:25:00+05:30</updated>
     <id>http://harikt.com/blog/2013/09/05/announcing-winners-of-the-contest</id>
@@ -60,7 +60,7 @@ contest.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Chance to Win Free Copies of Packt’s new book on Zend Framework 2.0]]></title>
+    <title type="html"><![CDATA[Chance to Win Free Copies of Packt’s New Book on Zend Framework 2.0]]></title>
     <link href="http://harikt.com/blog/2013/08/23/chance-to-win-free-copies-of-packts-new-book-on-zend-framework-2-dot-0/"/>
     <updated>2013-08-23T11:59:00+05:30</updated>
     <id>http://harikt.com/blog/2013/08/23/chance-to-win-free-copies-of-packts-new-book-on-zend-framework-2-dot-0</id>
@@ -97,7 +97,7 @@ ones to get yourself a free ebook of the latest released title.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Thoughts on installing Zend Framework via composer]]></title>
+    <title type="html"><![CDATA[Thoughts on Installing Zend Framework via Composer]]></title>
     <link href="http://harikt.com/blog/2012/09/10/thoughts-on-installing-zend-frameowork-via-composer/"/>
     <updated>2012-09-10T11:04:00+05:30</updated>
     <id>http://harikt.com/blog/2012/09/10/thoughts-on-installing-zend-frameowork-via-composer</id>
@@ -106,7 +106,7 @@ ones to get yourself a free ebook of the latest released title.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Is there a design flaw for the Components or Packages made by Symfony2 and Zend Framework 2]]></title>
+    <title type="html"><![CDATA[Is There a Design Flaw for the Components or Packages Made by Symfony2 and Zend Framework 2]]></title>
     <link href="http://harikt.com/blog/2012/03/09/any-design-flaw-for-components-packages-for-symfony2-zf2/"/>
     <updated>2012-03-09T04:29:00+05:30</updated>
     <id>http://harikt.com/blog/2012/03/09/any-design-flaw-for-components-packages-for-symfony2-zf2</id>
@@ -115,7 +115,7 @@ ones to get yourself a free ebook of the latest released title.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Standalone Form component for PHP]]></title>
+    <title type="html"><![CDATA[Standalone Form Component for PHP]]></title>
     <link href="http://harikt.com/blog/2012/03/06/standalone-form-component-for-php/"/>
     <updated>2012-03-06T22:18:00+05:30</updated>
     <id>http://harikt.com/blog/2012/03/06/standalone-form-component-for-php</id>

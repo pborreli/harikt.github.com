@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: joomla | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Joomla | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/joomla/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Benefits of open source frameworks over custom frameworks]]></title>
+    <title type="html"><![CDATA[Benefits of Open Source Frameworks Over Custom Frameworks]]></title>
     <link href="http://harikt.com/blog/2010/01/22/benefits-open-source-frameworks-over-custom-frameworks/"/>
     <updated>2010-01-22T11:25:00+05:30</updated>
     <id>http://harikt.com/blog/2010/01/22/benefits-open-source-frameworks-over-custom-frameworks</id>
@@ -23,7 +23,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Quick move from Joomla to Drupal]]></title>
+    <title type="html"><![CDATA[Quick Move From Joomla to Drupal]]></title>
     <link href="http://harikt.com/blog/2009/06/01/quick-move-from-joomla-to-drupal/"/>
     <updated>2009-06-01T00:31:00+05:30</updated>
     <id>http://harikt.com/blog/2009/06/01/quick-move-from-joomla-to-drupal</id>
@@ -32,7 +32,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Working with Joomla and Drupal]]></title>
+    <title type="html"><![CDATA[Working With Joomla and Drupal]]></title>
     <link href="http://harikt.com/blog/2009/05/11/53-working-with-joomla-and-drupal/"/>
     <updated>2009-05-11T09:05:00+05:30</updated>
     <id>http://harikt.com/blog/2009/05/11/53-working-with-joomla-and-drupal</id>

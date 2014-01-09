@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: aura | Random thoughts | Hari KT]]></title>
+  <title><![CDATA[Category: Aura | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/aura/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2013-11-19T08:52:18+05:30</updated>
+  <updated>2014-01-09T12:58:43+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Book on Aura moved to Manual]]></title>
+    <title type="html"><![CDATA[Book on Aura Moved to Manual]]></title>
     <link href="http://harikt.com/blog/2013/09/07/book-on-aura-moved-to-manual/"/>
     <updated>2013-09-07T12:08:00+05:30</updated>
     <id>http://harikt.com/blog/2013/09/07/book-on-aura-moved-to-manual</id>
@@ -60,7 +60,7 @@ on top of the <a href="http://auraphp.com/packages/">aura libraries</a>.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Aura Project for PHP releases Beta 2]]></title>
+    <title type="html"><![CDATA[Aura Project for PHP Releases Beta 2]]></title>
     <link href="http://harikt.com/blog/2012/02/13/aura-project-releases-beta2/"/>
     <updated>2012-02-13T22:08:00+05:30</updated>
     <id>http://harikt.com/blog/2012/02/13/aura-project-releases-beta2</id>
@@ -69,7 +69,7 @@ on top of the <a href="http://auraphp.com/packages/">aura libraries</a>.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Get set go ... Yes come, lets start playing with Aura Packages]]></title>
+    <title type="html"><![CDATA[Get Set Go ... Yes Come, Lets Start Playing With Aura Packages]]></title>
     <link href="http://harikt.com/blog/2011/07/17/get-set-go-yes-come-lets-start-playing-aura-packages/"/>
     <updated>2011-07-17T17:47:00+05:30</updated>
     <id>http://harikt.com/blog/2011/07/17/get-set-go-yes-come-lets-start-playing-aura-packages</id>
