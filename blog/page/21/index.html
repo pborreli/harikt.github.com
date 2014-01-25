@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="Every one uses internet in their day today life , like a cup of tea . Yes , the world wide web has gain great popularity . I don&rsquo;t know , &hellip;">
+  <meta name="description" content="Writing my post from Open solaris . This is a great experience , so thought to share with you , so may help some of you. I have once installed the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,40 @@
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/15/33-opensolaris-installation-on-ubuntu-and-after-effects-of-grub/">Opensolaris Installation on Ubuntu and After Effects of Grub</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-15T09:11:00+05:30" pubdate data-updated="true">Apr 15<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Writing my post from Open solaris . This is a great experience , so thought to share with you , so may help some of you.  I have once installed the Sun Solaris , not the Open Solaris of sun . And it was really a tedious job . So I was aware of the consequences . But thought of trying the Open Solaris , as I love to use it after trying the Live CD. Though I have got the CD some days before , not able to try it.  Current OS and status  1 ) Installed Ubuntu 8.10 , having lots of additional softwares installed and lots of valuable data&rsquo;s :&ndash;) .  2 ) Don&rsquo;t want to miss any , like the previous case.  Started Installation around 12:30 noon . It takes some time to install the OS. I came after my Lunch and by the time it has finished the installation .  Restarted the system. The grub loads &hellip;&hellip;&hellip;&hellip; OOP&rsquo;s really fucking , the Ubuntu is not there , it has gone . The boot loader has gone . Anyway thought of reinstalling the grub . I have installed from Fedora the boot loader , but not from Ubuntu , so thought of editing the grub file for the sun solaris. But I need to know the real path to the Ubuntu kernel . Booted from Ubuntu Live CD , searched google to find from where I will get the complete path ? Yes, found a solution for it , ( <a href="https://sourceforge.net/projects/bootinfoscript/">https://sourceforge.net/projects/bootinfoscript/</a> ). Downloaded and tried , got the result. Saved in gmail :&ndash;) . Restarted the system , logged to Open solairs .  Looked to edit grub . Searched a lot , got some information from blog of sun. He is a worker at Sun . ( <a href="http://blogs.sun.com/agraj/entry/editing_grub_bootloader">http://blogs.sun.com/agraj/entry/editing_grub_bootloader</a> ) . But I was not able to find the /etc/grub.conf nor the /boot/grub/menu.lst ( Skipping some of the steps I have tried to edit grub from command prompt ) . And finally I was forced to login to Live CD , and tried to do like the steps in <a href="http://ubuntuforums.org/archive/index.php/t-24113.html">http://ubuntuforums.org/archive/index.php/t-24113.html</a> the post . But what I missed was Open Solaris loader and time and the updated kernel of Ubuntu . What it does was installed the Ubuntu OS again .So never go in these ways , I will shortly tell the other one. Why I told never go in this way is because it will remove some of the files of our updated kernel , though it can backup our files. And finally I edited the /boot/grub/menu.lst of the Ubuntu distro and added the code  title Open Solaris root (hd0,0) makeactive chainloader +1  <strong>The pretty simple way</strong> ( I was not able to try this , but found the menu.lst of Open Solaris ) :  1 ) Install Solaris  2 ) Boot with Live CD , install the boot info script and run it ( <a href="https://sourceforge.net/projects/bootinfoscript/">https://sourceforge.net/projects/bootinfoscript/</a> ) . Save the RESULTS.txt may be in you mail or thumb .  3 ) Restart to login to Open Solaris . Edit the menu.lst , ( its not located at /etc/grub.conf nor at /boot/grub/ ) . The menu.lst has moved to /rpool/boot/grub/ folder . So what you need to do is just edit the /rpool/boot/grub/menu.lst . You must be root to edit this file ( Use su or sudo ).  Copy and paste the lines you have got from the RESULTS.txt which is produced by the boot info script . Some thing starting like ## ## End Default Options ## and ending with ### END DEBIAN AUTOMAGIC KERNELS LIST . You can have a search if you are using gedit .  Now restart your system . It will works . Defnitely it will work . Have fun with solaris too . Spend my whole day for this experiment :&ndash;( . But learned a lot of new things , so I gained :&ndash;)  Thanks guys , let me have some sleep its 1:05 Am . Want to cast my vote and leave to work tomorrow morning . Bye have a great day .</p>
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -379,40 +413,6 @@
 
 
   <div class="entry-content"><p>I was hearing about frameworks for more than 1 year . I was having good touch with Jose. I used to ask my doubts and he has helped me a lot. It was from his mouth I heard about framework. When he used to tell about the framework in PHP I was not much aware about , what a framework is , what it can do &hellip;&hellip;.  He used to talk about the symfony-project . When I was going for the first interview in PHP , I called Jose and Victor George one of my seniors who were working on PHP. They gave me lots of informations. Some of them were related to frameworks , MVC etc. I was really new to PHP, learning the basics, so when reading about it , I don&rsquo;t understand much. Many computer science and Information Technology guys may have heard about the commonly used buzz word OOP ( Object Oriented Programming ). When teachers used to tell us, many of us may not understand , what they are talking about. Yes, they will be telling real word many times when introducing OOP&rsquo;s concept. The OOP approach was made clear when I started learning Java. Yes we will not understand just by reading, but need to work on it, to understand the features and all. This is the same case for Framework. But when I started working on PHP , it was really a mess to write codes each and every time for new projects. So you may have thought about resusable codes. Many of you may be copying codes from one project to another. Now here comes the role of Frameworks.  If you are not planning to move to framework, then its not a big deal. Because framework are used mainly for big projects and where security to be considered. When the projects are small , frameworks may consume time. This is not what I am saying, but from the knowledge what I gained from reading. ( Updated : Working in a framework will not increase security , the coder must be aware of it <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/regular_smile.gif" alt="image" />  ) So if you are not using frameworks , you can try the Manuel Lemo&rsquo;s form validation class. This is a great class with good examples and all. You will love the features , if you start using it. Its good for the client and server side validation . Many of the problems that arise to the forms can be rectified by this wonderful class. You can get the class from phpclasses.org .  Php classes , pear etc have a great collection of classes, which you can use and can make a small framework of your own. But what about security and all ?I too was not much aware of the security and other issues, but after exploring each day , I learned something new.  I thought of learning a framework. I was looking here and there , to get a good one. I mailed to my friends who are working in PHP to help me select a good one. Some of the PHP frameworks in the list where, symfony , zend-framework , phpcake, Yii Framework . One of my friend Rajeev is working on symfony . He told its a little bit harder to learn . But I thought of moving to symfony , as I will be getting help from my friends too <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/regular_smile.gif" alt="image" />.Not only that , but its being used in the dailymotions , delicious of yahoo . Symfony has many inbuilt functions like testing, security , model view controller etc . It may take some time , to learn symfony. The first tutorial was a wondeful one , with how much ease you can create a blog. Wow its simply superb . So if you know it properly you can build quickly .  Some of the functions are automatic admin generation , many plugins available. I was thinking after seeing the first tutorail , why I have not started learning sysmfony.  Its too late . &hellip;&hellip;&hellip;.. need some sleep .  Bye and Have a great day .</p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/03/20/22-select-box-poking-out-through-menu-in-ie-6/">Select Box Poking Out Through Menu in IE 6</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-20T08:45:00+05:30" pubdate data-updated="true">Mar 20<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Internet Explorer is always a pain for developers and web designers. Many of the functions are not recognised by IE . Some people who loves the buggy browser still uses it . There are lots of features and security available in Mozilla. Don&rsquo;t know why some people still stick onto it . Aaah its upto them .  I was looking for a solution for the IE6 bug . The bug was the select box is pocking through the javascript menu . All the other elements excpet the select box will come on the top :( . I want to make it clear. Spend a lot of time to get a solution for it. Finally I was successful .  This was the solution  Need to load the menu above an iframe .Referring the site w3schools I got some helps too . We need to make the z-index of menu 1 more than that of iframe. That is when z-index of iframeis 1, z-index of menu should be 2 or more. The default z-index will be 0 . z-index -1 has lower priority . The z-index property will be availale only when position:absolute is defined for it. When position:absolute is used , there will be some design issues arrising and you need to over come these .  <iframe name="iframeblocker" id="iframeblocker" src="" style="position:absolute; z-index:1; border:0; height:200px; width:50px; top:-1000px; left:-1000px;"\>&lt;/iframe>  So we can make the iframe visible by making the changes to x, y co-ordinates. You need to make the changes through DOM .  $blocker = document.getElementById(&lsquo;iframebblocker&rsquo;);  blocker.style.left = document.getElementById(&lsquo;MenuDiv&rsquo;).offsetLeft; // IE only  blocker.style.top = document.getElementById(&lsquo;MenuDiv&rsquo;).offsetTop; // IE only  blocker.style.width = document.getElementById(&lsquo;MenuDiv&rsquo;).offsetWidth;  blocker.style.height = document.getElementById(&lsquo;MenuDiv&rsquo;).offsetHeight;  The above code should be made available in the javascript menu . You can look the code where its saying to show the menu and hide. On hiding you can set the left , top , width and height to 0px. Else the iframe will be visible blocking other contents . The MenuDiv is the ID of the menu . We need to get the exact width , height , x and y c0-ordinate to show the iframe exactly below the menu . Else the iframe will be wide covering other values of the page.  Some of the features where IE specific. I have referred a lots of site , to fix this problem . Now I can handle this bug. This post is to make me remember how to solve this bug.</p>
 </div>
   
   

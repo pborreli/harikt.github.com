@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Book | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/book/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2014-01-10T08:46:16+05:30</updated>
+  <updated>2014-01-25T11:09:17+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Give Away: Getting Started With Laravel 4]]></title>
+    <link href="http://harikt.com/blog/2014/01/24/give-away-getting-started-with-laravel-4/"/>
+    <updated>2014-01-24T20:51:46+05:30</updated>
+    <id>http://harikt.com/blog/2014/01/24/give-away-getting-started-with-laravel-4</id>
+    <content type="html"><![CDATA[<p>With the help of Packt Publishing, there is a small contest started for
+Giveaway of the book, <a href="http://bit.ly/KwzF9j">Getting Started with Laravel 4</a>.</p>
+
+<p>And three lucky winners stand a chance to win a digital copy of
+<a href="http://bit.ly/KwzF9j">the book on Laravel 4</a>.
+Keep reading to find out how you can be one of the Lucky Winners.</p>
+
+<p>Overview:</p>
+
+<p>Provides a concise introduction to all the concepts needed to get started with Laravel</p>
+
+<p>Walks through the different steps involved in creating a complete Laravel application</p>
+
+<p>Gives an overview of Laravel&rsquo;s advanced features that can be used when
+applications grow in complexity.</p>
+
+<p>Learn how to build structured, more maintainable, and more secure applications
+with less code by using Laravel</p>
+
+<h2>How to Enter?</h2>
+
+<p>All  you  need  to  do  is  head  on  over  to  the  <a href="http://bit.ly/KwzF9j">Book  Page</a>,<br/>
+look  through the product description of the book and drop a line via the  comments below
+this post to let us know what interests you the most about this book.
+Then tweet the same using the book link: <a href="http://bit.ly/KwzF9j.">http://bit.ly/KwzF9j.</a>  It’s that simple.</p>
+
+<p>Winners will get an e­copy of the Book.</p>
+
+<h2>Deadline</h2>
+
+<p>The contest will close on 9th Feb 2014. Winners will be contacted by email, so be sure
+to use your real email address when you comment!</p>
+
+<p>Happy PhPing!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Book on Aura Moved to Manual]]></title>
@@ -102,15 +144,6 @@ ones to get yourself a free ebook of the latest released title.</p>
     <updated>2012-04-26T22:46:00+05:30</updated>
     <id>http://harikt.com/blog/2012/04/26/getting-started-with-oauth2-by-ryan-boyd</id>
     <content type="html"><![CDATA[<p>OAuth the future of login? People are bored of registering and remebering user passwords on different websites. So the future of OAuth or using it in your daily life when developing website or apps is not that much far. Already many websites have been using it. This book <a href="http://shop.oreilly.com/product/0636920021810.do">Getting Started with OAuth 2.0</a> by Ryan Boyd published by O'Reilly Media is an awesome must read book. The author Ryan is a developer advocate at Google focused on enabling developers to extend Google Apps and build businesses on top of Google technology. He previously worked on OpenSocial and led the developer relations team for Google’s AtomPub APIs. Ryan has a great of knowledge of what he is talking about. The concepts of oauth was easy to understand, he has provided enough examples on how to use it in PHP, Javascript and HTML. I have already written an article at phpmaster<a href="http://phpmaster.com/integrating-with-facebook/">integrating facebook with php</a>. So if you ever thought of integrating oauth 2.0, its good to learn the concepts, so you can just relay on Http client library. Its a small 65 page book, but is worth . The book doesn&rsquo;t include or teach you how you can create your own oauth server , that is ok for its getting started with oauth. This book deserves a Rating of : 10 / 10 . Anything more you need to know? Title:Getting Started with OAuth 2.0 By: Ryan Boyd Publisher:O'Reilly Media Formats: Print Ebook Safari Books Online Print: February 2012 Ebook: February 2012 Print ISBN:978-1-4493-1160-5 | ISBN 10:1-4493-1160-1Ebook ISBN:978-1-4493-1159-9 | ISBN 10:1-4493-1159-8 Website : <a href="http://shop.oreilly.com/product/0636920021810.do">http://shop.oreilly.com/product/0636920021810.do</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Book Review Kohana 3.0 Beginner's Guide by Packt]]></title>
-    <link href="http://harikt.com/blog/2011/09/18/book-review-kohana3-beginners-guide-by-packt/"/>
-    <updated>2011-09-18T22:16:00+05:30</updated>
-    <id>http://harikt.com/blog/2011/09/18/book-review-kohana3-beginners-guide-by-packt</id>
-    <content type="html"><![CDATA[<p>Some weeks back I finished the book <a href="http://www.packtpub.com/kohana-3-0-for-professional-web-applications-beginners-guide/book">Kohana 3.0 Beginner&rsquo;s Guide</a>. As the name suggests its so simple that anyone new to PHP can learn Kohana. Yes I recommend learning a framework if you are a PHP Developer . It has lots of advantages, that you will come across in your development life.( Not going deep on it ) . The author of the book is Jason D. Straughan, published by Packt. As a reviewer I must be open, so its open from the mind. I love packt and have no issues with the author ( I don&rsquo;t know him personally nor have any grudge ), but for a buyer its not like that. So forgive me. I started reading the book with a great enthusiasm, though its not a 5.3 framework, but to learn the principles and learn the good things of HMVC. Its annoying for a newbie if you see some errata&rsquo;s even though he doesn&rsquo;t know its an errata. The single quotes and double quotes have issues almost many parts of the book. Yes we can say the books code is online, so correction is easy. So I am not talking anymore about the Errata&rsquo;s . Because there are some :), may be due to the format issues arised when sending back and forth . The book talks about Kohana version 3.0. But the current version is 3.2 . There is compatibility issues with 3.2, 3.0 . Not sure about 3.1 though . I played downloading 3.2 and I was stuck. The books page 312 mentions about the support for each release . So after each 6 months new versions will come and the support is for 1 year. Around the 5th chapter it introduce the ORM used in Kohana and I loved that chapter . The missing things I love to see in the book are Ajax support, or how ajax support is achieved, named routing. ie without the module/controller/action/id stuffs. This is always the default one. As its a hard to do with an open-source book to maintain the pace the code is pumped I feel Packt want to follow the way <a href="http://progit.org/">http://progit.org/</a> . So a book for the community and will be brought by people , so always upto date and correct . Writing a book is hard, but for a reader he must not be aware, but just the contents . Download Sample Chapter : <a href="http://bit.ly/qT14Hi">http://bit.ly/qT14Hi</a> Beginner Level Programmer ( Ignoring Errata ) : 3 / 5 Moderate Developer Rate : 2 / 5 . Personal Opinion is Packt should take much more seriousness before publishing open-source books for the life span of writing the book may go and the software may have started another version. Also there are a lots of good books by Packt, which are being burried due to the opinions people raising against the low quality books like this. Feel free to correct me, always good to get in touch with the open-source community leader and ask suggestions before jumping to publish a book. You have some good stuffs missing like Mongo , Couch , Developing a multilingual website from scratch etc. Great topics on the list . On Symfony2 Beginners guide , Advanced and lots :) . Don&rsquo;t dump it, colloborate and bring it we are waiting :) .</p>
 ]]></content>
   </entry>
   
