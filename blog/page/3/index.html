@@ -9,9 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="Yesterday I wrote about Standalone Forms and Validation. It may need
-a little bit knowledge on how the Aura.Filter works. But that is
-a good start if &hellip;">
+  <meta name="description" content="Yesterday Paul M Jones tagged the beta5 for the system repo. So you can download the system from http://auraphp.com/system/downloads/ via composer &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +78,67 @@ a good start if &hellip;">
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/25/aura-system-released-beta5/">Aura System Released Beta5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-25T21:44:00+05:30" pubdate data-updated="true">May 25<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Yesterday Paul M Jones tagged the beta5 for the system repo.</p>
+
+<p>So you can download the system from <a href="http://auraphp.com/system/downloads">http://auraphp.com/system/downloads/</a></p>
+
+<h2>via composer</h2>
+
+<p>Creating aura framework based projects has been made easy with composer. You can run</p>
+
+<pre><code>php composer.phar create-project -s dev aura/system your-directory
+</code></pre>
+
+<p>What it does is almost similar to git clone and installing via git as below</p>
+
+<p>via git</p>
+
+<pre><code>git clone https://github.com/auraphp/system
+cd system
+php update.php
+</code></pre>
+
+<p>you can also skip php update.php with</p>
+
+<pre><code>php composer.phar install
+</code></pre>
+
+<p>You can read some basic introduction from <a href="http://auraphp.com/system">http://auraphp.com/system/</a></p>
+
+<p>NB : If you haven&rsquo;t heard about composer you can read it from <a href="http://getcomposer.org">getcomposer.org</a></p>
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -1905,111 +1964,6 @@ Browse the documentation examples, source code, tests, and api.</p>
 
 
 <p>Happy porting!</p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/12/17/resize-image-keeping-aspect-ratio-in-imagine/">Resize Image Keeping Aspect Ratio in Imagine</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-17T22:24:00+05:30" pubdate data-updated="true">Dec 17<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I was working with Imagine recently. I want to create a standard width and height for the image that is created. Eg: 500 X 300 .</p>
-
-<p>The user will be uploading different size images and I want to resize the image to X width and Y height. I was using imagine and the code helps to make this happen filling the blank space with white color without loosing aspect ratio.</p>
-
-<figure class='code'><figcaption><span>resize image with imagine</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="nv">$source</span> <span class="o">=</span> <span class="s1">&#39;image.jpeg&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="nv">$destination</span> <span class="o">=</span> <span class="s1">&#39;resize.jpg&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="nv">$width</span>  <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-</span><span class='line'><span class="nv">$height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$imagine</span>   <span class="o">=</span> <span class="k">new</span> <span class="nx">Imagine\Gd\Imagine</span><span class="p">();</span>
-</span><span class='line'><span class="nv">$size</span>      <span class="o">=</span> <span class="k">new</span> <span class="nx">Imagine\Image\Box</span><span class="p">(</span><span class="nv">$width</span><span class="p">,</span> <span class="nv">$height</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$mode</span>      <span class="o">=</span> <span class="nx">Imagine\Image\ImageInterface</span><span class="o">::</span><span class="na">THUMBNAIL_INSET</span><span class="p">;</span>
-</span><span class='line'><span class="nv">$resizeimg</span> <span class="o">=</span> <span class="nv">$imagine</span><span class="o">-&gt;</span><span class="na">open</span><span class="p">(</span><span class="nv">$source</span><span class="p">)</span>
-</span><span class='line'>                <span class="o">-&gt;</span><span class="na">thumbnail</span><span class="p">(</span><span class="nv">$size</span><span class="p">,</span> <span class="nv">$mode</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$sizeR</span>     <span class="o">=</span> <span class="nv">$resizeimg</span><span class="o">-&gt;</span><span class="na">getSize</span><span class="p">();</span>
-</span><span class='line'><span class="nv">$widthR</span>    <span class="o">=</span> <span class="nv">$sizeR</span><span class="o">-&gt;</span><span class="na">getWidth</span><span class="p">();</span>
-</span><span class='line'><span class="nv">$heightR</span>   <span class="o">=</span> <span class="nv">$sizeR</span><span class="o">-&gt;</span><span class="na">getHeight</span><span class="p">();</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$preserve</span>  <span class="o">=</span> <span class="nv">$imagine</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$size</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$startX</span> <span class="o">=</span> <span class="nv">$startY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="k">if</span> <span class="p">(</span> <span class="nv">$widthR</span> <span class="o">&lt;</span> <span class="nv">$width</span> <span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nv">$startX</span> <span class="o">=</span> <span class="p">(</span> <span class="nv">$width</span> <span class="o">-</span> <span class="nv">$widthR</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="k">if</span> <span class="p">(</span> <span class="nv">$heightR</span> <span class="o">&lt;</span> <span class="nv">$height</span> <span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nv">$startY</span> <span class="o">=</span> <span class="p">(</span> <span class="nv">$height</span> <span class="o">-</span> <span class="nv">$heightR</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="nv">$preserve</span><span class="o">-&gt;</span><span class="na">paste</span><span class="p">(</span><span class="nv">$resizeimg</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Imagine\Image\Point</span><span class="p">(</span><span class="nv">$startX</span><span class="p">,</span> <span class="nv">$startY</span><span class="p">))</span>
-</span><span class='line'>    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$destination</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>A normal image of size 500 X 500</p>
-
-<p><img class="center" src="/assets/images/kitten.jpg" width="500" height="500" title="A cute kitten" alt="a kitten"></p>
-
-<p>when resized to 300 X 200</p>
-
-<p><img class="center" src="/assets/images/resize-image300x200.jpg" width="300" height="200" title="Image resized to 300X200" alt="resized image"></p>
-
-<p>and 300 X 400</p>
-
-<p><img class="center" src="/assets/images/resize-image300x400.jpg" width="300" height="400" title="Image resized to 300X400" alt="resized image"></p>
-
-<p>A huge Thanks to the person who helped me on Symfony2 irc to find the different modes. I am not recalling the irc handle currently. I will update once I remember the same.</p>
-
-<p>Image courtsey <a href="http://placekitten.com/">http://placekitten.com/</a></p>
 </div>
   
   

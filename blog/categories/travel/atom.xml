@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Travel | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/travel/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2014-01-31T14:16:37+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Rentautobus Back to India]]></title>
+    <link href="http://harikt.com/blog/2014/01/25/rentautobus-back-to-india/"/>
+    <updated>2014-01-25T12:01:15+05:30</updated>
+    <id>http://harikt.com/blog/2014/01/25/rentautobus-back-to-india</id>
+    <content type="html"><![CDATA[<p><a href="http://www.rentautobus.com">Rentautobus.com</a> is a worldwide private
+transport quote comparison and reservations portal which was my first live project
+that made my hands dirty with <a href="http://framework.zend.com/">Zend Framework</a>.
+I was hired as a maintainer for the multilingual website.</p>
+
+<p>Multilingual websites when viewed from outside is not that complex.
+Before you dive into write your first line of code, everyone should read
+<a href="http://www.joelonsoftware.com/articles/Unicode.html">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a></p>
+
+<p>Many of the developers don&rsquo;t care about the characterset and finally
+they see weird characters displayed and your client re-opening the same
+tickets. I don&rsquo;t blame any developers for until when you deal with something
+like this you will end up in trouble.</p>
+
+<h2>Tests!</h2>
+
+<p>How many of you really test your app?</p>
+
+<p>Most of them, or the QA does it for you. Awesome!</p>
+
+<p>But I am not talking about manual testing.
+Hope you have heard about automated testing tools like <a href="http://phpunit.de/">phpunit</a>.
+How many of you write unit tests? How does that help you?</p>
+
+<p>Say you have the equation  (a+b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup></p>
+
+<p>What you do is write a simple class with the method which returns the result.</p>
+
+<p>Everyone knows the expected result. But in most cases it may not be the same.
+May be there is a new feature coming, if <code>a</code> is less than <code>b</code> use</p>
+
+<p>(a-b)<sup>2</sup> = a<sup>2</sup> &ndash; 2ab + b<sup>2</sup></p>
+
+<p>Now the complexity is increasing. And at somepoint of time you could not test
+each one manually and unexpected results coming.</p>
+
+<p>```php
+&lt;?php
+class Algebra
+{</p>
+
+<pre><code>public function calculate($a, $b)
+{
+    if ($a &lt; $b) {
+        $result = $a*$a + $b*$b - 2* $a*$b;
+    } else {
+        $result = $a*$a + $b*$b + 2* $a*$b;
+    }
+    return $result;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>In-order to get rid of the already tested one, writing unit tests is the
+nice way. So the test will be something like</p>
+
+<p>```php
+&lt;?php
+class AlgebraTest extends PHPUnit_Framework_TestCase
+{</p>
+
+<pre><code>protected $algebra;
+
+public function setup()
+{
+    $this-&gt;algebra = new Algebra();
+}
+
+/**
+ * @dataProvider provider
+ */
+public function testCalculate($a, $b, $result)
+{
+    $this-&gt;assertEquals($result, $this-&gt;algebra-&gt;calculate($a, $b));
+}
+
+public function provider()
+{
+    return array(
+        array(3, 2, 25),
+        array(2, 3, 25),
+    );
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Here if you noticed what will happen when <code>a</code> and <code>b</code> are same?</p>
+
+<p>What I am trying to point out is write tests, so the person who
+comes as a maintainer also can run the tests and see everything
+is working as expected.</p>
+
+<p>Probably your client may blame you for taking more time, try to convience
+them that it has saved <code>X</code> Hours to fix the bug!.</p>
+
+<p>Be brave and start writing tests, for the next maintainer don&rsquo;t have to find
+whether it was a feature request or this is a bug.</p>
+
+<blockquote><p>No one can learn everything in a single day, start small to achieve big.</p></blockquote>
+
+<h2>What rentautobus.com does?</h2>
+
+<p>The idea of rentautobus.com is to help both groups of people and
+individuals who are travelling to a different place/country to easily get quotes
+from private transport operators or travel agents.
+They can compare offers and quality, go through the reviews and feedback comments of people who have
+already travelled with these transport providers, how comfortable
+are they with the vehicle, the driver etc. The feedback system is not a
+new one, it&rsquo;s called <code>5 star rating</code> which is mostly used by travel and hotel websites.</p>
+
+<p>In the promotional video below you can see the concept explained.
+This <code>comparison concept</code> is quite comon in Europe.</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/zIirpcTgfhQ?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+<p>You can choose from a wide variety of travel agents, easily compare
+the price what they offer, the feedback they got from others.
+The 1st concept of the website was built for European countries like Spain. And<br/>
+as of today the site has expanded to other countries like India.</p>
+
+<p>Rentautobus recently added
+<a href="http://www.rentautobus.com/en/india/kerala/kochi/car-rental-with-driver/item1306">Car with Driver services in Cochin</a>
+to the list of countries, places and services offered.</p>
+
+<h2>Will the concept in India work like Spain?</h2>
+
+<p>I&rsquo;m curious to see if this European concept will have the same acceptance
+in <a href="http://www.rentautobus.com/en/india/item1291">India</a> as in
+<a href="http://www.rentautobus.com/en/spain/item48">Spain</a>.</p>
+
+<p>Cultural differences do exist and this of-course translates into the
+use of internet as a research and booking tool for transport, tours or other travels.
+Travel arrangements in India by people over here are often done via a
+trusted travel agents who normally is a friend or introduced by a friend<br/>
+or family member.</p>
+
+<p>For foreign tourists traveling to India for the 1st time, with no local
+contacts its of-course a good thing to have a friendly internet
+reservation tool for their transport arrangements.</p>
+
+<p>We are not sure yet how the system should be adapted to fit the local Indian cultural requierments.</p>
+
+<p>Let us know your thought and opinions!</p>
+]]></content>
+  </entry>
+  
+</feed>
