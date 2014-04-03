@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="I hope every one know about mozilla firefox ( Popular open-source web browser ) . If you are a webdeveloper you may defnitely know about firebug &hellip;">
+  <meta name="description" content="After 7 days from the release of Windows 7 , ubuntu 9.10 is here . I was waiting for the release of 9.10 officially, and was looking the features . &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,40 @@
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/10/29/ubuntu-910-and-you-get-2gb-online-storage-free/">Ubuntu 9.10 and You Get 2GB of Online Storage Free</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-29T18:37:00+05:30" pubdate data-updated="true">Oct 29<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>After 7 days from the release of Windows 7 , ubuntu 9.10 is here . I was waiting for the release of 9.10 officially, and was looking the features .  Its really awesome guys . Some of the features are  1 ) Empathy is made as the default chat client and Evolution the email agent . If you are a mozilla fan you can get it from the new software center .  2 ) Software center has changed the old Add/Remove programs .  3 ) Free 2GB online storage , to share your datas with friends and collegues . Its really cool <img src="http://harikt.com/sites/all/libraries/fckeditor/editor/images/smiley/msn/regular_smile.gif" alt="image" /> , and I hope many of you may utilise it . Anyway I will .  4 ) Mozilla Firefox 3.5 , my favourite browser hope your too ( especailly if you are a webdeveloper ) . So you can go for the addons in the mozilla labs .  And the remaining are the usual tools for graphics , games and office . If you are interested to see the features go and <a href="http://www.ubuntu.com/products/whatisubuntu/910features">get it from ubuntu</a> .  Ah how is windows 7 performing dudes ? Have heard its doing much better than Vista .</p>
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -379,103 +413,6 @@
 
 
   <div class="entry-content"><p><a href="http://www.flickr.com/photos/harikt/3931206160/"><img src="http://farm3.static.flickr.com/2591/3931206160_ce8a948f2e.jpg" alt="reCAPTCHA" /></a>Today I saw a post in Googles official blog about their acquasition of recaptcha . Recaptcha is a wonderful service that stops spam like mollom of Dries Butt . If you have a mail id , then you may know what spam is . Gmail may be the best mail service which can protect spam . Now adays every mail service do like that . But gmail seems to be much better than any .  If you have a website with a contact form , you can notice that it will be the most visited page . As a webdeveloper we should use a captcha service to block spam . Else our domain will be listed in the domain which generates spam . Recaptcha is a free service that can protect your forms from spam . There are many plugins or modules for wordpress , drupal etc .  <a href="http://www.flickr.com/photos/harikt/3931206156/"><img src="http://farm3.static.flickr.com/2507/3931206156_351f973d40.jpg" alt="MolloM" /></a>I am using mollom for protecting my forms as its a project developed by Dries the author of Drupal . Thanks to mollom too . I love mollom because it will not show the captcha unless it thinks its spam . There may be many other wonderful services like Mollom and recaptcha . You can use it, according to your taste .</p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/09/17/add-wysiwyg-ckeditor-zendtextarea-element-zendform/">Add WYSIWYG Ckeditor to Zend_Textarea Element of Zend_Form</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-09-17T10:01:00+05:30" pubdate data-updated="true">Sep 17<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Adding a WYSIWYG editor to Zend_Textarea element of zend framework . I don&rsquo;t
-know whether this is the right way to this . Anyway I would love to share the
-piece of code to you . I am using the ckeditor the opensource WYSIWYG editor
-which was previously called fckeditor. Ilove the new look of it than the tiny
-mce . So switched to it <img src="http://www.harikt.com/sites/all/modules/fckeditor/%0Afckeditor/editor/images/smiley/msn/regular_smile.gif" alt="" /> .</p>
-
-<p>Extract the files of ckeditor and upload to public folder . I am keeping this
-in the /js/ckeditor .</p>
-
-<p>Add the below piece of code to the layout . As we dont need to load the js of
-the ckeditor every time we can add a flag.</p>
-
-<pre><code>&lt;?php 
- if ( $this-&gt;ckeditor ) { 
-  echo $this-&gt;headScript()-&gt;appendFile( $this-&gt;baseUrl().'/js/ckeditor/ckeditor.js');
- }
-?&gt;
-</code></pre>
-
-<p>Now you need a helper . Keep the below code in
-/application/views/helpers/SetupEditor.php .</p>
-
-<pre><code>&lt;?php
-class Zend_View_Helper_SetupEditor {
-
- function setupEditor( $textareaId ) {
- return "&lt;script type=\"text/javascript\"&gt;
- CKEDITOR.replace( '". $textareaId ."' );
-  &lt;/script&gt;";
- }
-}
-?&gt;
-</code></pre>
-
-<p>I have used a baseUrl helper also . So if you are new I am keeping it for
-those .</p>
-
-<pre><code>&lt;?php
-class Zend_View_Helper_BaseUrl {
- function baseUrl() {
- $fc = Zend_Controller_Front::getInstance();
- return $fc-&gt;getBaseUrl();
- }
-}
-?&gt;
-</code></pre>
-
-<p>Now you can include the small piece of code in the view script where you are
-printing the form . For this eg: I am using the
-application/views/scripts/index/edit.phtml</p>
-
-<pre><code>&lt;?php
- $this-&gt;ckeditor = 'ckeditor'; //To tell the layout ckeditor must be loaded . 
-?&gt;
-&lt;h2&gt;Edit Post&lt;/h2&gt;
-&lt;div&gt;&lt;?php echo $this-&gt;postForm; ?&gt;&lt;/div&gt;
-&lt;!-- Description is the id of the textarea --&gt;
-&lt;?php echo $this-&gt;setupEditor( 'Description' ); ?&gt;
-</code></pre>
-
-<p>You must know the name of the id of the textarea to pass to the setupEditor .
-I have used the name Description when creating the textarea element . You must
-have atleast tried the Zend framework quickstart to understand how it works .
-I hope I have not missed any .</p>
 </div>
   
   

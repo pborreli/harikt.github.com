@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="I was sleeping when Faizal , called me and told about the Calicut University declared the fourth and sixth semester results . There was little hope &hellip;">
+  <meta name="description" content="Every one may have fallen in this trouble , when your disk space exceeds . Yes , I was trying to create a folder and upload some images . I noticed a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,40 @@
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/19/35-low-disk-space-store-images-and-files-in-database-or-/">Low Disk Space , Store Images and Files in Database Or</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-19T09:49:00+05:30" pubdate data-updated="true">Apr 19<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Every one may have fallen in this trouble , when your disk space exceeds . Yes , I was trying to create a folder and upload some images . I noticed a fact , there is no space remaining to upload one . Yes , every one , who have a web hosting space may have thought an alternative way to store images and files . Yes, don&rsquo;t worry I just uploaded to my picasa web albums <img src="plugins/editors/tinymce/jscripts/tiny_mce/plugins/emotions/images/smiley-smile.gif" title="Smile" alt="Smile" /> .  But there is also another alternative if you have a database . Yes , you can store images and files in MySQL . To store images and files use the BLOB format . It can store binary data . What you need to do is  Create a table Image , with pkid of type int(10) as unique id , data of type BLOB , format ( jpeg , png &hellip; ) and description.  Read the binary contents from the image . using file_get_contents() or fread() functions of php .  Insert to database . Now you can retrieve the image using the id . Pass the id to a page which outputs the header of image . Yes, its pretty simple to do this . The below code is a sample . You can try it out . I have not tested , just made for the post now .  &lt;?php /* Create a table something like this CREATE TABLE `Labs`.`Images` ( `pkid` INT( 10 ) NOT NULL , `Content` BLOB NOT NULL , `Description` VARCHAR( 300 ) NOT NULL , `Type` VARCHAR( 5 ) NOT NULL , PRIMARY KEY ( `pkid` ) ) ENGINE = MYISAM */ //insertImage.php $mysqli = new mysqli(&ldquo;localhost&rdquo;, &ldquo;my_user&rdquo;, &ldquo;my_password&rdquo;, &ldquo;database&rdquo;); /* check connection */ if (mysqli_connect_errno()) { printf(&ldquo;Connect failed: %s\n&rdquo;, mysqli_connect_error()); exit(); } //Read file contents $fp = fopen(&ldquo;image.jpg&rdquo;,&ldquo;rb&rdquo;); $contents = fread( $fp , filesize(&ldquo;image.jpg&rdquo;) ); fclose( $fp ); if ($result = $mysqli->query(&ldquo;INSERT INTO Images(&lsquo;pkid&rsquo;,&lsquo;Content&rsquo;,&lsquo;Description&rsquo;) VALUES(&lsquo;NULL&rsquo;,&lsquo;&rdquo;.$contents.&ldquo;&rsquo;,&lsquo;test me&rsquo;)&rdquo;)) { echo &ldquo;Successful insert&rdquo;; } $mysqli->close(); ?> &lt;?php //getImage.php $mysqli = new mysqli(&ldquo;localhost&rdquo;, &ldquo;my_user&rdquo;, &ldquo;my_password&rdquo;, &ldquo;database&rdquo;); /* check connection */ if (mysqli_connect_errno()) { printf(&ldquo;Connect failed: %s\n&rdquo;, mysqli_connect_error()); exit(); } //Read image contents if ($result = $mysqli->query(&ldquo;SELECT Content FROM Images WHERE pkid = &lsquo;&rdquo;.$_GET[&#8216;pkid&rsquo;].&ldquo;&lsquo;&rdquo;)) { $row = $result->fetch_assoc(); } header(&#8216;Content-Type: image/jpeg&rsquo;); echo $row[&lsquo;Content&rsquo;]; ?>  <img src="getImage.php?pkid=<?php echo $pkid ?\>&ldquo; alt=&rdquo;&lt;?php echo $description ?>&ldquo; title=&rdquo;&lt;?php echo $description ?>&ldquo; />  This is just a sample. I hope you know some basics of PHP . You can modify the script as needed, and also do care about SQL injections <img src="plugins/editors/tinymce/jscripts/tiny_mce/plugins/emotions/images/smiley-tongue-out.gif" title="Tongue out" alt="Tongue out" /> . You can encrypt the values that are passed for additional security measures . Have not tested this , just made this in a hurry . So may contains errors. Please do report if you find some . I will be happy to hear it from you .  You can use the sameway to store the word , pdf etc in the MySQL . Its simple to make it work . You can change the content type of header , so as to make it dynamic .</p>
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -379,40 +413,6 @@
 
 
   <div class="entry-content"><p>Many of us uses E-commerce sites for online shopping . I don&rsquo;t whether they know how these systems work . If you are a web developer or interested to know how this systems work, you can install and try .  Some of the most popular E-commerce softwares are the Oscommerce under the licence of GNU / GPL , Zencart and Magnento . If you are a web developer especially a PHP programmer , you may have heard of these systems. I have tried these three in my local system . Installing these softwares are simple for any one. The requirements for installing the system may vary . But the main requirements are  \1) Apache ( Used mainly in Linux )  2 ) PHP installed  3 ) MySQL database.  If you have PHP version > 5 it will be good, to install all the three . You can see the basic requirements from the sites <a href="http://oscommerce.com">http://oscommerce.com</a> , <a href="http://www.zen-cart.com">http://www.zen-cart.com</a> , <a href="http://www.magentocommerce.com/">http://www.magentocommerce.com/</a> . Its very easy to learn oscommerce v 2.2 . The main thing I have noticed in oscommerce is it uses the normal coding, not any frame works like zend , symfony, code ignitor or any . I don&rsquo;t know whether its my mistake that it uses any ( Version 2.2 ).  The new version 3 for oscommerce is available. But its still in the alpha release . Its using frameworks , jquery , template structure , multiple product images, JSON etc . For more informations you can see in this link <a href="http://www.oscommerce.com/about/news,132">http://www.oscommerce.com/about/news,132</a> .  Zen-cart is another powerful e-commerce system which works mostly like oscommerce itslef. The main advantage of zencart is, developers don&rsquo;t need to bother about the design much. They can change any code at any time. The change in codes will not effect the design, and any change to design will not effect in its code. The zen-cart has lots of features in the admin side. I have installed both zen-cart and oscommerce. One thing I have noticed in common is the zen-cart and the oscommerce having the same sample datas. I don&rsquo;t know how it came so . I think zen-cart is a modified version of os-commerce. Anyway I don&rsquo;t get time to explore it. The admin portion of zen-cart has options to show the left nav , right nav , hide these nav when required etc.  Since zen-cart uses template engine customizing zen-cart will be much more easy. All you need to understand the structure, how smarty works etc. Customizing os-commerce needs to edit each and every page. Its some what a tedious one thanzen-cart. This is what I feel, and its all upto you to decide the e-commerce system which you needs.  Coming to Magento , the newly born award winning e-commerce system from the source-forge in 2008 , uses good features of the todays PHP , javascript and all. But needs a good server to run this. Else to load a page may take a long time. It has great features, like managing multiple stores. I don&rsquo;t know its architecture . Not able to look deeply . Anyway onething I am sure its uses some frame work.  Magento is a wonderful ecommerce system , that every one will love on the installation itself. But its some what hard to recognise the codes. It has a lots of features. Some of the great features I liked which is missing in oscommerce , zencart is manage multiple stores . May be due to this reason many website owners like this. You can see a list of features of magento <a href="http://www.magentocommerce.com/features">http://www.magentocommerce.com/features</a> here .  The demo for each systems are there . So if you like to see the demos of oscommerce systems . You can go and try it, before installing the system in your server .  <strong><a href="http://demo**.**oscommerce**.com/">http://demo**.**oscommerce**.com/</a>  <a href="http://www.magentocommerce.com/demo">http://www.magentocommerce.com/demo</a>  </strong><a href="http://demo**.opensourcecms.com/**zencart**">http://demo**.opensourcecms.com/**zencart**</a>  There may be more e-commerce systems , so if you need more you can explore sourceforge or opensourcecms.com is also a good site to see the demo and list of opensource and GNU / GPL softwares.</p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/03/21/23-yahoo-like-folder-in-gmail/">Yahoo Like Folder in Gmail</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-21T08:27:00+05:30" pubdate data-updated="true">Mar 21<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It may be with the introduction of Gmail many email providers makes their service free of cost , and increasing their space and features. I was having Yahoo and Gmail accounts. It was easy for me to manage emails by using filters in Yahoo. I looked for something similar in gmail.  Yes, this post is for those who don&rsquo;t know how to move the mails to a particular folder , with out keeping it in inbox. What you want to do is goto Settings tab , from top right of gmail page . Then create some labels, from the label tab . For eg : if you have subscribed for Joomla news letter , then name it as Joomla , so you can recognise quickly . Now your labels are ready . Want to create filters to move your mails directly to those labels . The labels can act something similar as folders.  Now select the Filters tab and Create a new filter . You can also edit your existing filters . When you click on the Create filter , it ask you for the From , To , subject , Has the words, Doesn&rsquo;t have . If you want an exact one, then it will be better to look the mail , for which you need to create the folder. Click show details and get the details. You can see the details there. The from address is the person who sends you the mail , the To address is the person who have mailed through some group if so , else your address or list of other peoples to whom the user sends . If you need selected terms included in that . Add to Has the words , to remove certain words , add it to doesn&rsquo;t have .  Next screen will show  Skip the Inbox (Archive it) Mark as read Star it Apply the label: Forward it to: Delete it Never send it to Spam  Tick the ones you need. skip the inbox will skip to the particular label. Now when you receive a mail from Joomla news group, then the mail will be moved to Joomla labeled one. Yes , this is pretty simple. You now can have the folders as like Yahoo .</p>
 </div>
   
   

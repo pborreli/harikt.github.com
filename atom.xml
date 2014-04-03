@@ -4,7 +4,7 @@
   <title><![CDATA[Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2014-01-31T14:16:37+05:30</updated>
+  <updated>2014-04-03T10:15:10+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[AngularJS by Brad Green, Shyam Seshadri; O'Reilly Media]]></title>
+    <link href="http://harikt.com/blog/2014/04/03/angularjs-by-brad-green/"/>
+    <updated>2014-04-03T08:36:53+05:30</updated>
+    <id>http://harikt.com/blog/2014/04/03/angularjs-by-brad-green</id>
+    <content type="html"><![CDATA[<p>First I would like to apologize O&#8217;Reilly for the dealy it happened.
+So the buzz is AngularJS.</p>
+
+<p><a href="http://shop.oreilly.com/product/0636920028055.do"><img class="center" src="http://harikt.com/assets/images/books/angularjs.gif" width="180" height="236" title="'AngularJS by Brad Green, Shyam Seshadri; O'Reilly Media'" ></a></p>
+
+<p>I took the book <a href="http://shop.oreilly.com/product/0636920028055.do">AngularJS by Brad Green, Shyam Seshadri; O&#8217;Reilly Media</a> for review.
+Both authors Brad Green and Shyam Seshadri has experience working at google and angularjs.</p>
+
+<p>I have noticed people rating 5/5 mentioning the book covers to the point
+etc. I am really new to angularjs and my reviews are based on it.</p>
+
+<p>I don&rsquo;t think I can recommend the book for a person who is really new
+to angularjs. Though it starts simple, at some point of time it jumps
+to advanced parts or hard to follow. Don&rsquo;t think it is the problem with
+book itself but the concepts are new and need a better way to explain.
+Eg directives.</p>
+
+<p>I strongly feel the introduction of yeoman, karma etc has added more frustration.
+But I do like the introduction of debugging tools like Batarang.</p>
+
+<p>These could have been taken to the last chapters if really needed.
+There are many places where it could have been explained with better examples
+than just small snippets of code where people don&rsquo;t know where to keep
+and figure out themselves. Though there is a github repo with code,
+chapter-5 doesn&rsquo;t have one.</p>
+
+<p>I can give a rating of 3/5.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rentautobus Back to India]]></title>
@@ -189,7 +224,7 @@ in <a href="http://www.rentautobus.com/en/india/item1291">India</a> as in
 <p>Cultural differences do exist and this of-course translates into the
 use of internet as a research and booking tool for transport, tours or other travels.
 Travel arrangements in India by people over here are often done via a
-trusted travel agents who normally is a friend or introduced by a friend<br/>
+trusted travel agents who normally is a friend or introduced by a friend
 or family member.</p>
 
 <p>For foreign tourists traveling to India for the 1st time, with no local
@@ -2496,20 +2531,6 @@ Else you need to edit the <code>config/_packages</code> and add <code>Hari.Sampl
 <a href="http://symfony.com">Symfony</a></p>
 
 <p>to all the people who motivated me to bring this sample application.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Aura.Web, Build Your Own Controller Class]]></title>
-    <link href="http://harikt.com/blog/2013/06/04/aura-dot-web/"/>
-    <updated>2013-06-04T07:47:00+05:30</updated>
-    <id>http://harikt.com/blog/2013/06/04/aura-dot-web</id>
-    <content type="html"><![CDATA[<p>If you are new to the concept of MVC, or if you are planning to build your
-own framework, probably Aura.Web help you to do the same.</p>
-
-<p>Here is the article in phpmaster.com <a href="http://phpmaster.com/aura-web-auras-page-controller-for-mvc/">Aura.Web: Aura’s Page Controller for MVC</a>.</p>
-
-<p>Probably you may also like the article <a href="http://phpmaster.com/web-routing-in-php-with-aura-router/">Web Routing in PHP with Aura.Router</a>.</p>
 ]]></content>
   </entry>
   

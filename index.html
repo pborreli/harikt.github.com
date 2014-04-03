@@ -9,9 +9,8 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="Rentautobus.com is a worldwide private
-transport quote comparison and reservations portal which was my first live project
-that made my hands dirty &hellip;">
+  <meta name="description" content="First I would like to apologize O&#8217;Reilly for the dealy it happened.
+So the buzz is AngularJS. I took the book AngularJS by Brad Green, Shyam &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +80,68 @@ that made my hands dirty &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/03/angularjs-by-brad-green/">AngularJS by Brad Green, Shyam Seshadri; O&#8217;Reilly Media</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-03T08:36:53+05:30" pubdate data-updated="true">Apr 3<span>rd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>First I would like to apologize O&#8217;Reilly for the dealy it happened.
+So the buzz is AngularJS.</p>
+
+<p><a href="http://shop.oreilly.com/product/0636920028055.do"><img class="center" src="/assets/images/books/angularjs.gif" width="180" height="236" title="'AngularJS by Brad Green, Shyam Seshadri; O'Reilly Media'" ></a></p>
+
+<p>I took the book <a href="http://shop.oreilly.com/product/0636920028055.do">AngularJS by Brad Green, Shyam Seshadri; O&#8217;Reilly Media</a> for review.
+Both authors Brad Green and Shyam Seshadri has experience working at google and angularjs.</p>
+
+<p>I have noticed people rating 5/5 mentioning the book covers to the point
+etc. I am really new to angularjs and my reviews are based on it.</p>
+
+<p>I don&rsquo;t think I can recommend the book for a person who is really new
+to angularjs. Though it starts simple, at some point of time it jumps
+to advanced parts or hard to follow. Don&rsquo;t think it is the problem with
+book itself but the concepts are new and need a better way to explain.
+Eg directives.</p>
+
+<p>I strongly feel the introduction of yeoman, karma etc has added more frustration.
+But I do like the introduction of debugging tools like Batarang.</p>
+
+<p>These could have been taken to the last chapters if really needed.
+There are many places where it could have been explained with better examples
+than just small snippets of code where people don&rsquo;t know where to keep
+and figure out themselves. Though there is a github repo with code,
+chapter-5 doesn&rsquo;t have one.</p>
+
+<p>I can give a rating of 3/5.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -281,7 +342,7 @@ in <a href="http://www.rentautobus.com/en/india/item1291">India</a> as in
 <p>Cultural differences do exist and this of-course translates into the
 use of internet as a research and booking tool for transport, tours or other travels.
 Travel arrangements in India by people over here are often done via a
-trusted travel agents who normally is a friend or introduced by a friend<br/>
+trusted travel agents who normally is a friend or introduced by a friend
 or family member.</p>
 
 <p>For foreign tourists traveling to India for the 1st time, with no local
@@ -1401,427 +1462,6 @@ looking at you tomorrow.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/09/28/looking-at-aura-v2/">Looking at Aura Version 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-28T06:53:00+05:30" pubdate data-updated="true">Sep 28<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you have noticed recently, there have been tons of commits from
-<a href="https://github.com/pmjones">Paul M Jones</a>﻿ for aura version 2.</p>
-
-<p>More standalone repos born. Everyone should try and give feedback as much as possible.</p>
-
-<p>Interesting stuffs split from Aura.Sql v 1.3 are</p>
-
-<p><a href="https://github.com/auraphp/Aura.Sql/tree/develop-2">Extended PDO</a>,</p>
-
-<p>As the name says, it is an extended version of PDO. Good thing is it is
-PHP 5.3 compatible.</p>
-
-<p>If you have worked with PDO you know the good and bad.
-One of the difficulty is, it cannot use an array for an in clause.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="c1">// the array to be quoted</span>
-</span><span class='line'><span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// the statement to prepare</span>
-</span><span class='line'><span class="nv">$stm</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM test WHERE foo IN (:foo) AND bar = :bar&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// the native PDO way does not work (PHP Notice:  Array to string conversion)</span>
-</span><span class='line'><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pdo</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$sth</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$stm</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">bindValue</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="nv">$array</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>ExtendedPDO helps you to do it.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtendedPdo</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$stm</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM test WHERE foo IN (:foo)&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">bindValues</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
-</span><span class='line'>    <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">),</span>
-</span><span class='line'>    <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;qux&#39;</span><span class="p">,</span>
-</span><span class='line'><span class="p">));</span>
-</span><span class='line'><span class="nv">$sth</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$stm</span><span class="p">);</span>
-</span><span class='line'><span class="k">echo</span> <span class="nv">$sth</span><span class="o">-&gt;</span><span class="na">queryString</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Try out an example, and see in action.</p>
-
-<p>Your composer.json will look as</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="nt">&quot;minimum-stability&quot;</span><span class="p">:</span> <span class="s2">&quot;dev&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nt">&quot;aura/sql&quot;</span><span class="p">:</span><span class="s2">&quot;dev-develop-2&quot;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Run the below Sql query in your favourite tools like phpmyadmin or adminer.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="c1">-- Adminer 3.7.1 MySQL dump</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">SET</span> <span class="k">NAMES</span> <span class="n">utf8</span><span class="p">;</span>
-</span><span class='line'><span class="k">SET</span> <span class="n">foreign_key_checks</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="k">SET</span> <span class="n">time_zone</span> <span class="o">=</span> <span class="s1">&#39;+05:30&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="k">SET</span> <span class="n">sql_mode</span> <span class="o">=</span> <span class="s1">&#39;NO_AUTO_VALUE_ON_ZERO&#39;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">polls_choice</span><span class="o">`</span><span class="p">;</span>
-</span><span class='line'><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">polls_choice</span><span class="o">`</span> <span class="p">(</span>
-</span><span class='line'>  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
-</span><span class='line'>  <span class="o">`</span><span class="n">poll_id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-</span><span class='line'>  <span class="o">`</span><span class="n">choice_text</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-</span><span class='line'>  <span class="o">`</span><span class="n">votes</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-</span><span class='line'>  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
-</span><span class='line'><span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">polls_choice</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">poll_id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">choice_text</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">votes</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
-</span><span class='line'><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>   <span class="s1">&#39;Not much&#39;</span><span class="p">,</span>  <span class="mi">0</span><span class="p">),</span>
-</span><span class='line'><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>   <span class="s1">&#39;The sky&#39;</span><span class="p">,</span>   <span class="mi">0</span><span class="p">),</span>
-</span><span class='line'><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>   <span class="s1">&#39;Hello World&#39;</span><span class="p">,</span>   <span class="mi">0</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">-- 2013-09-28 11:22:17</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Run the below PHP code and see the result.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Sql\ExtendedPdo</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Sql\Profiler</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtendedPdo</span><span class="p">(</span>
-</span><span class='line'>    <span class="s1">&#39;mysql:host=localhost;dbname=dbname&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s1">&#39;user&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s1">&#39;password&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="k">array</span><span class="p">(),</span> <span class="c1">// driver options as key-value pairs</span>
-</span><span class='line'>    <span class="k">array</span><span class="p">()</span>  <span class="c1">// attributes as key-value pairs</span>
-</span><span class='line'><span class="p">);</span>
-</span><span class='line'><span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">setProfiler</span><span class="p">(</span><span class="k">new</span> <span class="nx">Profiler</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">getProfiler</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">setActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$stm</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM polls_choice WHERE id IN (:id) AND poll_id = :poll_id&#39;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$bind</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-</span><span class='line'>    <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">),</span>
-</span><span class='line'>    <span class="s1">&#39;poll_id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
-</span><span class='line'><span class="p">);</span>
-</span><span class='line'><span class="nv">$results</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">(</span><span class="nv">$stm</span><span class="p">,</span> <span class="nv">$bind</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">foreach</span> <span class="p">(</span><span class="nv">$results</span> <span class="k">as</span> <span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="k">echo</span> <span class="s2">&quot;Query Result : &quot;</span> <span class="o">.</span> <span class="nv">$result</span><span class="p">[</span><span class="s1">&#39;choice_text&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">echo</span> <span class="s2">&quot;Profiler&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$profiles</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">getProfiler</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getProfiles</span><span class="p">();</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">foreach</span> <span class="p">(</span><span class="nv">$profiles</span> <span class="k">as</span> <span class="nv">$profile</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="k">echo</span> <span class="s1">&#39; Function : &#39;</span> <span class="o">.</span> <span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;function&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">echo</span> <span class="s1">&#39; Duration : &#39;</span> <span class="o">.</span> <span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">echo</span> <span class="s1">&#39; Statement : &#39;</span> <span class="o">.</span> <span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;statement&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">echo</span> <span class="s1">&#39; Bind Values : &#39;</span> <span class="o">.</span> <span class="nb">print_r</span><span class="p">(</span><span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;bind_values&#39;</span><span class="p">],</span> <span class="k">true</span><span class="p">)</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It comes with lazy connection, profiler, connection locator etc. Read more from
-<a href="https://github.com/auraphp/Aura.Sql/tree/develop-2#getting-started">getting started docs</a></p>
-
-<h2><a href="https://github.com/auraphp/Aura.Sql_Schema">Aura.Sql_Schema</a></h2>
-
-<p>An independent schema discovery tool for MySQL, PostgreSQL,
-SQLite, and Microsoft SQL Server. You can
-<a href="https://github.com/auraphp/Aura.Sql_Schema#getting-started">read more from the docs</a></p>
-
-<h2><a href="https://github.com/auraphp/Aura.Sql_Query">Aura.Sql_Query</a></h2>
-
-<p>Independent query builders for MySQL, PostgreSQL, SQLite, and Microsoft SQL Server</p>
-
-<p>Good thing is all are standalone.</p>
-
-<p>Version 2 also comes with a new
-<a href="https://github.com/auraphp/Aura.Dispatcher">Dispatcher</a>
-and <a href="https://github.com/auraphp/Aura.Includer">Includer</a>.</p>
-
-<p>You can read the story behind Dispatcher from
-<a href="https://groups.google.com/d/msg/auraphp/hyjEPEeo6_w/u616Pu3kQrcJ">here</a>
-and Includer from
-<a href="https://groups.google.com/d/msg/auraphp/WOo6TSceqHU/ZdgIkUgU0VIJ">here</a></p>
-
-<p>vi <a href="https://github.com/auraphp/Aura.Includer">Includer</a>
-aura solved one of the problem of reading configuration files.</p>
-
-<p>Let us look into the example of the Aura.Includer and how it works.</p>
-
-<p>The <code>composer.json</code> looks like the one below.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="nt">&quot;minimum-stability&quot;</span><span class="p">:</span> <span class="s2">&quot;dev&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nt">&quot;aura/cli&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-develop-2&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nt">&quot;aura/web&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-develop-2&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nt">&quot;aura/autoload&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-develop-2&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nt">&quot;aura/dispatcher&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-develop-2&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nt">&quot;aura/html&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-master&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nt">&quot;aura/input&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-master&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nt">&quot;aura/view&quot;</span><span class="p">:</span> <span class="s2">&quot;2.*&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nt">&quot;aura/includer&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-develop-2&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nt">&quot;aura/router&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-develop&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="nt">&quot;aura/di&quot;</span><span class="p">:</span> <span class="s2">&quot;1.*&quot;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We can use the includer to read the configuration files and store it and
-later use the cached file. The <code>includer.php</code> looks like</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="nv">$loader</span> <span class="o">=</span> <span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$includer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Aura\Includer\Includer</span><span class="p">();</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">setDirs</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
-</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/router&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/dispatcher&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/web&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/view&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/html&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/cli&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/aura/input&#39;</span><span class="p">,</span>
-</span><span class='line'><span class="p">));</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">setFiles</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
-</span><span class='line'>    <span class="s1">&#39;config/default.php&#39;</span><span class="p">,</span>
-</span><span class='line'><span class="p">));</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Router\Map</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Router\DefinitionFactory</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Router\RouteFactory</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">(</span><span class="k">new</span> <span class="nx">DefinitionFactory</span><span class="p">,</span> <span class="k">new</span> <span class="nx">RouteFactory</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Di\Container</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Di\Forge</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Di\Config</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$di</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Container</span><span class="p">(</span><span class="k">new</span> <span class="nx">Forge</span><span class="p">(</span><span class="k">new</span> <span class="nx">Config</span><span class="p">));</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">setVars</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
-</span><span class='line'>    <span class="s1">&#39;loader&#39;</span> <span class="o">=&gt;</span> <span class="nv">$loader</span><span class="p">,</span>
-</span><span class='line'>    <span class="s1">&#39;router&#39;</span> <span class="o">=&gt;</span> <span class="nv">$router</span><span class="p">,</span>
-</span><span class='line'>    <span class="s1">&#39;di&#39;</span> <span class="o">=&gt;</span> <span class="nv">$di</span><span class="p">,</span>
-</span><span class='line'><span class="p">));</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">file_exists</span><span class="p">(</span><span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/cache/includer.php&#39;</span><span class="p">))</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">();</span>
-</span><span class='line'>    <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">read</span><span class="p">();</span>
-</span><span class='line'>    <span class="nb">file_put_contents</span><span class="p">(</span><span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/cache/includer.php&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;?php&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="nv">$text</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">setCacheFile</span><span class="p">(</span><span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/cache/includer.php&#39;</span><span class="p">);</span>
-</span><span class='line'>    <span class="nv">$includer</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">();</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="nv">$stdio</span> <span class="o">=</span> <span class="nv">$di</span><span class="o">-&gt;</span><span class="na">newInstance</span><span class="p">(</span><span class="s1">&#39;Aura\Cli\Stdio&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$stdio</span><span class="o">-&gt;</span><span class="na">outln</span><span class="p">(</span><span class="s1">&#39;This is normal text.&#39;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Install the dependencies via <code>composer</code> and run via cli <code>php includer.php</code>.</p>
-
-<p>The Aura.Includer is a nice addition for version 2
-( I am also seeing it can be used in version 1 )
-which will help a lot in the making of the framework with the libraries.</p>
-
-<p>If you are interested to use, learn, or have a feedback a warm welcome to
-<a href="https://groups.google.com/forum/#!forum/auraphp">join the google group for aura project for PHP</a></p>
-
-<p>Have a nice day ahead. Enjoy PHPing.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1832,9 +1472,23 @@ which will help a lot in the making of the framework with the libraries.</p>
 </div>
 <aside class="sidebar">
   
-    <section>
+    <aside>
+	<h3>About Me</h3>
+	<p>
+        <img src="https://1.gravatar.com/avatar/895c943fbd5beb697f6c2d7bf0c3b279?s=75" class="left" style="padding-right: 10px;" />
+        I am <a href="/who-am-i/">Hari KT</a> a freelance PHP developer from India.
+        Holds a degree in Bachelors of Technology in Information Technology.
+        Breath open-source and contributes to <a href="http://auraphp.com">aura project for php</a>.
+        Occassionaly writes for <a href="http://sitepoint.com">sitepoint.com</a>
+	</p>
+</aside>
+<section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/03/angularjs-by-brad-green/">AngularJS by Brad Green, Shyam Seshadri; O&#8217;Reilly Media</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/01/25/rentautobus-back-to-india/">Rentautobus Back to India</a>
@@ -1850,10 +1504,6 @@ which will help a lot in the making of the framework with the libraries.</p>
     
       <li class="post">
         <a href="/blog/2013/11/19/composer-support-for-processwire-part-2/">Composer Support for ProcessWire : Part-2</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/11/16/composer-support-for-processwire-modules/">Composer Support for ProcessWire Modules</a>
       </li>
     
   </ul>
