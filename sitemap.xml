@@ -1029,6 +1029,10 @@
         <lastmod>2014-04-03T09:57:58+05:30</lastmod>
     </url>
     <url>
+        <loc>http://harikt.com/blog/2014/04/26/web-routing-in-php-with-aura-dot-router/</loc>
+        <lastmod>2014-04-26T20:44:43+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://harikt.com/who-am-i/</loc>
         <lastmod>2014-01-09T11:00:48+05:30</lastmod>
     </url>
@@ -1038,7 +1042,7 @@
     </url>
     <url>
         <loc>http://harikt.com/</loc>
-        <lastmod>2014-04-03T09:57:58+05:30</lastmod>
+        <lastmod>2014-04-26T20:44:43+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/search.html</loc>
@@ -1046,14 +1050,14 @@
     </url>
     <url>
         <loc>http://harikt.com/archives/</loc>
-        <lastmod>2014-04-03T09:57:58+05:30</lastmod>
+        <lastmod>2014-04-26T20:44:43+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/blog/</loc>
-        <lastmod>2014-04-03T09:57:58+05:30</lastmod>
+        <lastmod>2014-04-26T20:44:43+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/blog/archives/</loc>
-        <lastmod>2014-04-03T09:57:58+05:30</lastmod>
+        <lastmod>2014-04-26T20:44:43+05:30</lastmod>
     </url>
 </urlset>

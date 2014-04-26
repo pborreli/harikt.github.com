@@ -9,7 +9,7 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="Every one may have fallen in this trouble , when your disk space exceeds . Yes , I was trying to create a folder and upload some images . I noticed a &hellip;">
+  <meta name="description" content="Canonical is releasing the new Ubuntu version 9.04 called Jaunty. Now you can download it for testing purpose. I still remember how I installed the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,40 @@
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/21/36-ubuntu-904-is-about-to-release/">Ubuntu 9.04 Is About to Release</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-21T09:10:00+05:30" pubdate data-updated="true">Apr 21<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.ubuntu.com" title="Get Ubuntu"><img src="http://www.ubuntu.com/files/countdown/static.png" title="Ubuntu: For Desktops, Servers, Netbooks and in the cloud" alt="Ubuntu: For Desktops, Servers, Netbooks and in the cloud" /></a>Canonical is releasing the new Ubuntu version 9.04 called Jaunty. Now you can download it for testing purpose. I still remember how I installed the Ubuntu 4.10 when I got from Akhil one of my friend who was studying at NIT. He was the person who introduces Ubuntu before me . I was using the Mandrake , rehat etc at the time . He told should be careful installing it. It was not having a good graphics at that time. But now the Ubuntu community has grown . You can see how it has made the great presence in Desktop , Laptop , Servers .  After every six months the Ubuntu will be introducing the newer versions . Do you know how the version numbering is done for ubuntu ? Its nothing but , just the year first and then the numeric digit of month . So this is 2009 April and it releases 9.04 . The earlier version was 8.10 which was released on 2008 October . So the last numbers will be always 04 and 09 . I hope there will be no change for this <img src="plugins/editors/tinymce/jscripts/tiny_mce/plugins/emotions/images/smiley-cool.gif" title="Cool" alt="Cool" /> . The newer versions contains different security fixes and new software .  <img src="http://farm4.static.flickr.com/3322/3491661248_7d36df796e.jpg?v=0" title="Ubuntu Desktop in a glance" alt="Ubuntu Desktop in a glance" /> <img src="http://farm4.static.flickr.com/3627/3490846393_a39d5d1353.jpg?v=0" title="Ubuntu Help" alt="Ubuntu Help" /> <img src="http://farm4.static.flickr.com/3538/3491663748_08468e9dd3.jpg?v=0" title="Different Languages that Ubuntu supports" alt="Different Languages that Ubuntu supports" /> Ubuntu is a debain based GUN/Linux operating system . Its pretty simple to use . There is a wide range of choice for many softwares totally free . If your hard disk have failed , now its not a big deal. You can still use the system . No need of hard disk. Just login with your ubuntu live CD and just save in your thumb or email if you have internet connection . The internet has grown and you can explore it for your needs . Upload your favourite pictures to picasa or flicker, documents to google docs , slide share etc . It will not be this much simple with out the presence of Internet. The world wide web has played a great role in establishing these things .  What Ubuntu promises is  &ndash;   Ubuntu will always be free of charge, including enterprise     releases and security updates. &ndash;   Ubuntu comes with full commercial support from Canonical and     hundreds of companies around the world. &ndash;   Ubuntu includes the very best translations and accessibility     infrastructure that the free software community has to offer. &ndash;   Ubuntu CDs contain only free software applications; we     encourage you to use free and open source software, improve it and     pass it on.  You can get your free copy of Ubuntu from Canonical through shipping. The free disc of Ubuntu may be one of the reason for the greatest popularity of Ubuntu . I was having a dial up connection at that time. So it will be always difficult for every one to get a copy. The free disc have helped me a lot. I hope not only to me , but to many . There is a huge change for Ubuntu from the previous versions . It will detect almost all your hardwares . Its pretty simple to configure with synaptic package manager . There is inbuilt driver for the EVDO . I am using a BSNL EVDO connection. I have configured the EVDO to work in ubuntu . You can use the wvdial command for configuring it and dialling.  This is what you need to do .  Connect the device when the system boots , in the panel you can see the Broad Com driver ready . Activate it . You may need to download the wvdial using synaptic package manager . The below are the commands used to configure from terminal . ( Applications->Terminal )  $ sudo wvdialconf /etc/wvdial.conf  The above command will find the device and write the configuration to /etc/wvdial.conf . You can see from output whether it finds the device , if so you need to edit the wvdial.conf  $ sudo gedit /etc/wvdial.conf  I uses vim for editing . But you may not be familiar so you can use the text editor . Remove the # symbol and save your username , password etc given by BSNL authority . Something like the below  [Dialer Defaults] Init1 = ATZ Init2 = ATQ0 V1 E1 S0=0 &amp;C1 &amp;D2 +FCLASS=0 Modem Type = Analog Modem Baud = 9600 New PPPD = yes Modem = /dev/ttyUSB0 ISDN = 0 Stupid Mode = 1 Phone = #777 Username = username Password = password Now you can dial using wvdial .It will hang up never close till you have finished browsing the web with your favourite browser .( Mozilla for many guys <img src="plugins/editors/tinymce/jscripts/tiny_mce/plugins/emotions/images/smiley-smile.gif" title="Smile" alt="Smile" /> ). When successfully connected you can see IP address of the form 10.0.01.12 ( some thing like this &mdash;> local IP address 10.2.40.227 &mdash;> pppd: Ч� ��� &mdash;> remote IP address 192.168.52.12 &mdash;> pppd: Ч� ��� &mdash;> primary DNS address 218.248.240.180 &mdash;> pppd: Ч� ��� &mdash;> secondary DNS address 218.248.240.181 &mdash;> pppd: Ч� ���  $ sudo wvdial  After you finished browing can use Ctrl + c to terminate .  Note : Firefox often complains about the error like below  Offline Mode Firefox is currently in offline mode and can&rsquo;t browse the Web. The browser is operating in its offline mode and cannot connect to the requested item. * Is the computer connected to an active network? * Place the browser in online mode and try again.  If there is trouble viewing look whether Work Offline is unticked File->Work Offline from Mozilla .  You will also have trouble connecting the empathy to chat with your friends .It will not connect even right password .Empathy will be always in offline mode even if you change to online . If empathy not changing to online mode just untick the enable networking .  You can rectify the problem by right clicking on the network and disable enable networking by unticking it .  I have recommended many friends to use Ubuntu and many from college itself had ordered and have tried it . If its releasing on 23 April , then I am really Happy bcoz I am celebrating my 24<sup>th</sup>^ B&#8217;day <img src="plugins/editors/tinymce/jscripts/tiny_mce/plugins/emotions/images/smiley-smile.gif" title="Smile" alt="Smile" />.  The canonical is the one which supports the ubuntu project and its community . There are lots of courses they are teaching . You can help canonical and support the ubuntu by various means . Have a look at ubuntu.com for more details .</p>
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -379,40 +413,6 @@
 
 
   <div class="entry-content"><p>Many of the web developers used to work on windows . The reasons they are used to work are  1 ) Cross browser compatibility : The world wide web is used by different people around the world. You may be an GNU/Linux fan , but people who browse your web pages may be using Internet Explorer. Mozilla firefox is the wondeful browser , that every developer may have seen. It can recognize the css and do the correct things . Safari also recognise to some extent . But what about IE ? hm its a tedious job for the designers and web developers . Some of the css will not be accepted by IE. So when developing a web site we may need to look in different web browsers and test whether it looks the same in all .  2 ) Dreamweaver : Many web developers may be using dream weaver for developing their sites. Dream weaver ofcourse is a wonderful tool . But is a properitery one :&ndash;( .  3 ) Photoshop : Many designers may be familiar with photoshop , and have not tried GIMP of the GNU / Linux. I would like to introduce you the wonderful tool GIMP to the web designers. I don&rsquo;t know whether you lacks any features. But be proud of using GPL or Open source softwares.     <img src="http://harikt.com/images/banners/Kompozer_wysiwyg_editor.png" title="Kompozer a wysiwyg editor" alt="Kompozer a wysiwyg editor" /> If you using GNU/Linux you may be looking for a dreamweaver like editor . Yes there are a lots of editors in GNU/Linux. Some are vim , emacs, gedit etc. But what about a Graphical User Interface one ? Yes, there a plenty too like the Quanta plus , Blue Fish , Netbeans etc. But misses some in each and every one . Recently I found a wonderful WYSIWYG editor . Some of the features are    KompoZer is a stand-alone tool; hence its small size and fast speed  Those who are familiar with the DreamWeaver interface will feel right at home with KompoZer:  &ndash;   WYSIWYG editing of pages, making web creation as easy as typing     a letter with your word processor. &ndash;   Integrated file management via FTP. Simply login to your web     site and navigate through your files, editing web pages on the fly,     directly from your site. &ndash;   Reliable HTML code creation that will work with all of today&rsquo;s     most popular browsers. &ndash;   Jump between WYSIWYG Editing Mode and HTML using tabs. &ndash;   Tabbed editing to make working on multiple pages a snap. &ndash;   Powerful support for forms, tables, and templates. &ndash;   The easiest-to-use, most powerful Web Authoring System     available for Desktop Linux, Microsoft Windows and Apple Macintosh     users.  I found this tool as a wonderful one . So like you to help you , if you are looking for one like this . If you have any other good editors which you know for the GNU/Linux then let me know . You can upload files from here itself , like the one in dreamweaver . Interested ? Then try it man , why waiting over all its free .  Lets try to change the world . LIVE AND LET LIVE.  * The above content is copied from <a href="http://www.kompozer.net/features.php">http://www.kompozer.net/features.php</a> . You can read more from there.   </p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/03/23/25-gnu-gpl-licenced-e-commerce-systems/">GNU / GPL Licenced E-commerce Systems</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-23T08:25:00+05:30" pubdate data-updated="true">Mar 23<span>rd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Many of us uses E-commerce sites for online shopping . I don&rsquo;t whether they know how these systems work . If you are a web developer or interested to know how this systems work, you can install and try .  Some of the most popular E-commerce softwares are the Oscommerce under the licence of GNU / GPL , Zencart and Magnento . If you are a web developer especially a PHP programmer , you may have heard of these systems. I have tried these three in my local system . Installing these softwares are simple for any one. The requirements for installing the system may vary . But the main requirements are  \1) Apache ( Used mainly in Linux )  2 ) PHP installed  3 ) MySQL database.  If you have PHP version > 5 it will be good, to install all the three . You can see the basic requirements from the sites <a href="http://oscommerce.com">http://oscommerce.com</a> , <a href="http://www.zen-cart.com">http://www.zen-cart.com</a> , <a href="http://www.magentocommerce.com/">http://www.magentocommerce.com/</a> . Its very easy to learn oscommerce v 2.2 . The main thing I have noticed in oscommerce is it uses the normal coding, not any frame works like zend , symfony, code ignitor or any . I don&rsquo;t know whether its my mistake that it uses any ( Version 2.2 ).  The new version 3 for oscommerce is available. But its still in the alpha release . Its using frameworks , jquery , template structure , multiple product images, JSON etc . For more informations you can see in this link <a href="http://www.oscommerce.com/about/news,132">http://www.oscommerce.com/about/news,132</a> .  Zen-cart is another powerful e-commerce system which works mostly like oscommerce itslef. The main advantage of zencart is, developers don&rsquo;t need to bother about the design much. They can change any code at any time. The change in codes will not effect the design, and any change to design will not effect in its code. The zen-cart has lots of features in the admin side. I have installed both zen-cart and oscommerce. One thing I have noticed in common is the zen-cart and the oscommerce having the same sample datas. I don&rsquo;t know how it came so . I think zen-cart is a modified version of os-commerce. Anyway I don&rsquo;t get time to explore it. The admin portion of zen-cart has options to show the left nav , right nav , hide these nav when required etc.  Since zen-cart uses template engine customizing zen-cart will be much more easy. All you need to understand the structure, how smarty works etc. Customizing os-commerce needs to edit each and every page. Its some what a tedious one thanzen-cart. This is what I feel, and its all upto you to decide the e-commerce system which you needs.  Coming to Magento , the newly born award winning e-commerce system from the source-forge in 2008 , uses good features of the todays PHP , javascript and all. But needs a good server to run this. Else to load a page may take a long time. It has great features, like managing multiple stores. I don&rsquo;t know its architecture . Not able to look deeply . Anyway onething I am sure its uses some frame work.  Magento is a wonderful ecommerce system , that every one will love on the installation itself. But its some what hard to recognise the codes. It has a lots of features. Some of the great features I liked which is missing in oscommerce , zencart is manage multiple stores . May be due to this reason many website owners like this. You can see a list of features of magento <a href="http://www.magentocommerce.com/features">http://www.magentocommerce.com/features</a> here .  The demo for each systems are there . So if you like to see the demos of oscommerce systems . You can go and try it, before installing the system in your server .  <strong><a href="http://demo**.**oscommerce**.com/">http://demo**.**oscommerce**.com/</a>  <a href="http://www.magentocommerce.com/demo">http://www.magentocommerce.com/demo</a>  </strong><a href="http://demo**.opensourcecms.com/**zencart**">http://demo**.opensourcecms.com/**zencart**</a>  There may be more e-commerce systems , so if you need more you can explore sourceforge or opensourcecms.com is also a good site to see the demo and list of opensource and GNU / GPL softwares.</p>
 </div>
   
   

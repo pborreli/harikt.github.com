@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Router | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/router/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2014-04-26T20:45:56+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Web Routing in PHP With Aura.Router]]></title>
+    <link href="http://harikt.com/blog/2014/04/26/web-routing-in-php-with-aura-dot-router/"/>
+    <updated>2014-04-26T20:30:10+05:30</updated>
+    <id>http://harikt.com/blog/2014/04/26/web-routing-in-php-with-aura-dot-router</id>
+    <content type="html"><![CDATA[<p>It took sometime for me to create a series of screencast on
+<a href="http://auraphp.com">aura</a>. So my plan to start a series of
+screencasts starts with <a href="https://github.com/auraphp/Aura.Router">Aura.Router</a>
+version 2.</p>
+
+<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/hBV_BKP1WIY "></iframe></div></p>
+
+<p>I am interested to hear your feedback and interest for the future screencast.</p>
+
+<p>The next one will be on <a href="https://github.com/auraphp/Aura.Dispatcher">Dispatcher</a>
+If you want to cover something special in the
+<a href="https://github.com/auraphp/Aura.Dispatcher">Dispatcher</a> I will try to
+address it.</p>
+]]></content>
+  </entry>
+  
+</feed>
