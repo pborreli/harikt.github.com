@@ -1033,6 +1033,20 @@
         <lastmod>2014-04-26T21:07:17+05:30</lastmod>
     </url>
     <url>
+        <loc>http://harikt.com/blog/2014/04/29/installing-aura-web-project-via-composer/</loc>
+        <lastmod>2014-04-29T08:13:03+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://harikt.com/blog/2014/04/29/installing-aura-cli-project-via-composer/</loc>
+        <lastmod>2014-04-29T08:13:21+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://harikt.com/blog/2014/04/29/installing-aura-framework-project-via-composer/
+        </loc>
+        <lastmod>2014-04-29T08:49:52+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://harikt.com/who-am-i/</loc>
         <lastmod>2014-01-09T11:00:48+05:30</lastmod>
     </url>
@@ -1042,7 +1056,7 @@
     </url>
     <url>
         <loc>http://harikt.com/</loc>
-        <lastmod>2014-04-26T21:07:17+05:30</lastmod>
+        <lastmod>2014-04-29T08:49:52+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/search.html</loc>
@@ -1050,14 +1064,14 @@
     </url>
     <url>
         <loc>http://harikt.com/archives/</loc>
-        <lastmod>2014-04-26T21:07:17+05:30</lastmod>
+        <lastmod>2014-04-29T08:49:52+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/blog/</loc>
-        <lastmod>2014-04-26T21:07:17+05:30</lastmod>
+        <lastmod>2014-04-29T08:49:52+05:30</lastmod>
     </url>
     <url>
         <loc>http://harikt.com/blog/archives/</loc>
-        <lastmod>2014-04-26T21:07:17+05:30</lastmod>
+        <lastmod>2014-04-29T08:49:52+05:30</lastmod>
     </url>
 </urlset>

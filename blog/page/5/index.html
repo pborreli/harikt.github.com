@@ -9,7 +9,9 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="The 13th edition of Barcamp kerala is on November 4th. This time I am going to talk on Dependency Management with Composer. In the 12th Barcamp I &hellip;">
+  <meta name="description" content="If you have read my earlier posts, you know I started to love templating
+library like Twig, Mustache etc. So I was interested to in-corporate Twig
+or &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +80,219 @@
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/24/node-224/">The Making of Hari.Extras</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-24T21:22:00+05:30" pubdate data-updated="true">Nov 24<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you have read my earlier posts, you know I started to love templating
+library like Twig, Mustache etc. So I was interested to in-corporate Twig
+or PhlyMustache or any sort of templating library to auraphp.</p>
+
+<p><a href="https://github.com/auraphp/Aura.Web">Aura.Web</a> makes it easy to do
+without much hassle. What you want to do is create the class which
+extends the <code>Aura\Web\Renderer\AbstractRenderer</code> and have a exec() method.
+For more details checkout <a href="https://github.com/auraphp/Aura.Web/tree/develop#data-and-rendering">Data and Rendering</a></p>
+
+<pre><code>&lt;?php
+namespace Vendor\Package\Web\Renderer;
+
+use Aura\Web\Renderer\AbstractRenderer;
+
+class YourRender extends AbstractRenderer
+{
+    public function exec()
+    {
+    }
+}
+</code></pre>
+
+<p>And you should pass an object of Vendor\Package\Web\Renderer\YourRender to your controller.</p>
+
+<p>Currently I have added support for <a href="http://twig.sensiolabs.org">Twig</a> in <a href="http://github.com/harikt/Hari.Extras">Hari.Extras</a> . I will be adding support for
+PhlyMustache in the coming days. Hari.Extras comes with unit tests.</p>
+
+<p>Running unit tests :
+To run tests you should first install the dependencies. You can run
+{syntaxhighlighter class=&ldquo;php&rdquo;}composer.phar install &mdash;dev{/syntaxhighlighter}
+This will install the dependencies like Aura.Web, Aura.Framework, Twig, vfsstream etc in vendor folder.
+Now you can run the phpunit from tests folder.</p>
+
+<p>A big Thanks to @Paul M Jones and Chris Hartjes and all who have supported
+one way or the other giving me tips and tricks, motivation to make this happen.
+The nice thing is with composer for I don&rsquo;t need to keep everything in the tests folder.
+ Thanks to @Jordi</p>
+
+<p>By the way as <a href="https://github.com/auraphp">auraphp</a> is getting closer and closer for the next release
+I am planning to start a series of posts to get started with using the components. Stay tuned :) .</p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/24/node-223/">vfsStream and File System</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-24T20:42:00+05:30" pubdate data-updated="true">Nov 24<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Paul M Jones wrote earlier <a href="http://paul-m-jones.com/archives/2487">When Possible, Use File *Resources* Instead Of File *Names*</a> and in comments <a href="http://www.littlehart.net/atthekeyboard">Chris Hartjes</a> was mentioning about <a href="http://vfs.bovigo.org/">vfsStream</a>. So for <a href="https://github.com/auraphp">@auraphp</a> we thought of making to support vfsStream. What the hell it is? vfsStream is a PHP stream wrapper for a virtual file system that may be helpful in unit tests to mock the real file system. It can be used with any unit test framework, like PHPUnit or SimpleTest. So without touching the file system and not bothering too much about the operating system, file permissions, disk quota, removing the files created by tests on tear down etc we can make use of vfsstream. Lets start Go and get it via composer.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;require&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;mikey179/vfsStream&quot;</span><span class="o">:</span> <span class="s2">&quot;1.1.0&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p> Run your composer.phar update.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">require</span> <span class="s1">&#39;vendor/autoload.php&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">org\\bovigo\\vfs\\vfsStream</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">org\\bovigo\\vfs\\visitor\\vfsStreamStructureVisitor</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">org\\bovigo\\vfs\\visitor\\vfsStreamPrintVisitor</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$structure</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;Core&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;AbstractFactory&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;test.php&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="s1">&#39;some text content&#39;</span><span class="p">,</span> <span class="s1">&#39;other.php&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="s1">&#39;Some more text content&#39;</span><span class="p">,</span> <span class="s1">&#39;Invalid.csv&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="s1">&#39;Something else&#39;</span><span class="p">,</span> <span class="p">),</span> <span class="s1">&#39;AnEmptyFolder&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="k">array</span><span class="p">(),</span> <span class="s1">&#39;badlocation.php&#39;</span> <span class="o">=</span><span class="nx">\</span><span class="o">&gt;</span> <span class="s1">&#39;some bad content&#39;</span><span class="p">,</span> <span class="p">)</span> <span class="p">);</span>
+</span><span class='line'><span class="nv">$root</span> <span class="o">=</span> <span class="nx">vfsStream</span><span class="o">::</span><span class="na">setup</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$structure</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p> So now we have created a complex structured file system. How can we check whether the structure is same?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">vfsStream</span><span class="o">::</span><span class="na">inspect</span><span class="p">(</span><span class="k">new</span> <span class="nx">vfsStreamPrintVisitor</span><span class="p">());</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p> Now you have the structure how can you get the contents of the file you have created?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">file\_get\_contents</span><span class="p">(</span><span class="nx">vfsStream</span><span class="o">::</span><span class="na">url</span><span class="p">(</span><span class="s1">&#39;root/Core/badlocation.php&#39;</span><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p> Or you can do via</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$root</span><span class="o">-&gt;</span><span class="na">getChild</span><span class="p">(</span><span class="s1">&#39;Core/badlocation.php&#39;</span><span class="p">)</span><span class="o">-</span><span class="nx">\</span><span class="o">&gt;</span><span class="nx">getContent</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p> The question was raised by myself at <a href="https://github.com/mikey179/vfsStream/issues/48">https://github.com/mikey179/vfsStream/issues/48</a> . You can create directory and use vfsStreamPrintVisitor to see how the structure will be</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nb">mkdir</span><span class="p">(</span><span class="nx">vfsStream</span><span class="o">::</span><span class="na">url</span><span class="p">(</span><span class="s1">&#39;root/Core/AnEmptyFolder/hello&#39;</span><span class="p">));</span> <span class="nx">vfsStream</span><span class="o">::</span><span class="na">inspect</span><span class="p">(</span><span class="k">new</span> <span class="nx">vfsStreamPrintVisitor</span><span class="p">());</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p> There is more documentation how you can use in phpunit or have a look into the recent commits on <a href="https://github.com/auraphp/Aura.View/commit/f39e3452116072a3fe7f529584acb862a76fe15e">Aura.View</a> For more documentation have a look into <a href="https://github.com/mikey179/vfsStream/wiki">https://github.com/mikey179/vfsStream/wiki</a></p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/06/node-221/">Design Principles for a Better CMS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-06T21:32:00+05:30" pubdate data-updated="true">Nov 6<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>May be the question is so simple for you. But many times I feel it much complicated. Everyone would have started their website with a custom cms and later moved to Wordpress, Drupal, Joomla or something similar. I used to look for a better book in any language which has design decisions made for the cms to make it such a way that it can be extended. Some of the books that seems interesting to me are 1 ) <a href="http://www.apress.com/9781430218791">Pro Zend Framework CMS</a> 2 ) <a href="http://www.packtpub.com/php-5-cms-framework-development-2nd-edition/book">PHP 5 CMS Framework Development</a> It will be great to see if you have came across such books or do you recommend any other books. I am not just looking for PHP, but I am interested to read any sort of books, which will help me to build the next blogger. Waiting to hear you suggestions on the same.</p>
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -311,108 +526,6 @@
 
 
   <div class="entry-content"><p>Note : First I thought of creating an issue, and it was not in github. These are not serious issues, but just my thoughts when installing ZF2 via composer. I am not sure whether its composer related or the way the zf2 is packaged to do it via composer. Normally the composer.json will be something like {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &ldquo;require&rdquo;: { &ldquo;zendframework/zend-form&rdquo;: &ldquo;2.0&rdquo; } } hari@local:/var/www/composer/zf2$ php ../composer.phar install Loading composer repositories with package information Installing dependencies &ndash; Installing zendframework/zendframework (2.0.0) Downloading: 25%^C hari@local:/var/www/composer/zf2$ ^C {/syntaxhighlighter} But you can see the composer tries to install the whole zend-framework. The problem is you need to add some more lines for its hosted in packages.framework.com and not in packagist.org . So your composer.json will be as below . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &ldquo;repositories&rdquo;: [ { &ldquo;type&rdquo;: &ldquo;composer&rdquo;, &ldquo;url&rdquo;: &ldquo;<a href="http://packages.zendframework.com/">http://packages.zendframework.com/</a>&rdquo; } ], &ldquo;require&rdquo;: { &ldquo;zendframework/zend-form&rdquo;: &ldquo;2.0&rdquo; } } hari@local:/var/www/composer/zf2$ php ../composer.phar install Loading composer repositories with package information Installing dependencies &ndash; Installing zendframework/zend-form (2.0.0) Downloading: 100% zendframework/zend-form suggests installing zendframework/zendservice-recaptcha (ZendService\ReCaptcha component) Writing lock file Generating autoload files {/syntaxhighlighter} Great you installed the zf2 form component. Now you can see where the form is installed . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ ls vendor/ autoload.php composer zendframework hari@local:/var/www/composer/zf2$ ls vendor/zendframework/ zend-form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/ Form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/ Annotation FieldsetInterface.php composer.json Fieldset.php Element FieldsetPrepareAwareInterface.php ElementInterface.php FormFactoryAwareInterface.php Element.php FormInterface.php ElementPrepareAwareInterface.php Form.php Exception TODO.md Factory.php View {/syntaxhighlighter} Assume you have more zf2 packages which you have added. At a later point you think of installing the framework as a whole itself than adding more packages in the composer.json . So your composer.json will be some what like {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &ldquo;repositories&rdquo;: [ { &ldquo;type&rdquo;: &ldquo;composer&rdquo;, &ldquo;url&rdquo;: &ldquo;<a href="http://packages.zendframework.com/">http://packages.zendframework.com/</a>&rdquo; } ], &ldquo;require&rdquo;: { &ldquo;zendframework/zendframework&rdquo;: &ldquo;2.0&rdquo; } } hari@local:/var/www/composer/zf2$ php ../composer.phar update Loading composer repositories with package information Updating dependencies &ndash; Removing zendframework/zend-form (2.0.0) &ndash; Installing zendframework/zendframework (2.0.0) Downloading: 100% Writing lock file Generating autoload files {/syntaxhighlighter} The form has been removed and framework is installed. Lets have a look where its installed . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ ls vendor/ autoload.php composer zendframework hari@local:/var/www/composer/zf2$ ls vendor/zendframework/ zend-form hari@local:/var/www/composer/zf2$ cat composer.json { &ldquo;repositories&rdquo;: [ { &ldquo;type&rdquo;: &ldquo;composer&rdquo;, &ldquo;url&rdquo;: &ldquo;<a href="http://packages.zendframework.com/">http://packages.zendframework.com/</a>&rdquo; } ], &ldquo;require&rdquo;: { &ldquo;zendframework/zendframework&rdquo;: &ldquo;2.0&rdquo; } } hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/ Form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/ bin INSTALL.md README-DEV.md resources composer.json library README-GIT.md tests demos LICENSE.txt README.md vendor hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/library/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/library/Zend/ Authentication Di InputFilter Mvc Stdlib Barcode Dom Json Navigation Tag Cache Escaper Ldap Paginator Text Captcha EventManager Loader Permissions Uri Code Feed Log ProgressBar Validator Config File Mail Serializer Version Console Filter Math Server View Crypt Form Memory ServiceManager XmlRpc Db Http Mime Session Debug I18n ModuleManager Soap {/syntaxhighlighter} You can notice its going on the wrong place. vendor/zendframework/zend-form . I am not sure whether every one needs to remove all the installed packages to install the framework . It seems possible with naming zendframework/package . Thus it don&rsquo;t remove the installed packages. May be there are some other issues related to it for the naming of zendframework/zend-form like that.</p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/08/27/how-to-install-aura-framework/">How to Install Aura Framework</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-27T04:58:00+05:30" pubdate data-updated="true">Aug 27<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This video is my an attempt to help the people how to install the aura framework as a whole. Note, you can use aura libraries independently also. This is my first screencast on aura and first screencast I have ever done. So feedback is appreciated. I am using record my desktop for recording.  I was having some trouble with vimeo, so have uploaded to youtube. Thanks for watching.</p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/08/16/yahoo-open-hack-india-2012/">Yahoo Open Hack India 2012</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-16T11:38:00+05:30" pubdate data-updated="true">Aug 16<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So I got a chance to be at Bangalore for Open Hack India 2012 conducted by Yahoo.  <a href="http://www.flickr.com/photos/mrowan/7751044880/" title="IMG_5052 by mrowan, on Flickr"><img src="http://farm9.staticflickr.com/8286/7751044880_e0cb1fea0b.jpg" alt="IMG_5052" /></a>  <a href="http://www.flickr.com/photos/mrowan/7751030446/" title="IMG_5065 by mrowan, on Flickr"><img src="http://farm9.staticflickr.com/8296/7751030446_54abd3bc44.jpg" alt="IMG_5065" /></a>  It was really a great time to learn and do some of the experiments on Yahoo developer network (ydn) tools.  So we ended up trying to do some stuff with <a href="http://open.dapper.net/">dapper</a>. Dapper is a tool used for scrapping. It seems interesting from the workshop. But when I started using it, I was not successful. The dapper stopped responding / showing updating preview and stuffs.  What I was trying todo?&lt; /p>  I used to buy books comparing prices from isbn.net.in . It helped me a lot in buying books very cheap in India. But isbn.net.in was not having a feature called search for book title, and isbn details and as it does currently. Yes there were various other services that do the same. But if you think so then you must think why gmail was developed for there were yahoo mail, aol, msn etc were there.  So anyway learning was the idea, but as dapper fails to respond, it seems hard. I tried to contact the developers via the contact form. But I didn&rsquo;t got a reply on Hack days to further proceed on it. So I tried various other methods via Yahoo pipes, yql etc.  It was really nice to learn and make my hands dirty with yql. I tried different stuffs. Exploring it I found the url shortner from Yahoo.  So once I reached home I made a url shortner which is currently in github ( <a href="http://harikt.github.com/openhackindia/">http://harikt.github.com/openhackindia/</a> ) . Its simple with a few lines.  {syntaxhighlighter class=&ldquo;html&rdquo;} {/syntaxhighlighter} YQL is powerful, try and play. Its awesome guys.  I also came to know about Boomerang from Yahoo.  I was planning to buy a Bean Bag, and yes I got as a present from Yahoo.  Thank you guys for the awesome event. I am really sad for not able to submit a Hack :( . But I will explore more the ydn resoucres in future. Hope to see you next time if everything permits.  References :  YUI for jQuery Developers and vice versa : <a href="http://www.jsrosettastone.com/">http://www.jsrosettastone.com/</a>  Quick start to learn YUI : <a href="http://yuilibrary.com/yui/quick-start/">http://yuilibrary.com/yui/quick-start/</a>  Using YQL with YUI : <a href="http://yuilibrary.com/yui/docs/yql/">http://yuilibrary.com/yui/docs/yql/</a></p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/30/speaking-at-barcamp-bangalore-on-auraphp/">Speaking at Barcamp Bangalore August 25th 2012 on Aura PHP</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-30T23:24:00+05:30" pubdate data-updated="true">Jul 30<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you have never heard or came to know about Aura Project for PHP or love to know something what I know, come join on a healthy conversation at Barcamp Bangalore which will be held on August 25th 2012. I will walk you through some of the components like Router, Web, Http componets which can be used in your next PHP project. If you want to use it as a full stack framework, we have the system. The good thing is its easy to learn and use, and as its not tied to any other components you can create your own next framework with Aura components :&ndash;). Find some documentation api and code at <a href="https://github.com/auraphp">https://github.com/auraphp</a> . See you at Barcamp Bangalore! Note : I expect you know about PHP and the new things which are already there in PHP 5.3 and 5.4 . I will not be teaching PHP for its time limited talk. If you want to learn more on PHP and new features, get in touch with me. I will give a talk on it at your place.</p>
 </div>
   
   

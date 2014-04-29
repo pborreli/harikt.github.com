@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Web | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2014-04-29T08:49:58+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Aura Framework Project via Composer]]></title>
+    <link href="http://harikt.com/blog/2014/04/29/installing-aura-framework-project-via-composer/"/>
+    <updated>2014-04-29T07:50:48+05:30</updated>
+    <id>http://harikt.com/blog/2014/04/29/installing-aura-framework-project-via-composer</id>
+    <content type="html"><![CDATA[<p>In this tutorial I am showing how to install aura framework project v2
+via composer.</p>
+
+<pre><code>composer create-project -s beta aura/framework-project path-to-project
+</code></pre>
+
+<p><a href="https://github.com/auraphp/Aura.Framework_Project">Aura.Framework_Project</a> helps
+you to build web and cli applications.</p>
+
+<p>If you need only web based application then
+<a href="https://github.com/auraphp/Aura.Web_Project">Aura.Web_Project</a>
+is what you need.</p>
+
+<p><div class="embed-video-container"><iframe src="http://showterm.io/b971330ea7fd28d22e2f3 "></iframe></div></p>
+
+<p>If you need only cli, then <a href="https://github.com/auraphp/Aura.Cli_Project">Aura.Cli_Project</a> helps you.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Aura Cli Project via Composer]]></title>
+    <link href="http://harikt.com/blog/2014/04/29/installing-aura-cli-project-via-composer/"/>
+    <updated>2014-04-29T07:50:37+05:30</updated>
+    <id>http://harikt.com/blog/2014/04/29/installing-aura-cli-project-via-composer</id>
+    <content type="html"><![CDATA[<p>In this tutorial I am showing how to install aura cli project v2
+via composer.</p>
+
+<pre><code>composer create-project -s beta aura/cli-project path-to-project
+</code></pre>
+
+<p><a href="https://github.com/auraphp/Aura.Cli_Project">Aura.Cli_Project</a> help
+you to build cli ( command line ) applications.</p>
+
+<p><div class="embed-video-container"><iframe src="http://showterm.io/4baa2e4db41b12786a7ce "></iframe></div></p>
+
+<p>If you need only web based application then
+<a href="https://github.com/auraphp/Aura.Web_Project">Aura.Web_Project</a>
+is what you need.</p>
+
+<p>If you need web and cli, then
+<a href="https://github.com/auraphp/Aura.Framework_Project">Aura.Framework_Project</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Aura Web Project via Composer]]></title>
+    <link href="http://harikt.com/blog/2014/04/29/installing-aura-web-project-via-composer/"/>
+    <updated>2014-04-29T07:50:30+05:30</updated>
+    <id>http://harikt.com/blog/2014/04/29/installing-aura-web-project-via-composer</id>
+    <content type="html"><![CDATA[<p>In this tutorial I am showing how to install aura web project v2
+via composer.</p>
+
+<pre><code>composer create-project -s beta aura/web-project path-to-project
+</code></pre>
+
+<p><a href="https://github.com/auraphp/Aura.Web_Project">Aura.Web_Project</a> helps
+you to build web based application. If you need web and cli then
+<a href="https://github.com/auraphp/Aura.Framework_Project">Aura.Framework_Project</a>
+is what you need.</p>
+
+<p><div class="embed-video-container"><iframe src="http://showterm.io/ca62d66745c55a80780bc "></iframe></div></p>
+
+<p>If you need only cli, then <a href="https://github.com/auraphp/Aura.Cli_Project">Aura.Cli_Project</a> helps you.</p>
+]]></content>
+  </entry>
+  
+</feed>

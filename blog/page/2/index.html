@@ -9,8 +9,13 @@
   <meta name="author" content="Hari K T">
 
   
-  <meta name="description" content="What do you think, Is it really worth to go to a conference,
-and spend so much money? Yes, it is really worth. You don&rsquo;t know what will happen &hellip;">
+  <meta name="description" content="Processwire is a content management framework. I was looking to change the directory structure of the Processwire. 1
+2
+3
+4
+5
+|-- index.php
+|-- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +84,571 @@ and spend so much money? Yes, it is really worth. You don&rsquo;t know what will
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/08/assets-for-processwire/">Assets for Processwire</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-08T17:35:00+05:30" pubdate data-updated="true">Nov 8<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://processwire.com/">Processwire</a> is a content management framework.</p>
+
+<p>I was looking to change the directory structure of the Processwire.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>|-- index.php
+</span><span class='line'>|-- installer.php
+</span><span class='line'>|-- README.md
+</span><span class='line'>|-- site
+</span><span class='line'><span class="sb">`</span>-- wire
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I am not the first person to talk on the subject. There are other threads
+like
+<a href="http://processwire.com/talk/topic/876-installation-paths-and-moving-folders/">Installation paths and moving folders</a>,
+<a href="http://processwire.com/talk/topic/3445-common-practices/">Common practices</a></p>
+
+<p>Anyway I thought of trying the same and for serving the <code>js</code>, <code>css</code>, <code>images</code>
+I wrote my first processwire module <a href="https://github.com/harikt/Assets">Assets</a></p>
+
+<p>Some of the portions are from
+<a href="https://github.com/auraphp/Aura.Framework/blob/f122f77b7f97d3bec9dbf930a66e706d2b89b6f8/src/Aura/Framework/Web/Asset/Page.php#L123-L147">Aura.Framework</a>
+and <a href="https://github.com/auraphp/Aura.View/blob/613286b1122bd7ef78a12550afdb10f78813d040/src/Aura/View/FormatTypes.php#L31-L113">Aura.View</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>|-- cli
+</span><span class='line'>|-- composer.json
+</span><span class='line'>|-- index.php <span class="o">(</span> which is moved to web folder <span class="o">)</span>
+</span><span class='line'>|-- installer.php
+</span><span class='line'>|-- README.md
+</span><span class='line'>|-- site
+</span><span class='line'>|   |-- assets
+</span><span class='line'>|   |-- config.php
+</span><span class='line'>|   |-- hello.css
+</span><span class='line'>|   |-- install
+</span><span class='line'>|   |-- modules
+</span><span class='line'>|   <span class="sb">`</span>-- templates
+</span><span class='line'>|-- vendor <span class="o">(</span>3rd party vendors from PHP, Eg: Aura.Includer <span class="o">)</span>
+</span><span class='line'>|-- httpdocs <span class="o">(</span> you can name this folder what ever you like <span class="o">)</span>
+</span><span class='line'>|   |-- index.php
+</span><span class='line'>|   |-- site <span class="o">(</span> css, js and images copied from realpath <span class="o">)</span>
+</span><span class='line'>|   <span class="sb">`</span>-- wire <span class="o">(</span> css, js and images copied from realpath <span class="o">)</span>
+</span><span class='line'><span class="sb">`</span>-- wire
+</span><span class='line'>    |-- config.php
+</span><span class='line'>    |-- core
+</span><span class='line'>    |-- index.config.php
+</span><span class='line'>    |-- modules
+</span><span class='line'>    |-- README.txt
+</span><span class='line'>    <span class="sb">`</span>-- templates-admin
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You also need to change the <code>$rootPath</code> in <code>index.php</code> accordingly.
+Hope someone will find it useful.
+I am releasing it under <a href="http://opensource.org/licenses/BSD-2-Clause">BSD-2-Clause</a></p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/06/using-aura-dispatcher-in-silex/">Using Aura Dispatcher in Silex</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-06T12:42:00+05:30" pubdate data-updated="true">Nov 6<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>2 days back <a href="http://paul-m-jones.com/">Paul M Jones</a> wrote an awesome post
+<a href="http://auraphp.com/blog/2013/11/04/aura-v2-dispatcher/">A Peek At Aura v2 &mdash; Aura.Dispatcher</a>
+the idea behind <a href="http://github.com/auraphp/Aura.Dispatcher/">Aura.Dispatcher</a>
+and how it was born.</p>
+
+<p>So today, let us try to integrate
+<a href="http://github.com/auraphp/Aura.Dispatcher">Aura.Dispatcher</a> with
+<a href="https://github.com/silexphp/Silex">Silex</a>. This post is inspired by the
+<a href="http://auraphp.com/blog/2013/11/04/aura-v2-dispatcher/#comment-1109657910">comment</a>
+made by <a href="https://twitter.com/cordoval">Luis Cordova</a>. Thank you.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer create-project silex/silex --no-dev silexproject
+</span><span class='line'><span class="nb">cd </span>silexproject
+</span><span class='line'>composer require aura/dispatcher dev-develop-2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>I hope you have composer installed else <a href="http://getcomposer.org/">get composer</a>.</p></blockquote>
+
+<p>I am not going to explain each and everything, the code is self explanatory.
+You can move the classes according to your wish (may be to another folder).
+I am trying to show a simple use case.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Dispatcher\Dispatcher</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$dispatcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dispatcher</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">setMethodParam</span><span class="p">(</span><span class="s1">&#39;action&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">setObjectParam</span><span class="p">(</span><span class="s1">&#39;controller&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Blog</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">browse</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// ...</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">hello</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$app</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="s1">&#39;Hello &#39;</span><span class="o">.</span> <span class="nx">ucfirst</span><span class="p">(</span><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">escape</span><span class="p">(</span><span class="nv">$name</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">edit</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">echo</span> <span class="s2">&quot;Here&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">exit</span><span class="p">;</span>
+</span><span class='line'>        <span class="c1">// ...</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// ...</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// ...</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">setObject</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="nx">Blog</span><span class="p">;</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Silex\Application</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/hello/{name}&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$dispatcher</span><span class="p">,</span> <span class="nv">$app</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$params</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;blog&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;action&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;app&#39;</span> <span class="o">=&gt;</span> <span class="nv">$app</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">];</span>
+</span><span class='line'>    <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$dispatcher</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nv">$result</span><span class="p">;</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>See how we moved the <code>return 'Hello '. ucfirst($app-&gt;escape($name));</code>
+to a controller and action. I haven&rsquo;t used Silex extensively, so there
+can be better ways for integration.</p>
+
+<blockquote><p>Update : I was asking <a href="https://twitter.com/beausimensen">Beau D. Simensen</a>
+on the integration, and he gave another shot.</p></blockquote>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="c1">// all code as same as above, upto the route</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/hello/{name}&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$app</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;blog&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;action&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;app&#39;</span> <span class="o">=&gt;</span> <span class="nv">$app</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">];</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">on</span><span class="p">(</span><span class="nx">\Symfony\Component\HttpKernel\KernelEvents</span><span class="o">::</span><span class="na">VIEW</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$event</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$app</span><span class="p">,</span> <span class="nv">$dispatcher</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$view</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getControllerResult</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">is_null</span><span class="p">(</span><span class="nv">$view</span><span class="p">)</span> <span class="o">||</span> <span class="nb">is_string</span><span class="p">(</span><span class="nv">$view</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$view</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// we can only handle array data in the view</span>
+</span><span class='line'>        <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;controller&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$view</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">])))</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// at this point we don&#39;t know what is going on.</span>
+</span><span class='line'>        <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$dispatcher</span><span class="p">(</span><span class="nv">$view</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nv">$response</span> <span class="nx">instanceof</span> <span class="nx">\Symfony\Component\HttpFoundation\Response</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// If the response is not a Response instance, wrap it in one</span>
+</span><span class='line'>        <span class="c1">// and assume that it was something appropriate as a response</span>
+</span><span class='line'>        <span class="c1">// body.</span>
+</span><span class='line'>        <span class="nv">$response</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Symfony\Component\HttpFoundation\Response</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setResponse</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>I have purposefully kept the full path like <code>\Symfony\Component\HttpFoundation\Response</code></p></blockquote>
+
+<p>Hope you love <a href="http://github.com/auraphp/Aura.Dispatcher">Aura.Dispatcher</a>
+and use when you need architecural changes.</p>
+
+<p>Please do take time to read
+<a href="https://github.com/auraphp/Aura.Dispatcher#refactoring-to-architecture-changes">Refactoring To Architecture Changes</a></p>
+
+<p>Thank you and if you loved the post please do a tweet :&ndash;).</p>
+
+<p>Happy PhPing!</p>
+</div>
+  
+  
+
+</article>
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/01/rest-is-delete-idempotent/">REST: Is DELETE Idempotent?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-01T05:28:00+05:30" pubdate data-updated="true">Nov 1<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is a thrive to learn, and not to show anyone is incorrect.
+Feel free to share your thoughts.</p>
+
+<p>Lukas Kahwe Smith was having a nice post
+<a href="https://blog.liip.ch/archive/2013/10/28/resting-with-symfony2.html">RESTing with Symfony2</a></p>
+
+<p>Quoting a few words from the post on REST</p>
+
+<h2>DELETE and 404</h2>
+
+<blockquote><p>I started my talk on RESTing with Symfony2 with an introduction to REST itself.
+On slide 7 of my talk I explained the concept of &ldquo;safe&rdquo; and
+&ldquo;idempotent&rdquo; HTTP methods. Many people were surprised when I explained
+that DELETE should be idempotent, meaning that sending a DELETE request
+to a resource that has been removed should infact not return a 404.</p></blockquote>
+
+<p>I am not a REST guru, but in fact I got curious on the same, and
+was looking at http status <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11">410 Gone</a></p>
+
+<blockquote><p><a href="https://twitter.com/harikt">@harikt</a> 1st Q that must be answered is if
+DELETE is idempotent. if it is then the status code shouldn&#39;t
+change on subsequent delete requests
+&mdash; Lukas Kahwe Smith (@lsmith) <a href="https://twitter.com/lsmith/statuses/395160219376164864">October 29, 2013</a></p></blockquote>
+
+<h2>What is idempotent?</h2>
+
+<p>Quoting from <a href="http://en.wikipedia.org/wiki/Idempotence">Wikipedia</a></p>
+
+<blockquote><p>Idempotence is the property of certain operations in mathematics and
+computer science, that can be applied multiple times without changing
+the result beyond the initial application. The concept of idempotence
+arises in a number of places in abstract algebra (in particular, in
+the theory of projectors and closure operators) and functional
+programming (in which it is connected to the property of referential transparency).</p>
+
+<p>There are several meanings of idempotence, depending on what the concept is applied to:</p>
+
+<ul>
+<li>A unary operation (or function) is idempotent if, whenever it is applied twice to any value, it gives the same result as if it were applied once; i.e., ƒ(ƒ(x)) ≡ ƒ(x). For example, the absolute value: abs(abs(x)) ≡ abs(x).</li>
+<li>A binary operation is idempotent if, whenever it is applied to two equal values, it gives that value as the result. For example, the operation giving the maximum value of two values is idempotent: max (x, x) ≡ x.</li>
+<li>Given a binary operation, an idempotent element (or simply an idempotent) for the operation is a value for which the operation, when given that value for both of its operands, gives the value as the result. For example, the number 1 is an idempotent of multiplication: 1 × 1 = 1.</li>
+</ul>
+</blockquote>
+
+<p>Christophe Coevoet also feel the same</p>
+
+<blockquote><p><a href="https://twitter.com/lsmith">@lsmith</a> then 410 is probably the best status
+code here, and 404 otherwise /cc <a href="https://twitter.com/harikt">@harikt</a> <a href="https://twitter.com/_m6w6">@_m6w6</a>
+&mdash; Christophe Coevoet (@Stof70) <a href="https://twitter.com/Stof70/statuses/395193333347135488">October 29, 2013</a></p></blockquote>
+
+<p>Why?</p>
+
+<blockquote><p><a href="https://twitter.com/lsmith">@lsmith</a> The definition says &quot;without changing the result&quot;.
+the HTTP spec says that the result is the state of the app <a href="https://twitter.com/_m6w6">@_m6w6</a> <a href="https://twitter.com/harikt">@harikt</a>
+&mdash; Christophe Coevoet (@Stof70) <a href="https://twitter.com/Stof70/statuses/395193644585480192">October 29, 2013</a></p></blockquote>
+
+<p><img src="/assets/images/http-delete.png" alt=" Status code of DELETE " /></p>
+
+<p>The above screenshot is limited, you can check all the messages passed from
+<a href="https://twitter.com/harikt/status/395154834426314752">https://twitter.com/harikt/status/395154834426314752</a></p>
+
+<p>Woke up early morning and I noticed a subsequent post
+<a href="http://www.duckheads.co.uk/is-a-http-delete-requests-idempotent/491">Is a HTTP DELETE request idempotent?</a>
+by Lee Davis. Interesting to read his thoughts on the same.
+There was a nice discussion by <a href="http://www.jasonlotito.com/">Jason Lotito</a>,
+do consider reading it.</p>
+
+<p>I felt Jason Lotito is correct.</p>
+
+<h2>Wikipedia has something to say aboout Idempotent methods</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Idempotent_methods_and_web_applications">Hypertext Transfer Protocol Idempotent methods</a></p>
+
+<blockquote><p>Methods PUT and DELETE are defined to be idempotent, meaning that multiple
+identical requests should have the same effect as a single request
+(Note that idempotence refers to the state of the system after the
+request has completed, so while the action the server takes
+(e.g. deleting a record) or the response code it returns may be
+different on subsequent requests, the system state will be the same every time).</p></blockquote>
+
+<p>So what does that mean?</p>
+
+<p>Let us look into a real world example deleting <a href="http://example.com/post/121">http://example.com/post/121</a></p>
+
+<p>We send a DELETE method via REST. What is going to happen?</p>
+
+<p>I am quoting from
+<a href="http://www.restapitutorial.com/lessons/httpmethods.html">http://www.restapitutorial.com/lessons/httpmethods.html</a></p>
+
+<blockquote><p>On successful deletion, return HTTP status 200 (OK) along with a response body,
+perhaps the representation of the deleted item (often demands too much bandwidth),
+or a wrapped response (see Return Values below). Either that or
+return HTTP status 204 (NO CONTENT) with no response body</p></blockquote>
+
+<p>so far, so good.</p>
+
+<p>What is going to happen on your subsequent request?</p>
+
+<p>2nd time we are sending a DELETE method via REST, what do you expect to get?</p>
+
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.5">204 No Content</a>. What does that mean?</p>
+
+<blockquote><p>The server has fulfilled the request but does not need to return an
+entity-body, and might want to return updated metainformation.</p></blockquote>
+
+<p>No Content is a good status, which means the server has exectuted your
+delete operation successfully is a wrong information.</p>
+
+<p>iirc I have learned in Software Engineering, the wrong information
+is too bad than sending an error. Eg : 5+2 returning 9. I read some where
+at <a href="http://www.joelonsoftware.com/">http://www.joelonsoftware.com/</a> the bug
+they want to deal with when he was at microsoft. ( If anyone have the link
+please comment it)</p>
+
+<p>So if you know that a request for <a href="http://example.com/post/121">http://example.com/post/121</a> is already
+deleted, then <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11">410 Gone</a>
+will be the right status.</p>
+
+<p>If you don&rsquo;t know <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a>
+is the best status. Say it is not created, do we send 204?.</p>
+
+<p>So here <a href="http://example.com/post/121">http://example.com/post/121</a> is already deleted.
+(That means your subsequent response should be same,
+note that not response status code)</p>
+
+<p>It is upto your application how to deal with making it truely RESTful. Else
+passing false information as response always is a wrong way.</p>
+
+<p>I have also tried to get RSDL (RESTful Service Description Language)
+<a href="http://en.wikipedia.org/wiki/RSDL#Maintainer">Maintainer</a> to know
+the real information.</p>
+
+<p>Probably I am wrong, but I am still learning REST.</p>
+
+<p>Thank you.</p>
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -1225,432 +1795,6 @@ category information, products list etc are shown below.</p>
 </span><span class='line'><span class="k">echo</span> <span class="nv">$result</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure>
 
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/12/a-word-about-tracy/">A Word About Tracy</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-12T13:31:00+05:30" pubdate data-updated="true">Jul 12<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Tracy is a wonderful component from the
-<a href="http://nette.org">nette framework project</a>.</p>
-
-<p>I have been looking at tracy for a while. It has nice awesome panel for
-you to dump and debug things.</p>
-
-<p>Looking exceptions are handy.</p>
-
-<p><img src="http://harikt.com/images/tracy.png" alt="Tracy Panel" /></p>
-
-<h2>Installation</h2>
-
-<p>It is easy to install with composer. So your composer.json will be
-something like below.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="s2">&quot;minimum-stability&quot;</span><span class="o">:</span> <span class="s2">&quot;dev&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s2">&quot;require&quot;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>        <span class="s2">&quot;tracy/tracy&quot;</span><span class="o">:</span> <span class="s2">&quot;dev-master&quot;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and finally run the <code>composer.phar update</code></p>
-
-<h2>Enabling the Debugger</h2>
-
-<p>In-order to enable the debugger, you need to add two lines.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">use</span> <span class="nx">Tracy\Debugger</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">Debugger</span><span class="o">::</span><span class="na">enable</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<blockquote><p>Assuming you have already added a line <code>require_once 'path/to/vendor/autoload.php';</code></p></blockquote>
-
-<h2>Dump Data</h2>
-
-<p>There are a variety of options which you can dump data. Some of
-them are to firebug, firelogger etc.</p>
-
-<p>In this  I am interested to show you how to dump data to the
-debug bar.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">Debugger</span><span class="o">::</span><span class="na">barDump</span><span class="p">(</span><span class="s1">&#39;Some SQL Query&#39;</span><span class="p">,</span> <span class="s1">&#39;SQL&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="nx">Debugger</span><span class="o">::</span><span class="na">barDump</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">),</span> <span class="s1">&#39;bar&#39;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The panel is smart enough to understand and float
-where it stayed when you last opened it.</p>
-
-<p>Try it out guys!</p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/09/the-book-on-aura/">The Book on Aura</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-09T06:55:00+05:30" pubdate data-updated="true">Jul 9<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>There has been lot of requests to show how the individual packages
-in aura, can be made use inside the framework.</p>
-
-<p>So today I am happy to announce that there is a work in progress
-to make the framework documentation better. I have already started
-the work on the same.</p>
-
-<p>You can <a href="http://auraphp.com/manuals/">read the chapters online</a>.</p>
-
-<p>The examples used in the book are also online at<br/>
-<a href="https://github.com/harikt/Example.Package">https://github.com/harikt/Example.Package</a></p>
-
-<blockquote><p>I hope Something is better than nothing.</p></blockquote>
-
-<h2>Question / Doubts</h2>
-
-<p>Ask your question / doubts in
-<a href="https://groups.google.com/forum/#!forum/auraphp">google groups</a></p>
-
-<h2>Feedback</h2>
-
-<p>I will be more happy to hear your feedback, critics, comments etc.
-So do shout at me.</p>
-
-<h2>Contributing</h2>
-
-<p>If you interested in contributing to make it better, it is available
-at <a href="https://github.com/auraphp/auraphp.github.com">https://github.com/auraphp/auraphp.github.com</a></p>
-
-<p>Written in markdown. Still have hard time understanding things, create
-an issue mentioning the problems you are facing.</p>
-
-<h2>Thanks</h2>
-
-<p>I would like to thank Paul M Jones for the awesome work he has done
-on aura.</p>
-
-<p>A special Thanks to <a href="https://github.com/jsurgeson">Jeff Surgeson</a> for
-continously asking for the book.</p>
-
-<p>Last but not the least, all who have motivated me to write a book.</p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/05/magento-and-rest-api/">Magento and REST Api</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-05T08:31:00+05:30" pubdate data-updated="true">Jul 5<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Magento provides both REST and SOAP api. In this post I would like to
-concentrate on REST api to connect and get the products from magento shop.</p>
-
-<p>First we want to register an Oauth consumer to get the consumer key and secret key.</p>
-
-<p>Login to the admin of the magento shop and from the menu
-<code>System-&gt;Web Services-&gt;REST - Oauth Consumers</code> and add a new Ouath consumer.</p>
-
-<p><img src="http://harikt.com/images/oauth-consumer.png" alt="REST - Oauth Consumers" /></p>
-
-<p>You need the Key and Secret which is what we pass in the config to
-<code>Zend_Oauth_Consumer</code> shortly.</p>
-
-<p>Let us also assign the right permissions for the attributes. From the menu
-<code>System-&gt;Web Services-&gt;REST - Attributes</code> click on Admin and assign the right
-permission. In our case we give access to products.</p>
-
-<p><img src="http://harikt.com/images/magento_rest_attributes.png" alt="REST - Attributes" /></p>
-
-<p>Now it is time to show you some code. In most case, we would have defined a
-named route, and depeding upon your route in zend framework call the url.</p>
-
-<p>Assuming the default url <code>http://localhost:8000/index/index</code> and accessing
-this in your browser will redirect you to the magento shop and get the access token after
-you authenticating and allowing it.</p>
-
-<p>Note : Make sure that the domain you have logged in and the one
-you have provided in the callback url of magento REST Oauth consumer are
-same. Else you will find hard time debugging why session is lost.
-(I am talking about the difference in <a href="http://www.example.com">http://www.example.com</a> and <a href="http://example.com">http://example.com</a>)</p>
-
-<p>You want to change the below parameters in the controller according to yours.</p>
-
-<p><code>$this-&gt;hostname</code>: The magento shop</p>
-
-<p><code>$consumerKey</code>: The key you got when creating the oauth consumer</p>
-
-<p><code>$consumerSecret</code>: The secret key you got when creating the oauth consumer</p>
-
-<p><code>$callbackUrl</code>: The url where it will be redirected to get the accesstoken,
-same as the one you have provided when creating the oauth consumer.</p>
-
-<h2>Source Code</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">IndexController</span> <span class="k">extends</span> <span class="nx">Zend_Controller_Action</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">init</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hostname</span> <span class="o">=</span> <span class="s1">&#39;the-magento-host&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="nv">$consumerKey</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="nv">$consumerSecret</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="nv">$callbackUrl</span> <span class="o">=</span> <span class="s1">&#39;callback-url&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">config</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-</span><span class='line'>            <span class="s1">&#39;callbackUrl&#39;</span> <span class="o">=&gt;</span> <span class="nv">$callbackUrl</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;requestTokenUrl&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hostname</span> <span class="o">.</span> <span class="s1">&#39;/oauth/initiate&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;siteUrl&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hostname</span> <span class="o">.</span> <span class="s1">&#39;/oauth&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;consumerKey&#39;</span> <span class="o">=&gt;</span> <span class="nv">$consumerKey</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;consumerSecret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$consumerSecret</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;authorizeUrl&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hostname</span> <span class="o">.</span> <span class="s1">&#39;/admin/oauth_authorize&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="c1">// &#39;authorizeUrl&#39; =&gt; $this-&gt;hostname . &#39;/oauth/authorize&#39;,</span>
-</span><span class='line'>            <span class="s1">&#39;accessTokenUrl&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hostname</span> <span class="o">.</span> <span class="s1">&#39;/oauth/token&#39;</span>
-</span><span class='line'>        <span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$accesssession</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Zend_Session_Namespace</span><span class="p">(</span><span class="s1">&#39;AccessToken&#39;</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$accesssession</span><span class="o">-&gt;</span><span class="na">accessToken</span><span class="p">))</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nv">$token</span> <span class="o">=</span> <span class="nb">unserialize</span><span class="p">(</span><span class="nv">$accesssession</span><span class="o">-&gt;</span><span class="na">accessToken</span><span class="p">);</span>
-</span><span class='line'>            <span class="c1">// $client = $token-&gt;getHttpClient($this-&gt;config);</span>
-</span><span class='line'>            <span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Zend_Http_Client</span><span class="p">();</span>
-</span><span class='line'>            <span class="nv">$adapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Zend_Http_Client_Adapter_Curl</span><span class="p">();</span>
-</span><span class='line'>            <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">setAdapter</span><span class="p">(</span><span class="nv">$adapter</span><span class="p">);</span>
-</span><span class='line'>            <span class="nv">$adapter</span><span class="o">-&gt;</span><span class="na">setConfig</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
-</span><span class='line'>                <span class="s1">&#39;adapter&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;Zend_Http_Client_Adapter_Curl&#39;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s1">&#39;curloptions&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="nx">CURLOPT_FOLLOWLOCATION</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">),</span>
-</span><span class='line'>            <span class="p">));</span>
-</span><span class='line'>            <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">setUri</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hostname</span> <span class="o">.</span> <span class="s1">&#39;/api/rest/products&#39;</span><span class="p">);</span>
-</span><span class='line'>            <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">setParameterGet</span><span class="p">(</span><span class="s1">&#39;oauth_token&#39;</span><span class="p">,</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">getToken</span><span class="p">());</span>
-</span><span class='line'>            <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">setParameterGet</span><span class="p">(</span><span class="s1">&#39;oauth_token_secret&#39;</span><span class="p">,</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">getTokenSecret</span><span class="p">());</span>
-</span><span class='line'>            <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">);</span>
-</span><span class='line'>            <span class="nv">$products</span> <span class="o">=</span> <span class="nx">Zend_Json</span><span class="o">::</span><span class="na">decode</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">());</span>
-</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nv">$consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Zend_Oauth_Consumer</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">config</span><span class="p">);</span>
-</span><span class='line'>            <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$consumer</span><span class="o">-&gt;</span><span class="na">getRequestToken</span><span class="p">();</span>
-</span><span class='line'>            <span class="nv">$requestsession</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Zend_Session_Namespace</span><span class="p">(</span><span class="s1">&#39;RequestToken&#39;</span><span class="p">);</span>
-</span><span class='line'>            <span class="nv">$requestsession</span><span class="o">-&gt;</span><span class="na">requestToken</span> <span class="o">=</span> <span class="nb">serialize</span><span class="p">(</span><span class="nv">$token</span><span class="p">);</span>
-</span><span class='line'>            <span class="nv">$consumer</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">();</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">view</span><span class="o">-&gt;</span><span class="na">products</span> <span class="o">=</span> <span class="nv">$products</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">callbackAction</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$requestsession</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Zend_Session_Namespace</span><span class="p">(</span><span class="s1">&#39;RequestToken&#39;</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$requestsession</span><span class="o">-&gt;</span><span class="na">requestToken</span><span class="p">))</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nv">$accesssession</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Zend_Session_Namespace</span><span class="p">(</span><span class="s1">&#39;AccessToken&#39;</span><span class="p">);</span>
-</span><span class='line'>            <span class="nv">$consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Zend_Oauth_Consumer</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">config</span><span class="p">);</span>
-</span><span class='line'>            <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$consumer</span><span class="o">-&gt;</span><span class="na">getAccessToken</span><span class="p">(</span>
-</span><span class='line'>                <span class="nv">$_GET</span><span class="p">,</span>
-</span><span class='line'>                <span class="nb">unserialize</span><span class="p">(</span><span class="nv">$requestsession</span><span class="o">-&gt;</span><span class="na">requestToken</span><span class="p">)</span>
-</span><span class='line'>            <span class="p">);</span>
-</span><span class='line'>            <span class="nv">$accesssession</span><span class="o">-&gt;</span><span class="na">accessToken</span> <span class="o">=</span> <span class="nb">serialize</span><span class="p">(</span><span class="nv">$token</span><span class="p">);</span>
-</span><span class='line'>            <span class="c1">// Now that we have an Access Token, we can discard the Request Token</span>
-</span><span class='line'>            <span class="nb">unset</span><span class="p">(</span><span class="nv">$requestsession</span><span class="o">-&gt;</span><span class="na">requestToken</span><span class="p">);</span>
-</span><span class='line'>            <span class="c1">// $this-&gt;_redirect();</span>
-</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_forward</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>            <span class="c1">// Mistaken request? Some malfeasant trying something?</span>
-</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s1">&#39;Invalid callback request. Oops. Sorry.&#39;</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">callbackrejectedAction</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// rejected</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Normally you can get the http client by <code>$token-&gt;getHttpClient($this-&gt;config)</code>
-rather than creating <code>Zend_Http_Client</code> as I did. But due to some issues
-the request was getting <code>Service Temporarily Unavailable</code> as response.</p>
-
-<p>The <code>Service Temporarily Unavailable</code> can also be due to permission issues.
-You should also check whether you have given the right permissions for
-roles and resources.</p>
-
-<p>In most case, we would have defined a named route, so you could use the
-url helpers to generate the route. I hope this helps you to move with REST
-and Magento</p>
-
-<h2>Resources</h2>
-
-<p><a href="http://www.magentocommerce.com/api/rest/introduction.html">Magento REST API</a></p>
-
-<p><a href="http://framework.zend.com/manual/1.12/en/zend.oauth.introduction.html">zend oauth introduction</a></p>
-
-<h2>Thanks</h2>
-
-<p>I would like to thank <a href="http://phpcloud.com">PHP Cloud</a> for providing the
-free service to deploy the magento shop and test it. Installing and deploying app was super
-simple. So if you have not tried it is time for it.</p>
 </div>
   
   
