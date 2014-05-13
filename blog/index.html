@@ -155,7 +155,7 @@ which contains a <code>getFunctions</code> method which returns the functions
 available within your templates.</p>
 
 <p>We are going to name it as <code>AuraHtmlExtension</code> and call functions as
-<code>aurahtml()</code> or <code>ah()</code> via the template.</p>
+<code>aurahtml()</code> or <code>html()</code> via the template.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -208,7 +208,7 @@ available within your templates.</p>
 </span><span class='line'>    <span class="p">{</span>
 </span><span class='line'>        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
 </span><span class='line'>            <span class="s1">&#39;aurahtml&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;callHelper&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="s1">&#39;ah&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;callHelper&#39;</span>
+</span><span class='line'>            <span class="s1">&#39;html&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;callHelper&#39;</span>
 </span><span class='line'>        <span class="p">);</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>
@@ -346,7 +346,7 @@ and use aura html helper to show the system works as expected.</p>
 </span><span class='line'><span class="p">));</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// &lt;input type=&quot;color&quot; name=&quot;name&quot; value=&quot;value&quot; /&gt;</span>
-</span><span class='line'><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">ah</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">input</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">html</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">input</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
 </span><span class='line'>    <span class="s1">&#39;type&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span>
 </span><span class='line'>    <span class="s1">&#39;name&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
 </span><span class='line'>    <span class="s1">&#39;value&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
