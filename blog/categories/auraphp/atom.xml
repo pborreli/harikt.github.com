@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Auraphp | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/auraphp/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2014-05-12T21:12:00+05:30</updated>
+  <updated>2014-05-13T11:06:51+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,272 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Extending Plates With Aura Html Helpers]]></title>
+    <link href="http://harikt.com/blog/2014/05/13/extending-plates-with-aura-html-helpers/"/>
+    <updated>2014-05-13T09:13:47+05:30</updated>
+    <id>http://harikt.com/blog/2014/05/13/extending-plates-with-aura-html-helpers</id>
+    <content type="html"><![CDATA[<p>[Aura.Html][] provides HTML escapers and helpers, including form input helpers,
+that can be used in any template, view, or presentation system.</p>
+
+<p>In this post I would like to give you a short introduction to Aura.Html
+and how you could use with [Plates][] a native php templating system like [Aura.View][].</p>
+
+<p>[Aura.Html][] was extracted from [Aura.View][] helper functions of version 1,
+when we at aura noticed that people who uses [Aura.Input][] may need some html helper
+functions and they may not be using a templating like [Aura.View][],
+but some other templating system.</p>
+
+<p>You can see an example of a simple <a href="http://harikt.com/phpform/">contact form</a> with [Aura.Input][].</p>
+
+<h2>Installation</h2>
+
+<p>The easiest way to install Aura.Html is via composer. Let us create our <code>composer.json</code></p>
+
+<p>```json
+{</p>
+
+<pre><code>"require": {
+    "aura/html": "2.*@dev",
+    "league/plates": "2.*"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>One of the good thing about Plates is you can create <a href="http://platesphp.com/extensions/">extensions</a>.</p>
+
+<p>Let us create an extension that can make use of [Aura.Html][] helpers inside [Plates][].
+Any Plates extension should implement <code>League\Plates\Extension\ExtensionInterface</code>
+which contains a <code>getFunctions</code> method which returns the functions
+available within your templates.</p>
+
+<p>We are going to name it as <code>AuraHtmlExtension</code> and call functions as
+<code>aurahtml()</code> or <code>ah()</code> via the template.</p>
+
+<p>```php
+&lt;?php
+use League\Plates\Extension\ExtensionInterface;
+use Aura\Html\HelperLocator;</p>
+
+<p>class AuraHtmlExtension implements ExtensionInterface
+{</p>
+
+<pre><code>public $engine;
+
+public $template;
+
+protected $helper;
+
+public function __construct(HelperLocator $helper)
+{
+    $this-&gt;helper = $helper;
+}
+
+public function getFunctions()
+{
+    return array(
+        'aurahtml' =&gt; 'callHelper',
+        'ah' =&gt; 'callHelper'
+    );
+}
+
+public function callHelper()
+{
+    return $this-&gt;helper;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>But you are not limited to name it as the same
+<a href="https://github.com/auraphp/Aura.Html/blob/functions/README-HELPERS.md#aurahtml-tag-helpers">html tag helpers</a>
+and <a href="https://github.com/auraphp/Aura.Html/blob/develop-2/README-FORMS.md">form helpers</a>.</p>
+
+<p>So that will make the helpers look native Plates helpers. Thank you for
+this functionality to plugin the helpers.</p>
+
+<p>```php
+&lt;?php
+use League\Plates\Extension\ExtensionInterface;
+use Aura\Html\HelperLocator;</p>
+
+<p>class AuraHtmlExtension implements ExtensionInterface
+{</p>
+
+<pre><code>public $engine;
+
+public $template;
+
+protected $helper;
+
+public function __construct(HelperLocator $helper)
+{
+    $this-&gt;helper = $helper;
+}
+
+public function getFunctions()
+{
+    return array(
+        'anchor' =&gt; 'anchor'
+        // ... more functions same as aura
+    );
+}
+
+public function anchor($href, $text, array $attr = array())
+{
+    return $this-&gt;helper-&gt;anchor($href, $text, array $attr);
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Let us use the <a href="http://platesphp.com/simple-example/">basic example in plates</a>
+and use aura html helper to show the system works as expected.</p>
+
+<p>Create the templates in a <code>templates</code> folder or change the path in Plates Engine.</p>
+
+<h3>Profile Template</h3>
+
+<p>```php</p>
+
+<!-- profile.php -->
+
+
+<p>&lt;?php $this->layout(&lsquo;template&rsquo;) ?></p>
+
+<p>&lt;?php $this->title = &lsquo;User Profile&rsquo; ?></p>
+
+<h1>User Profile</h1>
+
+
+<p><p>Hello, &lt;?=$this->e($this->name)?></p>
+<div>
+&lt;?php
+echo $this->aurahtml()&ndash;>input(array(</p>
+
+<pre><code>'type'    =&gt; 'color',
+'name'    =&gt; 'name',
+'value'   =&gt; 'value',
+'attribs' =&gt; array(),
+'options' =&gt; array(),
+</code></pre>
+
+<p>));</p>
+
+<p>// <input type="color" name="name" value="value" />
+echo $this->ah()&ndash;>input(array(</p>
+
+<pre><code>'type'    =&gt; 'date',
+'name'    =&gt; 'name',
+'value'   =&gt; 'value',
+'attribs' =&gt; array(),
+'options' =&gt; array(),
+</code></pre>
+
+<p>));</p>
+
+<p>// <input type="date" name="name" value="value" />
+?>
+</div>
+```</p>
+
+<h3>Layout Template</h3>
+
+<p>```php
+<!-- template.php --></p>
+
+<p><html>
+<head></p>
+
+<pre><code>&lt;title&gt;&lt;?=$this-&gt;title?&gt;&lt;/title&gt;
+</code></pre>
+
+<p></head></p>
+
+<p><body></p>
+
+<p>&lt;?=$this->content()?></p>
+
+<p></body>
+</html>
+```</p>
+
+<h3>Autoload Extension</h3>
+
+<p>Make sure AuraHtmlExtension can be autoloaded. We can add in <code>composer.json</code></p>
+
+<p>```json</p>
+
+<pre><code>// rest of the code    
+"autoload": {
+    "psr-4": {
+        "": "path/to/aura/html/extension/"
+    }
+}
+</code></pre>
+
+<p>```</p>
+
+<h3>Bootstrapping and Rendering</h3>
+
+<p>```php
+// test.php file
+require <strong>DIR</strong> . &lsquo;/vendor/autoload.php&rsquo;;
+$engine = new \League\Plates\Engine( <strong>DIR</strong> . &lsquo;/templates&rsquo;);</p>
+
+<p>// Create a new template
+$template = new \League\Plates\Template($engine);
+$factory = new \Aura\Html\HelperLocatorFactory();
+$helper = $factory->newInstance();
+$engine->loadExtension(new AuraHtmlExtension($helper));</p>
+
+<p>// Assign a variable to the template
+$template->name = &lsquo;Jonathan&rsquo;;</p>
+
+<p>// Render the template
+echo $template->render(&lsquo;profile&rsquo;);
+```</p>
+
+<p>If you run <code>php test.php</code> you will see something like this rendered.</p>
+
+<p>```html
+<html>
+<head></p>
+
+<pre><code>&lt;title&gt;User Profile&lt;/title&gt;
+</code></pre>
+
+<p></head></p>
+
+<p><body></p>
+
+<p><h1>User Profile</h1>
+<p>
+Hello, Jonathan
+</p>
+<div>
+<input type="color" name="name" value="value" />
+<input type="date" name="name" value="value" />
+</div></p>
+
+<p></body>
+</html>
+</body></title>
+```</p>
+
+<p>Thank you and Happy PhPing!</p>
+
+<p>[Aura.Html]: <a href="https://github.com/auraphp/Aura.Html">https://github.com/auraphp/Aura.Html</a>
+[Aura.Input]: <a href="https://github.com/auraphp/Aura.Input">https://github.com/auraphp/Aura.Input</a>
+[Aura.View]: <a href="https://github.com/auraphp/Aura.View">https://github.com/auraphp/Aura.View</a>
+[Plates]: <a href="http://platesphp.com">http://platesphp.com</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Installing Aura Framework Project via Composer]]></title>
@@ -250,282 +516,6 @@ and use when you need architecural changes.</p>
 <p>Thank you and if you loved the post please do a tweet :&ndash;).</p>
 
 <p>Happy PhPing!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Looking at Aura Version 2]]></title>
-    <link href="http://harikt.com/blog/2013/09/28/looking-at-aura-v2/"/>
-    <updated>2013-09-28T06:53:00+05:30</updated>
-    <id>http://harikt.com/blog/2013/09/28/looking-at-aura-v2</id>
-    <content type="html"><![CDATA[<p>If you have noticed recently, there have been tons of commits from
-<a href="https://github.com/pmjones">Paul M Jones</a>﻿ for aura version 2.</p>
-
-<p>More standalone repos born. Everyone should try and give feedback as much as possible.</p>
-
-<p>Interesting stuffs split from Aura.Sql v 1.3 are</p>
-
-<p><a href="https://github.com/auraphp/Aura.Sql/tree/develop-2">Extended PDO</a>,</p>
-
-<p>As the name says, it is an extended version of PDO. Good thing is it is
-PHP 5.3 compatible.</p>
-
-<p>If you have worked with PDO you know the good and bad.
-One of the difficulty is, it cannot use an array for an in clause.</p>
-
-<p>```php
-&lt;?php
-// the array to be quoted
-$array = array(&lsquo;foo&rsquo;, &lsquo;bar&rsquo;, &lsquo;baz&rsquo;);</p>
-
-<p>// the statement to prepare
-$stm = &lsquo;SELECT * FROM test WHERE foo IN (:foo) AND bar = :bar&rsquo;</p>
-
-<p>// the native PDO way does not work (PHP Notice:  Array to string conversion)
-$pdo = new Pdo(&hellip;);
-$sth = $pdo->prepare($stm);
-$sth->bindValue(&lsquo;foo&rsquo;, $array);
-```</p>
-
-<p>ExtendedPDO helps you to do it.</p>
-
-<p>```php
-&lt;?php
-$pdo = new ExtendedPdo(&hellip;);
-$stm = &lsquo;SELECT * FROM test WHERE foo IN (:foo)&rsquo;;
-$pdo->bindValues(array(</p>
-
-<pre><code>'foo' =&gt; array('foo', 'bar', 'baz'),
-'bar' =&gt; 'qux',
-</code></pre>
-
-<p>));
-$sth = $pdo->prepare($stm);
-echo $sth->queryString;
-```</p>
-
-<p>Try out an example, and see in action.</p>
-
-<p>Your composer.json will look as</p>
-
-<p>```json
-{</p>
-
-<pre><code>"minimum-stability": "dev",
-"require": {
-    "aura/sql":"dev-develop-2"
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>Run the below Sql query in your favourite tools like phpmyadmin or adminer.</p>
-
-<p>```sql
-&mdash; Adminer 3.7.1 MySQL dump</p>
-
-<p>SET NAMES utf8;
-SET foreign_key_checks = 0;
-SET time_zone = &lsquo;+05:30&rsquo;;
-SET sql_mode = &lsquo;NO_AUTO_VALUE_ON_ZERO&rsquo;;</p>
-
-<p>DROP TABLE IF EXISTS <code>polls_choice</code>;
-CREATE TABLE <code>polls_choice</code> (
-  <code>id</code> int(11) NOT NULL AUTO_INCREMENT,
-  <code>poll_id</code> int(11) NOT NULL,
-  <code>choice_text</code> varchar(200) NOT NULL,
-  <code>votes</code> int(11) NOT NULL,
-  PRIMARY KEY (<code>id</code>)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;</p>
-
-<p>INSERT INTO <code>polls_choice</code> (<code>id</code>, <code>poll_id</code>, <code>choice_text</code>, <code>votes</code>) VALUES
-(1, 1,  &lsquo;Not much&rsquo;, 0),
-(2, 1,  &lsquo;The sky&rsquo;,  0),
-(5, 1,  &lsquo;Hello World&rsquo;,  0);</p>
-
-<p>&mdash; 2013-09-28 11:22:17
-```</p>
-
-<p>Run the below PHP code and see the result.</p>
-
-<p>```php
-&lt;?php
-require <strong>DIR</strong> . &lsquo;/vendor/autoload.php&rsquo;;</p>
-
-<p>use Aura\Sql\ExtendedPdo;
-use Aura\Sql\Profiler;</p>
-
-<p>$pdo = new ExtendedPdo(</p>
-
-<pre><code>'mysql:host=localhost;dbname=dbname',
-'user',
-'password',
-array(), // driver options as key-value pairs
-array()  // attributes as key-value pairs
-</code></pre>
-
-<p>);
-$pdo->setProfiler(new Profiler);
-$pdo->getProfiler()&ndash;>setActive(true);</p>
-
-<p>$stm = &lsquo;SELECT * FROM polls_choice WHERE id IN (:id) AND poll_id = :poll_id&rsquo;;</p>
-
-<p>$bind = array(</p>
-
-<pre><code>'id' =&gt; array('1', '2'),
-'poll_id' =&gt; '1',
-</code></pre>
-
-<p>);
-$results = $pdo->fetchAll($stm, $bind);</p>
-
-<p>foreach ($results as $result) {
-  echo &ldquo;Query Result : &rdquo; . $result[&lsquo;choice_text&rsquo;] . PHP_EOL;
-}</p>
-
-<p>echo &ldquo;Profiler&rdquo; . PHP_EOL;</p>
-
-<p>$profiles = $pdo->getProfiler()&ndash;>getProfiles();</p>
-
-<p>foreach ($profiles as $profile) {
-  echo &lsquo; Function : &rsquo; . $profile[&lsquo;function&rsquo;] . PHP_EOL;
-  echo &lsquo; Duration : &rsquo; . $profile[&lsquo;duration&rsquo;] . PHP_EOL;
-  echo &lsquo; Statement : &rsquo; . $profile[&lsquo;statement&rsquo;] . PHP_EOL;
-  echo &lsquo; Bind Values : &rsquo; . print_r($profile[&lsquo;bind_values&rsquo;], true) . PHP_EOL;
-}
-```</p>
-
-<p>It comes with lazy connection, profiler, connection locator etc. Read more from
-<a href="https://github.com/auraphp/Aura.Sql/tree/develop-2#getting-started">getting started docs</a></p>
-
-<h2><a href="https://github.com/auraphp/Aura.Sql_Schema">Aura.Sql_Schema</a></h2>
-
-<p>An independent schema discovery tool for MySQL, PostgreSQL,
-SQLite, and Microsoft SQL Server. You can
-<a href="https://github.com/auraphp/Aura.Sql_Schema#getting-started">read more from the docs</a></p>
-
-<h2><a href="https://github.com/auraphp/Aura.Sql_Query">Aura.Sql_Query</a></h2>
-
-<p>Independent query builders for MySQL, PostgreSQL, SQLite, and Microsoft SQL Server</p>
-
-<p>Good thing is all are standalone.</p>
-
-<p>Version 2 also comes with a new
-<a href="https://github.com/auraphp/Aura.Dispatcher">Dispatcher</a>
-and <a href="https://github.com/auraphp/Aura.Includer">Includer</a>.</p>
-
-<p>You can read the story behind Dispatcher from
-<a href="https://groups.google.com/d/msg/auraphp/hyjEPEeo6_w/u616Pu3kQrcJ">here</a>
-and Includer from
-<a href="https://groups.google.com/d/msg/auraphp/WOo6TSceqHU/ZdgIkUgU0VIJ">here</a></p>
-
-<p>vi <a href="https://github.com/auraphp/Aura.Includer">Includer</a>
-aura solved one of the problem of reading configuration files.</p>
-
-<p>Let us look into the example of the Aura.Includer and how it works.</p>
-
-<p>The <code>composer.json</code> looks like the one below.</p>
-
-<p>```json
-{</p>
-
-<pre><code>"minimum-stability": "dev",
-"require": {
-    "aura/cli": "dev-develop-2",
-    "aura/web": "dev-develop-2",
-    "aura/autoload": "dev-develop-2",
-    "aura/dispatcher": "dev-develop-2",
-    "aura/html": "dev-master",
-    "aura/input": "dev-master",
-    "aura/view": "2.*",
-    "aura/includer": "dev-develop-2",
-    "aura/router": "dev-develop",
-    "aura/di": "1.*"
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>We can use the includer to read the configuration files and store it and
-later use the cached file. The <code>includer.php</code> looks like</p>
-
-<p>```php
-&lt;?php
-$loader = require <strong>DIR</strong> . &lsquo;/vendor/autoload.php&rsquo;;</p>
-
-<p>$includer = new \Aura\Includer\Includer();</p>
-
-<p>$includer->setDirs(array(</p>
-
-<pre><code>__DIR__ . '/vendor/aura/router',
-__DIR__ . '/vendor/aura/dispatcher',
-__DIR__ . '/vendor/aura/web',
-__DIR__ . '/vendor/aura/view',
-__DIR__ . '/vendor/aura/html',
-__DIR__ . '/vendor/aura/cli',
-__DIR__ . '/vendor/aura/input',
-</code></pre>
-
-<p>));</p>
-
-<p>$includer->setFiles(array(</p>
-
-<pre><code>'config/default.php',
-</code></pre>
-
-<p>));</p>
-
-<p>use Aura\Router\Map;
-use Aura\Router\DefinitionFactory;
-use Aura\Router\RouteFactory;</p>
-
-<p>$router = new Map(new DefinitionFactory, new RouteFactory);</p>
-
-<p>use Aura\Di\Container;
-use Aura\Di\Forge;
-use Aura\Di\Config;</p>
-
-<p>$di = new Container(new Forge(new Config));</p>
-
-<p>$includer->setVars(array(</p>
-
-<pre><code>'loader' =&gt; $loader,
-'router' =&gt; $router,
-'di' =&gt; $di,
-</code></pre>
-
-<p>));</p>
-
-<p>if (! file_exists(<strong>DIR</strong> . &lsquo;/cache/includer.php&rsquo;)) {</p>
-
-<pre><code>$includer-&gt;load();
-$text = $includer-&gt;read();
-file_put_contents(__DIR__ . '/cache/includer.php', '&lt;?php' . PHP_EOL . $text);
-</code></pre>
-
-<p>} else {</p>
-
-<pre><code>$includer-&gt;setCacheFile(__DIR__ . '/cache/includer.php');
-$includer-&gt;load();
-</code></pre>
-
-<p>}
-$stdio = $di->newInstance(&lsquo;Aura\Cli\Stdio&rsquo;);
-$stdio->outln(&lsquo;This is normal text.&rsquo;);
-```</p>
-
-<p>Install the dependencies via <code>composer</code> and run via cli <code>php includer.php</code>.</p>
-
-<p>The Aura.Includer is a nice addition for version 2
-( I am also seeing it can be used in version 1 )
-which will help a lot in the making of the framework with the libraries.</p>
-
-<p>If you are interested to use, learn, or have a feedback a warm welcome to
-<a href="https://groups.google.com/forum/#!forum/auraphp">join the google group for aura project for PHP</a></p>
-
-<p>Have a nice day ahead. Enjoy PHPing.</p>
 ]]></content>
   </entry>
   

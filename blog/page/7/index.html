@@ -11,7 +11,9 @@
         <meta name="author" content="Hari K T">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		
-        <meta name="description" content="The era of standalone components is here. Yes people will definitely take and promote standalone components . Lets have a look into the KnpMenu . Its &hellip;">
+        <meta name="description" content="Recently I was reading When to use array_merge and union operator (+)
+in PHP? . Lately working with examples I was also confused how the
+array_merge &hellip;">
         
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
@@ -85,6 +87,144 @@
   <div class="8u">
     <!-- Content -->
     
+    
+    
+      <article>
+        
+  <header>
+          
+      <h2><a href="/blog/2012/06/13/why-you-should-write-test/">Why You Should Write Test</a></h2>
+    
+    
+      <span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-13T09:25:00+05:30" pubdate data-updated="true">Jun 13<span>th</span>, 2012</time>
+        
+      </span>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently I was reading <a href="http://sandeep.shetty.in/2012/05/when-to-use-arraymerge-and-union.html">When to use array_merge and union operator (+)
+in PHP?</a> . Lately working with examples I was also confused how the
+array_merge and union works. Really, that brings a strong thought why
+you should write tests. Lets see some examples .</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="nv">$a</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;123&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="s1">&#39;$a = &#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nb">var_export</span><span class="p">(</span><span class="nv">$a</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$b</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="s1">&#39;$b = &#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nb">var_export</span><span class="p">(</span><span class="nv">$b</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="s1">&#39;array_merge( $a, $b) = &#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nb">var_export</span><span class="p">(</span> <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">));</span>
+</span><span class='line'><span class="k">echo</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="s1">&#39;$a + $b = &#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nb">var_export</span><span class="p">(</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Do you have any thoughts on how the result for array_merge and + comes?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$a</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span>
+</span><span class='line'>  <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">123</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'><span class="p">)</span>
+</span><span class='line'><span class="nv">$b</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span>
+</span><span class='line'>  <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">7</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'><span class="p">)</span>
+</span><span class='line'><span class="nb">array_merge</span><span class="p">(</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">)</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span>
+</span><span class='line'>  <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">4</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">5</span> <span class="o">=&gt;</span> <span class="mi">7</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">6</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'><span class="p">)</span>
+</span><span class='line'><span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span>
+</span><span class='line'>  <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">123</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">7</span><span class="p">,</span>
+</span><span class='line'>  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+</span><span class='line'><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Hope this makes to convince you also , why you should write tests :&ndash;) .
+A detailed post on the working is at
+<a href="">http://unix0.wordpress.com/2012/01/08/php-array_merge-vs-plus-union-operator/</a></p>
+
+<pre><code>http://unix0.wordpress.com/2012/01/08/php-array_merge-vs-plus-union-operator/
+</code></pre>
+</div>
+  
+  
+
+
+      </article>
     
     
       <article>
@@ -586,42 +726,6 @@ the sense as I shown in the example .</p>
 
       </article>
     
-    
-      <article>
-        
-  <header>
-          
-      <h2><a href="/blog/2012/02/02/twitter-relationship/">Tweets and Relationship</a></h2>
-    
-    
-      <span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-02T22:28:00+05:30" pubdate data-updated="true">Feb 2<span>nd</span>, 2012</time>
-        
-      </span>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Twitter is fun, sometimes we may go like a chat , sometimes we may be getting a reply after some days . So what about showing the whole status from start to last ? I build an experimental project today just for fun.  Try it over <a href="http://harikt.com/twitter.php">http://harikt.com/twitter.php</a>  Fork me at  <a href="https://github.com/harikt/TweetRelation">https://github.com/harikt/TweetRelation</a></p>
-</div>
-  
-  
-
-
-      </article>
-    
     <div class="pagination">
       
         <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -656,6 +760,10 @@ the sense as I shown in the example .</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/13/extending-plates-with-aura-html-helpers/">Extending Plates With Aura Html Helpers</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/04/29/installing-aura-framework-project-via-composer/">Installing Aura Framework Project via Composer</a>
       </li>
     
@@ -669,10 +777,6 @@ the sense as I shown in the example .</p>
     
       <li class="post">
         <a href="/blog/2014/04/26/web-routing-in-php-with-aura-dot-router/">Web Routing in PHP With Aura.Router</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/03/angularjs-by-brad-green/">AngularJS by Brad Green, Shyam Seshadri; O&#8217;Reilly Media</a>
       </li>
     
   </ul>
@@ -736,8 +840,7 @@ the sense as I shown in the example .</p>
           <li class="fa fa-twitter"><a href="http://twitter.com/harikt"><span class="extra">twitter.com/</span>harikt</a></li>          
         </ul>
         <ul class="divided icons 6u">
-          <li class="fa fa-linkedin"><a href="http://linkedin.com/in/harikt"><span class="extra">linkedin.com/in/</span>harikt</a></li>
-          <li class="fa fa-youtube"><a href="http://www.youtube.com/user/kthari85"><span class="extra">youtube.com/</span>kthari85</a></li>
+          <li class="fa fa-linkedin"><a href="http://linkedin.com/in/harikt"><span class="extra">linkedin.com/in/</span>harikt</a></li>          
         </ul>
       </div>
     </section>

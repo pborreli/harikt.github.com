@@ -4,7 +4,7 @@
   <title><![CDATA[Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2014-05-12T21:12:00+05:30</updated>
+  <updated>2014-05-13T11:06:51+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,390 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Extending Plates With Aura Html Helpers]]></title>
+    <link href="http://harikt.com/blog/2014/05/13/extending-plates-with-aura-html-helpers/"/>
+    <updated>2014-05-13T09:13:47+05:30</updated>
+    <id>http://harikt.com/blog/2014/05/13/extending-plates-with-aura-html-helpers</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/auraphp/Aura.Html">Aura.Html</a> provides HTML escapers and helpers, including form input helpers,
+that can be used in any template, view, or presentation system.</p>
+
+<p>In this post I would like to give you a short introduction to Aura.Html
+and how you could use with <a href="http://platesphp.com">Plates</a> a native php templating system like <a href="https://github.com/auraphp/Aura.View">Aura.View</a>.</p>
+
+<p><a href="https://github.com/auraphp/Aura.Html">Aura.Html</a> was extracted from <a href="https://github.com/auraphp/Aura.View">Aura.View</a> helper functions of version 1,
+when we at aura noticed that people who uses <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a> may need some html helper
+functions and they may not be using a templating like <a href="https://github.com/auraphp/Aura.View">Aura.View</a>,
+but some other templating system.</p>
+
+<p>You can see an example of a simple <a href="http://harikt.com/phpform/">contact form</a> with <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>.</p>
+
+<h2>Installation</h2>
+
+<p>The easiest way to install Aura.Html is via composer. Let us create our <code>composer.json</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;aura/html&quot;</span><span class="p">:</span> <span class="s2">&quot;2.*@dev&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;league/plates&quot;</span><span class="p">:</span> <span class="s2">&quot;2.*&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>One of the good thing about Plates is you can create <a href="http://platesphp.com/extensions/">extensions</a>.</p>
+
+<p>Let us create an extension that can make use of <a href="https://github.com/auraphp/Aura.Html">Aura.Html</a> helpers inside <a href="http://platesphp.com">Plates</a>.
+Any Plates extension should implement <code>League\Plates\Extension\ExtensionInterface</code>
+which contains a <code>getFunctions</code> method which returns the functions
+available within your templates.</p>
+
+<p>We are going to name it as <code>AuraHtmlExtension</code> and call functions as
+<code>aurahtml()</code> or <code>ah()</code> via the template.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">League\Plates\Extension\ExtensionInterface</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Html\HelperLocator</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">AuraHtmlExtension</span> <span class="k">implements</span> <span class="nx">ExtensionInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nv">$engine</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="nv">$template</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$helper</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">HelperLocator</span> <span class="nv">$helper</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">helper</span> <span class="o">=</span> <span class="nv">$helper</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFunctions</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>            <span class="s1">&#39;aurahtml&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;callHelper&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="s1">&#39;ah&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;callHelper&#39;</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">callHelper</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">helper</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But you are not limited to name it as the same
+<a href="https://github.com/auraphp/Aura.Html/blob/functions/README-HELPERS.md#aurahtml-tag-helpers">html tag helpers</a>
+and <a href="https://github.com/auraphp/Aura.Html/blob/develop-2/README-FORMS.md">form helpers</a>.</p>
+
+<p>So that will make the helpers look native Plates helpers. Thank you for
+this functionality to plugin the helpers.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">League\Plates\Extension\ExtensionInterface</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Html\HelperLocator</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">AuraHtmlExtension</span> <span class="k">implements</span> <span class="nx">ExtensionInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nv">$engine</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="nv">$template</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$helper</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">HelperLocator</span> <span class="nv">$helper</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">helper</span> <span class="o">=</span> <span class="nv">$helper</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFunctions</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>            <span class="s1">&#39;anchor&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;anchor&#39;</span>
+</span><span class='line'>            <span class="c1">// ... more functions same as aura</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">anchor</span><span class="p">(</span><span class="nv">$href</span><span class="p">,</span> <span class="nv">$text</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$attr</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">helper</span><span class="o">-&gt;</span><span class="na">anchor</span><span class="p">(</span><span class="nv">$href</span><span class="p">,</span> <span class="nv">$text</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$attr</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let us use the <a href="http://platesphp.com/simple-example/">basic example in plates</a>
+and use aura html helper to show the system works as expected.</p>
+
+<p>Create the templates in a <code>templates</code> folder or change the path in Plates Engine.</p>
+
+<h3>Profile Template</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;!--</span> <span class="nx">profile</span><span class="o">.</span><span class="nx">php</span> <span class="o">--&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">layout</span><span class="p">(</span><span class="s1">&#39;template&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">title</span> <span class="o">=</span> <span class="s1">&#39;User Profile&#39;</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;h1&gt;User Profile&lt;/h1&gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;Hello, </span><span class="cp">&lt;?</span><span class="o">=</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">e</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">)</span><span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+</span><span class='line'><span class="x">&lt;div&gt;</span>
+</span><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">aurahtml</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">input</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;type&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;color&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;name&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;value&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;attribs&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+</span><span class='line'>    <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+</span><span class='line'><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// &lt;input type=&quot;color&quot; name=&quot;name&quot; value=&quot;value&quot; /&gt;</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">ah</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">input</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;type&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;name&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;value&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;attribs&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+</span><span class='line'>    <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+</span><span class='line'><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// &lt;input type=&quot;date&quot; name=&quot;name&quot; value=&quot;value&quot; /&gt;</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Layout Template</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;!--</span> <span class="nx">template</span><span class="o">.</span><span class="nx">php</span> <span class="o">--&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;&lt;?=</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">title</span><span class="cp">?&gt;</span><span class="x">&lt;/title&gt;</span>
+</span><span class='line'><span class="x">&lt;/head&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;body&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">&lt;?</span><span class="o">=</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">content</span><span class="p">()</span><span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;/body&gt;</span>
+</span><span class='line'><span class="x">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Autoload Extension</h3>
+
+<p>Make sure AuraHtmlExtension can be autoloaded. We can add in <code>composer.json</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">//</span> <span class="err">rest</span> <span class="err">of</span> <span class="err">the</span> <span class="err">code</span>
+</span><span class='line'><span class="s2">&quot;autoload&quot;</span><span class="err">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;psr-4&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;&quot;</span><span class="p">:</span> <span class="s2">&quot;path/to/aura/html/extension/&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Bootstrapping and Rendering</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="c1">// test.php file</span>
+</span><span class='line'><span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$engine</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\League\Plates\Engine</span><span class="p">(</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/templates&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Create a new template</span>
+</span><span class='line'><span class="nv">$template</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\League\Plates\Template</span><span class="p">(</span><span class="nv">$engine</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Aura\Html\HelperLocatorFactory</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$helper</span> <span class="o">=</span> <span class="nv">$factory</span><span class="o">-&gt;</span><span class="na">newInstance</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$engine</span><span class="o">-&gt;</span><span class="na">loadExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">AuraHtmlExtension</span><span class="p">(</span><span class="nv">$helper</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Assign a variable to the template</span>
+</span><span class='line'><span class="nv">$template</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;Jonathan&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Render the template</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$template</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you run <code>php test.php</code> you will see something like this rendered.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;title&gt;</span>User Profile<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;h1&gt;</span>User Profile<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>
+</span><span class='line'>Hello, Jonathan
+</span><span class='line'><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;div&gt;</span>
+</span><span class='line'><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;color&quot;</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">value=</span><span class="s">&quot;value&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;date&quot;</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">value=</span><span class="s">&quot;value&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;&lt;/title&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thank you and Happy PhPing!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Installing Aura Framework Project via Composer]]></title>
@@ -1750,373 +2134,6 @@ It’s that simple.</p>
 Winners will be contacted by email, so be sure to use your real email
 address when you comment! Hurry up as you could be one of the few lucky
 ones to get yourself a free ebook of the latest released title.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Connecting to Magento via SOAP]]></title>
-    <link href="http://harikt.com/blog/2013/07/12/connecting-to-magento-via-soap/"/>
-    <updated>2013-07-12T14:12:00+05:30</updated>
-    <id>http://harikt.com/blog/2013/07/12/connecting-to-magento-via-soap</id>
-    <content type="html"><![CDATA[<p>In my earlier post I have shown how you can connect to Magento
-with REST api. In this post let us connect via SOAP.</p>
-
-<p>The below class acts like a proxy to call the magento soap api.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-<span class='line-number'>99</span>
-<span class='line-number'>100</span>
-<span class='line-number'>101</span>
-<span class='line-number'>102</span>
-<span class='line-number'>103</span>
-<span class='line-number'>104</span>
-<span class='line-number'>105</span>
-<span class='line-number'>106</span>
-<span class='line-number'>107</span>
-<span class='line-number'>108</span>
-<span class='line-number'>109</span>
-<span class='line-number'>110</span>
-<span class='line-number'>111</span>
-<span class='line-number'>112</span>
-<span class='line-number'>113</span>
-<span class='line-number'>114</span>
-<span class='line-number'>115</span>
-<span class='line-number'>116</span>
-<span class='line-number'>117</span>
-<span class='line-number'>118</span>
-<span class='line-number'>119</span>
-<span class='line-number'>120</span>
-<span class='line-number'>121</span>
-<span class='line-number'>122</span>
-<span class='line-number'>123</span>
-<span class='line-number'>124</span>
-<span class='line-number'>125</span>
-<span class='line-number'>126</span>
-<span class='line-number'>127</span>
-<span class='line-number'>128</span>
-<span class='line-number'>129</span>
-<span class='line-number'>130</span>
-<span class='line-number'>131</span>
-<span class='line-number'>132</span>
-<span class='line-number'>133</span>
-<span class='line-number'>134</span>
-<span class='line-number'>135</span>
-<span class='line-number'>136</span>
-<span class='line-number'>137</span>
-<span class='line-number'>138</span>
-<span class='line-number'>139</span>
-<span class='line-number'>140</span>
-<span class='line-number'>141</span>
-<span class='line-number'>142</span>
-<span class='line-number'>143</span>
-<span class='line-number'>144</span>
-<span class='line-number'>145</span>
-<span class='line-number'>146</span>
-<span class='line-number'>147</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="sd">/**</span>
-</span><span class='line'><span class="sd"> * </span>
-</span><span class='line'><span class="sd"> * @author Hari K T</span>
-</span><span class='line'><span class="sd"> * </span>
-</span><span class='line'><span class="sd"> */</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">My_Soap_Magento</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * Host name to connect</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @var string</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="nv">$hostname</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * User name</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @var string</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="nv">$username</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * API Key</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @var string</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="nv">$apikey</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * Zend_Soap_Client</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @var Zend_Soap_Client</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">protected</span> <span class="nv">$client</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">protected</span> <span class="nv">$session</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * Constructor</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @param string $hostname The host name</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @param string $username The user name of the host</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @param string $apikey The apikey of the host</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$hostname</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$apikey</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hostname</span> <span class="o">=</span> <span class="nv">$hostname</span><span class="p">;</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">username</span> <span class="o">=</span> <span class="nv">$username</span><span class="p">;</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">apikey</span>   <span class="o">=</span> <span class="nv">$apikey</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * Magic method, the methods are named on the basis of Magento SOAP api</span>
-</span><span class='line'><span class="sd">     * You don&#39;t need to pass the session as the first argument, for convience.</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @link http://www.magentocommerce.com/api/soap/introduction.html</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @param string $function</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @param mixed $args</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @return string | null</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__call</span><span class="p">(</span><span class="nv">$function</span><span class="p">,</span> <span class="nv">$args</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$session</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getSession</span><span class="p">();</span>
-</span><span class='line'>        <span class="nv">$params</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getSession</span><span class="p">()),</span> <span class="nv">$args</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$result</span> <span class="o">=</span> <span class="nb">call_user_func_array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getClient</span><span class="p">(),</span> <span class="nv">$function</span><span class="p">),</span> <span class="nv">$params</span><span class="p">);</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="c1">// I need to get as json</span>
-</span><span class='line'>            <span class="k">return</span> <span class="nx">Zend_Json_Encoder</span><span class="o">::</span><span class="na">encode</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * Get the session from logging in to the Magento server</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @return string</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getSession</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="k">try</span> <span class="p">{</span>
-</span><span class='line'>                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getClient</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">login</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">apikey</span><span class="p">);</span>
-</span><span class='line'>            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * If we already have a session, we can set the session so it don&#39;t </span>
-</span><span class='line'><span class="sd">     * need to login again and get the session. This helps to reduce the </span>
-</span><span class='line'><span class="sd">     * call for login . </span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @see getSession()</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @param string $session</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @return IM_Soap_Magento</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setSession</span><span class="p">(</span><span class="nv">$session</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span> <span class="o">=</span> <span class="nv">$session</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * Get the Zend_Soap_Client object</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     * @return Zend_Soap_Client</span>
-</span><span class='line'><span class="sd">     * </span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getClient</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">client</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nv">$endpoint</span>  <span class="o">=</span> <span class="nx">trim</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hostname</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;/api/v2_soap/?wsdl&#39;</span><span class="p">;</span>
-</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Zend_Soap_Client</span><span class="p">(</span>
-</span><span class='line'>                <span class="nv">$endpoint</span>
-</span><span class='line'>            <span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">client</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>In order to connect you want to create an object of the above
-class <code>My_Soap_Magento</code>. You need to get the username and api key
-from the magento host.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">My_Soap_Magento</span><span class="p">(</span>
-</span><span class='line'>    <span class="s1">&#39;the-magento-host&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s1">&#39;username&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s1">&#39;apikey&#39;</span>
-</span><span class='line'><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now you are done! You can connect to the soap api version 2 of
-Magento server.</p>
-
-<p>Sample how to get the product information, category tree,
-category information, products list etc are shown below.</p>
-
-<p>See we are not passing the session parameter.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">echo</span> <span class="s2">&quot;Product Info&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$proxy</span><span class="o">-&gt;</span><span class="na">catalogProductInfo</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
-</span><span class='line'><span class="k">echo</span> <span class="nv">$result</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">echo</span> <span class="s2">&quot;Category Tree&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$proxy</span><span class="o">-&gt;</span><span class="na">catalogCategoryTree</span><span class="p">();</span>
-</span><span class='line'><span class="k">echo</span> <span class="nv">$result</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">echo</span> <span class="s2">&quot;Category Info&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$proxy</span><span class="o">-&gt;</span><span class="na">catalogCategoryInfo</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</span><span class='line'><span class="k">echo</span> <span class="nv">$result</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">echo</span> <span class="s1">&#39;Products List&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$proxy</span><span class="o">-&gt;</span><span class="na">catalogProductList</span><span class="p">();</span>
-</span><span class='line'><span class="k">echo</span> <span class="nv">$result</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   

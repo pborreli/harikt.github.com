@@ -11,7 +11,7 @@
         <meta name="author" content="Hari K T">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		
-        <meta name="description" content="This video is my an attempt to help the people how to install the aura framework as a whole. Note, you can use aura libraries independently also. &hellip;">
+        <meta name="description" content="Note : First I thought of creating an issue, and it was not in github. These are not serious issues, but just my thoughts when installing ZF2 via &hellip;">
         
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
@@ -85,6 +85,42 @@
   <div class="8u">
     <!-- Content -->
     
+    
+    
+      <article>
+        
+  <header>
+          
+      <h2><a href="/blog/2012/09/10/thoughts-on-installing-zend-frameowork-via-composer/">Thoughts on Installing Zend Framework via Composer</a></h2>
+    
+    
+      <span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-10T11:04:00+05:30" pubdate data-updated="true">Sep 10<span>th</span>, 2012</time>
+        
+      </span>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Note : First I thought of creating an issue, and it was not in github. These are not serious issues, but just my thoughts when installing ZF2 via composer. I am not sure whether its composer related or the way the zf2 is packaged to do it via composer. Normally the composer.json will be something like {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &ldquo;require&rdquo;: { &ldquo;zendframework/zend-form&rdquo;: &ldquo;2.0&rdquo; } } hari@local:/var/www/composer/zf2$ php ../composer.phar install Loading composer repositories with package information Installing dependencies &ndash; Installing zendframework/zendframework (2.0.0) Downloading: 25%^C hari@local:/var/www/composer/zf2$ ^C {/syntaxhighlighter} But you can see the composer tries to install the whole zend-framework. The problem is you need to add some more lines for its hosted in packages.framework.com and not in packagist.org . So your composer.json will be as below . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &ldquo;repositories&rdquo;: [ { &ldquo;type&rdquo;: &ldquo;composer&rdquo;, &ldquo;url&rdquo;: &ldquo;<a href="http://packages.zendframework.com/">http://packages.zendframework.com/</a>&rdquo; } ], &ldquo;require&rdquo;: { &ldquo;zendframework/zend-form&rdquo;: &ldquo;2.0&rdquo; } } hari@local:/var/www/composer/zf2$ php ../composer.phar install Loading composer repositories with package information Installing dependencies &ndash; Installing zendframework/zend-form (2.0.0) Downloading: 100% zendframework/zend-form suggests installing zendframework/zendservice-recaptcha (ZendService\ReCaptcha component) Writing lock file Generating autoload files {/syntaxhighlighter} Great you installed the zf2 form component. Now you can see where the form is installed . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ ls vendor/ autoload.php composer zendframework hari@local:/var/www/composer/zf2$ ls vendor/zendframework/ zend-form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/ Form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/ Annotation FieldsetInterface.php composer.json Fieldset.php Element FieldsetPrepareAwareInterface.php ElementInterface.php FormFactoryAwareInterface.php Element.php FormInterface.php ElementPrepareAwareInterface.php Form.php Exception TODO.md Factory.php View {/syntaxhighlighter} Assume you have more zf2 packages which you have added. At a later point you think of installing the framework as a whole itself than adding more packages in the composer.json . So your composer.json will be some what like {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ cat composer.json { &ldquo;repositories&rdquo;: [ { &ldquo;type&rdquo;: &ldquo;composer&rdquo;, &ldquo;url&rdquo;: &ldquo;<a href="http://packages.zendframework.com/">http://packages.zendframework.com/</a>&rdquo; } ], &ldquo;require&rdquo;: { &ldquo;zendframework/zendframework&rdquo;: &ldquo;2.0&rdquo; } } hari@local:/var/www/composer/zf2$ php ../composer.phar update Loading composer repositories with package information Updating dependencies &ndash; Removing zendframework/zend-form (2.0.0) &ndash; Installing zendframework/zendframework (2.0.0) Downloading: 100% Writing lock file Generating autoload files {/syntaxhighlighter} The form has been removed and framework is installed. Lets have a look where its installed . {syntaxhighlighter class} hari@local:/var/www/composer/zf2$ ls vendor/ autoload.php composer zendframework hari@local:/var/www/composer/zf2$ ls vendor/zendframework/ zend-form hari@local:/var/www/composer/zf2$ cat composer.json { &ldquo;repositories&rdquo;: [ { &ldquo;type&rdquo;: &ldquo;composer&rdquo;, &ldquo;url&rdquo;: &ldquo;<a href="http://packages.zendframework.com/">http://packages.zendframework.com/</a>&rdquo; } ], &ldquo;require&rdquo;: { &ldquo;zendframework/zendframework&rdquo;: &ldquo;2.0&rdquo; } } hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/ Form hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/ bin INSTALL.md README-DEV.md resources composer.json library README-GIT.md tests demos LICENSE.txt README.md vendor hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/library/ Zend hari@local:/var/www/composer/zf2$ ls vendor/zendframework/zend-form/Zend/Form/library/Zend/ Authentication Di InputFilter Mvc Stdlib Barcode Dom Json Navigation Tag Cache Escaper Ldap Paginator Text Captcha EventManager Loader Permissions Uri Code Feed Log ProgressBar Validator Config File Mail Serializer Version Console Filter Math Server View Crypt Form Memory ServiceManager XmlRpc Db Http Mime Session Debug I18n ModuleManager Soap {/syntaxhighlighter} You can notice its going on the wrong place. vendor/zendframework/zend-form . I am not sure whether every one needs to remove all the installed packages to install the framework . It seems possible with naming zendframework/package . Thus it don&rsquo;t remove the installed packages. May be there are some other issues related to it for the naming of zendframework/zend-form like that.</p>
+</div>
+  
+  
+
+
+      </article>
     
     
       <article>
@@ -410,144 +446,6 @@
 
       </article>
     
-    
-      <article>
-        
-  <header>
-          
-      <h2><a href="/blog/2012/06/13/why-you-should-write-test/">Why You Should Write Test</a></h2>
-    
-    
-      <span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-13T09:25:00+05:30" pubdate data-updated="true">Jun 13<span>th</span>, 2012</time>
-        
-      </span>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Recently I was reading <a href="http://sandeep.shetty.in/2012/05/when-to-use-arraymerge-and-union.html">When to use array_merge and union operator (+)
-in PHP?</a> . Lately working with examples I was also confused how the
-array_merge and union works. Really, that brings a strong thought why
-you should write tests. Lets see some examples .</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'><span class="nv">$a</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;123&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">);</span>
-</span><span class='line'><span class="k">echo</span> <span class="s1">&#39;$a = &#39;</span><span class="p">;</span>
-</span><span class='line'><span class="nb">var_export</span><span class="p">(</span><span class="nv">$a</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$b</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-</span><span class='line'><span class="k">echo</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="s1">&#39;$b = &#39;</span><span class="p">;</span>
-</span><span class='line'><span class="nb">var_export</span><span class="p">(</span><span class="nv">$b</span><span class="p">);</span>
-</span><span class='line'><span class="k">echo</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="s1">&#39;array_merge( $a, $b) = &#39;</span><span class="p">;</span>
-</span><span class='line'><span class="nb">var_export</span><span class="p">(</span> <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">));</span>
-</span><span class='line'><span class="k">echo</span> <span class="nx">PHP_EOL</span> <span class="o">.</span> <span class="s1">&#39;$a + $b = &#39;</span><span class="p">;</span>
-</span><span class='line'><span class="nb">var_export</span><span class="p">(</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Do you have any thoughts on how the result for array_merge and + comes?</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$a</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span>
-</span><span class='line'>  <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">123</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'><span class="p">)</span>
-</span><span class='line'><span class="nv">$b</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span>
-</span><span class='line'>  <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">7</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'><span class="p">)</span>
-</span><span class='line'><span class="nb">array_merge</span><span class="p">(</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">)</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span>
-</span><span class='line'>  <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">4</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">5</span> <span class="o">=&gt;</span> <span class="mi">7</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">6</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'><span class="p">)</span>
-</span><span class='line'><span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span>
-</span><span class='line'>  <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">123</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">7</span><span class="p">,</span>
-</span><span class='line'>  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
-</span><span class='line'><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Hope this makes to convince you also , why you should write tests :&ndash;) .
-A detailed post on the working is at
-<a href="">http://unix0.wordpress.com/2012/01/08/php-array_merge-vs-plus-union-operator/</a></p>
-
-<pre><code>http://unix0.wordpress.com/2012/01/08/php-array_merge-vs-plus-union-operator/
-</code></pre>
-</div>
-  
-  
-
-
-      </article>
-    
     <div class="pagination">
       
         <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -582,6 +480,10 @@ A detailed post on the working is at
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/13/extending-plates-with-aura-html-helpers/">Extending Plates With Aura Html Helpers</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/04/29/installing-aura-framework-project-via-composer/">Installing Aura Framework Project via Composer</a>
       </li>
     
@@ -595,10 +497,6 @@ A detailed post on the working is at
     
       <li class="post">
         <a href="/blog/2014/04/26/web-routing-in-php-with-aura-dot-router/">Web Routing in PHP With Aura.Router</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/03/angularjs-by-brad-green/">AngularJS by Brad Green, Shyam Seshadri; O&#8217;Reilly Media</a>
       </li>
     
   </ul>
@@ -662,8 +560,7 @@ A detailed post on the working is at
           <li class="fa fa-twitter"><a href="http://twitter.com/harikt"><span class="extra">twitter.com/</span>harikt</a></li>          
         </ul>
         <ul class="divided icons 6u">
-          <li class="fa fa-linkedin"><a href="http://linkedin.com/in/harikt"><span class="extra">linkedin.com/in/</span>harikt</a></li>
-          <li class="fa fa-youtube"><a href="http://www.youtube.com/user/kthari85"><span class="extra">youtube.com/</span>kthari85</a></li>
+          <li class="fa fa-linkedin"><a href="http://linkedin.com/in/harikt"><span class="extra">linkedin.com/in/</span>harikt</a></li>          
         </ul>
       </div>
     </section>

@@ -1,0 +1,733 @@
+
+<!DOCTYPE HTML>
+<!--
+	Telephasic 1.1 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Extending Plates With Aura Html Helpers - Random thoughts | Hari KT</title>        
+        <meta name="author" content="Hari K T">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		
+        <meta name="description" content="Aura.Html provides HTML escapers and helpers, including form input helpers,
+that can be used in any template, view, or presentation system. In this &hellip;">
+        
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+        
+        <link rel="canonical" href="http://harikt.com/blog/2014/05/13/extending-plates-with-aura-html-helpers">
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/jquery.dropotron.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/skel-panels.min.js"></script>
+		<script src="/js/init.js"></script>
+    <link rel="stylesheet" href="/stylesheets/screen.css" />
+		<noscript>
+			<link rel="stylesheet" href="/css/skel-noscript.css" />
+			<link rel="stylesheet" href="/css/style.css" />
+			<link rel="stylesheet" href="/css/style-n1.css" />
+		</noscript>
+        <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+        
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5998889-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+	</head>
+
+<body  class="right-sidebar">
+  <!-- Header Wrapper -->
+  <div id="header-wrapper">
+      <!-- Header -->
+<div id="header" class="container">
+    
+    <!-- Logo -->
+        <h1 id="logo"><a href="/">Home</a></h1>
+    
+    <!-- Nav -->
+        <nav id="nav">
+            <ul>
+    <li>
+        <a href="/blog">Blog</a>
+        <ul>
+            <li><a href="/blog/archives">Archives</a></li>
+        </ul>
+    </li>
+    <li><a href="/work/">Work</a></li>
+    <li class="break"><a href="/who-am-i/">About</a></li>
+    <li><a href="/opensource/">Open source</a></li>
+</ul>
+
+
+        </nav>
+
+</div>
+
+      
+  </div>
+  <!-- Main Wrapper -->
+  <div class="wrapper">
+    <div class="container">
+      <div class="row" id="main">
+  <div class="8u">
+    <!-- Content -->
+    <article>
+      
+  <header>
+          
+      <h2>Extending Plates With Aura Html Helpers</h2>
+    
+    
+      <span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-13T09:13:47+05:30" pubdate data-updated="true">May 13<span>th</span>, 2014</time>
+        
+      </span>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="https://github.com/auraphp/Aura.Html">Aura.Html</a> provides HTML escapers and helpers, including form input helpers,
+that can be used in any template, view, or presentation system.</p>
+
+<p>In this post I would like to give you a short introduction to Aura.Html
+and how you could use with <a href="http://platesphp.com">Plates</a> a native php templating system like <a href="https://github.com/auraphp/Aura.View">Aura.View</a>.</p>
+
+<p><a href="https://github.com/auraphp/Aura.Html">Aura.Html</a> was extracted from <a href="https://github.com/auraphp/Aura.View">Aura.View</a> helper functions of version 1,
+when we at aura noticed that people who uses <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a> may need some html helper
+functions and they may not be using a templating like <a href="https://github.com/auraphp/Aura.View">Aura.View</a>,
+but some other templating system.</p>
+
+<p>You can see an example of a simple <a href="http://harikt.com/phpform/">contact form</a> with <a href="https://github.com/auraphp/Aura.Input">Aura.Input</a>.</p>
+
+<h2>Installation</h2>
+
+<p>The easiest way to install Aura.Html is via composer. Let us create our <code>composer.json</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;aura/html&quot;</span><span class="p">:</span> <span class="s2">&quot;2.*@dev&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;league/plates&quot;</span><span class="p">:</span> <span class="s2">&quot;2.*&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>One of the good thing about Plates is you can create <a href="http://platesphp.com/extensions/">extensions</a>.</p>
+
+<p>Let us create an extension that can make use of <a href="https://github.com/auraphp/Aura.Html">Aura.Html</a> helpers inside <a href="http://platesphp.com">Plates</a>.
+Any Plates extension should implement <code>League\Plates\Extension\ExtensionInterface</code>
+which contains a <code>getFunctions</code> method which returns the functions
+available within your templates.</p>
+
+<p>We are going to name it as <code>AuraHtmlExtension</code> and call functions as
+<code>aurahtml()</code> or <code>ah()</code> via the template.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">League\Plates\Extension\ExtensionInterface</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Html\HelperLocator</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">AuraHtmlExtension</span> <span class="k">implements</span> <span class="nx">ExtensionInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nv">$engine</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="nv">$template</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$helper</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">HelperLocator</span> <span class="nv">$helper</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">helper</span> <span class="o">=</span> <span class="nv">$helper</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFunctions</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>            <span class="s1">&#39;aurahtml&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;callHelper&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="s1">&#39;ah&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;callHelper&#39;</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">callHelper</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">helper</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But you are not limited to name it as the same
+<a href="https://github.com/auraphp/Aura.Html/blob/functions/README-HELPERS.md#aurahtml-tag-helpers">html tag helpers</a>
+and <a href="https://github.com/auraphp/Aura.Html/blob/develop-2/README-FORMS.md">form helpers</a>.</p>
+
+<p>So that will make the helpers look native Plates helpers. Thank you for
+this functionality to plugin the helpers.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">League\Plates\Extension\ExtensionInterface</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Aura\Html\HelperLocator</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">AuraHtmlExtension</span> <span class="k">implements</span> <span class="nx">ExtensionInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nv">$engine</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="nv">$template</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="nv">$helper</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">HelperLocator</span> <span class="nv">$helper</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">helper</span> <span class="o">=</span> <span class="nv">$helper</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFunctions</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>            <span class="s1">&#39;anchor&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;anchor&#39;</span>
+</span><span class='line'>            <span class="c1">// ... more functions same as aura</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">anchor</span><span class="p">(</span><span class="nv">$href</span><span class="p">,</span> <span class="nv">$text</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$attr</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">helper</span><span class="o">-&gt;</span><span class="na">anchor</span><span class="p">(</span><span class="nv">$href</span><span class="p">,</span> <span class="nv">$text</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$attr</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let us use the <a href="http://platesphp.com/simple-example/">basic example in plates</a>
+and use aura html helper to show the system works as expected.</p>
+
+<p>Create the templates in a <code>templates</code> folder or change the path in Plates Engine.</p>
+
+<h3>Profile Template</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;!--</span> <span class="nx">profile</span><span class="o">.</span><span class="nx">php</span> <span class="o">--&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">layout</span><span class="p">(</span><span class="s1">&#39;template&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">title</span> <span class="o">=</span> <span class="s1">&#39;User Profile&#39;</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;h1&gt;User Profile&lt;/h1&gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;Hello, </span><span class="cp">&lt;?</span><span class="o">=</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">e</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">)</span><span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+</span><span class='line'><span class="x">&lt;div&gt;</span>
+</span><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">aurahtml</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">input</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;type&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;color&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;name&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;value&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;attribs&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+</span><span class='line'>    <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+</span><span class='line'><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// &lt;input type=&quot;color&quot; name=&quot;name&quot; value=&quot;value&quot; /&gt;</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">ah</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">input</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="s1">&#39;type&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;name&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;value&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;attribs&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+</span><span class='line'>    <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(),</span>
+</span><span class='line'><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// &lt;input type=&quot;date&quot; name=&quot;name&quot; value=&quot;value&quot; /&gt;</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Layout Template</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;!--</span> <span class="nx">template</span><span class="o">.</span><span class="nx">php</span> <span class="o">--&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;&lt;?=</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">title</span><span class="cp">?&gt;</span><span class="x">&lt;/title&gt;</span>
+</span><span class='line'><span class="x">&lt;/head&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;body&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">&lt;?</span><span class="o">=</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">content</span><span class="p">()</span><span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;/body&gt;</span>
+</span><span class='line'><span class="x">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Autoload Extension</h3>
+
+<p>Make sure AuraHtmlExtension can be autoloaded. We can add in <code>composer.json</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">//</span> <span class="err">rest</span> <span class="err">of</span> <span class="err">the</span> <span class="err">code</span>
+</span><span class='line'><span class="s2">&quot;autoload&quot;</span><span class="err">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;psr-4&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;&quot;</span><span class="p">:</span> <span class="s2">&quot;path/to/aura/html/extension/&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Bootstrapping and Rendering</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="c1">// test.php file</span>
+</span><span class='line'><span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$engine</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\League\Plates\Engine</span><span class="p">(</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/templates&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Create a new template</span>
+</span><span class='line'><span class="nv">$template</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\League\Plates\Template</span><span class="p">(</span><span class="nv">$engine</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Aura\Html\HelperLocatorFactory</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$helper</span> <span class="o">=</span> <span class="nv">$factory</span><span class="o">-&gt;</span><span class="na">newInstance</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$engine</span><span class="o">-&gt;</span><span class="na">loadExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">AuraHtmlExtension</span><span class="p">(</span><span class="nv">$helper</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Assign a variable to the template</span>
+</span><span class='line'><span class="nv">$template</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;Jonathan&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Render the template</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$template</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you run <code>php test.php</code> you will see something like this rendered.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;title&gt;</span>User Profile<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;h1&gt;</span>User Profile<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>
+</span><span class='line'>Hello, Jonathan
+</span><span class='line'><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;div&gt;</span>
+</span><span class='line'><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;color&quot;</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">value=</span><span class="s">&quot;value&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;date&quot;</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">value=</span><span class="s">&quot;value&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;&lt;/title&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thank you and Happy PhPing!</p>
+</div>
+
+
+    </article>
+    <div>
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Hari K T</span></span>
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-13T09:13:47+05:30" pubdate data-updated="true">May 13<span>th</span>, 2014</time>
+        
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/auraphp/'>auraphp</a>, <a class='category' href='/blog/categories/helpers/'>helpers</a>, <a class='category' href='/blog/categories/html/'>html</a>, <a class='category' href='/blog/categories/php/'>php</a>, <a class='category' href='/blog/categories/plates/'>plates</a>, <a class='category' href='/blog/categories/view/'>view</a>
+  
+</span>
+
+
+      </p>
+      
+        <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://harikt.com/blog/2014/05/13/extending-plates-with-aura-html-helpers/" data-via="harikt" data-counturl="http://harikt.com/blog/2014/05/13/extending-plates-with-aura-html-helpers/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+            
+    </div>
+    <div>
+      
+        <section>
+          <h3>Comments</h3>
+          <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        </section>
+      
+    </div>
+    <div class="pagination">
+        
+          <a class="prev" href="/blog/2014/04/29/installing-aura-framework-project-via-composer/" title="Previous Post: Installing aura framework project via composer">&laquo; Installing aura framework project via composer</a>
+        
+        
+      </div>
+  </div>
+  <div class="4u">
+    <!-- Sidebar -->
+    <section id="sidebar">
+    
+      <section>
+	<a href="/who-am-i/" class="image full">
+    <img src="https://1.gravatar.com/avatar/895c943fbd5beb697f6c2d7bf0c3b279?s=300" />
+  </a>
+  <header>
+    <h3>About Hari</h3>
+  </header>
+	<p>      
+      I am <a href="/who-am-i/">Hari KT</a> a freelance PHP developer from India.        
+      Breath open-source and contributes to <a href="http://auraphp.com">aura project</a>.
+	</p>
+  <ul class="actions">
+    <li><a class="button" href="/who-am-i/">Know more</a></li>
+  </ul>
+</section>
+<section>
+  <h2>Recent Posts</h2>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/13/extending-plates-with-aura-html-helpers/">Extending Plates With Aura Html Helpers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/29/installing-aura-framework-project-via-composer/">Installing Aura Framework Project via Composer</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/29/installing-aura-cli-project-via-composer/">Installing Aura Cli Project via Composer</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/29/installing-aura-web-project-via-composer/">Installing Aura Web Project via Composer</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/26/web-routing-in-php-with-aura-dot-router/">Web Routing in PHP With Aura.Router</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <header>
+    <h3>GitHub Repos</h3>
+  </header>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/harikt">@harikt</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'harikt',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/js/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+    
+    </section>
+  </div>
+</div>
+
+    </div>
+  </div>
+  <!-- Footer Wrapper -->
+  <div id="footer-wrapper">
+    <!-- Footer -->
+<div id="footer" class="container">
+  <header class="major">
+    <h2>Socialized</h2>
+    <span>I also live at other places in the internet. Some of them are given below</span>
+  </header>
+  <div class="row">
+    <section class="6u">
+      <div class="row no-collapse-1">
+        <ul class="divided icons 6u">          
+          <li class="fa fa-github"><a href="https://github.com/harikt"><span class="extra">github.com/</span>harikt</a></li>
+          <li class="fa fa-twitter"><a href="http://twitter.com/harikt"><span class="extra">twitter.com/</span>harikt</a></li>          
+        </ul>
+        <ul class="divided icons 6u">
+          <li class="fa fa-linkedin"><a href="http://linkedin.com/in/harikt"><span class="extra">linkedin.com/in/</span>harikt</a></li>          
+        </ul>
+      </div>
+    </section>
+    <section class="6u">
+      <div class="row no-collapse-1">
+        <ul class="divided icons 6u">          
+          <li class="fa fa-facebook"><a href="https://facebook.com/harikt"><span class="extra">facebook.com/</span>harikt</a></li>
+        </ul>
+        <ul class="divided icons 6u">          
+          <li class="fa fa-youtube"><a href="http://www.youtube.com/user/kthari85"><span class="extra">youtube.com/</span>kthari85</a></li>          
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- Copyright -->
+<div id="copyright" class="container">
+  <ul class="menu">
+    <li>&copy; 2014 - Hari K T</li>
+    <li>Design: <a href="http://html5up.net/">HTML5 UP</a></li>
+    <li>Powered by <a href="http://octopress.org">Octopress</a></li>
+  </ul>
+</div>
+
+
+  </div>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'harikt';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://harikt.com/blog/2014/05/13/extending-plates-with-aura-html-helpers/';
+        var disqus_url = 'http://harikt.com/blog/2014/05/13/extending-plates-with-aura-html-helpers/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

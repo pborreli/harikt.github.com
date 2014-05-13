@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Plates | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/plates/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2014-05-13T11:06:51+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Extending Plates With Aura Html Helpers]]></title>
+    <link href="http://harikt.com/blog/2014/05/13/extending-plates-with-aura-html-helpers/"/>
+    <updated>2014-05-13T09:13:47+05:30</updated>
+    <id>http://harikt.com/blog/2014/05/13/extending-plates-with-aura-html-helpers</id>
+    <content type="html"><![CDATA[<p>[Aura.Html][] provides HTML escapers and helpers, including form input helpers,
+that can be used in any template, view, or presentation system.</p>
+
+<p>In this post I would like to give you a short introduction to Aura.Html
+and how you could use with [Plates][] a native php templating system like [Aura.View][].</p>
+
+<p>[Aura.Html][] was extracted from [Aura.View][] helper functions of version 1,
+when we at aura noticed that people who uses [Aura.Input][] may need some html helper
+functions and they may not be using a templating like [Aura.View][],
+but some other templating system.</p>
+
+<p>You can see an example of a simple <a href="http://harikt.com/phpform/">contact form</a> with [Aura.Input][].</p>
+
+<h2>Installation</h2>
+
+<p>The easiest way to install Aura.Html is via composer. Let us create our <code>composer.json</code></p>
+
+<p>```json
+{</p>
+
+<pre><code>"require": {
+    "aura/html": "2.*@dev",
+    "league/plates": "2.*"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>One of the good thing about Plates is you can create <a href="http://platesphp.com/extensions/">extensions</a>.</p>
+
+<p>Let us create an extension that can make use of [Aura.Html][] helpers inside [Plates][].
+Any Plates extension should implement <code>League\Plates\Extension\ExtensionInterface</code>
+which contains a <code>getFunctions</code> method which returns the functions
+available within your templates.</p>
+
+<p>We are going to name it as <code>AuraHtmlExtension</code> and call functions as
+<code>aurahtml()</code> or <code>ah()</code> via the template.</p>
+
+<p>```php
+&lt;?php
+use League\Plates\Extension\ExtensionInterface;
+use Aura\Html\HelperLocator;</p>
+
+<p>class AuraHtmlExtension implements ExtensionInterface
+{</p>
+
+<pre><code>public $engine;
+
+public $template;
+
+protected $helper;
+
+public function __construct(HelperLocator $helper)
+{
+    $this-&gt;helper = $helper;
+}
+
+public function getFunctions()
+{
+    return array(
+        'aurahtml' =&gt; 'callHelper',
+        'ah' =&gt; 'callHelper'
+    );
+}
+
+public function callHelper()
+{
+    return $this-&gt;helper;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>But you are not limited to name it as the same
+<a href="https://github.com/auraphp/Aura.Html/blob/functions/README-HELPERS.md#aurahtml-tag-helpers">html tag helpers</a>
+and <a href="https://github.com/auraphp/Aura.Html/blob/develop-2/README-FORMS.md">form helpers</a>.</p>
+
+<p>So that will make the helpers look native Plates helpers. Thank you for
+this functionality to plugin the helpers.</p>
+
+<p>```php
+&lt;?php
+use League\Plates\Extension\ExtensionInterface;
+use Aura\Html\HelperLocator;</p>
+
+<p>class AuraHtmlExtension implements ExtensionInterface
+{</p>
+
+<pre><code>public $engine;
+
+public $template;
+
+protected $helper;
+
+public function __construct(HelperLocator $helper)
+{
+    $this-&gt;helper = $helper;
+}
+
+public function getFunctions()
+{
+    return array(
+        'anchor' =&gt; 'anchor'
+        // ... more functions same as aura
+    );
+}
+
+public function anchor($href, $text, array $attr = array())
+{
+    return $this-&gt;helper-&gt;anchor($href, $text, array $attr);
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Let us use the <a href="http://platesphp.com/simple-example/">basic example in plates</a>
+and use aura html helper to show the system works as expected.</p>
+
+<p>Create the templates in a <code>templates</code> folder or change the path in Plates Engine.</p>
+
+<h3>Profile Template</h3>
+
+<p>```php</p>
+
+<!-- profile.php -->
+
+
+<p>&lt;?php $this->layout(&lsquo;template&rsquo;) ?></p>
+
+<p>&lt;?php $this->title = &lsquo;User Profile&rsquo; ?></p>
+
+<h1>User Profile</h1>
+
+
+<p><p>Hello, &lt;?=$this->e($this->name)?></p>
+<div>
+&lt;?php
+echo $this->aurahtml()&ndash;>input(array(</p>
+
+<pre><code>'type'    =&gt; 'color',
+'name'    =&gt; 'name',
+'value'   =&gt; 'value',
+'attribs' =&gt; array(),
+'options' =&gt; array(),
+</code></pre>
+
+<p>));</p>
+
+<p>// <input type="color" name="name" value="value" />
+echo $this->ah()&ndash;>input(array(</p>
+
+<pre><code>'type'    =&gt; 'date',
+'name'    =&gt; 'name',
+'value'   =&gt; 'value',
+'attribs' =&gt; array(),
+'options' =&gt; array(),
+</code></pre>
+
+<p>));</p>
+
+<p>// <input type="date" name="name" value="value" />
+?>
+</div>
+```</p>
+
+<h3>Layout Template</h3>
+
+<p>```php
+<!-- template.php --></p>
+
+<p><html>
+<head></p>
+
+<pre><code>&lt;title&gt;&lt;?=$this-&gt;title?&gt;&lt;/title&gt;
+</code></pre>
+
+<p></head></p>
+
+<p><body></p>
+
+<p>&lt;?=$this->content()?></p>
+
+<p></body>
+</html>
+```</p>
+
+<h3>Autoload Extension</h3>
+
+<p>Make sure AuraHtmlExtension can be autoloaded. We can add in <code>composer.json</code></p>
+
+<p>```json</p>
+
+<pre><code>// rest of the code    
+"autoload": {
+    "psr-4": {
+        "": "path/to/aura/html/extension/"
+    }
+}
+</code></pre>
+
+<p>```</p>
+
+<h3>Bootstrapping and Rendering</h3>
+
+<p>```php
+// test.php file
+require <strong>DIR</strong> . &lsquo;/vendor/autoload.php&rsquo;;
+$engine = new \League\Plates\Engine( <strong>DIR</strong> . &lsquo;/templates&rsquo;);</p>
+
+<p>// Create a new template
+$template = new \League\Plates\Template($engine);
+$factory = new \Aura\Html\HelperLocatorFactory();
+$helper = $factory->newInstance();
+$engine->loadExtension(new AuraHtmlExtension($helper));</p>
+
+<p>// Assign a variable to the template
+$template->name = &lsquo;Jonathan&rsquo;;</p>
+
+<p>// Render the template
+echo $template->render(&lsquo;profile&rsquo;);
+```</p>
+
+<p>If you run <code>php test.php</code> you will see something like this rendered.</p>
+
+<p>```html
+<html>
+<head></p>
+
+<pre><code>&lt;title&gt;User Profile&lt;/title&gt;
+</code></pre>
+
+<p></head></p>
+
+<p><body></p>
+
+<p><h1>User Profile</h1>
+<p>
+Hello, Jonathan
+</p>
+<div>
+<input type="color" name="name" value="value" />
+<input type="date" name="name" value="value" />
+</div></p>
+
+<p></body>
+</html>
+</body></title>
+```</p>
+
+<p>Thank you and Happy PhPing!</p>
+
+<p>[Aura.Html]: <a href="https://github.com/auraphp/Aura.Html">https://github.com/auraphp/Aura.Html</a>
+[Aura.Input]: <a href="https://github.com/auraphp/Aura.Input">https://github.com/auraphp/Aura.Input</a>
+[Aura.View]: <a href="https://github.com/auraphp/Aura.View">https://github.com/auraphp/Aura.View</a>
+[Plates]: <a href="http://platesphp.com">http://platesphp.com</a></p>
+]]></content>
+  </entry>
+  
+</feed>
