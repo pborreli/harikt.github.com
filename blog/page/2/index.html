@@ -11,9 +11,8 @@
         <meta name="author" content="Hari K T">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		
-        <meta name="description" content="I am a huge fan of composer. PW ( ProcessWire) is missing one of the good parts of composer.
-So here is a new installer
-to install the 3rd party &hellip;">
+        <meta name="description" content="In my earlier post
+I mentioned about adding a composer.json in the root of the github repo. Sometimes you may see a non composer.json repo or some &hellip;">
         
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
@@ -87,6 +86,112 @@ to install the 3rd party &hellip;">
   <div class="8u">
     <!-- Content -->
     
+    
+    
+      <article>
+        
+  <header>
+          
+      <h2><a href="/blog/2013/11/19/composer-support-for-processwire-part-2/">Composer Support for ProcessWire : Part-2</a></h2>
+    
+    
+      <span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-19T08:37:00+05:30" pubdate data-updated="true">Nov 19<span>th</span>, 2013</time>
+        
+      </span>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In my <a href="http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules/">earlier post</a>
+I mentioned about adding a <code>composer.json</code> in the root of the github repo.</p>
+
+<p>Sometimes you may see a non <code>composer.json</code> repo or some times people reject
+it, you still can do like the below.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;minimum-stability&quot;</span><span class="o">:</span> <span class="s2">&quot;dev&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;repositories&quot;</span><span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;package&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="s2">&quot;package&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ryancramerdesign/process-export-profile&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;source&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://github.com/ryancramerdesign/ProcessExportProfile&quot;</span><span class="p">,</span>
+</span><span class='line'>                    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;git&quot;</span><span class="p">,</span>
+</span><span class='line'>                    <span class="s2">&quot;reference&quot;</span><span class="o">:</span> <span class="s2">&quot;master&quot;</span>
+</span><span class='line'>                <span class="p">},</span>
+</span><span class='line'>                <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;pw-module&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;require&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="s2">&quot;hari/pw-module&quot;</span><span class="o">:</span> <span class="s2">&quot;dev-master&quot;</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="s2">&quot;require&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;ryancramerdesign/process-export-profile&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And run</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>php composer.phar update
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>Don&rsquo;t forget you need <code>composer.phar</code>. If you don&rsquo;t have get from <a href="http://getcomposer.org/download/">getcomposer.org</a></p></blockquote>
+
+<p>The module is downloaded to <code>site/modules/ProcessExportProfile</code>.
+The package is of type <a href="https://github.com/harikt/pwmoduleinstaller">pw-module</a></p>
+
+<blockquote><p>The name process-export-profile is converted to ProcessExportProfile .
+So if you have caps in between name put a hyphen in the naming</p></blockquote>
+</div>
+  
+  
+
+
+      </article>
     
     
       <article>
@@ -1484,70 +1589,6 @@ contest.</p>
 
       </article>
     
-    
-      <article>
-        
-  <header>
-          
-      <h2><a href="/blog/2013/08/23/chance-to-win-free-copies-of-packts-new-book-on-zend-framework-2-dot-0/">Chance to Win Free Copies of Packt’s New Book on Zend Framework 2.0</a></h2>
-    
-    
-      <span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-23T11:59:00+05:30" pubdate data-updated="true">Aug 23<span>rd</span>, 2013</time>
-        
-      </span>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have teamed up with <a href="http://www.packtpub.com">Packt Publishing</a> to organize a contest
-of its newly published book on
-<a href="http://www.packtpub.com/zend-framework-2-0-by-example-beginners-guide/book">Zend Framework 2.0 by example</a></p>
-
-<p>And 3 lucky winners stand a chance to win eBook copies of the book.
-Keep reading to find out how you can be one of the Lucky Winners.</p>
-
-<h2>Overview of the book</h2>
-
-<ul>
-<li><p> Master application development with Zend Framework 2.0</p></li>
-<li><p> Learn about Zend Framework components and use them for functions such as searching, image
-processing, and payment gateway integrations</p></li>
-<li><p> Integrate third-party services for media sharing and payment processing</p></li>
-</ul>
-
-
-<h2>How to Enter ?</h2>
-
-<p>All you need to do is head on over to the
-<a href="http://www.packtpub.com/zend-framework-2-0-by-example-beginners-guide/book">book page</a>
-and look through the product description of the book and drop a line via the
-comments below this post to let us know what interests you the most about this book.
-It’s that simple.</p>
-
-<p>Deadline:The contest will close in 1 weeks time (ie 30th August 2013).
-Winners will be contacted by email, so be sure to use your real email
-address when you comment! Hurry up as you could be one of the few lucky
-ones to get yourself a free ebook of the latest released title.</p>
-</div>
-  
-  
-
-
-      </article>
-    
     <div class="pagination">
       
         <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -1582,6 +1623,10 @@ ones to get yourself a free ebook of the latest released title.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/29/hidden-gems-of-composer/">Hidden Gems of Composer</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/13/extending-plates-with-aura-html-helpers/">Extending Plates With Aura Html Helpers</a>
       </li>
     
@@ -1595,10 +1640,6 @@ ones to get yourself a free ebook of the latest released title.</p>
     
       <li class="post">
         <a href="/blog/2014/04/29/installing-aura-web-project-via-composer/">Installing Aura Web Project via Composer</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/26/web-routing-in-php-with-aura-dot-router/">Web Routing in PHP With Aura.Router</a>
       </li>
     
   </ul>

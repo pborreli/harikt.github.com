@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Composer | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/composer/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2014-05-14T20:41:45+05:30</updated>
+  <updated>2014-05-29T10:06:00+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -12,6 +12,126 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hidden Gems of Composer]]></title>
+    <link href="http://harikt.com/blog/2014/05/29/hidden-gems-of-composer/"/>
+    <updated>2014-05-29T07:53:53+05:30</updated>
+    <id>http://harikt.com/blog/2014/05/29/hidden-gems-of-composer</id>
+    <content type="html"><![CDATA[<p>I hope everyone in the PHP world is aware of [composer][] the dependency
+management tool that gives an end to Pear.</p>
+
+<p>We can look into some of the hidden gems of composer. Some of them are
+already documented in the composer docs.</p>
+
+<h2>Bug Fixing :</h2>
+
+<p>Documented over <a href="https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository">Loading a package from a VCS repository</a></p>
+
+<p>```json
+{</p>
+
+<pre><code>"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/igorw/monolog"
+    }
+],
+"require": {
+    "monolog/monolog": "dev-bugfix"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>The above example assume you have pushed your code to github. But you can
+also make use of the local directory.</p>
+
+<p>Assume you are organizing your code something like</p>
+
+<p>```bash
+home
+└── github.com</p>
+
+<pre><code>└── harikt
+    ├── Aura.Router
+    ├── Aura.Web
+    └── monolog
+</code></pre>
+
+<p>```</p>
+
+<p>Now on your project you could make use of the patches you are working on
+the local directory without pushing it to github.</p>
+
+<blockquote><p>Note : You should commit the changes though.</p></blockquote>
+
+<p>```json
+{</p>
+
+<pre><code>"minimum-stability":"dev",
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "/var/www/github.com/harikt/monolog"            
+    }
+],
+"require": {
+    "monolog/monolog": "dev-bugfix"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>And you can also disable packagist for fast look up.</p>
+
+<h2>Experimenting your own packages</h2>
+
+<p>I did add packages in <a href="https://packagist.org">packagist</a> for testing.
+This is really a wrong way to do, you are adding more packages that
+makes other people&rsquo;s life hard to find a useful package.</p>
+
+<p>What I learned is, you can do in a different way. See docs under
+<a href="https://getcomposer.org/doc/05-repositories.md#package-2">Package</a></p>
+
+<p>So your <code>composer.json</code> will look something like this.</p>
+
+<p>```json
+{</p>
+
+<pre><code>"minimum-stability":"dev",
+"repositories": [        
+    {
+        "type": "package",
+        "package": {
+            "name": "harikt/experiments",
+            "version": "3.1.7",               
+            "source": {
+                "type": "git",
+                "url": "/var/www/github.com/harikt/experiments",
+                "reference": "master"
+            },
+            "autoload": {
+                "classmap": ["libs/"]
+            }
+        }
+    }
+],
+"require": {        
+    "harikt/experiments": "3.1.*"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>That&rsquo;s for now.</p>
+
+<p>Happy PhPing!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Installing Aura Framework Project via Composer]]></title>
@@ -138,80 +258,6 @@ The package is of type <a href="https://github.com/harikt/pwmoduleinstaller">pw-
 
 <blockquote><p>The name process-export-profile is converted to ProcessExportProfile .
 So if you have caps in between name put a hyphen in the naming</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Composer Support for ProcessWire Modules]]></title>
-    <link href="http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules/"/>
-    <updated>2013-11-16T11:22:00+05:30</updated>
-    <id>http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules</id>
-    <content type="html"><![CDATA[<p>I am a huge fan of <a href="http://getcomposer.org/" title="External link">composer</a>. <a href="http://processwire.com/">PW</a> ( ProcessWire) is missing one of the good parts of <a href="http://getcomposer.org/" title="External link">composer</a>.
-So here is a <a href="https://github.com/harikt/pwmoduleinstaller">new installer</a>
-to install the 3rd party modules of <a href="http://processwire.com/">PW</a> via <a href="http://getcomposer.org/" title="External link">composer</a>.</p>
-
-<p>If you have created a module for PW, what you need to do is add a
-<code>composer.json</code> file in your <a href="https://github.com/harikt/Assets/blob/master/composer.json" title="External link">github repo</a> and add it to <a href="https://packagist.org" title="External link">packagist</a>.
-An example <a href="https://github.com/harikt/Assets/blob/master/composer.json" title="External link">composer.json</a> is</p>
-
-<p>```json
-{</p>
-
-<pre><code>"name": "vendor/package-name",
-"type": "pw-module",
-"description": "Your module what it does",
-"keywords": [ "keywords", "comma", "seprated"],
-"homepage": "https://github.com/harikt/Assets",
-"license": "BSD-2-Clause",
-"authors": [
-    {
-        "name": "Assets Contributors",
-        "homepage": "https://github.com/harikt/Assets/contributors"
-    }
-],
-"require": {
-    "php": "&gt;=5.3.0",
-    "hari/pw-module": "dev-master"
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>Note the minimum requirement is PHP 5.3 for composer is 5.3 .</p>
-
-<p>An example of a module that works with this is <a href="https://github.com/harikt/Assets">https://github.com/harikt/Assets</a>
-( Move the index.php to any where :&ndash;) ).
-You are read more about Assets from <a href="http://harikt.com/blog/2013/11/08/assets-for-processwire/">here</a></p>
-
-<h2>Installing modules</h2>
-
-<p>How do you install the PW modules and the 3rd party dependencies ? Assuming you are in the PW folder.</p>
-
-<p>First download composer from <a href="http://getcomposer.org/download/">http://getcomposer.org/download/</a>.</p>
-
-<p>Hope you have <code>composer.phar</code> now.</p>
-
-<p><code>bash
-php composer.phar require vendor/package-name version-name
-</code></p>
-
-<p>Will install if the <code>vendor/package-name</code> to <code>site/modules/PackageName</code>.
-All packages <code>vendor/package-name</code> of <code>"type": "pw-module"</code> will be converted to <code>PackageName</code>.</p>
-
-<p>Example you can try</p>
-
-<p><code>bash
-php composer.phar require hari/assets dev-master
-</code></p>
-
-<p>Try the above and see where it is installed. If you are a module maintainer,
-please add a <code>composer.json</code> to your github module and add it to <a href="https://packagist.org" title="External link">packagist</a>.</p>
-
-<p>Of-course inspired and modified composer installer from
-<a href="https://github.com/auraphp/installer-system">Aura Project for PHP</a></p>
-
-<p>Thank you. Happy PhPing!</p>
 ]]></content>
   </entry>
   

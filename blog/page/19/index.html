@@ -11,7 +11,7 @@
         <meta name="author" content="Hari K T">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		
-        <meta name="description" content="By coolris we can use the preview of a website when we search in google. I have tried it and it was a wonderful tool. Recently I found another search &hellip;">
+        <meta name="description" content="I have updated my Ubuntu 8.10 to 9.04 in the previous month . After the update I was facing a problem when playing videos . When we plays a video the &hellip;">
         
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
@@ -85,6 +85,42 @@
   <div class="8u">
     <!-- Content -->
     
+    
+    
+      <article>
+        
+  <header>
+          
+      <h2><a href="/blog/2009/06/21/playing-video-ubuntu-904-jaunty-ends-session-fixed/">Playing Video in Ubuntu 9.04 ( Jaunty ) Ends Session Fixed</a></h2>
+    
+    
+      <span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-21T11:49:00+05:30" pubdate data-updated="true">Jun 21<span>st</span>, 2009</time>
+        
+      </span>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have updated my Ubuntu 8.10 to 9.04 in the previous month . After the update I was facing a problem when playing videos . When we plays a video the user is being logged out . It was a strange one . I looked the forum , yes many have reported the bug. As I will not be using mainly to view video I thought of not considering the issue much .  But today I was forced to fix for I want to play a movie . What to do with the bug ?  <img src="http://www.harikt.com/sites/all/modules/fckeditor/fckeditor/editor/images/smiley/msn/omg_smile.gif" alt="image" /> . As every one do I go for a google <img src="http://www.harikt.com/sites/all/modules/fckeditor/fckeditor/editor/images/smiley/msn/whatchutalkingabout_smile.gif" alt="image" /> . Yes I got the solution and its working fine .  These are the things you must do .  Edit the /etc/apt/sources.list and add the lines ( You must be root to do this . Eg: From terminal $ sudo vim /etc/apt/sources.lst ) You can use either vim or gedit or your favourite editor . I am using terminal .  deb <a href="http://ppa.launchpad.net/siretart/ppa/ubuntu">http://ppa.launchpad.net/siretart/ppa/ubuntu</a> jaunty main deb-src <a href="http://ppa.launchpad.net/siretart/ppa/ubuntu">http://ppa.launchpad.net/siretart/ppa/ubuntu</a> jaunty main  $ sudo apt-key adv &mdash;recv-keys &mdash;keyserver keyserver.ubuntu.com 0xce90d8983e731f79  $ sudo apt-get update $ sudo apt-get install xserver-xorg-video-intel-2.4  Just restart your system . Hope it will work for you too .  For a better understanding of the following please do look the source from where I got the information .  <a href="https://bugs.launchpad.net/ubuntu/+source/xserver-xorg-video-intel/+bug/354889" title="Playing video logs out">https://bugs.launchpad.net/ubuntu/+source/xserver-xorg-video-intel/+bug/354889</a>  <a href="https://wiki.ubuntu.com/ReinhardTartler/X/RevertingIntelDriverTo2.4" title="Fix for the end session playing video in ubuntu">https://wiki.ubuntu.com/ReinhardTartler/X/RevertingIntelDriverTo2.4</a>  *Do at your own risk . Don&rsquo;t blame me if it doesn&rsquo;t works for you .</p>
+</div>
+  
+  
+
+
+      </article>
     
     
       <article>
@@ -410,42 +446,6 @@
 
       </article>
     
-    
-      <article>
-        
-  <header>
-          
-      <h2><a href="/blog/2009/05/20/57-getting-value-of-objects-inside-a-multidimensional-array-in-php/">Getting Value of Objects Inside a Multidimensional Array in Php</a></h2>
-    
-    
-      <span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-05-20T09:23:00+05:30" pubdate data-updated="true">May 20<span>th</span>, 2009</time>
-        
-      </span>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is some what interesting post to many of you . I have tried some time to make this correct for one of my friend Jaisenan . I like debugging, so spend some time to make this working. We was looking to get the value in a multidimensional array . One of the value in the array was an object. And this was the big problem , and was looking to solve it . Here is the array  $x = Array ( [#theme] => content_multiple_values [#title] => Face to Face Time [#required] => 0 [#description] => [0] => Array ( [#type] => duration_combo [#default_value] => Duration Object ( [duration] => Array ( [years] => 0 [months] => 0 [days] => 0 [hours] => 0 [minutes] => 0 [seconds] => 0 )  [is_negative] => [is_valid] => 1 [conversion_factors] => Array ( [seconds/minutes] => 60 [minutes/hours] => 60 [hours/days] => 24 [days/weeks] => 7 [days/months] => 30 [weeks/years] => 52.142857142857 [months/years] => 12 )  )  [#largest_metric] => hours [#smallest_metric] => minutes [#element_validate] => Array ( [0] => duration_combo_validate )  [#title] => Face to Face Time [#description] => [#required] => [#weight] => 0 [#delta] => 0 [#columns] => Array ( [0] => iso8601 [1] => approx_seconds )  [#field_name] => field_pn_ff_time_1 [#type_name] => progress_note )  [#field_name] => field_pn_ff_time_1 [#tree] => 1 [#weight] => 4 [#access] => 1 [#count] => 5 )  Let the array name be x . Now let me walk through this associative array in PHP . $x[&lsquo;#theme&rsquo;] , $x[&lsquo;#title&rsquo;] etc . Now we where looking to get the value of hours , minutes etc of the array duration . The &lsquo;#default_value&rsquo; was a Duration object .  So here comes the solution for you .  <strong>$x[0][&lsquo;#default_value&rsquo;]&ndash;>duration[&lsquo;hours&rsquo;]</strong> . You can assign values or get values of this array . I spend some hours to make this small code work. So thought of publishing this for some one who is in search for an example like this . This was a small debugging from Drupal .   $x[&lsquo;#tree&rsquo;] , $x[&lsquo;0&rsquo;][&lsquo;#type&rsquo;] are some other example to retrieve value from this multidimensional array . The example above is used to get the value from the object . Cheers guys and Have a great day .</p>
-</div>
-  
-  
-
-
-      </article>
-    
     <div class="pagination">
       
         <a class="prev" href="/blog/page/20/">&larr; Older</a>
@@ -480,6 +480,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/29/hidden-gems-of-composer/">Hidden Gems of Composer</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/13/extending-plates-with-aura-html-helpers/">Extending Plates With Aura Html Helpers</a>
       </li>
     
@@ -493,10 +497,6 @@
     
       <li class="post">
         <a href="/blog/2014/04/29/installing-aura-web-project-via-composer/">Installing Aura Web Project via Composer</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/26/web-routing-in-php-with-aura-dot-router/">Web Routing in PHP With Aura.Router</a>
       </li>
     
   </ul>

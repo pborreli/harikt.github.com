@@ -11,7 +11,7 @@
         <meta name="author" content="Hari K T">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		
-        <meta name="description" content="Waitng to attend the 5th edition of Barcamp for the first time. Hope there will not be any problems for me to attend on May 3rd at Technopark , &hellip;">
+        <meta name="description" content="When the width of the image uploaded to a site is not proper , it may break the design . I have seen many people uploading images of greater width . &hellip;">
         
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
@@ -85,6 +85,42 @@
   <div class="8u">
     <!-- Content -->
     
+    
+    
+      <article>
+        
+  <header>
+          
+      <h2><a href="/blog/2009/04/12/31-resizing-image-using-command-line-in-gnulinux/">Resizing Image Using Command Line in GNU/Linux</a></h2>
+    
+    
+      <span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-12T09:12:00+05:30" pubdate data-updated="true">Apr 12<span>th</span>, 2009</time>
+        
+      </span>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When the width of the image uploaded to a site is not proper , it may break the design . I have seen many people uploading images of greater width . One thing we can do is to resize the image to a particular size when its uploaded using the php GD graphics library. The php GD graphics library is an awesome one. We can use this library to create captcha images , water mark , rotate and much more.  Yes , now coming to command line . The resizing of an image using command line is pretty simple. Below are the steps which you can use to do this  1 ) Open Terminal / Command prompt / bash shell.( Applications->Accessories->Terminal in Ubuntu )  2 ) Hope you have installed the image magic studio . To try whether its installed , just give the command convert and If you have installed the image magic , then will display a list of options . If you dont have just go to synaptic package manager and install it .( System->Administration->Synaptic Package Manager ) , or apt-get will make you install it .  3 ) To resize an image to width of 500 px give the command from prompt $ convert -resize 500 imagename.extension new_image.extension  Eg : convert -resize 500 hari_kt.jpg new_hari.jpg  You can give this command when hari_kt.jpg in the current directory only . Else you can specify the real path . For eg : /home/hari/hari_kt.jpg  If you are new to GNU/LINUX , try to learn some basic commands like ls , pwd , cd , mkdir , rm etc. The mannuals for these are already installed. So just give the command $ man <command name\> .  Eg : man ls ( Press Esc q to quit ) . There is plenty more. But little busy in the next free time will post it .</p>
+</div>
+  
+  
+
+
+      </article>
     
     
       <article>
@@ -410,42 +446,6 @@
 
       </article>
     
-    
-      <article>
-        
-  <header>
-          
-      <h2><a href="/blog/2009/03/13/19-piwik-and-google-webanalytics/">Piwik and Google Webanalytics</a></h2>
-    
-    
-      <span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-13T08:17:00+05:30" pubdate data-updated="true">Mar 13<span>th</span>, 2009</time>
-        
-      </span>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you own a website , you may be interested to know more about your visitors , how they are interacting and all isnt ? When I started my site I was eager to know about it , and I found google analytics as a wonderful one. Yes , they will track all the details of the visitors. Their browser , operating system , location and much more &hellip;&hellip;&hellip;  Now you dont want to write code for it . <img src="plugins/editors/tinymce/jscripts/tiny_mce/plugins/emotions/images/smiley-cool.gif" title="Cool" alt="Cool" /> . The webanalytics is a good feature that I have seen for the website owners. You need only a gmail account and a you will receive a piece of code when adding your site. Add this code to the end of </body \> tag of your html. Yes , then you dont want to worry aboutany &hellip;..  But some days before I found another Opensource webanalytics , the piwik. I lost my previous post , which contains the old name . But if I get it I will publish. Let me say whats new in Piwik     When you are just interested to know the visitors overview without much efforts like installing piwik in your server I recommend you to go for Google Webanalytics. If you are a webdeveloper or interested to know how its working or would like to show your visitors your online website traffic , then piwik is for you .    Piwik and Google analytics do the same things . But the code of piwik is opensource and you will be having all datas on your server itself. You can add as many users and all . The piwik is a wonderful tool for webhosters . Yes , it can make a good job for them . If you are interested to know more about piwik <a href="http://piwik.org/">http://piwik.org/</a> visit the site and learn more .   </p>
-</div>
-  
-  
-
-
-      </article>
-    
     <div class="pagination">
       
         <a class="prev" href="/blog/page/23/">&larr; Older</a>
@@ -480,6 +480,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/29/hidden-gems-of-composer/">Hidden Gems of Composer</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/13/extending-plates-with-aura-html-helpers/">Extending Plates With Aura Html Helpers</a>
       </li>
     
@@ -493,10 +497,6 @@
     
       <li class="post">
         <a href="/blog/2014/04/29/installing-aura-web-project-via-composer/">Installing Aura Web Project via Composer</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/26/web-routing-in-php-with-aura-dot-router/">Web Routing in PHP With Aura.Router</a>
       </li>
     
   </ul>

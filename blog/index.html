@@ -11,8 +11,8 @@
         <meta name="author" content="Hari K T">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		
-        <meta name="description" content="Aura.Html provides HTML escapers and helpers, including form input helpers,
-that can be used in any template, view, or presentation system. In this &hellip;">
+        <meta name="description" content="I hope everyone in the PHP world is aware of [composer][] the dependency
+management tool that gives an end to Pear. We can look into some of the &hellip;">
         
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
@@ -86,6 +86,193 @@ that can be used in any template, view, or presentation system. In this &hellip;
   <div class="8u">
     <!-- Content -->
     
+    
+    
+      <article>
+        
+  <header>
+          
+      <h2><a href="/blog/2014/05/29/hidden-gems-of-composer/">Hidden Gems of Composer</a></h2>
+    
+    
+      <span>
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-29T07:53:53+05:30" pubdate data-updated="true">May 29<span>th</span>, 2014</time>
+        
+      </span>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I hope everyone in the PHP world is aware of [composer][] the dependency
+management tool that gives an end to Pear.</p>
+
+<p>We can look into some of the hidden gems of composer. Some of them are
+already documented in the composer docs.</p>
+
+<h2>Bug Fixing :</h2>
+
+<p>Documented over <a href="https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository">Loading a package from a VCS repository</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;repositories&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vcs&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/igorw/monolog&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;monolog/monolog&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-bugfix&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The above example assume you have pushed your code to github. But you can
+also make use of the local directory.</p>
+
+<p>Assume you are organizing your code something like</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>home
+</span><span class='line'>└── github.com
+</span><span class='line'>    └── harikt
+</span><span class='line'>        ├── Aura.Router
+</span><span class='line'>        ├── Aura.Web
+</span><span class='line'>        └── monolog
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now on your project you could make use of the patches you are working on
+the local directory without pushing it to github.</p>
+
+<blockquote><p>Note : You should commit the changes though.</p></blockquote>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;minimum-stability&quot;</span><span class="p">:</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;repositories&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vcs&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/var/www/github.com/harikt/monolog&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;monolog/monolog&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-bugfix&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And you can also disable packagist for fast look up.</p>
+
+<h2>Experimenting your own packages</h2>
+
+<p>I did add packages in <a href="https://packagist.org">packagist</a> for testing.
+This is really a wrong way to do, you are adding more packages that
+makes other people&rsquo;s life hard to find a useful package.</p>
+
+<p>What I learned is, you can do in a different way. See docs under
+<a href="https://getcomposer.org/doc/05-repositories.md#package-2">Package</a></p>
+
+<p>So your <code>composer.json</code> will look something like this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;minimum-stability&quot;</span><span class="p">:</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;repositories&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;package&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;package&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;harikt/experiments&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;3.1.7&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;git&quot;</span><span class="p">,</span>
+</span><span class='line'>                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/var/www/github.com/harikt/experiments&quot;</span><span class="p">,</span>
+</span><span class='line'>                    <span class="nt">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;master&quot;</span>
+</span><span class='line'>                <span class="p">},</span>
+</span><span class='line'>                <span class="nt">&quot;autoload&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="nt">&quot;classmap&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;libs/&quot;</span><span class="p">]</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;harikt/experiments&quot;</span><span class="p">:</span> <span class="s2">&quot;3.1.*&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&rsquo;s for now.</p>
+
+<p>Happy PhPing!</p>
+</div>
+  
+  
+
+
+      </article>
     
     
       <article>
@@ -1185,112 +1372,6 @@ That is the ultimate aim of components, not to trap you.</p>
 
       </article>
     
-    
-      <article>
-        
-  <header>
-          
-      <h2><a href="/blog/2013/11/19/composer-support-for-processwire-part-2/">Composer Support for ProcessWire : Part-2</a></h2>
-    
-    
-      <span>
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-19T08:37:00+05:30" pubdate data-updated="true">Nov 19<span>th</span>, 2013</time>
-        
-      </span>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In my <a href="http://harikt.com/blog/2013/11/16/composer-support-for-processwire-modules/">earlier post</a>
-I mentioned about adding a <code>composer.json</code> in the root of the github repo.</p>
-
-<p>Sometimes you may see a non <code>composer.json</code> repo or some times people reject
-it, you still can do like the below.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="s2">&quot;minimum-stability&quot;</span><span class="o">:</span> <span class="s2">&quot;dev&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s2">&quot;repositories&quot;</span><span class="o">:</span> <span class="p">[</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;package&quot;</span><span class="p">,</span>
-</span><span class='line'>            <span class="s2">&quot;package&quot;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ryancramerdesign/process-export-profile&quot;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s2">&quot;source&quot;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                    <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://github.com/ryancramerdesign/ProcessExportProfile&quot;</span><span class="p">,</span>
-</span><span class='line'>                    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;git&quot;</span><span class="p">,</span>
-</span><span class='line'>                    <span class="s2">&quot;reference&quot;</span><span class="o">:</span> <span class="s2">&quot;master&quot;</span>
-</span><span class='line'>                <span class="p">},</span>
-</span><span class='line'>                <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;pw-module&quot;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s2">&quot;require&quot;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>                    <span class="s2">&quot;hari/pw-module&quot;</span><span class="o">:</span> <span class="s2">&quot;dev-master&quot;</span>
-</span><span class='line'>                <span class="p">}</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">],</span>
-</span><span class='line'>    <span class="s2">&quot;require&quot;</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>        <span class="s2">&quot;ryancramerdesign/process-export-profile&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0&quot;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And run</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>php composer.phar update
-</span></code></pre></td></tr></table></div></figure>
-
-
-<blockquote><p>Don&rsquo;t forget you need <code>composer.phar</code>. If you don&rsquo;t have get from <a href="http://getcomposer.org/download/">getcomposer.org</a></p></blockquote>
-
-<p>The module is downloaded to <code>site/modules/ProcessExportProfile</code>.
-The package is of type <a href="https://github.com/harikt/pwmoduleinstaller">pw-module</a></p>
-
-<blockquote><p>The name process-export-profile is converted to ProcessExportProfile .
-So if you have caps in between name put a hyphen in the naming</p></blockquote>
-</div>
-  
-  
-
-
-      </article>
-    
     <div class="pagination">
       
         <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1323,6 +1404,10 @@ So if you have caps in between name put a hyphen in the naming</p></blockquote>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/29/hidden-gems-of-composer/">Hidden Gems of Composer</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/13/extending-plates-with-aura-html-helpers/">Extending Plates With Aura Html Helpers</a>
       </li>
     
@@ -1336,10 +1421,6 @@ So if you have caps in between name put a hyphen in the naming</p></blockquote>
     
       <li class="post">
         <a href="/blog/2014/04/29/installing-aura-web-project-via-composer/">Installing Aura Web Project via Composer</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/26/web-routing-in-php-with-aura-dot-router/">Web Routing in PHP With Aura.Router</a>
       </li>
     
   </ul>

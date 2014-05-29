@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Bug-fix | Random thoughts | Hari KT]]></title>
+  <link href="http://harikt.com/blog/categories/bug-fix/atom.xml" rel="self"/>
+  <link href="http://harikt.com/"/>
+  <updated>2014-05-29T10:06:00+05:30</updated>
+  <id>http://harikt.com/</id>
+  <author>
+    <name><![CDATA[Hari K T]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hidden Gems of Composer]]></title>
+    <link href="http://harikt.com/blog/2014/05/29/hidden-gems-of-composer/"/>
+    <updated>2014-05-29T07:53:53+05:30</updated>
+    <id>http://harikt.com/blog/2014/05/29/hidden-gems-of-composer</id>
+    <content type="html"><![CDATA[<p>I hope everyone in the PHP world is aware of [composer][] the dependency
+management tool that gives an end to Pear.</p>
+
+<p>We can look into some of the hidden gems of composer. Some of them are
+already documented in the composer docs.</p>
+
+<h2>Bug Fixing :</h2>
+
+<p>Documented over <a href="https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository">Loading a package from a VCS repository</a></p>
+
+<p>```json
+{</p>
+
+<pre><code>"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/igorw/monolog"
+    }
+],
+"require": {
+    "monolog/monolog": "dev-bugfix"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>The above example assume you have pushed your code to github. But you can
+also make use of the local directory.</p>
+
+<p>Assume you are organizing your code something like</p>
+
+<p>```bash
+home
+└── github.com</p>
+
+<pre><code>└── harikt
+    ├── Aura.Router
+    ├── Aura.Web
+    └── monolog
+</code></pre>
+
+<p>```</p>
+
+<p>Now on your project you could make use of the patches you are working on
+the local directory without pushing it to github.</p>
+
+<blockquote><p>Note : You should commit the changes though.</p></blockquote>
+
+<p>```json
+{</p>
+
+<pre><code>"minimum-stability":"dev",
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "/var/www/github.com/harikt/monolog"            
+    }
+],
+"require": {
+    "monolog/monolog": "dev-bugfix"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>And you can also disable packagist for fast look up.</p>
+
+<h2>Experimenting your own packages</h2>
+
+<p>I did add packages in <a href="https://packagist.org">packagist</a> for testing.
+This is really a wrong way to do, you are adding more packages that
+makes other people&rsquo;s life hard to find a useful package.</p>
+
+<p>What I learned is, you can do in a different way. See docs under
+<a href="https://getcomposer.org/doc/05-repositories.md#package-2">Package</a></p>
+
+<p>So your <code>composer.json</code> will look something like this.</p>
+
+<p>```json
+{</p>
+
+<pre><code>"minimum-stability":"dev",
+"repositories": [        
+    {
+        "type": "package",
+        "package": {
+            "name": "harikt/experiments",
+            "version": "3.1.7",               
+            "source": {
+                "type": "git",
+                "url": "/var/www/github.com/harikt/experiments",
+                "reference": "master"
+            },
+            "autoload": {
+                "classmap": ["libs/"]
+            }
+        }
+    }
+],
+"require": {        
+    "harikt/experiments": "3.1.*"
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>That&rsquo;s for now.</p>
+
+<p>Happy PhPing!</p>
+]]></content>
+  </entry>
+  
+</feed>
