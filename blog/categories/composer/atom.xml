@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Composer | Random thoughts | Hari KT]]></title>
   <link href="http://harikt.com/blog/categories/composer/atom.xml" rel="self"/>
   <link href="http://harikt.com/"/>
-  <updated>2014-05-29T10:06:00+05:30</updated>
+  <updated>2014-05-29T10:15:07+05:30</updated>
   <id>http://harikt.com/</id>
   <author>
     <name><![CDATA[Hari K T]]></name>
@@ -18,8 +18,8 @@
     <link href="http://harikt.com/blog/2014/05/29/hidden-gems-of-composer/"/>
     <updated>2014-05-29T07:53:53+05:30</updated>
     <id>http://harikt.com/blog/2014/05/29/hidden-gems-of-composer</id>
-    <content type="html"><![CDATA[<p>I hope everyone in the PHP world is aware of [composer][] the dependency
-management tool that gives an end to Pear.</p>
+    <content type="html"><![CDATA[<p>I hope everyone in the PHP world is aware of <a href="https://getcomposer.org">composer</a>
+the dependency management tool that gives an end to Pear.</p>
 
 <p>We can look into some of the hidden gems of composer. Some of them are
 already documented in the composer docs.</p>
@@ -74,7 +74,7 @@ the local directory without pushing it to github.</p>
 "repositories": [
     {
         "type": "vcs",
-        "url": "/var/www/github.com/harikt/monolog"            
+        "url": "/home/github.com/harikt/monolog"            
     }
 ],
 "require": {
@@ -110,7 +110,7 @@ makes other people&rsquo;s life hard to find a useful package.</p>
             "version": "3.1.7",               
             "source": {
                 "type": "git",
-                "url": "/var/www/github.com/harikt/experiments",
+                "url": "/home/github.com/harikt/experiments",
                 "reference": "master"
             },
             "autoload": {
